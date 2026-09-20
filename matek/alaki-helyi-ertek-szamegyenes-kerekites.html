@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alíz matek gyakorló – helyi érték, számegyenes, kerekítés</title>
+<style>
+:root{
+  --bg:#f7f7fb; --card:#ffffff; --ink:#202230; --muted:#666b7a;
+  --accent:#6d5dfc; --accent2:#9b8cff; --ok:#198754; --bad:#c0392b; --line:#e7e7ef;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+header{background:linear-gradient(135deg,#6d5dfc,#9b8cff);color:#fff;padding:36px 20px}
+.wrap{max-width:980px;margin:auto;padding:0 18px}
+h1{margin:0 0 8px;font-size:clamp(28px,5vw,44px)}
+header p{margin:0;opacity:.95}
+nav{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+nav a{background:#fff;color:#4b3fe2;text-decoration:none;padding:9px 12px;border-radius:999px;font-weight:700}
+main{padding:26px 0 50px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 0;box-shadow:0 8px 30px rgba(40,40,80,.05)}
+h2{margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.pill{background:#f0efff;border-radius:14px;padding:14px}
+.big{font-size:28px;font-weight:800}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{border-bottom:1px solid var(--line);padding:10px;text-align:left}
+th{background:#fafaff}
+.tip{border-left:5px solid var(--accent);background:#f5f3ff;padding:12px 14px;border-radius:10px;margin:12px 0}
+.exercise{padding:16px;border:1px solid var(--line);border-radius:14px;margin:12px 0}
+.exercise input{width:100%;max-width:250px;padding:10px 12px;border:1px solid #cfd1dc;border-radius:10px;font-size:16px}
+button{border:0;border-radius:10px;padding:10px 14px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer;margin-top:8px}
+button.secondary{background:#e9e7ff;color:#4338ca}
+.feedback{font-weight:700;margin-top:8px}
+.ok{color:var(--ok)} .bad{color:var(--bad)}
+.numberline{display:flex;align-items:center;gap:6px;overflow:auto;padding:14px 4px}
+.tick{min-width:70px;text-align:center;border-top:3px solid #444;padding-top:8px;position:relative}
+.tick:before{content:"";position:absolute;top:-9px;left:50%;height:10px;border-left:2px solid #444}
+.quiz-score{font-size:20px;font-weight:800;margin-top:12px}
+.small{color:var(--muted);font-size:14px}
+footer{color:var(--muted);text-align:center;padding:24px 0}
+@media(max-width:600px){.card{padding:16px}.big{font-size:24px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Alíz matek gyakorló</h1>
+    <p>Alaki érték • helyi érték • számok írása • számegyenes • kerekítés</p>
+    <nav>
+      <a href="#helyiertek">Helyi érték</a>
+      <a href="#szamiras">Számok írása</a>
+      <a href="#szamegyenes">Számegyenes</a>
+      <a href="#kerekites">Kerekítés</a>
+      <a href="#gyakorlas">Gyakorlás</a>
+      <a href="#mini">Mini próba</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="card" id="helyiertek">
+  <h2>1. Alaki érték, helyi érték, valódi érték</h2>
+  <div class="tip"><b>Jegyezd meg:</b> alaki érték = maga a számjegy; helyi érték = hol áll; valódi érték = mennyit ér azon a helyen.</div>
+  <p>Példa: <span class="big">4 582</span></p>
+  <table>
+    <tr><th>Számjegy</th><th>Alaki érték</th><th>Helyi érték</th><th>Valódi érték</th></tr>
+    <tr><td>4</td><td>4</td><td>ezres</td><td>4000</td></tr>
+    <tr><td>5</td><td>5</td><td>százas</td><td>500</td></tr>
+    <tr><td>8</td><td>8</td><td>tízes</td><td>80</td></tr>
+    <tr><td>2</td><td>2</td><td>egyes</td><td>2</td></tr>
+  </table>
+</section>
+
+<section class="card" id="szamiras">
+  <h2>2. Számok írása és bontása</h2>
+  <div class="grid">
+    <div class="pill"><b>7426</b><br>7 ezres + 4 százas + 2 tízes + 6 egyes</div>
+    <div class="pill"><b>8053</b><br>8 ezres + 0 százas + 5 tízes + 3 egyes</div>
+    <div class="pill"><b>6308</b><br>6000 + 300 + 8</div>
+  </div>
+  <div class="tip">Ha valamelyik helyi értéken 0 áll, azt is figyelembe kell venni. Például 8 ezres + 5 tízes + 3 egyes = <b>8053</b>.</div>
+</section>
+
+<section class="card" id="szamegyenes">
+  <h2>3. Számegyenes</h2>
+  <p>Először mindig keresd meg, hogy két jelölés között mennyi a <b>lépésköz</b>.</p>
+  <div class="numberline">
+    <div class="tick">2400</div><div class="tick">2500</div><div class="tick">2600</div><div class="tick">2700</div><div class="tick">2800</div>
+  </div>
+  <p>Itt a lépésköz <b>100</b>.</p>
+  <div class="tip">Ha csak néhány szám van kiírva, vond ki egymásból két ismert jelölés értékét, és nézd meg, hány egyenlő részre oszlik a távolság.</div>
+</section>
+
+<section class="card" id="kerekites">
+  <h2>4. Kerekítés</h2>
+  <p><b>0–4:</b> lefelé kerekítünk. <b>5–9:</b> felfelé kerekítünk.</p>
+  <div class="grid">
+    <div class="pill"><b>Tízesre</b><br>az egyeseket nézd<br>3462 → 3460</div>
+    <div class="pill"><b>Százasra</b><br>a tízeseket nézd<br>3462 → 3500</div>
+    <div class="pill"><b>Ezresre</b><br>a százasokat nézd<br>3462 → 3000</div>
+  </div>
+</section>
+
+<section class="card" id="gyakorlas">
+  <h2>5. Gyakorlás</h2>
+
+  <div class="exercise">
+    <b>1.</b> A 6 742 számban mennyi a 7 valódi értéke?<br>
+    <input id="q1" inputmode="numeric" placeholder="Írd ide a választ">
+    <button onclick="check('q1','700','f1')">Ellenőrzés</button>
+    <div id="f1" class="feedback"></div>
+  </div>
+
+  <div class="exercise">
+    <b>2.</b> Írd le számokkal: 8 ezres + 3 százas + 4 egyes.<br>
+    <input id="q2" inputmode="numeric">
+    <button onclick="check('q2','8304','f2')">Ellenőrzés</button>
+    <div id="f2" class="feedback"></div>
+  </div>
+
+  <div class="exercise">
+    <b>3.</b> Kerekítsd 4 367-et tízesre!<br>
+    <input id="q3" inputmode="numeric">
+    <button onclick="check('q3','4370','f3')">Ellenőrzés</button>
+    <div id="f3" class="feedback"></div>
+  </div>
+
+  <div class="exercise">
+    <b>4.</b> Kerekítsd 4 367-et százasra!<br>
+    <input id="q4" inputmode="numeric">
+    <button onclick="check('q4','4400','f4')">Ellenőrzés</button>
+    <div id="f4" class="feedback"></div>
+  </div>
+
+  <div class="exercise">
+    <b>5.</b> Kerekítsd 4 367-et ezresre!<br>
+    <input id="q5" inputmode="numeric">
+    <button onclick="check('q5','4000','f5')">Ellenőrzés</button>
+    <div id="f5" class="feedback"></div>
+  </div>
+</section>
+
+<section class="card" id="mini">
+  <h2>6. Mini próba</h2>
+  <p class="small">Töltsd ki segítség nélkül, majd nyomd meg a kiértékelés gombot.</p>
+
+  <div class="exercise">1. Mi a 4 alaki értéke a 4 582 számban?<br><input id="m1"></div>
+  <div class="exercise">2. Mi a 5 helyi értéke a 4 582 számban?<br><input id="m2" placeholder="pl. százas"></div>
+  <div class="exercise">3. Mennyi a 8 valódi értéke a 4 582 számban?<br><input id="m3"></div>
+  <div class="exercise">4. Írd le számokkal: hatezer-kétszázharmincnégy.<br><input id="m4"></div>
+  <div class="exercise">5. Mennyi a lépésköz? 5000 – 5250 – 5500 – 5750<br><input id="m5"></div>
+  <div class="exercise">6. Kerekítsd 5 787-et százasra!<br><input id="m6"></div>
+
+  <button onclick="scoreQuiz()">Kiértékelés</button>
+  <button class="secondary" onclick="resetQuiz()">Újrakezdés</button>
+  <div id="score" class="quiz-score"></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">Gyakorolj röviden, de többször. Ha egy feladat nem megy, nézd vissza a hozzá tartozó magyarázatot.</div>
+</footer>
+
+<script>
+function norm(s){return String(s).trim().toLowerCase().replace(/\s+/g,'').replace(/\./g,'')}
+function check(inputId, answer, feedbackId){
+  const val = norm(document.getElementById(inputId).value);
+  const fb = document.getElementById(feedbackId);
+  if(val === norm(answer)){
+    fb.textContent = "✓ Ügyes, ez jó!";
+    fb.className = "feedback ok";
+  } else {
+    fb.textContent = "✗ Nézd meg még egyszer. Helyes válasz: " + answer;
+    fb.className = "feedback bad";
+  }
+}
+function scoreQuiz(){
+  const answers = ["4","százas","80","6234","250","5800"];
+  let score=0;
+  answers.forEach((a,i)=>{
+    if(norm(document.getElementById("m"+(i+1)).value)===norm(a)) score++;
+  });
+  const box=document.getElementById("score");
+  let msg = score + "/6 pont. ";
+  if(score===6) msg += "Hibátlan!";
+  else if(score>=4) msg += "Nagyon jó, még egy kis gyakorlás és biztosan megy.";
+  else msg += "Érdemes még egyszer átnézni a magyarázatokat.";
+  box.textContent=msg;
+}
+function resetQuiz(){
+  for(let i=1;i<=6;i++) document.getElementById("m"+i).value="";
+  document.getElementById("score").textContent="";
+}
+</script>
+</body>
+</html>
