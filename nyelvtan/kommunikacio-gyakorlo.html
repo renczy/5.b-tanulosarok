@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kommunikáció – gyakorlóoldal Alíznak</title>
+<style>
+:root{
+  --bg:#fffaf4;
+  --ink:#263238;
+  --muted:#6b7280;
+  --orange:#ef6c2c;
+  --yellow:#ffd76a;
+  --blue:#8fd3ee;
+  --green:#a7dfad;
+  --pink:#f5b2c0;
+  --purple:#c7b6ef;
+  --line:#e7e1d8;
+  --card:#fff;
+  --shadow:0 10px 26px rgba(74,57,36,.10);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 8% 8%, #fff0bc 0 8%, transparent 9%),
+    radial-gradient(circle at 92% 16%, #e7f7ff 0 8%, transparent 9%),
+    var(--bg);
+  line-height:1.5;
+}
+.container{width:min(1050px,92%);margin:auto}
+header{padding:40px 0 24px;text-align:center}
+.badge{
+  display:inline-block;background:var(--orange);color:white;
+  padding:7px 14px;border-radius:999px;font-weight:800
+}
+h1{margin:12px 0 6px;font-size:clamp(2rem,5vw,3.8rem);line-height:1.05}
+.subtitle{color:var(--muted);max-width:760px;margin:auto}
+.progress-wrap{
+  margin:22px auto 0;
+  max-width:600px;
+  background:#eee8df;
+  height:16px;
+  border-radius:999px;
+  overflow:hidden;
+  border:1px solid #ddd5cb;
+}
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--orange),#ffb347);
+  transition:width .25s ease;
+}
+.scoreline{margin-top:8px;font-weight:800}
+section{padding:26px 0}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+h2{margin:0 0 8px;font-size:1.5rem}
+.question{font-size:1.08rem;font-weight:800;margin-bottom:14px}
+.answers{display:grid;gap:10px}
+button.choice{
+  width:100%;
+  text-align:left;
+  padding:13px 15px;
+  border-radius:14px;
+  border:1px solid #d8d3cd;
+  background:white;
+  font:inherit;
+  cursor:pointer;
+  font-weight:700;
+}
+button.choice:hover{background:#faf8f5}
+button.correct{background:#ecfdf3;border-color:#86d39a}
+button.wrong{background:#fff0f0;border-color:#e8a1a1}
+.feedback{min-height:28px;margin-top:12px;font-weight:800}
+.ok{color:#18733c}.bad{color:#b42318}
+.fill{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+}
+input[type=text]{
+  min-width:220px;
+  padding:10px 12px;
+  border:1px solid #cfc9c1;
+  border-radius:12px;
+  font:inherit;
+}
+.checkbtn,.resetbtn{
+  border:0;border-radius:12px;padding:10px 14px;
+  font:inherit;font-weight:800;cursor:pointer;
+}
+.checkbtn{background:var(--orange);color:white}
+.resetbtn{background:#ece8e2;color:var(--ink)}
+.match-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.match-col{display:grid;gap:10px}
+.match-item{
+  background:#fafafa;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px;
+}
+select{
+  width:100%;
+  margin-top:8px;
+  padding:9px 10px;
+  border-radius:10px;
+  border:1px solid #cfc9c1;
+  font:inherit;
+}
+.sort-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.sort-chip{
+  padding:10px 12px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;cursor:pointer;font-weight:700
+}
+.buckets{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px
+}
+.bucket{
+  min-height:90px;
+  border:2px dashed #cfc9c1;
+  border-radius:18px;
+  padding:12px;
+  background:#fffdfb
+}
+.bucket h3{margin:0 0 10px;font-size:1rem}
+.bucket span{
+  display:inline-block;
+  margin:4px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:#f3f4f6;
+  font-weight:700
+}
+.big-final{
+  text-align:center;
+  background:linear-gradient(135deg,#fff3c8,#ffe5db);
+  border:2px solid #ffd59a;
+}
+.final-score{font-size:2rem;font-weight:900;margin:8px 0}
+.small{color:var(--muted);font-size:.95rem}
+@media(max-width:760px){
+  .match-grid,.buckets{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <span class="badge">Csak gyakorlás</span>
+    <h1>Kommunikáció – gyakorlóoldal</h1>
+    <p class="subtitle">Kattintós, párosítós, besorolós és rövid válaszos feladatok. A cél: ne csak felismerd, hanem el is tudd mondani saját szavaiddal.</p>
+    <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+    <div class="scoreline"><span id="done">0</span> / <span id="total">14</span> feladat kész</div>
+  </div>
+</header>
+<main class="container">
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="b">
+    <h2>1. Felelésre készülés</h2>
+    <div class="question">Mi a lényegkiemelés?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">A teljes lecke szó szerinti bemagolása.</button>
+      <button class="choice" data-v="b">A legfontosabb információk kiválasztása.</button>
+      <button class="choice" data-v="c">A tananyag gyors átolvasása közvetlenül óra előtt.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="c">
+    <h2>2. Rendszerezés</h2>
+    <div class="question">Melyik segíti legjobban a rendszerezést?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">Ha közben videót nézel.</button>
+      <button class="choice" data-v="b">Ha csak egyszer elolvasod a leckét.</button>
+      <button class="choice" data-v="c">Ha vázlatot, pókábrát vagy gondolattérképet készítesz.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="a">
+    <h2>3. Felidézés</h2>
+    <div class="question">Mit jelent a felidézés?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">Visszaemlékezem az órai magyarázatra és a korábban tanultakra.</button>
+      <button class="choice" data-v="b">Lemásolom a könyvet a füzetbe.</button>
+      <button class="choice" data-v="c">Csak a címet tanulom meg.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="b">
+    <h2>4. Önellenőrzés</h2>
+    <div class="question">Miből tudod a legjobban ellenőrizni, hogy megtanultad-e az anyagot?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">Ha elolvasod még egyszer.</button>
+      <button class="choice" data-v="b">Ha hangosan, segítség nélkül el tudod mondani.</button>
+      <button class="choice" data-v="c">Ha becsukod a könyvet.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="fill" data-answer="jelentés">
+    <h2>5. Egészítsd ki!</h2>
+    <div class="question">A jel valamit közöl, tehát minden jelhez tartozik egy ________.</div>
+    <div class="fill">
+      <input type="text" placeholder="Írd ide a hiányzó szót">
+      <button class="checkbtn">Ellenőrzés</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="a">
+    <h2>6. Természetes jel</h2>
+    <div class="question">Melyik természetes jel?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">A láz.</button>
+      <button class="choice" data-v="b">A százalékjel.</button>
+      <button class="choice" data-v="c">A behajtani tilos tábla.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="c">
+    <h2>7. Mesterséges jel</h2>
+    <div class="question">Melyik mesterséges jel?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">Sötét viharfelhő.</button>
+      <button class="choice" data-v="b">Rossz szagú tej.</button>
+      <button class="choice" data-v="c">A „tilos a dohányzás” tábla.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="sort" data-answer="természetes:láz|természetes:sötét felhő|természetes:rossz szagú tej|mesterséges:% jel|mesterséges:közlekedési tábla|mesterséges:emoji">
+    <h2>8. Válogasd szét!</h2>
+    <div class="question">Kattints egy elemre, majd válaszd ki, hová tartozik.</div>
+    <div class="sort-row">
+      <button class="sort-chip" data-label="láz">láz</button>
+      <button class="sort-chip" data-label="sötét felhő">sötét felhő</button>
+      <button class="sort-chip" data-label="rossz szagú tej">rossz szagú tej</button>
+      <button class="sort-chip" data-label="% jel">% jel</button>
+      <button class="sort-chip" data-label="közlekedési tábla">közlekedési tábla</button>
+      <button class="sort-chip" data-label="emoji">emoji</button>
+    </div>
+    <div class="buckets">
+      <div class="bucket" data-kind="természetes"><h3>Természetes jelek</h3></div>
+      <div class="bucket" data-kind="mesterséges"><h3>Mesterséges jelek</h3></div>
+    </div>
+    <div style="margin-top:12px">
+      <button class="checkbtn sort-check">Ellenőrzés</button>
+      <button class="resetbtn sort-reset">Újrakezdés</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="b">
+    <h2>9. Kétféle csoportosítás</h2>
+    <div class="question">Miért lehet ugyanarról a jelről kétféle dolgot is mondani?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">Mert minden jel egyszerre természetes és mesterséges.</button>
+      <button class="choice" data-v="b">Mert külön vizsgálhatjuk, hogy természetes vagy mesterséges, és azt is, hogy a jelentését meg kell-e tanulni.</button>
+      <button class="choice" data-v="c">Mert a jeleknek nincs pontos jelentése.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="c">
+    <h2>10. Jelrendszer</h2>
+    <div class="question">Mi a jelrendszer?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">Egyetlen jel.</button>
+      <button class="choice" data-v="b">Csak az emojik összessége.</button>
+      <button class="choice" data-v="c">Egymással összetartozó jelek rendszere.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="match">
+    <h2>11. Párosítás</h2>
+    <div class="question">Párosítsd a fogalmat a meghatározással!</div>
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="match-item">
+          <b>Lényegkiemelés</b>
+          <select data-answer="2">
+            <option value="">Válassz...</option>
+            <option value="1">Segítség nélkül elmondom a tanultakat.</option>
+            <option value="2">Kiválasztom a legfontosabb információkat.</option>
+            <option value="3">Rendet teszek az információk között.</option>
+          </select>
+        </div>
+        <div class="match-item">
+          <b>Rendszerezés</b>
+          <select data-answer="3">
+            <option value="">Válassz...</option>
+            <option value="1">Segítség nélkül elmondom a tanultakat.</option>
+            <option value="2">Kiválasztom a legfontosabb információkat.</option>
+            <option value="3">Rendet teszek az információk között.</option>
+          </select>
+        </div>
+        <div class="match-item">
+          <b>Önellenőrzés</b>
+          <select data-answer="1">
+            <option value="">Válassz...</option>
+            <option value="1">Segítség nélkül elmondom a tanultakat.</option>
+            <option value="2">Kiválasztom a legfontosabb információkat.</option>
+            <option value="3">Rendet teszek az információk között.</option>
+          </select>
+        </div>
+      </div>
+      <div class="match-col">
+        <div class="match-item">Tipp: először gondold végig saját szavaiddal, mit jelent a fogalom.</div>
+        <button class="checkbtn match-check">Ellenőrzés</button>
+      </div>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="b">
+    <h2>12. Az emberi nyelv</h2>
+    <div class="question">Melyik állítás igaz az emberi nyelvre?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">Lezárt rendszer, amely nem változik.</button>
+      <button class="choice" data-v="b">Bővíthető jelrendszer.</button>
+      <button class="choice" data-v="c">Csak természetes jelekből áll.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="fill" data-answer="jelrendszer">
+    <h2>13. Egészítsd ki!</h2>
+    <div class="question">Az emberi nyelv is egy ________.</div>
+    <div class="fill">
+      <input type="text" placeholder="Írd ide a hiányzó szót">
+      <button class="checkbtn">Ellenőrzés</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card quiz" data-type="mcq" data-answer="c">
+    <h2>14. Próbafelelet</h2>
+    <div class="question">Melyik a legjobb módszer közvetlenül a felelés előtt?</div>
+    <div class="answers">
+      <button class="choice" data-v="a">Megtanulok szó szerint még egy teljes oldalt.</button>
+      <button class="choice" data-v="b">Elkezdtem egy új témát tanulni.</button>
+      <button class="choice" data-v="c">Átnézem a rövid vázlatomat és fejben felidézem a lényeget.</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</section>
+<section>
+  <div class="card big-final">
+    <h2>Eredmény</h2>
+    <div class="final-score"><span id="score">0</span> / 14</div>
+    <p id="finalText">Oldd meg a feladatokat, és itt látod majd az eredményed.</p>
+    <button class="resetbtn" id="resetAll">Mindent újrakezdek</button>
+  </div>
+</section>
+</main>
+<script>
+const total = 14;
+let completed = new Set();
+let correctSet = new Set();
+function updateProgress(){
+  document.getElementById('done').textContent = completed.size;
+  document.getElementById('progress').style.width = (completed.size/total*100) + '%';
+  document.getElementById('score').textContent = correctSet.size;
+  const txt = document.getElementById('finalText');
+  if(completed.size===total){
+    if(correctSet.size>=12) txt.textContent='Nagyon jól megy! Már főleg a szóbeli elmondást érdemes gyakorolni.';
+    else if(correctSet.size>=9) txt.textContent='Jó eredmény. Nézd át még egyszer azokat a részeket, ahol hibáztál.';
+    else txt.textContent='Érdemes még egyszer végigmenni a gyakorlófeladatokon, nyugodt tempóban.';
+  }
+}
+function mark(id, ok, fb, messageOk='Helyes! ✓', messageBad='Még nem. Próbáld újra!'){
+  completed.add(id);
+  if(ok){
+    correctSet.add(id);
+    fb.textContent = messageOk;
+    fb.className='feedback ok';
+  } else {
+    correctSet.delete(id);
+    fb.textContent = messageBad;
+    fb.className='feedback bad';
+  }
+  updateProgress();
+}
+document.querySelectorAll('[data-type="mcq"]').forEach((box,idx)=>{
+  const id = box.querySelector('h2').textContent.split('.')[0];
+  const ans = box.dataset.answer;
+  const fb = box.querySelector('.feedback');
+  box.querySelectorAll('.choice').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      box.querySelectorAll('.choice').forEach(b=>b.classList.remove('correct','wrong'));
+      if(btn.dataset.v===ans){
+        btn.classList.add('correct');
+        mark(id,true,fb);
+      }else{
+        btn.classList.add('wrong');
+        mark(id,false,fb);
+      }
+    });
+  });
+});
+document.querySelectorAll('[data-type="fill"]').forEach(box=>{
+  const id = box.querySelector('h2').textContent.split('.')[0];
+  const ans = box.dataset.answer.trim().toLowerCase();
+  const inp = box.querySelector('input');
+  const fb = box.querySelector('.feedback');
+  box.querySelector('.checkbtn').addEventListener('click',()=>{
+    const val = inp.value.trim().toLowerCase();
+    mark(id, val===ans, fb, 'Helyes! ✓', 'Még nem. Gondold végig a fogalmat!');
+  });
+});
+const sortBox = document.querySelector('[data-type="sort"]');
+if(sortBox){
+  const id='8';
+  let selected=null;
+  const fb=sortBox.querySelector('.feedback');
+  sortBox.querySelectorAll('.sort-chip').forEach(chip=>{
+    chip.addEventListener('click',()=>{
+      selected=chip;
+      sortBox.querySelectorAll('.sort-chip').forEach(c=>c.style.outline='none');
+      chip.style.outline='3px solid #f59e0b';
+    });
+  });
+  sortBox.querySelectorAll('.bucket').forEach(bucket=>{
+    bucket.addEventListener('click',()=>{
+      if(!selected) return;
+      const clone=document.createElement('span');
+      clone.textContent=selected.dataset.label;
+      clone.dataset.label=selected.dataset.label;
+      bucket.appendChild(clone);
+      selected.remove();
+      selected=null;
+    });
+  });
+  sortBox.querySelector('.sort-check').addEventListener('click',()=>{
+    const expected={
+      'láz':'természetes',
+      'sötét felhő':'természetes',
+      'rossz szagú tej':'természetes',
+      '% jel':'mesterséges',
+      'közlekedési tábla':'mesterséges',
+      'emoji':'mesterséges'
+    };
+    let ok=true, count=0;
+    sortBox.querySelectorAll('.bucket').forEach(bucket=>{
+      bucket.querySelectorAll('span').forEach(s=>{
+        count++;
+        if(expected[s.dataset.label]!==bucket.dataset.kind) ok=false;
+      });
+    });
+    if(count!==6) ok=false;
+    mark(id,ok,fb,'Helyes besorolás! ✓','Van még rossz helyen lévő vagy hiányzó elem.');
+  });
+  sortBox.querySelector('.sort-reset').addEventListener('click',()=>{
+    const labels=['láz','sötét felhő','rossz szagú tej','% jel','közlekedési tábla','emoji'];
+    const row=sortBox.querySelector('.sort-row');
+    row.innerHTML='';
+    labels.forEach(label=>{
+      const b=document.createElement('button');
+      b.className='sort-chip';
+      b.dataset.label=label;
+      b.textContent=label;
+      row.appendChild(b);
+      b.addEventListener('click',()=>{
+        selected=b;
+        sortBox.querySelectorAll('.sort-chip').forEach(c=>c.style.outline='none');
+        b.style.outline='3px solid #f59e0b';
+      });
+    });
+    sortBox.querySelectorAll('.bucket span').forEach(s=>s.remove());
+    completed.delete(id); correctSet.delete(id); fb.textContent=''; updateProgress();
+  });
+}
+const matchBox=document.querySelector('[data-type="match"]');
+if(matchBox){
+  const id='11';
+  const fb=matchBox.querySelector('.feedback');
+  matchBox.querySelector('.match-check').addEventListener('click',()=>{
+    let ok=true;
+    matchBox.querySelectorAll('select').forEach(s=>{
+      if(s.value!==s.dataset.answer) ok=false;
+    });
+    mark(id,ok,fb,'Minden párosítás helyes! ✓','Van még hibás párosítás.');
+  });
+}
+document.getElementById('resetAll').addEventListener('click',()=>location.reload());
+document.getElementById('total').textContent=total;
+updateProgress();
+</script>
+</body>
+</html>
