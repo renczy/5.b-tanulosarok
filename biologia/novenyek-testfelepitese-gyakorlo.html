@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Növények testfelépítése – gyakorlás</title>
+<style>
+:root{--bg:#f7fbf8;--card:#fff;--ink:#23332a;--muted:#68756e;--green:#347a50;--soft:#eaf5ed;--line:#dbe8de;--ok:#15803d;--bad:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+.wrap{max-width:980px;margin:auto;padding:24px 18px 56px}.back{display:inline-block;text-decoration:none;color:var(--green);font-weight:800;margin-bottom:18px}
+.hero{background:linear-gradient(135deg,#def0e4,#f8f1d9);border:1px solid var(--line);border-radius:24px;padding:26px}h1{font-size:clamp(2rem,6vw,3.7rem);margin:.2rem 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 0;box-shadow:0 7px 22px rgba(39,73,50,.05)}
+.q{margin:0 0 10px;font-weight:800}.opts{display:grid;gap:8px}.opts button{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;text-align:left;font:inherit;cursor:pointer;font-weight:650}
+input,select{width:100%;max-width:360px;padding:10px;border:1px solid #c9d8cd;border-radius:10px;font:inherit}
+.action{border:0;background:var(--green);color:white;padding:10px 14px;border-radius:10px;font-weight:800;cursor:pointer;margin-top:8px}.feedback{margin-top:9px;font-weight:800}.ok{color:var(--ok)}.bad{color:var(--bad)}
+.score{font-size:1.4rem;font-weight:900}
+</style></head><body><main class="wrap">
+<a class="back" href="./">← Vissza a Biológia oldalra</a>
+<section class="hero"><div>🧪 5. osztály • Biológia</div><h1>Növények testfelépítése – gyakorlás</h1><p>Interaktív feladatok a növényi szervekről, virágról, beporzásról és zöldségfélékről.</p></section>
+
+<section class="card quiz" data-id="1" data-answer="A"><p class="q">1. Mi a gyökér egyik fő feladata?</p><div class="opts"><button data-v="A">Vizet és oldott ásványi anyagokat vesz fel.</button><button data-v="B">Virágport termel.</button><button data-v="C">Magot készít.</button></div><div class="feedback"></div></section><section class="card quiz" data-id="2" data-answer="B"><p class="q">2. Melyik három szerv létfenntartó szerv?</p><div class="opts"><button data-v="A">virág, termés, mag</button><button data-v="B">gyökér, szár, levél</button><button data-v="C">bibe, portok, magház</button></div><div class="feedback"></div></section><section class="card quiz" data-id="3" data-answer="C"><p class="q">3. Mi a porzó?</p><div class="opts"><button data-v="A">női ivarlevél</button><button data-v="B">takarólevél</button><button data-v="C">hím ivarlevél</button></div><div class="feedback"></div></section><section class="card quiz" data-id="4" data-answer="A"><p class="q">4. Hová kerül a virágpor beporzáskor?</p><div class="opts"><button data-v="A">a bibére</button><button data-v="B">a gyökérre</button><button data-v="C">a levélre</button></div><div class="feedback"></div></section><section class="card quiz" data-id="5" data-answer="B"><p class="q">5. Miből fejlődik a mag?</p><div class="opts"><button data-v="A">a magház falából</button><button data-v="B">a magkezdeményből</button><button data-v="C">a porzószálból</button></div><div class="feedback"></div></section><section class="card quiz" data-id="6" data-answer="C"><p class="q">6. Melyik szervet fogyasztjuk a burgonyánál?</p><div class="opts"><button data-v="A">gyökeret</button><button data-v="B">termést</button><button data-v="C">szárgumót</button></div><div class="feedback"></div></section><section class="card quiz" data-id="7" data-answer="A"><p class="q">7. Melyik növény termését fogyasztjuk?</p><div class="opts"><button data-v="A">paprika</button><button data-v="B">vöröshagyma</button><button data-v="C">sárgarépa</button></div><div class="feedback"></div></section><section class="card quiz" data-id="8" data-answer="B"><p class="q">8. Melyik kétnyári növény?</p><div class="opts"><button data-v="A">paradicsom</button><button data-v="B">fejes káposzta</button><button data-v="C">paprika</button></div><div class="feedback"></div></section>
+
+<section class="card fill" data-id="9" data-answer="bibe"><p class="q">9. Egészítsd ki: A termő felső része, ahová a virágpor kerül: ________.</p><input><button class="action">Ellenőrzés</button><div class="feedback"></div></section>
+<section class="card fill" data-id="10" data-answer="termésfal"><p class="q">10. Egészítsd ki: A magház falából ________ fejlődik.</p><input><button class="action">Ellenőrzés</button><div class="feedback"></div></section>
+<section class="card fill" data-id="11" data-answer="föld alatti hajtás"><p class="q">11. Mi a vöröshagyma hagymafeje?</p><input placeholder="rövid válasz"><button class="action">Ellenőrzés</button><div class="feedback"></div></section>
+<section class="card fill" data-id="12" data-answer="karógyökér"><p class="q">12. Melyik növényi részt fogyasztjuk a sárgarépánál?</p><input><button class="action">Ellenőrzés</button><div class="feedback"></div></section>
+
+<section class="card"><h2>Próbaeredmény</h2><p class="score"><span id="score">0</span> / 12 helyes</p><p id="msg"></p><button class="action" onclick="location.reload()">Újrakezdés</button></section>
+</main>
+<script>
+const done=new Map();
+function norm(s){return s.trim().toLowerCase().replace(/[.!?]/g,'')}
+function update(){let score=0;done.forEach(v=>{if(v)score++});document.getElementById('score').textContent=score;const m=document.getElementById('msg');if(done.size===12)m.textContent=score>=10?'Nagyon jó!':score>=7?'Jó eredmény, nézd át a hibákat.':'Érdemes újra átnézni a tanulóoldalt.'}
+document.querySelectorAll('.quiz').forEach(box=>{const ans=box.dataset.answer,fb=box.querySelector('.feedback'),id=box.dataset.id;box.querySelectorAll('button').forEach(b=>b.onclick=()=>{const ok=b.dataset.v===ans;done.set(id,ok);fb.textContent=ok?'Helyes! ✓':'Még nem jó.';fb.className='feedback '+(ok?'ok':'bad');update()})});
+document.querySelectorAll('.fill').forEach(box=>{const ans=norm(box.dataset.answer),fb=box.querySelector('.feedback'),id=box.dataset.id,inp=box.querySelector('input');box.querySelector('.action').onclick=()=>{const v=norm(inp.value);const ok=v===ans || (id==='11'&&['hagymafej','földalattihajtás','föld alatti hajtás'].includes(v));done.set(id,ok);fb.textContent=ok?'Helyes! ✓':'Nézd át még egyszer.';fb.className='feedback '+(ok?'ok':'bad');update()}})
+</script></body></html>
