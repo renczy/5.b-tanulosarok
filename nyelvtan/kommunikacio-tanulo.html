@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kommunikáció és tanulás – Alíz tanulóoldala</title>
+<style>
+:root{
+  --bg:#fffaf2;
+  --paper:#ffffff;
+  --ink:#263238;
+  --muted:#64748b;
+  --orange:#ef6c2c;
+  --yellow:#ffd76a;
+  --blue:#77c8e8;
+  --green:#9fd7a5;
+  --pink:#f4a6b8;
+  --purple:#bca7e8;
+  --line:#e7e2d9;
+  --shadow:0 10px 28px rgba(64,53,35,.10);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #fff1c6 0 9%, transparent 10%),
+    radial-gradient(circle at 90% 20%, #e7f7ff 0 8%, transparent 9%),
+    var(--bg);
+  line-height:1.55;
+}
+.container{width:min(1100px,92%);margin:auto}
+header{
+  padding:42px 0 28px;
+  text-align:center;
+}
+.badge{
+  display:inline-block;
+  background:var(--orange);
+  color:white;
+  padding:7px 14px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:.9rem;
+  letter-spacing:.3px;
+}
+h1{
+  margin:14px 0 8px;
+  font-size:clamp(2rem,5vw,4rem);
+  line-height:1.05;
+}
+.subtitle{color:var(--muted);max-width:780px;margin:0 auto;font-size:1.08rem}
+nav{
+  position:sticky;top:0;z-index:20;
+  backdrop-filter:blur(10px);
+  background:rgba(255,250,242,.9);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+nav .container{
+  display:flex;gap:10px;overflow:auto;padding:10px 0;
+}
+nav a{
+  white-space:nowrap;
+  text-decoration:none;
+  color:var(--ink);
+  background:white;
+  border:1px solid var(--line);
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:700;
+}
+section{padding:54px 0}
+h2{font-size:clamp(1.6rem,3vw,2.5rem);margin:0 0 10px}
+.lead{color:var(--muted);max-width:820px;margin:0 0 26px}
+.grid{display:grid;gap:18px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+.card h3{margin:0 0 8px}
+.icon{font-size:2rem;display:block;margin-bottom:8px}
+.step{
+  display:flex;gap:14px;align-items:flex-start;
+  background:white;border:1px solid var(--line);
+  border-radius:18px;padding:16px;
+}
+.num{
+  width:36px;height:36px;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--yellow);font-weight:900;flex:0 0 auto;
+}
+.flow{display:grid;gap:12px}
+.arrow{text-align:center;font-size:1.6rem;color:var(--orange);font-weight:900}
+.term{
+  border-left:7px solid var(--blue);
+}
+.term:nth-child(2){border-left-color:var(--green)}
+.term:nth-child(3){border-left-color:var(--pink)}
+.term:nth-child(4){border-left-color:var(--purple)}
+.term:nth-child(5){border-left-color:var(--yellow)}
+.term:nth-child(6){border-left-color:var(--orange)}
+.compare{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+}
+.compare .natural{background:#f1fff2}
+.compare .artificial{background:#f2f9ff}
+.pill{
+  display:inline-block;padding:5px 10px;border-radius:999px;
+  background:#f3f4f6;font-size:.85rem;font-weight:700;margin:4px 5px 0 0
+}
+.big-rule{
+  background:linear-gradient(135deg,#fff4c8,#ffe5d7);
+  border:2px solid #ffd08a;
+  border-radius:24px;
+  padding:24px;
+  font-size:1.2rem;
+  font-weight:800;
+  text-align:center;
+}
+.example-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.example{
+  background:white;border:1px solid var(--line);border-radius:14px;padding:10px 12px;
+}
+.mindmap{
+  background:white;border:1px solid var(--line);border-radius:28px;
+  padding:28px;box-shadow:var(--shadow)
+}
+.center-node{
+  margin:0 auto 22px;
+  width:min(320px,90%);
+  text-align:center;
+  background:var(--orange);color:white;
+  padding:18px;border-radius:22px;font-weight:900;font-size:1.35rem
+}
+.branches{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.branch{padding:18px;border-radius:18px;font-weight:800}
+.branch small{display:block;font-weight:600;color:#475569;margin-top:6px}
+.branch:nth-child(1){background:#fff0b9}
+.branch:nth-child(2){background:#dff4ff}
+.branch:nth-child(3){background:#e7f6e7}
+.branch:nth-child(4){background:#fde4eb}
+.branch:nth-child(5){background:#ede6ff}
+.branch:nth-child(6){background:#ffe8dc}
+.quiz-box{
+  background:white;border:1px solid var(--line);border-radius:22px;
+  padding:22px;box-shadow:var(--shadow)
+}
+.q{margin:0 0 16px}
+.answers{display:grid;gap:10px}
+.answers button{
+  border:1px solid #d6d3d1;background:#fff;border-radius:14px;padding:12px 14px;
+  text-align:left;font:inherit;cursor:pointer;font-weight:700
+}
+.answers button:hover{background:#fafafa}
+.feedback{min-height:28px;margin-top:12px;font-weight:800}
+.correct{color:#16743a}.wrong{color:#b42318}
+details{
+  background:white;border:1px solid var(--line);border-radius:16px;padding:14px 16px
+}
+summary{cursor:pointer;font-weight:800}
+footer{padding:34px 0 50px;color:var(--muted);text-align:center}
+@media(max-width:800px){
+  .grid-2,.grid-3,.compare,.branches{grid-template-columns:1fr}
+}
+@media print{
+  nav,.quiz-box button{display:none}
+  body{background:white}
+  .card,.mindmap,.quiz-box{box-shadow:none}
+  section{padding:24px 0}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <span class="badge">5. osztály • Nyelvtan</span>
+    <h1>Kommunikáció és tanulás</h1>
+    <p class="subtitle">Átlátható tanulóoldal Alíznak: hogyan készüljünk felelésre, mik a jelek, hogyan csoportosítjuk őket, és miért jelrendszer a nyelv.</p>
+  </div>
+</header>
+<nav>
+  <div class="container">
+    <a href="#tanulas">Tanulni tanulunk</a>
+    <a href="#fogalmak">Kulcsfogalmak</a>
+    <a href="#jelek">A jelek világa</a>
+    <a href="#jelrendszer">Jelrendszerek</a>
+    <a href="#mindmap">Gondolattérkép</a>
+    <a href="#quiz">Gyakorlás</a>
+  </div>
+</nav>
+<main>
+<section id="tanulas">
+  <div class="container">
+    <h2>1. Tanulni tanulunk</h2>
+    <p class="lead">A cél nem az, hogy sokszor elolvasd ugyanazt a leckét, hanem hogy megértsd, kiemeld a lényeget, rendszerezd, majd saját szavaiddal el tudd mondani.</p>
+    <div class="flow">
+      <div class="step"><div class="num">1</div><div><b>Olvasd el a tananyagot.</b><br>Először értsd meg, miről szól.</div></div>
+      <div class="arrow">↓</div>
+      <div class="step"><div class="num">2</div><div><b>Emeld ki a lényeget.</b><br>Jelöld a legfontosabb szavakat és mondatokat.</div></div>
+      <div class="arrow">↓</div>
+      <div class="step"><div class="num">3</div><div><b>Rendszerezd.</b><br>Készíts vázlatot, pókábrát, gondolattérképet vagy T-ábrát.</div></div>
+      <div class="arrow">↓</div>
+      <div class="step"><div class="num">4</div><div><b>Idézd fel.</b><br>Gondolj vissza az órai magyarázatra és a saját vázlatodra.</div></div>
+      <div class="arrow">↓</div>
+      <div class="step"><div class="num">5</div><div><b>Vésd be.</b><br>Tömörítsd kulcsszavakba, majd mondd el hangosan.</div></div>
+      <div class="arrow">↓</div>
+      <div class="step"><div class="num">6</div><div><b>Ellenőrizd magad.</b><br>Próbafelelet: addig gyakorolj, amíg folyékonyan el tudod mondani.</div></div>
+    </div>
+    <div style="height:18px"></div>
+    <div class="big-rule">Feleléskor: ne motyogj, ne hadarj – beszélj hangosan, érthetően és összefüggően.</div>
+  </div>
+</section>
+<section id="fogalmak">
+  <div class="container">
+    <h2>2. Kulcsfogalmak</h2>
+    <p class="lead">Ezeket érdemes biztosan tudni. Nem szó szerint, hanem érteni kell őket.</p>
+    <div class="grid grid-3">
+      <div class="card term"><h3>Lényegkiemelés</h3><p>A legfontosabb információk kiválasztása a szövegből.</p></div>
+      <div class="card term"><h3>Rendszerezés</h3><p>Rendet teszünk az információk között, például vázlattal vagy gondolattérképpel.</p></div>
+      <div class="card term"><h3>Felidézés</h3><p>Visszaemlékezünk arra, amit korábban hallottunk vagy tanultunk.</p></div>
+      <div class="card term"><h3>Bevésés</h3><p>Úgy gyakoroljuk az anyagot, hogy megmaradjon az emlékezetünkben.</p></div>
+      <div class="card term"><h3>Ismétlés</h3><p>Újra áttekintjük és elmondjuk a már megtanult anyagot.</p></div>
+      <div class="card term"><h3>Önellenőrzés</h3><p>Megnézzük, segítség nélkül is el tudjuk-e mondani a tananyagot.</p></div>
+    </div>
+  </div>
+</section>
+<section id="jelek">
+  <div class="container">
+    <h2>3. A jelek világa</h2>
+    <p class="lead">A jel valami, amiből egy másik dologra következtetünk. A legfontosabb összefüggés:</p>
+    <div class="big-rule">JEL → JELENTÉS</div>
+    <div style="height:18px"></div>
+    <div class="compare">
+      <div class="card natural">
+        <span class="icon">🌦️</span>
+        <h3>Természetes jel</h3>
+        <p><b>Nem az ember találta ki.</b> A természetben vagy az emberi testben magától jelenik meg.</p>
+        <div class="example-row">
+          <span class="example">sötét felhő → eső jöhet</span>
+          <span class="example">láz → betegség lehet</span>
+          <span class="example">rossz szagú tej → megromlott</span>
+          <span class="example">piros ég alja → szél várható</span>
+        </div>
+      </div>
+      <div class="card artificial">
+        <span class="icon">🚦</span>
+        <h3>Mesterséges jel</h3>
+        <p><b>Az emberek alkotják.</b> Sokszor meg kell tanulnunk a pontos jelentését.</p>
+        <div class="example-row">
+          <span class="example">🚫 → tiltás</span>
+          <span class="example">🚭 → tilos a dohányzás</span>
+          <span class="example">♿ → akadálymentes</span>
+          <span class="example">% → százalék jele</span>
+        </div>
+      </div>
+    </div>
+    <div style="height:18px"></div>
+    <div class="card">
+      <h3>Fontos: kétféle szempont szerint is csoportosíthatunk</h3>
+      <p>Egy jel lehet <b>természetes vagy mesterséges</b>, és közben azt is vizsgálhatjuk, hogy a jelentése <b>magától érthető vagy meg kell tanulni</b>.</p>
+      <span class="pill">természetes / mesterséges</span>
+      <span class="pill">érthető / megtanulandó</span>
+    </div>
+  </div>
+</section>
+<section id="jelrendszer">
+  <div class="container">
+    <h2>4. Jelrendszerek</h2>
+    <p class="lead">Ha sok, egymással összetartozó jel együtt működik, azt jelrendszernek nevezzük.</p>
+    <div class="grid grid-2">
+      <div class="card"><span class="icon">🚸</span><h3>Közlekedési jelek</h3><p>A közlekedési táblák együtt egy jelrendszert alkotnak.</p></div>
+      <div class="card"><span class="icon">➕</span><h3>Matematikai jelek</h3><p>Például: +, −, ×, ÷, =, %.</p></div>
+      <div class="card"><span class="icon">🔤</span><h3>Az emberi nyelv</h3><p>A szavak és más nyelvi jelek is jelrendszert alkotnak.</p></div>
+      <div class="card"><span class="icon">🙂</span><h3>Hangulatjelek</h3><p>Emotikonokkal és emojikkal is kifejezhetünk érzelmeket.</p></div>
+    </div>
+    <div style="height:18px"></div>
+    <div class="card">
+      <h3>Miért jelrendszer a nyelv?</h3>
+      <p>A szavaknak közösen elfogadott jelentésük van. A nyelv <b>bővíthető</b>, ezért nem lezárt rendszer: új szavak jelenhetnek meg.</p>
+      <div class="example-row">
+        <span class="example">szelfi</span>
+        <span class="example">okostelefon</span>
+        <span class="example">emoji</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="mindmap">
+  <div class="container">
+    <h2>5. Egyben látva – mini mind map</h2>
+    <p class="lead">Ha ezt átlátod, az egész tananyag szerkezete összeáll.</p>
+    <div class="mindmap">
+      <div class="center-node">Kommunikáció és tanulás</div>
+      <div class="branches">
+        <div class="branch">Tanulás<small>olvasás → lényegkiemelés → rendszerezés</small></div>
+        <div class="branch">Felidézés<small>órai magyarázat, saját vázlat</small></div>
+        <div class="branch">Bevésés<small>kulcsszavak, hangos próbafelelet</small></div>
+        <div class="branch">Jelek<small>jel → jelentés</small></div>
+        <div class="branch">Jelek fajtái<small>természetes ↔ mesterséges</small></div>
+        <div class="branch">Jelrendszer<small>összetartozó jelek rendszere</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="quiz">
+  <div class="container">
+    <h2>6. Gyors gyakorlás</h2>
+    <p class="lead">Kattints arra a válaszra, amelyiket helyesnek gondolod.</p>
+    <div class="grid grid-2">
+      <div class="quiz-box" data-answer="b">
+        <p class="q"><b>1. Mi a lényegkiemelés?</b></p>
+        <div class="answers">
+          <button data-v="a">A teljes szöveg lemásolása.</button>
+          <button data-v="b">A legfontosabb információk kiválasztása.</button>
+          <button data-v="c">A tananyag hangos felolvasása.</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="quiz-box" data-answer="a">
+        <p class="q"><b>2. Melyik természetes jel?</b></p>
+        <div class="answers">
+          <button data-v="a">A láz.</button>
+          <button data-v="b">A behajtani tilos tábla.</button>
+          <button data-v="c">A százalékjel.</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="quiz-box" data-answer="c">
+        <p class="q"><b>3. Mi a jelrendszer?</b></p>
+        <div class="answers">
+          <button data-v="a">Egyetlen jel jelentése.</button>
+          <button data-v="b">Csak a közlekedési táblák összessége.</button>
+          <button data-v="c">Egymással összetartozó jelek rendszere.</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="quiz-box" data-answer="b">
+        <p class="q"><b>4. Melyik állítás igaz a nyelvre?</b></p>
+        <div class="answers">
+          <button data-v="a">Lezárt, soha nem változó rendszer.</button>
+          <button data-v="b">Bővíthető jelrendszer.</button>
+          <button data-v="c">Csak természetes jelekből áll.</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+    <div style="height:20px"></div>
+    <details>
+      <summary>Szóbeli próbafelelethez kérdések</summary>
+      <ol>
+        <li>Mit jelent a lényegkiemelés?</li>
+        <li>Mit jelent a rendszerezés?</li>
+        <li>Hogyan ellenőrizheted, hogy valóban megtanultad-e az anyagot?</li>
+        <li>Mi a jel?</li>
+        <li>Mi a különbség a természetes és a mesterséges jel között?</li>
+        <li>Mi a jelrendszer?</li>
+        <li>Miért tekinthető az emberi nyelv jelrendszernek?</li>
+      </ol>
+    </details>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="container">
+    <b>Tipp:</b> először csak a színes dobozokat nézd át, utána mondd el hangosan saját szavaiddal.
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.quiz-box').forEach(box=>{
+  const correct=box.dataset.answer;
+  const fb=box.querySelector('.feedback');
+  box.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      if(btn.dataset.v===correct){
+        fb.textContent='Helyes! ✓';
+        fb.className='feedback correct';
+      }else{
+        fb.textContent='Még nem. Nézd át újra a hozzá tartozó részt!';
+        fb.className='feedback wrong';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
