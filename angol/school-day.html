@@ -99,6 +99,32 @@ input,select{font:inherit;border:1px solid #cbd5e1;border-radius:10px;padding:9p
 <label><input type="checkbox"> I go to bed before ten o'clock.</label>
 <div class="example"><b>Pármunka:</b> “I walk to school with friends.” – “Me, too.” / “I don't.”</div>
 </section>
+
+<section class="section">
+<h2>8. A tankönyvi „My school day” mondatok</h2>
+<p class="small">Olvasd el a mondatot, majd mondd el magyarul. Ezután jelöld, hogy Alízra igaz-e.</p>
+<div class="q"><b>1. I go to school from Monday to Friday.</b><div class="hu">Hétfőtől péntekig iskolába járok.</div><label><input type="radio" name="r1"> True</label> &nbsp; <label><input type="radio" name="r1"> False</label></div>
+<div class="q"><b>2. I wake up at half past seven on school days.</b><div class="hu">Iskolai napokon fél nyolckor ébredek.</div><label><input type="radio" name="r2"> True</label> &nbsp; <label><input type="radio" name="r2"> False</label></div>
+<div class="q"><b>3. I walk to school with friends.</b><div class="hu">A barátaimmal gyalog megyek iskolába.</div><label><input type="radio" name="r3"> True</label> &nbsp; <label><input type="radio" name="r3"> False</label></div>
+<div class="q"><b>4. I start classes at nine o'clock in the morning.</b><div class="hu">Reggel kilenc órakor kezdődnek az óráim.</div><label><input type="radio" name="r4"> True</label> &nbsp; <label><input type="radio" name="r4"> False</label></div>
+<div class="q"><b>5. I have a break in the morning.</b><div class="hu">Délelőtt van szünetem.</div><label><input type="radio" name="r5"> True</label> &nbsp; <label><input type="radio" name="r5"> False</label></div>
+<div class="q"><b>6. I finish school at three o'clock in the afternoon.</b><div class="hu">Délután három órakor végzek az iskolában.</div><label><input type="radio" name="r6"> True</label> &nbsp; <label><input type="radio" name="r6"> False</label></div>
+<div class="q"><b>7. I chat with friends after school.</b><div class="hu">Iskola után beszélgetek a barátaimmal.</div><label><input type="radio" name="r7"> True</label> &nbsp; <label><input type="radio" name="r7"> False</label></div>
+<div class="q"><b>8. I do my homework before dinner.</b><div class="hu">Vacsora előtt megcsinálom a házi feladatomat.</div><label><input type="radio" name="r8"> True</label> &nbsp; <label><input type="radio" name="r8"> False</label></div>
+<div class="q"><b>9. I watch TV after dinner.</b><div class="hu">Vacsora után tévét nézek.</div><label><input type="radio" name="r9"> True</label> &nbsp; <label><input type="radio" name="r9"> False</label></div>
+<div class="q"><b>10. I go to bed before 10.00 p.m.</b><div class="hu">Este tíz óra előtt fekszem le.</div><label><input type="radio" name="r10"> True</label> &nbsp; <label><input type="radio" name="r10"> False</label></div>
+<div class="example"><b>Figyelj az időre:</b> half past seven = 7:30 · nine o'clock = 9:00 · three o'clock = 15:00 · before = előtt · after = után</div>
+</section>
+
+<section class="section">
+<h2>9. Gyors idő- és kifejezésgyakorlás</h2>
+<div class="q"><b>half past seven</b> = <select id="time1"><option value="">válassz…</option><option value="730">7:30</option><option value="700">7:00</option><option value="830">8:30</option></select></div>
+<div class="q"><b>before dinner</b> = <select id="time2"><option value="">válassz…</option><option value="after">vacsora után</option><option value="before">vacsora előtt</option></select></div>
+<div class="q"><b>after school</b> = <select id="time3"><option value="">válassz…</option><option value="before">iskola előtt</option><option value="after">iskola után</option></select></div>
+<button onclick="checkTimes()">Ellenőrzés</button>
+<div class="feedback" id="timefb"></div>
+</section>
+
 </main>
 
 <script>
@@ -128,6 +154,7 @@ const ord=[["wake up",1],["go to school",2],["start classes",3],["finish school"
 function buildOrder(){document.getElementById("order").innerHTML=sh(ord).map(x=>`<div class="q"><input type="number" min="1" max="6" data-ans="${x[1]}" style="width:70px"> <b>${x[0]}</b></div>`).join("");}
 function checkOrder(){let ok=true;document.querySelectorAll("#order input").forEach(i=>{if(+i.value!==+i.dataset.ans)ok=false});let f=document.getElementById("orderfb");f.textContent=ok?"✓ Szép munka, jó a sorrend!":"✗ Van még javítandó sorszám.";f.className="feedback "+(ok?"ok":"bad");}
 function checkSelects(){const a=["wake up","walk to school","have a break","do my homework","go to bed"];let n=0;a.forEach((x,i)=>{if(document.getElementById("s"+(i+1)).value===x)n++});let f=document.getElementById("selfb");f.textContent=n===5?"✓ Mind az öt helyes!":"Eredmény: "+n+" / 5";f.className="feedback "+(n===5?"ok":"bad");}
+function checkTimes(){const ok=document.getElementById("time1").value==="730"&&document.getElementById("time2").value==="before"&&document.getElementById("time3").value==="after";let f=document.getElementById("timefb");f.textContent=ok?"✓ Mindhárom helyes!":"✗ Nézd át még egyszer az idő- és sorrendi kifejezéseket.";f.className="feedback "+(ok?"ok":"bad");}
 buildMC();buildTyping();buildOrder();
 </script>
 </body></html>
