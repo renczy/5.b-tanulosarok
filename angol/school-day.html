@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>School day – gyakorlás | 5.b Tanulósarok</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f6f8fc;color:#172033}
+.wrap{max-width:980px;margin:auto;padding:24px 16px 64px}.back{display:inline-block;text-decoration:none;color:#3257c8;font-weight:800;margin-bottom:20px}
+.hero{background:linear-gradient(135deg,#dbeafe,#eef2ff);border:1px solid #cbd5e1;border-radius:28px;padding:28px;box-shadow:0 12px 35px rgba(15,23,42,.06)}
+.hero h1{font-size:clamp(2rem,7vw,3.6rem);margin:.2rem 0}.hero p{font-size:1.08rem;color:#475569;margin:.4rem 0}.tag{display:inline-block;background:#fff;border:1px solid #dbe4f0;border-radius:999px;padding:7px 11px;font-weight:800;color:#334155}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}.card,.section{background:#fff;border:1px solid #e2e8f0;border-radius:22px;padding:20px;box-shadow:0 8px 24px rgba(15,23,42,.04)}
+.card b{font-size:1.06rem}.hu{color:#64748b;margin-top:6px}.section{margin-top:20px}.section h2{margin-top:0}.q{padding:15px 0;border-top:1px solid #edf1f6}.q:first-of-type{border-top:0}
+button{border:0;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;background:#3157c8;color:#fff;margin:5px 6px 5px 0}
+button.alt{background:#e8eefc;color:#274690}.choice{background:#f8fafc;color:#24324a;border:1px solid #dbe3ee}.choice:hover{background:#eef4ff}
+input,select{font:inherit;border:1px solid #cbd5e1;border-radius:10px;padding:9px 11px;max-width:100%}.feedback{font-weight:800;margin-top:8px}.ok{color:#15803d}.bad{color:#b91c1c}.score{font-size:1.08rem;font-weight:900}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f1f5f9;margin:4px 5px 4px 0}.small{font-size:.92rem;color:#64748b}.example{background:#f8fafc;border-left:4px solid #3157c8;padding:12px 14px;border-radius:10px;margin:10px 0}
+@media(max-width:600px){.hero,.section,.card{border-radius:18px}.wrap{padding:16px 12px 50px}}
+</style>
+</head>
+<body><main class="wrap">
+<a class="back" href="./">← Vissza az angolhoz</a>
+<section class="hero">
+<span class="tag">Unit 4 · At school</span>
+<h1>School day</h1>
+<p>Iskolai nap – szókincs és mondatgyakorlás</p>
+<p class="small">Cél: felismerni, lefordítani és mondatban használni a tankönyvben szereplő kifejezéseket.</p>
+</section>
+
+<section class="section">
+<h2>1. Tanuld meg a kifejezéseket</h2>
+<div class="grid">
+<div class="card"><b>wake up</b><div class="hu">felébredek</div></div>
+<div class="card"><b>go to school</b><div class="hu">iskolába megyek</div></div>
+<div class="card"><b>walk to school</b><div class="hu">gyalog megyek iskolába</div></div>
+<div class="card"><b>start classes</b><div class="hu">kezdődnek az órák</div></div>
+<div class="card"><b>have a break</b><div class="hu">szünetem van / szünetet tartunk</div></div>
+<div class="card"><b>chat with friends</b><div class="hu">beszélgetek a barátaimmal</div></div>
+<div class="card"><b>finish school</b><div class="hu">véget ér a tanítás</div></div>
+<div class="card"><b>do my homework</b><div class="hu">megcsinálom a házi feladatomat</div></div>
+<div class="card"><b>watch TV</b><div class="hu">tévét nézek</div></div>
+<div class="card"><b>go to bed</b><div class="hu">lefekszem</div></div>
+</div>
+</section>
+
+<section class="section">
+<h2>2. Válaszd ki a helyes jelentést!</h2>
+<div id="mc"></div>
+<div class="score" id="mcscore"></div>
+<button class="alt" onclick="buildMC()">Új kérdéssor</button>
+</section>
+
+<section class="section">
+<h2>3. Írd be angolul!</h2>
+<div id="typeqs"></div>
+<button onclick="checkTyping()">Ellenőrzés</button>
+<button class="alt" onclick="buildTyping()">Új feladat</button>
+<div class="score" id="typescore"></div>
+</section>
+
+<section class="section">
+<h2>4. Rakd sorrendbe egy iskolai nap eseményeit!</h2>
+<p class="small">Írj 1–6 közötti sorszámot. Egy életszerű sorrendet keress.</p>
+<div id="order"></div>
+<button onclick="checkOrder()">Ellenőrzés</button>
+<div class="feedback" id="orderfb"></div>
+</section>
+
+<section class="section">
+<h2>5. Egészítsd ki a mondatokat!</h2>
+<div class="q">I <select id="s1"><option value="">válassz…</option><option>wake up</option><option>have a break</option><option>go to bed</option></select> at seven o'clock.</div>
+<div class="q">I <select id="s2"><option value="">válassz…</option><option>watch TV</option><option>walk to school</option><option>finish school</option></select> with my friends.</div>
+<div class="q">We <select id="s3"><option value="">válassz…</option><option>have a break</option><option>do my homework</option><option>go to bed</option></select> at ten o'clock.</div>
+<div class="q">I <select id="s4"><option value="">válassz…</option><option>do my homework</option><option>start classes</option><option>chat with friends</option></select> after school.</div>
+<div class="q">I <select id="s5"><option value="">válassz…</option><option>go to bed</option><option>go to school</option><option>have a break</option></select> at night.</div>
+<button onclick="checkSelects()">Ellenőrzés</button>
+<div class="feedback" id="selfb"></div>
+</section>
+
+<section class="section">
+<h2>6. Beszélj a saját napodról!</h2>
+<div class="example"><b>What time is your first class at school?</b><br>My first class is at eight o'clock.</div>
+<p>Mondd el vagy írd le ezeket angolul:</p>
+<span class="pill">I wake up at …</span>
+<span class="pill">I go to school at …</span>
+<span class="pill">I start classes at …</span>
+<span class="pill">I have a break at …</span>
+<span class="pill">I finish school at …</span>
+<span class="pill">I do my homework at …</span>
+<span class="pill">I go to bed at …</span>
+</section>
+
+<section class="section">
+<h2>7. Mini felmérés – igaz rád?</h2>
+<p>Jelöld meg azokat, amelyek igazak rád, majd mondd ki teljes mondatban.</p>
+<label><input type="checkbox"> I walk to school.</label><br><br>
+<label><input type="checkbox"> I chat with friends at school.</label><br><br>
+<label><input type="checkbox"> I do my homework after school.</label><br><br>
+<label><input type="checkbox"> I watch TV in the evening.</label><br><br>
+<label><input type="checkbox"> I go to bed before ten o'clock.</label>
+<div class="example"><b>Pármunka:</b> “I walk to school with friends.” – “Me, too.” / “I don't.”</div>
+</section>
+</main>
+
+<script>
+const words=[
+["wake up","felébredek"],["go to school","iskolába megyek"],["walk to school","gyalog megyek iskolába"],
+["start classes","kezdődnek az órák"],["have a break","szünetem van"],["chat with friends","beszélgetek a barátaimmal"],
+["finish school","véget ér a tanítás"],["do my homework","megcsinálom a házi feladatomat"],["watch TV","tévét nézek"],["go to bed","lefekszem"]
+];
+const sh=a=>[...a].sort(()=>Math.random()-.5);
+function buildMC(){
+ const qs=sh(words).slice(0,6); let html="";
+ qs.forEach((x,i)=>{
+   let opts=sh([x[1],...sh(words.filter(y=>y[0]!==x[0])).slice(0,2).map(y=>y[1])]);
+   html+=`<div class="q"><b>${i+1}. ${x[0]}</b><div>${opts.map(o=>`<button class="choice" onclick="mcAns(this,'${encodeURIComponent(o)}','${encodeURIComponent(x[1])}')">${o}</button>`).join("")}</div><div class="feedback"></div></div>`;
+ });
+ document.getElementById("mc").innerHTML=html; document.getElementById("mcscore").textContent="";
+}
+function mcAns(btn,a,c){const f=btn.parentElement.nextElementSibling; f.textContent=decodeURIComponent(a)===decodeURIComponent(c)?"✓ Helyes!":"✗ Próbáld újra!"; f.className="feedback "+(decodeURIComponent(a)===decodeURIComponent(c)?"ok":"bad");}
+function buildTyping(){
+ const qs=sh(words).slice(0,6); window.typing=qs;
+ document.getElementById("typeqs").innerHTML=qs.map((x,i)=>`<div class="q"><b>${i+1}. ${x[1]}</b><br><input id="t${i}" autocomplete="off" placeholder="Írd ide angolul"><div id="tf${i}" class="feedback"></div></div>`).join("");
+ document.getElementById("typescore").textContent="";
+}
+function norm(s){return s.trim().toLowerCase().replace(/\s+/g," ")}
+function checkTyping(){let n=0;window.typing.forEach((x,i)=>{let ok=norm(document.getElementById("t"+i).value)===norm(x[0]);let f=document.getElementById("tf"+i);f.textContent=ok?"✓ Helyes!":"✗ Helyes válasz: "+x[0];f.className="feedback "+(ok?"ok":"bad");if(ok)n++;});document.getElementById("typescore").textContent="Eredmény: "+n+" / "+window.typing.length;}
+const ord=[["wake up",1],["go to school",2],["start classes",3],["finish school",4],["do my homework",5],["go to bed",6]];
+function buildOrder(){document.getElementById("order").innerHTML=sh(ord).map(x=>`<div class="q"><input type="number" min="1" max="6" data-ans="${x[1]}" style="width:70px"> <b>${x[0]}</b></div>`).join("");}
+function checkOrder(){let ok=true;document.querySelectorAll("#order input").forEach(i=>{if(+i.value!==+i.dataset.ans)ok=false});let f=document.getElementById("orderfb");f.textContent=ok?"✓ Szép munka, jó a sorrend!":"✗ Van még javítandó sorszám.";f.className="feedback "+(ok?"ok":"bad");}
+function checkSelects(){const a=["wake up","walk to school","have a break","do my homework","go to bed"];let n=0;a.forEach((x,i)=>{if(document.getElementById("s"+(i+1)).value===x)n++});let f=document.getElementById("selfb");f.textContent=n===5?"✓ Mind az öt helyes!":"Eredmény: "+n+" / 5";f.className="feedback "+(n===5?"ok":"bad");}
+buildMC();buildTyping();buildOrder();
+</script>
+</body></html>
