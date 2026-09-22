@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Történelem dolgozat – források, időszámítás, őskor</title>
+<style>
+*{box-sizing:border-box}
+:root{--bg:#f8fafc;--card:#fff;--ink:#172033;--muted:#667085;--line:#e6e9f0;--accent:#7c3aed;--good:#166534;--goodbg:#ecfdf3;--bad:#991b1b;--badbg:#fef2f2;--note:#fff7ed}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.wrap{max-width:980px;margin:auto;padding:24px 16px 64px}
+.back{display:inline-block;text-decoration:none;color:#4f46e5;font-weight:750;margin-bottom:20px}
+.hero,.card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 10px 30px rgba(16,24,40,.05)}
+.hero{padding:30px;margin-bottom:18px;background:linear-gradient(135deg,#fff,#f5f3ff)}
+.hero .tag{display:inline-block;background:#ede9fe;color:#5b21b6;border-radius:999px;padding:6px 10px;font-weight:800;font-size:.82rem}
+h1{font-size:clamp(2rem,7vw,3.5rem);line-height:1.05;margin:.55rem 0}
+.hero p{color:var(--muted);font-size:1.08rem;max-width:760px}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.nav a{background:#fff;border:1px solid #ddd6fe;color:#5b21b6;border-radius:999px;padding:8px 12px;text-decoration:none;font-weight:750}
+.card{padding:24px;margin:16px 0}
+h2{margin:0 0 12px;font-size:1.55rem}
+h3{margin:18px 0 8px;font-size:1.1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.mini{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fbfcff}
+.mini strong{display:block;margin-bottom:4px}
+.callout{padding:14px 16px;background:var(--note);border:1px solid #fed7aa;border-radius:16px;margin:12px 0}
+.rule{font-size:1.04rem;background:#f5f3ff;border-left:5px solid #8b5cf6;padding:13px 15px;border-radius:12px;margin:12px 0}
+.timeline{position:relative;margin:24px 0 10px;padding:34px 0 20px}
+.timeline:before{content:"";position:absolute;left:3%;right:3%;top:54px;height:4px;background:#94a3b8;border-radius:4px}
+.points{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;position:relative}
+.pt{text-align:center;font-size:.82rem}
+.dot{width:16px;height:16px;border-radius:50%;background:#7c3aed;margin:12px auto 7px;border:3px solid white;box-shadow:0 0 0 2px #7c3aed}
+table{width:100%;border-collapse:collapse;margin:12px 0}
+th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f8fafc}
+.q{border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0;background:#fff}
+.q p{margin:0 0 10px;font-weight:700}
+.opts{display:grid;gap:8px}
+button,.opt{font:inherit}
+.opt{width:100%;text-align:left;padding:10px 12px;border:1px solid #d0d5dd;background:#fff;border-radius:12px;cursor:pointer}
+.opt:hover{background:#f8fafc}
+.opt.good{background:var(--goodbg);border-color:#86efac;color:var(--good)}
+.opt.bad{background:var(--badbg);border-color:#fecaca;color:var(--bad)}
+.feedback{margin-top:9px;font-size:.93rem;font-weight:650}
+input[type=text],input[type=number]{width:100%;max-width:320px;padding:10px 12px;border:1px solid #cbd5e1;border-radius:12px;font:inherit}
+.check,.primary{border:0;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;margin-top:8px}
+.check{background:#ede9fe;color:#5b21b6}.primary{background:#6d28d9;color:white}
+.score{font-size:1.1rem;font-weight:850;padding:14px;border-radius:14px;background:#f5f3ff;margin-top:12px}
+details{border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:8px 0;background:#fff}
+summary{cursor:pointer;font-weight:750}
+.small{font-size:.9rem;color:var(--muted)}
+.pill{display:inline-block;padding:3px 8px;border-radius:999px;background:#f1f5f9;margin:2px 3px 2px 0;font-size:.9rem}
+@media(max-width:620px){.card,.hero{padding:18px}.timeline{overflow:auto}.points{min-width:620px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="back" href="./">← Vissza a Történelemhez</a>
+
+<section class="hero">
+<span class="tag">5. osztály • dolgozatfelkészítő</span>
+<h1>Források, időszámítás és őskor</h1>
+<p>Alíz füzetének és az 5. osztályos történelemkönyv első leckéinek anyagából. Előbb tanuld át a lényeget, utána jöhet a gyakorlás és a mini dolgozat.</p>
+<div class="nav">
+<a href="#forrasok">Források</a><a href="#ido">Időszámítás</a><a href="#oskor">Őskor</a><a href="#gyakorlas">Gyakorlás</a><a href="#dolgozat">Mini dolgozat</a>
+</div>
+</section>
+
+<section class="card" id="forrasok">
+<h2>1. A történelem forrásai</h2>
+<p><strong>Történelmi forrás</strong> minden olyan, a múltból fennmaradt emlék, amelyből következtetni tudunk arra, hogyan éltek, gondolkodtak vagy cselekedtek az emberek.</p>
+
+<div class="grid">
+<div class="mini"><strong>🏺 Tárgyi emlékek</strong>Régi pénz, edény, ruha, fegyver, csontváz, épület, szerszám, sírlelet.</div>
+<div class="mini"><strong>📜 Írott források</strong>Levél, napló, rendelet, törvény, oklevél, krónika, kódex, újság.</div>
+<div class="mini"><strong>🖼️ Képi források</strong>Fénykép, festmény, rajz, plakát, falfestmény.</div>
+<div class="mini"><strong>🗣️ Hagyományok, elbeszélések</strong>Szóban továbbadott családi történetek, mondák, népszokások.</div>
+</div>
+
+<div class="callout"><strong>Fontos:</strong> ugyanaz a múltbeli esemény többféle forrásból is megismerhető. A történészek ezért több forrást hasonlítanak össze.</div>
+
+<h3>Kik foglalkoznak a múlt emlékeivel?</h3>
+<table>
+<tr><th>Szakember</th><th>Mivel foglalkozik?</th></tr>
+<tr><td><strong>történész</strong></td><td>A múlt eseményeit források segítségével kutatja és értelmezi.</td></tr>
+<tr><td><strong>régész</strong></td><td>Régi korok tárgyi emlékeit tárja fel, például ásatásokon.</td></tr>
+<tr><td><strong>nyelvész</strong></td><td>A nyelveket, régi szavakat és nyelvi változásokat vizsgálja.</td></tr>
+<tr><td><strong>néprajzkutató</strong></td><td>A népi életmódot, szokásokat, hagyományokat kutatja.</td></tr>
+</table>
+
+<h3>A könyvből különösen fontos fogalmak</h3>
+<p><span class="pill">krónika</span> történeti események elbeszélése időrendi sorrendben. <span class="pill">oklevél</span> hivatalos irat, amelyet régen gyakran pecséttel hitelesítettek. <span class="pill">kódex</span> kézzel írt régi könyv. <span class="pill">iniciálé</span> díszes, nagy kezdőbetű.</p>
+</section>
+
+<section class="card" id="ido">
+<h2>2. Időszámítás</h2>
+<div class="grid">
+<div class="mini"><strong>10 év</strong>egy évtized</div>
+<div class="mini"><strong>100 év</strong>egy évszázad</div>
+<div class="mini"><strong>1000 év</strong>egy évezred</div>
+<div class="mini"><strong>kb. 25–30 év</strong>egy emberöltő / nemzedéknyi idő</div>
+</div>
+
+<h3>Kr. e. és Kr. u.</h3>
+<p>A keresztény időszámítás kezdőpontja Jézus Krisztus születésének hagyományosan meghatározott időpontja.</p>
+<div class="rule"><strong>Kr. e.</strong> = Krisztus előtt → visszafelé számoljuk az éveket.<br><strong>Kr. u.</strong> = Krisztus után → előrefelé számoljuk az éveket.<br><strong>Nincs 0. év:</strong> Kr. e. 1 után Kr. u. 1 következik.</div>
+
+<div class="timeline">
+<div class="points">
+<div class="pt">Kr. e. 2000<div class="dot"></div></div>
+<div class="pt">Kr. e. 1000<div class="dot"></div></div>
+<div class="pt">Kr. e. 1<div class="dot"></div></div>
+<div class="pt">Kr. u. 1000<div class="dot"></div></div>
+<div class="pt">Kr. u. 2000<div class="dot"></div></div>
+</div>
+</div>
+
+<h3>Hogyan állapítjuk meg az évszázadot?</h3>
+<div class="rule">Ha az évszám nem kerek száz, a százasok számához <strong>1-et adunk</strong>.<br>476 → <strong>5. század</strong>; 1013 → <strong>11. század</strong>; 1879 → <strong>19. század</strong>.<br>Ha pontosan százzal végződik: 500 → <strong>5. század</strong>; 1900 → <strong>19. század</strong>.</div>
+<p>Ugyanez a szabály Kr. e. évszámokra is igaz: <strong>Kr. e. 490 = Kr. e. 5. század</strong>, <strong>Kr. e. 776 = Kr. e. 8. század</strong>.</p>
+
+<h3>Mely éveket foglalja magába egy évszázad?</h3>
+<table>
+<tr><th>Évszázad</th><th>Kr. u.</th><th>Kr. e.</th></tr>
+<tr><td>1.</td><td>1–100</td><td>Kr. e. 100–1</td></tr>
+<tr><td>5.</td><td>401–500</td><td>Kr. e. 500–401</td></tr>
+<tr><td>20.</td><td>1901–2000</td><td>Kr. e. 2000–1901</td></tr>
+</table>
+
+<h3>A nagy történelmi korszakok</h3>
+<p><strong>őskor → ókor → középkor → újkor → jelenkor / modern kor</strong></p>
+<div class="callout">A tankönyv szerint az őskor az első írást használó birodalmak megjelenéséig, kb. <strong>Kr. e. 3000-ig</strong> tartott. Az ókor végét a Nyugatrómai Birodalom bukása, <strong>Kr. u. 476</strong> jelzi.</div>
+</section>
+
+<section class="card" id="oskor">
+<h2>3. Az őskor – a füzet alapján</h2>
+<p>Az őskori ember életének megértéséhez főleg tárgyi és képi emlékek segítenek, mert az őskor nagy részéből nem maradtak fenn írott források.</p>
+
+<div class="grid">
+<div class="mini"><strong>👥 Kisebb közösségek</strong>A jegyzet szerint kb. 15–20 fős csoportokban éltek.</div>
+<div class="mini"><strong>🏹 Munkamegosztás</strong>A férfiak vadásztak, halásztak; a nők és a gyerekek gyűjtögettek.</div>
+<div class="mini"><strong>🍓 Zsákmányoló életmód</strong>A természetben megtalálható élelmet gyűjtötték, illetve állatokra vadásztak.</div>
+<div class="mini"><strong>🧠 Emberré válás</strong>A füzet kiemeli a munkát, a beszédet és a gondolkodást.</div>
+</div>
+
+<h3>Őskori művészet</h3>
+<p>A füzetben szereplő példák:</p>
+<ul>
+<li><strong>barlangrajzok</strong> – állatok és vadászjelenetek ábrázolásai;</li>
+<li><strong>Willendorfi Vénusz</strong> – őskori nőalakot ábrázoló szobrocska;</li>
+<li><strong>Stonehenge</strong> – hatalmas kövekből kialakított őskori építmény.</li>
+</ul>
+<div class="callout"><strong>A művészet lehetséges céljai a jegyzetben:</strong> gyönyörködtetés, tanítás, a világ bemutatása, illetve valamilyen üzenet közvetítése.</div>
+</section>
+
+<section class="card" id="gyakorlas">
+<h2>4. Gyakorlás</h2>
+<p class="small">Kattints a válaszra. A rendszer rögtön jelzi, hogy jó-e.</p>
+<div id="practice"></div>
+</section>
+
+<section class="card">
+<h2>5. Évszázad-edző</h2>
+<p>Írd be, melyik évszázadba tartozik az év!</p>
+<div id="centuryTrainer" class="q"></div>
+<button class="primary" onclick="newCentury()">Új évszám</button>
+</section>
+
+<section class="card" id="dolgozat">
+<h2>6. Mini dolgozat</h2>
+<p>10 kérdés. Előbb válaszolj mindegyikre, majd nyomd meg a javítás gombot.</p>
+<div id="test"></div>
+<button class="primary" onclick="gradeTest()">Dolgozat javítása</button>
+<div id="score"></div>
+</section>
+
+<section class="card">
+<h2>7. Villámismétlés dolgozat előtt</h2>
+<details><summary>Mi a történelmi forrás?</summary><p>A múltból fennmaradt emlék, amelyből következtetni tudunk a múltra.</p></details>
+<details><summary>Mi a különbség a tárgyi és az írott forrás között?</summary><p>A tárgyi forrás valamilyen fennmaradt tárgy vagy építmény; az írott forrás szöveges emlék.</p></details>
+<details><summary>Hány év egy évtized, évszázad, évezred?</summary><p>10 év, 100 év, 1000 év.</p></details>
+<details><summary>Miért nincs 0. év?</summary><p>A hagyományos keresztény időszámításban Kr. e. 1 után rögtön Kr. u. 1 következik.</p></details>
+<details><summary>Melyik század Kr. u. 476?</summary><p>Az 5. század.</p></details>
+<details><summary>Melyik század Kr. e. 490?</summary><p>Kr. e. 5. század.</p></details>
+<details><summary>Mik a nagy történelmi korszakok sorrendben?</summary><p>Őskor, ókor, középkor, újkor, jelenkor / modern kor.</p></details>
+<details><summary>Mondj három őskori emléket a füzetből!</summary><p>Barlangrajzok, Willendorfi Vénusz, Stonehenge.</p></details>
+</section>
+
+</main>
+<script>
+const practiceQs=[
+{q:"Melyik tárgyi forrás?",o:["Egy régi kard","Egy király levele","Egy naplóbejegyzés"],a:0,e:"A kard tárgyi emlék."},
+{q:"Melyik írott forrás?",o:["Csontváz","Oklevél","Kőbalta"],a:1,e:"Az oklevél írott, hivatalos forrás."},
+{q:"Ki tár fel ásatásokon régi tárgyi emlékeket?",o:["Régész","Csillagász","Zeneszerző"],a:0,e:"A régész a tárgyi emlékek feltárásával és értelmezésével foglalkozik."},
+{q:"Hány év egy évszázad?",o:["10","100","1000"],a:1,e:"Egy évszázad 100 év."},
+{q:"Mi következik Kr. e. 1 után?",o:["0. év","Kr. u. 1","Kr. u. 2"],a:1,e:"Nincs 0. év."},
+{q:"Melyik század 1616?",o:["16.","17.","18."],a:1,e:"1616 a 17. századba tartozik."},
+{q:"Melyik század Kr. e. 776?",o:["Kr. e. 7.","Kr. e. 8.","Kr. e. 9."],a:1,e:"Kr. e. 776 a Kr. e. 8. század."},
+{q:"Melyik a helyes korsorrend?",o:["Ókor – őskor – középkor","Őskor – ókor – középkor","Középkor – őskor – ókor"],a:1,e:"Az őskor után következik az ókor, majd a középkor."},
+{q:"Melyik szerepel Alíz jegyzetében őskori emlékként?",o:["Stonehenge","Colosseum","Lánchíd"],a:0,e:"A Stonehenge szerepel a jegyzetben."},
+{q:"Mi jellemezte a jegyzet szerint az őskori munkamegosztást?",o:["Mindenki ugyanazt csinálta","A férfiak vadásztak, a nők és gyerekek gyűjtögettek","Csak a gyerekek szereztek élelmet"],a:1,e:"A füzet ezt a munkamegosztást emeli ki."}
+];
+
+function renderPractice(){
+ const root=document.getElementById("practice");
+ practiceQs.forEach((x,i)=>{
+  const d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+(i+1)+". "+x.q+"</p><div class='opts'>"+x.o.map((v,j)=>"<button class='opt' onclick='pick(this,"+j+","+x.a+",this.parentElement.nextElementSibling)'>"+v+"</button>").join("")+"</div><div class='feedback'></div>";
+  root.appendChild(d);
+ });
+}
+function pick(btn,j,a,fb){
+ [...btn.parentElement.children].forEach(b=>{b.disabled=true});
+ btn.classList.add(j===a?"good":"bad");
+ if(j!==a) btn.parentElement.children[a].classList.add("good");
+ fb.textContent=(j===a?"✓ Helyes. ":"✗ Nem ez az. ")+practiceQs.find(x=>x.e&&x.a===a&&x.o[a]===btn.parentElement.children[a].textContent)?.e || "";
+}
+
+let currentYear=0,currentBC=false;
+function centuryOf(y){return Math.ceil(y/100)}
+function newCentury(){
+ currentYear=Math.floor(Math.random()*2400)+1;
+ currentBC=Math.random()<.35;
+ const root=document.getElementById("centuryTrainer");
+ root.innerHTML="<p><strong>"+(currentBC?"Kr. e. ":"Kr. u. ")+currentYear+"</strong> melyik évszázad?</p><input id='centuryInput' type='number' min='1' placeholder='pl. 17'><button class='check' onclick='checkCentury()'>Ellenőrzés</button><div id='centuryFb' class='feedback'></div>";
+}
+function checkCentury(){
+ const v=Number(document.getElementById("centuryInput").value),a=centuryOf(currentYear),fb=document.getElementById("centuryFb");
+ fb.textContent=v===a?"✓ Helyes: "+(currentBC?"Kr. e. ":"")+a+". század.":"✗ Próbáld újra! Segítség: oszd el 100-zal, és ha nem kerek száz, lépj a következő századba.";
+ fb.style.color=v===a?"#166534":"#991b1b";
+}
+
+const testQs=[
+{q:"Melyik NEM történelmi forrásfajta a tanultak közül?",o:["tárgyi","írott","képi","hőmérsékleti"],a:3},
+{q:"Melyik szakember dolgozik tárgyi emlékek feltárásával?",o:["régész","nyelvész","költő","csillagász"],a:0},
+{q:"Melyik írott forrás?",o:["krónika","kard","csontváz","edény"],a:0},
+{q:"Melyik század 1432?",o:["14.","15.","16.","13."],a:1},
+{q:"Melyik század Kr. e. 490?",o:["Kr. e. 4.","Kr. e. 5.","Kr. e. 6.","Kr. e. 49."],a:1},
+{q:"Mi igaz a 0. évre?",o:["Kr. e. és Kr. u. között van","100 évig tart","nincs 0. év","az ókor kezdete"],a:2},
+{q:"Mennyi 1000 év?",o:["egy évtized","egy évszázad","egy évezred","egy emberöltő"],a:2},
+{q:"Mi következik az őskor után?",o:["jelenkor","középkor","ókor","újkor"],a:2},
+{q:"Melyik őskori emlék szerepel a füzetben?",o:["Willendorfi Vénusz","Pantheon","Aquincum","Aranybulla"],a:0},
+{q:"Mit emel ki a füzet az emberré válással kapcsolatban?",o:["munka, beszéd, gondolkodás","pénzverés, hajózás, írás","csak a vadászat","csak a tűz használata"],a:0}
+];
+function renderTest(){
+ const r=document.getElementById("test");
+ testQs.forEach((x,i)=>{
+  const d=document.createElement("div");d.className="q";
+  d.innerHTML="<p>"+(i+1)+". "+x.q+"</p>"+x.o.map((v,j)=>"<label style='display:block;margin:6px 0'><input type='radio' name='t"+i+"' value='"+j+"'> "+v+"</label>").join("");
+  r.appendChild(d);
+ });
+}
+function gradeTest(){
+ let score=0;
+ testQs.forEach((x,i)=>{
+  const sel=document.querySelector("input[name='t"+i+"']:checked");
+  const box=document.querySelectorAll("#test .q")[i];
+  box.style.borderColor="#e6e9f0";
+  if(sel && Number(sel.value)===x.a){score++;box.style.borderColor="#86efac"} else box.style.borderColor="#fecaca";
+ });
+ const out=document.getElementById("score");
+ let msg=score>=9?"Nagyon biztos a tudásod.":score>=7?"Jó eredmény, nézd át a hibás részeket.":score>=5?"Már sok minden megy, de még ismételj.":"Menj vissza a tananyaghoz, aztán próbáld újra.";
+ out.className="score";out.textContent=score+"/10 pont – "+msg;
+ out.scrollIntoView({behavior:"smooth",block:"center"});
+}
+renderPractice();newCentury();renderTest();
+</script>
+</body>
+</html>
