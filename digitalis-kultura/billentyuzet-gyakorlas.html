@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Billentyűzet gyakorlás – Digitális kultúra</title>
+<style>
+:root{--bg:#f7f8fc;--card:#fff;--text:#182033;--muted:#667085;--line:#e4e7ec;--accent:#4f46e5;--ok:#087443;--bad:#b42318;--soft:#eef2ff}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#eef2ff 0,#f8fafc 260px);color:var(--text)}
+.wrap{max-width:980px;margin:auto;padding:24px 16px 60px}.back{display:inline-block;color:var(--accent);font-weight:800;text-decoration:none;margin:4px 0 18px}
+.hero,.card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 10px 28px rgba(16,24,40,.06)}
+.hero{padding:28px}.eyebrow{font-weight:900;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;font-size:.8rem}
+h1{font-size:clamp(2rem,7vw,3.8rem);margin:.35rem 0 .6rem}.lead{color:var(--muted);font-size:1.05rem;line-height:1.6}
+.tabs{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0}.tabs button{border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:999px;font-weight:800;cursor:pointer}.tabs button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.card{padding:22px;margin-top:14px}.task{font-size:1.25rem;font-weight:800;line-height:1.5;background:var(--soft);padding:18px;border-radius:16px;margin:14px 0;word-break:break-word}
+input{width:100%;font:inherit;font-size:1.15rem;padding:15px;border:2px solid #cfd5e1;border-radius:14px;outline:none}input:focus{border-color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:13px}button.primary,button.secondary{padding:11px 16px;border-radius:12px;font-weight:800;cursor:pointer}
+.primary{background:var(--accent);color:#fff;border:0}.secondary{background:#fff;border:1px solid var(--line);color:var(--text)}
+.feedback{min-height:28px;font-weight:800;margin-top:12px}.ok{color:var(--ok)}.bad{color:var(--bad)}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.stat{background:#f8fafc;border:1px solid var(--line);padding:9px 12px;border-radius:12px;font-weight:800}
+.help{display:none;margin-top:14px;padding:14px;border-radius:14px;background:#fffaeb;border:1px solid #fedf89;line-height:1.55}.help.show{display:block}
+.keyboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:8px;margin-top:12px}.key{border:1px solid var(--line);border-bottom-width:3px;border-radius:10px;background:#fff;padding:10px;text-align:center;font-weight:800}
+.small{color:var(--muted);font-size:.92rem;line-height:1.5}.sectionTitle{margin:0 0 6px}.progress{height:12px;background:#eef0f4;border-radius:999px;overflow:hidden;margin-top:14px}.bar{height:100%;width:0;background:var(--accent);transition:.25s}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="back" href="./">← Vissza a Digitális kultúrához</a>
+<section class="hero">
+<div class="eyebrow">Digitális kultúra • Billentyűzet</div>
+<h1>Billentyűzetmester</h1>
+<p class="lead">Gyakorold a nagybetűket, ékezetes betűket, írásjeleket és különleges karaktereket. Itt minden karakter számít: a szóköz, a vessző és a mondatvégi írásjel is.</p>
+</section>
+
+<nav class="tabs" id="tabs"></nav>
+
+<section class="card">
+<h2 class="sectionTitle" id="levelTitle"></h2>
+<p class="small" id="levelDesc"></p>
+<div class="task" id="task"></div>
+<input id="answer" autocomplete="off" spellcheck="false" placeholder="Írd ide pontosan..." aria-label="Válasz">
+<div class="actions">
+<button class="primary" id="check">Ellenőrzés</button>
+<button class="secondary" id="next">Másik feladat</button>
+<button class="secondary" id="helpBtn">Segítség</button>
+</div>
+<div class="feedback" id="feedback"></div>
+<div class="help" id="help"></div>
+<div class="stats">
+<div class="stat">Pont: <span id="score">0</span></div>
+<div class="stat">Sorozat: <span id="streak">0</span></div>
+<div class="stat">Feladat: <span id="count">1</span>/10</div>
+</div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+</section>
+
+<section class="card">
+<h2 class="sectionTitle">Billentyűzet-puska</h2>
+<p class="small">A pontos billentyűkombináció a használt billentyűzetkiosztástól függhet, de ezeket érdemes biztosan ismerni:</p>
+<div class="keyboard">
+<div class="key">Shift<br><span class="small">nagybetű</span></div>
+<div class="key">Caps Lock<br><span class="small">sok nagybetű</span></div>
+<div class="key">Space<br><span class="small">szóköz</span></div>
+<div class="key">Enter<br><span class="small">új sor / jóváhagyás</span></div>
+<div class="key">Backspace<br><span class="small">törlés</span></div>
+<div class="key">AltGr<br><span class="small">speciális jel</span></div>
+</div>
+</section>
+</main>
+
+<script>
+const levels=[
+{title:"1. Nagybetű és kisbetű",desc:"Figyeld meg, hol kell nagybetűt írni.",help:"A nagybetűhöz tartsd lenyomva a Shift billentyűt, és közben nyomd meg a betűt.",items:["Alma","Budapest","Alíz","Magyarország","Digitális kultúra","Ma süt a nap.","Peti és Anna játszanak.","Hétfőn iskolába megyek."]},
+{title:"2. Ékezetes betűk",desc:"Gyakorold az á, é, í, ó, ö, ő, ú, ü, ű betűket.",help:"Ne helyettesítsd az ékezetes betűket ékezet nélküli betűkkel. Az ő és ű különösen fontos.",items:["tű","őr","szőlő","gyűrű","hűtő","számítógép","A mezőn őzeket láttunk.","Kérlek, ülj ide mellém!"]},
+{title:"3. Írásjelek",desc:"Itt a vessző, pont, kérdőjel és felkiáltójel is számít.",help:"Másold le pontosan a mondatot. Ellenőrizd a mondat végét és a vesszőket is.",items:["Szia, Alíz!","Hogy vagy?","Igen, kérem.","Vigyázz!","Ma tanulok, utána játszom.","Anya, hol van a füzetem?","Ez nagyon jó!","Kérek almát, körtét és szőlőt."]},
+{title:"4. Zárójel és idézőjel",desc:"Pontosan másold le a zárójeleket és idézőjeleket is.",help:"Az idézőjel és a zárójel ugyanúgy karakter, mint egy betű. Ne hagyd le őket.",items:['Anya azt mondta: "Indulunk!"',"A kutya (Bodri) alszik.",'A tanár kérdezte: "Készen vagytok?"',"A kedvenc színem (most) a kék.",'Peti ezt írta: "Szia!"']},
+{title:"5. Különleges karakterek",desc:"Gyakorold a gyakori speciális jeleket.",help:"Sok különleges jelhez Shift vagy AltGr szükséges. Ne siess: előbb keresd meg a jelet.",items:["aliz@example.hu","10%","5+3=8","2026/09/22","A&B","#iskola","12-4=8","3*4=12","C:\\Tanulas","nev@example.com"]},
+{title:"6. Hibavadászat",desc:"A feladatban hibás szöveget látsz. Írd be helyesen!",help:"Keresd a mondat eleji nagybetűt, a tulajdonneveket és a mondatvégi írásjelet.",pairs:[["ma elmentünk budapestre","Ma elmentünk Budapestre."],["szia alíz","Szia, Alíz!"],["hol van a füzetem","Hol van a füzetem?"],["pénteken petivel találkozom","Pénteken Petivel találkozom."],["anya azt mondta indulunk","Anya azt mondta: \"Indulunk!\""]]}
+];
+let level=0,index=0,score=0,streak=0,count=1,current="";
+const $=id=>document.getElementById(id);
+function renderTabs(){
+ $("tabs").innerHTML=levels.map((l,i)=>`<button class="${i===level?'active':''}" onclick="setLevel(${i})">${i+1}. pálya</button>`).join("");
+}
+function getTask(){
+ const l=levels[level];
+ if(l.pairs){const p=l.pairs[index%l.pairs.length];current=p[1];return "Javítsd ki: "+p[0];}
+ current=l.items[index%l.items.length]; return "Írd le pontosan: "+current;
+}
+function render(){
+ const l=levels[level]; $("levelTitle").textContent=l.title;$("levelDesc").textContent=l.desc;$("task").textContent=getTask();
+ $("answer").value="";$("feedback").textContent="";$("feedback").className="feedback";$("help").textContent=l.help;$("help").className="help";
+ $("score").textContent=score;$("streak").textContent=streak;$("count").textContent=count;$("bar").style.width=((count-1)/10*100)+"%";renderTabs();$("answer").focus();
+}
+window.setLevel=i=>{level=i;index=0;score=0;streak=0;count=1;render();}
+$("check").onclick=()=>{
+ const val=$("answer").value;
+ if(val===current){score++;streak++;$("feedback").textContent="Hibátlan! Minden karakter a helyén van.";$("feedback").className="feedback ok";}
+ else{
+   streak=0;
+   let pos=0; while(pos<val.length&&pos<current.length&&val[pos]===current[pos])pos++;
+   const expected=current[pos]??"∅", got=val[pos]??"∅";
+   $("feedback").textContent=`Még nem pontos. Az első eltérés a(z) ${pos+1}. karakternél van. Várt: „${expected}”, beírt: „${got}”.`;
+   $("feedback").className="feedback bad";
+ }
+ $("score").textContent=score;$("streak").textContent=streak;
+};
+$("next").onclick=()=>{index++;count=count===10?1:count+1;render();}
+$("helpBtn").onclick=()=>{$("help").classList.toggle("show");}
+$("answer").addEventListener("keydown",e=>{if(e.key==="Enter")$("check").click();});
+render();
+</script>
+</body></html>
