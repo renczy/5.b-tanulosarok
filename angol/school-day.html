@@ -26,6 +26,105 @@ input,select{font:inherit;border:1px solid #cbd5e1;border-radius:10px;padding:9p
 <p class="small">Cél: felismerni, lefordítani és mondatban használni a tankönyvben szereplő kifejezéseket.</p>
 </section>
 
+
+<section class="section" id="homework4">
+<h2>Házi feladat 4 – így építsd fel a saját mondataidat</h2>
+<p><b>A feladat lényege:</b> nem a tankönyvi mintamondatokat kell lemásolni, hanem <b>saját magadról</b> kell írni néhány mondatot a reggeledről, az iskola utáni időről és az estéről.</p>
+
+<div class="example">
+<b>1. lépés – válassz egy időszakot</b><br>
+In the morning = reggel / délelőtt<br>
+After school = iskola után<br>
+In the evening = este
+</div>
+
+<div class="example">
+<b>2. lépés – válassz egy ismert kifejezést</b><br>
+wake up · go to school · walk to school · start classes · have a break · finish school · chat with friends · do my homework · watch TV · go to bed
+</div>
+
+<div class="example">
+<b>3. lépés – tegyél hozzá egy időt vagy más részletet</b><br>
+at seven o'clock · at half past seven · before dinner · after dinner · with friends · on school days
+</div>
+
+<h3>Próbáld ki mondatépítővel!</h3>
+
+<div class="q">
+<b>In the morning</b><br><br>
+I
+<select id="hwMorningVerb">
+<option value="">válassz…</option>
+<option value="wake up">wake up</option>
+<option value="go to school">go to school</option>
+<option value="walk to school">walk to school</option>
+<option value="start classes">start classes</option>
+</select>
+<select id="hwMorningExtra">
+<option value="">válassz egy folytatást…</option>
+<option value="at seven o'clock">at seven o'clock</option>
+<option value="at half past seven">at half past seven</option>
+<option value="at eight o'clock">at eight o'clock</option>
+<option value="with friends">with friends</option>
+<option value="on school days">on school days</option>
+</select>.
+</div>
+
+<div class="q">
+<b>After school</b><br><br>
+I
+<select id="hwAfterVerb">
+<option value="">válassz…</option>
+<option value="finish school">finish school</option>
+<option value="chat with friends">chat with friends</option>
+<option value="do my homework">do my homework</option>
+</select>
+<select id="hwAfterExtra">
+<option value="">válassz egy folytatást…</option>
+<option value="at two o'clock">at two o'clock</option>
+<option value="at three o'clock">at three o'clock</option>
+<option value="with friends">with friends</option>
+<option value="before dinner">before dinner</option>
+<option value="after school">after school</option>
+</select>.
+</div>
+
+<div class="q">
+<b>In the evening</b><br><br>
+I
+<select id="hwEveningVerb">
+<option value="">válassz…</option>
+<option value="do my homework">do my homework</option>
+<option value="watch TV">watch TV</option>
+<option value="go to bed">go to bed</option>
+</select>
+<select id="hwEveningExtra">
+<option value="">válassz egy folytatást…</option>
+<option value="before dinner">before dinner</option>
+<option value="after dinner">after dinner</option>
+<option value="at nine o'clock">at nine o'clock</option>
+<option value="at ten o'clock">at ten o'clock</option>
+<option value="before ten o'clock">before ten o'clock</option>
+</select>.
+</div>
+
+<button onclick="buildHomework()">Mutasd a mondataimat</button>
+<div id="hwOutput" class="example" style="display:none"></div>
+
+<h3>Most gondolkodj Alíz saját napján</h3>
+<p class="small">A következő kérdések segítenek eldönteni, mit írj a munkafüzetbe. Nem kell mindenre válaszolni, csak válassz néhány igaz mondatot.</p>
+<div class="q"><b>Mikor kelsz iskolai napokon?</b><br><input id="own1" placeholder="pl. at half past six"></div>
+<div class="q"><b>Hogyan mész iskolába?</b><br><input id="own2" placeholder="pl. I go to school by car."></div>
+<div class="q"><b>Mikor végzel az iskolában?</b><br><input id="own3" placeholder="pl. at two o'clock"></div>
+<div class="q"><b>Mit csinálsz iskola után?</b><br><input id="own4" placeholder="pl. I do my homework."></div>
+<div class="q"><b>Mit csinálsz este?</b><br><input id="own5" placeholder="pl. I watch TV."></div>
+<div class="q"><b>Mikor fekszel le?</b><br><input id="own6" placeholder="pl. at nine o'clock"></div>
+
+<div class="example">
+<b>Fontos:</b> a munkafüzetben az <b>In the morning / After school / In the evening</b> alcímek alá 1–2 rövid, igaz mondat bőven elég. Először mondd ki magyarul, mit szeretnél írni, utána építsd fel angolul: <b>I + tevékenység + idő / részlet.</b>
+</div>
+</section>
+
 <section class="section">
 <h2>1. Tanuld meg a kifejezéseket</h2>
 <div class="grid">
@@ -154,6 +253,18 @@ const ord=[["wake up",1],["go to school",2],["start classes",3],["finish school"
 function buildOrder(){document.getElementById("order").innerHTML=sh(ord).map(x=>`<div class="q"><input type="number" min="1" max="6" data-ans="${x[1]}" style="width:70px"> <b>${x[0]}</b></div>`).join("");}
 function checkOrder(){let ok=true;document.querySelectorAll("#order input").forEach(i=>{if(+i.value!==+i.dataset.ans)ok=false});let f=document.getElementById("orderfb");f.textContent=ok?"✓ Szép munka, jó a sorrend!":"✗ Van még javítandó sorszám.";f.className="feedback "+(ok?"ok":"bad");}
 function checkSelects(){const a=["wake up","walk to school","have a break","do my homework","go to bed"];let n=0;a.forEach((x,i)=>{if(document.getElementById("s"+(i+1)).value===x)n++});let f=document.getElementById("selfb");f.textContent=n===5?"✓ Mind az öt helyes!":"Eredmény: "+n+" / 5";f.className="feedback "+(n===5?"ok":"bad");}
+function buildHomework(){
+ const mV=document.getElementById("hwMorningVerb").value,mE=document.getElementById("hwMorningExtra").value;
+ const aV=document.getElementById("hwAfterVerb").value,aE=document.getElementById("hwAfterExtra").value;
+ const eV=document.getElementById("hwEveningVerb").value,eE=document.getElementById("hwEveningExtra").value;
+ const out=document.getElementById("hwOutput");
+ let lines=[];
+ if(mV) lines.push("<b>In the morning:</b> I "+mV+(mE?" "+mE:"")+".");
+ if(aV) lines.push("<b>After school:</b> I "+aV+(aE?" "+aE:"")+".");
+ if(eV) lines.push("<b>In the evening:</b> I "+eV+(eE?" "+eE:"")+".");
+ out.innerHTML=lines.length?lines.join("<br><br>"):"Válassz legalább egy tevékenységet!";
+ out.style.display="block";
+}
 function checkTimes(){const ok=document.getElementById("time1").value==="730"&&document.getElementById("time2").value==="before"&&document.getElementById("time3").value==="after";let f=document.getElementById("timefb");f.textContent=ok?"✓ Mindhárom helyes!":"✗ Nézd át még egyszer az idő- és sorrendi kifejezéseket.";f.className="feedback "+(ok?"ok":"bad");}
 buildMC();buildTyping();buildOrder();
 </script>
