@@ -14,6 +14,7 @@ button{border:0;border-radius:12px;padding:10px 14px;font-weight:800;cursor:poin
 button.alt{background:#e8eefc;color:#274690}.choice{background:#f8fafc;color:#24324a;border:1px solid #dbe3ee}.choice:hover{background:#eef4ff}
 input,select{font:inherit;border:1px solid #cbd5e1;border-radius:10px;padding:9px 11px;max-width:100%}.feedback{font-weight:800;margin-top:8px}.ok{color:#15803d}.bad{color:#b91c1c}.score{font-size:1.08rem;font-weight:900}
 .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f1f5f9;margin:4px 5px 4px 0}.small{font-size:.92rem;color:#64748b}.example{background:#f8fafc;border-left:4px solid #3157c8;padding:12px 14px;border-radius:10px;margin:10px 0}
+.crosswrap{overflow-x:auto;margin:14px 0}.crossword{display:grid;grid-template-columns:repeat(7,44px);grid-template-rows:repeat(5,44px);gap:3px;width:max-content;background:#eef2f7;padding:10px;border-radius:16px}.cwcell{width:44px;height:44px;border:2px solid #94a3b8;border-radius:6px;text-align:center;text-transform:uppercase;font-weight:900;font-size:1.25rem;padding:0;background:#fff}.cwcell.okcell{background:#dcfce7;border-color:#22c55e}.cwcell.badcell{background:#fee2e2;border-color:#ef4444}.cwempty{width:44px;height:44px}.clues{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:14px}.cluebox{background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:14px}.hint{color:#64748b;font-size:.92rem}
 @media(max-width:600px){.hero,.section,.card{border-radius:18px}.wrap{padding:16px 12px 50px}}
 </style>
 </head>
@@ -224,6 +225,61 @@ I
 <div class="feedback" id="timefb"></div>
 </section>
 
+
+<section class="section" id="crossword">
+<h2>10. Mini keresztrejtvény – School day</h2>
+<p>Ez ugyanazt gyakorolja, mint a könyv 3. feladata: <b>olvasd el a mondatot, találd ki a hiányzó igét, majd írd be a keresztrejtvénybe.</b></p>
+
+<div class="example">
+<b>Figyelj erre:</b><br>
+• <b>I / We / My friends and I</b> után az ige alapformája áll: <i>I watch, we play.</i><br>
+• <b>School / My mum / My sister</b> egyes szám harmadik személy, ezért gyakran <b>-s</b> kerül az igére: <i>School starts. My mum goes.</i>
+</div>
+
+<div class="crosswrap">
+<div class="crossword" id="cwgrid">
+  <div class="cwempty" style="grid-row:1;grid-column:1"></div>
+  <input class="cwcell" data-r="1" data-c="7" maxlength="1" style="grid-row:1;grid-column:7" aria-label="1. sor 7. oszlop">
+
+  <input class="cwcell" data-r="2" data-c="4" maxlength="1" style="grid-row:2;grid-column:4" aria-label="2. sor 4. oszlop">
+  <input class="cwcell" data-r="2" data-c="7" maxlength="1" style="grid-row:2;grid-column:7" aria-label="2. sor 7. oszlop">
+
+  <input class="cwcell" data-r="3" data-c="4" maxlength="1" style="grid-row:3;grid-column:4" aria-label="3. sor 4. oszlop">
+  <input class="cwcell" data-r="3" data-c="7" maxlength="1" style="grid-row:3;grid-column:7" aria-label="3. sor 7. oszlop">
+
+  <input class="cwcell" data-r="4" data-c="2" maxlength="1" style="grid-row:4;grid-column:2" aria-label="4. sor 2. oszlop">
+  <input class="cwcell" data-r="4" data-c="3" maxlength="1" style="grid-row:4;grid-column:3" aria-label="4. sor 3. oszlop">
+  <input class="cwcell" data-r="4" data-c="4" maxlength="1" style="grid-row:4;grid-column:4" aria-label="4. sor 4. oszlop">
+  <input class="cwcell" data-r="4" data-c="5" maxlength="1" style="grid-row:4;grid-column:5" aria-label="4. sor 5. oszlop">
+  <input class="cwcell" data-r="4" data-c="6" maxlength="1" style="grid-row:4;grid-column:6" aria-label="4. sor 6. oszlop">
+  <input class="cwcell" data-r="4" data-c="7" maxlength="1" style="grid-row:4;grid-column:7" aria-label="4. sor 7. oszlop">
+
+  <input class="cwcell" data-r="5" data-c="2" maxlength="1" style="grid-row:5;grid-column:2" aria-label="5. sor 2. oszlop">
+  <input class="cwcell" data-r="5" data-c="3" maxlength="1" style="grid-row:5;grid-column:3" aria-label="5. sor 3. oszlop">
+  <input class="cwcell" data-r="5" data-c="4" maxlength="1" style="grid-row:5;grid-column:4" aria-label="5. sor 4. oszlop">
+  <input class="cwcell" data-r="5" data-c="5" maxlength="1" style="grid-row:5;grid-column:5" aria-label="5. sor 5. oszlop">
+  <input class="cwcell" data-r="5" data-c="6" maxlength="1" style="grid-row:5;grid-column:6" aria-label="5. sor 6. oszlop">
+</div>
+</div>
+
+<div class="clues">
+<div class="cluebox"><b>↓ 1</b> I ______ with my friends after school.<div class="hint">Iskola után beszélgetek a barátaimmal. · 4 betű</div></div>
+<div class="cluebox"><b>↓ 2</b> My mum ______ to work on her bike.<div class="hint">Anyukám biciklivel megy dolgozni. · 4 betű</div></div>
+<div class="cluebox"><b>→ 3</b> School ______ at nine o'clock.<div class="hint">Az iskola / tanítás kilenc órakor kezdődik. · 6 betű</div></div>
+<div class="cluebox"><b>→ 4</b> I ______ TV after school.<div class="hint">Iskola után tévét nézek. · 5 betű</div></div>
+</div>
+
+<button onclick="checkCrossword()">Keresztrejtvény ellenőrzése</button>
+<button class="alt" onclick="clearCrossword()">Újrakezdem</button>
+<div class="feedback" id="cwfb"></div>
+
+<h3>+ Két extra mondat</h3>
+<div class="q">I <input id="bonus1" style="width:120px" autocomplete="off"> up early every day. <span class="hint">(felébredek)</span></div>
+<div class="q">My friends and I <input id="bonus2" style="width:120px" autocomplete="off"> football at the weekend. <span class="hint">(focizunk)</span></div>
+<button onclick="checkBonus()">Ellenőrzés</button>
+<div class="feedback" id="bonusfb"></div>
+</section>
+
 </main>
 
 <script>
@@ -266,6 +322,30 @@ function buildHomework(){
  out.style.display="block";
 }
 function checkTimes(){const ok=document.getElementById("time1").value==="730"&&document.getElementById("time2").value==="before"&&document.getElementById("time3").value==="after";let f=document.getElementById("timefb");f.textContent=ok?"✓ Mindhárom helyes!":"✗ Nézd át még egyszer az idő- és sorrendi kifejezéseket.";f.className="feedback "+(ok?"ok":"bad");}
+function checkCrossword(){
+ const key={"1-7":"G","2-4":"C","2-7":"O","3-4":"H","3-7":"E","4-2":"S","4-3":"T","4-4":"A","4-5":"R","4-6":"T","4-7":"S","5-2":"W","5-3":"A","5-4":"T","5-5":"C","5-6":"H"};
+ let right=0,total=0;
+ document.querySelectorAll("#cwgrid .cwcell").forEach(el=>{
+   const k=el.dataset.r+"-"+el.dataset.c, ok=el.value.trim().toUpperCase()===key[k];
+   total++; if(ok) right++;
+   el.classList.remove("okcell","badcell"); el.classList.add(ok?"okcell":"badcell");
+ });
+ const f=document.getElementById("cwfb");
+ f.textContent=right===total?"✓ Hibátlan! Mind a négy szó jó.":"Eredmény: "+right+" / "+total+" betű helyes. A piros mezőket gondold át újra.";
+ f.className="feedback "+(right===total?"ok":"bad");
+}
+function clearCrossword(){
+ document.querySelectorAll("#cwgrid .cwcell").forEach(el=>{el.value="";el.classList.remove("okcell","badcell")});
+ document.getElementById("cwfb").textContent="";
+}
+function checkBonus(){
+ const a=norm(document.getElementById("bonus1").value)==="wake";
+ const b=norm(document.getElementById("bonus2").value)==="play";
+ const f=document.getElementById("bonusfb");
+ f.innerHTML=(a?"✓ 1. wake":"✗ 1. Gondold át: wake up") + "<br>" + (b?"✓ 2. play":"✗ 2. Gondold át: play football");
+ f.className="feedback "+(a&&b?"ok":"bad");
+}
+document.addEventListener("input",e=>{if(e.target.classList&&e.target.classList.contains("cwcell"))e.target.value=e.target.value.toUpperCase().replace(/[^A-Z]/g,"").slice(0,1)});
 buildMC();buildTyping();buildOrder();
 </script>
 </body></html>
