@@ -20,7 +20,7 @@ input{width:100%;font:inherit;font-size:1.15rem;padding:15px;border:2px solid #c
 .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.stat{background:#f8fafc;border:1px solid var(--line);padding:9px 12px;border-radius:12px;font-weight:800}
 .help{display:none;margin-top:14px;padding:14px;border-radius:14px;background:#fffaeb;border:1px solid #fedf89;line-height:1.55}.help.show{display:block}
 .keyboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:8px;margin-top:12px}.key{border:1px solid var(--line);border-bottom-width:3px;border-radius:10px;background:#fff;padding:10px;text-align:center;font-weight:800}
-.small{color:var(--muted);font-size:.92rem;line-height:1.5}.sectionTitle{margin:0 0 6px}.progress{height:12px;background:#eef0f4;border-radius:999px;overflow:hidden;margin-top:14px}.bar{height:100%;width:0;background:var(--accent);transition:.25s}
+.small{color:var(--muted);font-size:.92rem;line-height:1.5}.sectionTitle{margin:0 0 6px}.progress{height:12px;background:#eef0f4;border-radius:999px;overflow:hidden;margin-top:14px}.bar{height:100%;width:0;background:var(--accent);transition:.25s}.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:14px}.term{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff}.symbol{font-size:1.5rem;font-weight:900;color:var(--accent);display:block;margin-bottom:4px}.term strong{display:block}.term .small{margin-top:3px;display:block}
 </style>
 </head>
 <body>
@@ -66,6 +66,33 @@ input{width:100%;font:inherit;font-size:1.15rem;padding:15px;border:2px solid #c
 <div class="key">AltGr<br><span class="small">speciális jel</span></div>
 </div>
 </section>
+
+<section class="card">
+<h2 class="sectionTitle">Karakter-szótár</h2>
+<p class="small">Ezeket a jeleket érdemes névről is felismerni. Néhánynak több elfogadott neve is van; itt a leggyakoribb magyar megnevezést látod.</p>
+<div class="glossary">
+<div class="term"><span class="symbol">@</span><strong>kukac</strong><span class="small">E-mail-címekben használjuk.</span></div>
+<div class="term"><span class="symbol">#</span><strong>kettőskereszt / hashtag jel</strong><span class="small">Közösségi médiában: hashtag.</span></div>
+<div class="term"><span class="symbol">$</span><strong>dollárjel</strong></div>
+<div class="term"><span class="symbol">%</span><strong>százalékjel</strong></div>
+<div class="term"><span class="symbol">^</span><strong>kalapjel / cirkumflex</strong></div>
+<div class="term"><span class="symbol">&amp;</span><strong>és-jel / ampersand</strong></div>
+<div class="term"><span class="symbol">€</span><strong>eurójel</strong></div>
+<div class="term"><span class="symbol">'</span><strong>aposztróf</strong></div>
+<div class="term"><span class="symbol">"</span><strong>idézőjel</strong><span class="small">Ez az egyenes, gépelésben gyakori idézőjel.</span></div>
+<div class="term"><span class="symbol">!</span><strong>felkiáltójel</strong></div>
+<div class="term"><span class="symbol">?</span><strong>kérdőjel</strong></div>
+<div class="term"><span class="symbol">:</span><strong>kettőspont</strong></div>
+<div class="term"><span class="symbol">;</span><strong>pontosvessző</strong></div>
+<div class="term"><span class="symbol">/</span><strong>perjel</strong></div>
+<div class="term"><span class="symbol">\\</span><strong>fordított perjel</strong></div>
+<div class="term"><span class="symbol">_</span><strong>aláhúzásjel</strong></div>
+<div class="term"><span class="symbol">-</span><strong>kötőjel</strong><span class="small">A billentyűzeten ugyanaz a karakter szolgálhat mínuszjelként is.</span></div>
+<div class="term"><span class="symbol">+</span><strong>pluszjel</strong></div>
+<div class="term"><span class="symbol">=</span><strong>egyenlőségjel</strong></div>
+<div class="term"><span class="symbol">*</span><strong>csillag / csillagjel</strong></div>
+</div>
+</section>
 </main>
 
 <script>
@@ -75,7 +102,8 @@ const levels=[
 {title:"3. Írásjelek",desc:"Itt a vessző, pont, kérdőjel és felkiáltójel is számít.",help:"Másold le pontosan a mondatot. Ellenőrizd a mondat végét és a vesszőket is.",items:["Szia, Alíz!","Hogy vagy?","Igen, kérem.","Vigyázz!","Ma tanulok, utána játszom.","Anya, hol van a füzetem?","Ez nagyon jó!","Kérek almát, körtét és szőlőt."]},
 {title:"4. Zárójel és idézőjel",desc:"Pontosan másold le a zárójeleket és idézőjeleket is.",help:"Az idézőjel és a zárójel ugyanúgy karakter, mint egy betű. Ne hagyd le őket.",items:['Anya azt mondta: "Indulunk!"',"A kutya (Bodri) alszik.",'A tanár kérdezte: "Készen vagytok?"',"A kedvenc színem (most) a kék.",'Peti ezt írta: "Szia!"']},
 {title:"5. Különleges karakterek",desc:"Gyakorold a gyakori speciális jeleket.",help:"Sok különleges jelhez Shift vagy AltGr szükséges. Ne siess: előbb keresd meg a jelet.",items:["aliz@example.hu","10%","5+3=8","2026/09/22","A&B","#iskola","12-4=8","3*4=12","C:\\Tanulas","nev@example.com"]},
-{title:"6. Hibavadászat",desc:"A feladatban hibás szöveget látsz. Írd be helyesen!",help:"Keresd a mondat eleji nagybetűt, a tulajdonneveket és a mondatvégi írásjelet.",pairs:[["ma elmentünk budapestre","Ma elmentünk Budapestre."],["szia alíz","Szia, Alíz!"],["hol van a füzetem","Hol van a füzetem?"],["pénteken petivel találkozom","Pénteken Petivel találkozom."],["anya azt mondta indulunk","Anya azt mondta: \"Indulunk!\""]]}
+{title:"6. Hibavadászat",desc:"A feladatban hibás szöveget látsz. Írd be helyesen!",help:"Keresd a mondat eleji nagybetűt, a tulajdonneveket és a mondatvégi írásjelet.",pairs:[["ma elmentünk budapestre","Ma elmentünk Budapestre."],["szia alíz","Szia, Alíz!"],["hol van a füzetem","Hol van a füzetem?"],["pénteken petivel találkozom","Pénteken Petivel találkozom."],["anya azt mondta indulunk","Anya azt mondta: \"Indulunk!\""]]},
+{title:"7. Speciális karakter-kihívás",desc:"E-mail-címek, jelek és karakterláncok pontos begépelése. Itt tényleg minden egyes karakter számít.",help:"Először nézd meg a teljes karakterláncot, utána gépeld le lassan. Az @, #, $, %, ^, &, €, aposztróf és idézőjel mind külön karakter.",items:["aliz.kiss@example.hu","aliz_5b@example.com","tanulas+gyakorlas@example.hu","#digitaliskultura","$#%^'€&","@#$_%-&","50% + 25% = 75%","nev.szuletesnap@iskola.hu","'Alíz'","\"Digitális kultúra\"","user_name-5b@example.hu","€25,99"]}
 ];
 let level=0,index=0,score=0,streak=0,count=1,current="";
 const $=id=>document.getElementById(id);
