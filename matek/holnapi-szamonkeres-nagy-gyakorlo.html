@@ -93,7 +93,7 @@ function huUnder100(n){
  if(n<10)return ones[n];
  if(n===10)return"tíz"; if(n<20)return"tizen"+ones[n-10];
  if(n===20)return"húsz"; if(n<30)return"huszon"+ones[n-20];
- const tens=["","","harminc","negyven","ötven","hatvan","hetven","nyolcvan","kilencven"];
+ const tens=["","","","harminc","negyven","ötven","hatvan","hetven","nyolcvan","kilencven"];
  return tens[Math.floor(n/10)]+(n%10?ones[n%10]:"");
 }
 function huUnder1000(n){
@@ -102,12 +102,19 @@ function huUnder1000(n){
  const hp=h===1?"száz":(h===2?"kétszáz":ones[h]+"száz");
  return hp+(r?huUnder100(r):"");
 }
+function huThousandsPrefix(n){
+ const s=huUnder1000(n);
+ return s.endsWith("kettő") ? s.slice(0,-5)+"két" : s;
+}
 function huNumber(n){
  if(n<1000)return huUnder1000(n);
  if(n<1000000){
   const th=Math.floor(n/1000),r=n%1000;
-  const tp=th===1?"ezer":huUnder1000(th)+"ezer";
-  return tp+(r?("-"+huUnder1000(r)):"");
+  const tp=th===1?"ezer":huThousandsPrefix(th)+"ezer";
+  if(!r)return tp;
+  // 2000 felett a háromjegyű csoportok határán kötőjelet írunk.
+  // 1000–1999 között egybeírjuk: pl. ezerötszáztizennégy.
+  return tp+(n>=2000?"-":"")+huUnder1000(r);
  }
  return String(n);
 }
