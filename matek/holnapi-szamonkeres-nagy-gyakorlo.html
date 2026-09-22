@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Holnapi matek számonkérés – nagy gyakorló</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:#f6f8fc;color:#172033;line-height:1.55}
+.wrap{max-width:1050px;margin:auto;padding:22px 16px 60px}.back{display:inline-block;color:#4f46e5;font-weight:800;text-decoration:none;margin-bottom:18px}
+.hero{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:white;border-radius:24px;padding:28px;box-shadow:0 12px 34px #4f46e526}
+.hero h1{margin:0 0 8px;font-size:clamp(2rem,6vw,3.2rem)}.hero p{margin:0;opacity:.95}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}nav a{background:#fff;color:#4f46e5;text-decoration:none;padding:8px 11px;border-radius:999px;font-weight:800;font-size:.9rem}
+.card{background:#fff;border:1px solid #e4e7ef;border-radius:22px;padding:22px;margin-top:18px;box-shadow:0 8px 26px rgba(20,30,60,.05)}
+h2{margin-top:0}.tip{background:#eef2ff;border-left:5px solid #4f46e5;padding:13px 15px;border-radius:12px}.warn{background:#fff7ed;border-left:5px solid #f59e0b;padding:13px 15px;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.mini{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:14px}
+.exercise{border:1px solid #e5e7eb;border-radius:15px;padding:15px;margin:11px 0;background:white}.q{font-weight:800;font-size:1.04rem}
+input,select{font:inherit;padding:10px 12px;border:1px solid #cbd5e1;border-radius:10px;max-width:260px;width:100%;margin-top:8px}
+button{font:inherit;font-weight:800;border:0;border-radius:10px;background:#4f46e5;color:#fff;padding:10px 13px;margin:8px 6px 0 0;cursor:pointer}
+button.alt{background:#e0e7ff;color:#3730a3}.fb{font-weight:800;margin-top:8px}.ok{color:#15803d}.bad{color:#b91c1c}.muted{color:#64748b;font-size:.92rem}
+.line{display:flex;align-items:flex-start;overflow-x:auto;padding:24px 2px 8px}.tick{min-width:68px;text-align:center;border-top:3px solid #334155;padding-top:10px;position:relative}.tick:before{content:"";position:absolute;left:50%;top:-9px;height:10px;border-left:2px solid #334155}
+.score{font-size:1.25rem;font-weight:900;margin-top:12px}.legend td,.legend th{padding:8px 10px;border-bottom:1px solid #e5e7eb;text-align:left}.legend{border-collapse:collapse;width:100%;max-width:650px}
+.badge{display:inline-block;background:#ede9fe;color:#5b21b6;border-radius:999px;padding:4px 9px;font-size:.82rem;font-weight:800}
+@media(max-width:600px){.card{padding:16px}.tick{min-width:58px}}
+</style>
+</head><body><main class="wrap">
+<a class="back" href="./">← Vissza a matekhoz</a>
+<section class="hero"><h1>Holnapi matek számonkérés – nagy gyakorló</h1>
+<p>A füzetben szereplő feladattípusok alapján: számegyenes, számok írása, helyi értékes felbontás és összeállítás, valamint kerekítés tízesre, százasra és ezresre.</p>
+<nav><a href="#szamegyenes">Számegyenes</a><a href="#szamiras">Számok írása</a><a href="#helyiertek">Helyi érték</a><a href="#kerekites">Kerekítés</a><a href="#vegyes">Vegyes próba</a></nav></section>
+
+<section class="card">
+<h2>Mit érdemes biztosan tudni?</h2>
+<div class="grid">
+<div class="mini"><b>Számegyenes</b><br>Felismerni a lépésközt, hiányzó számokat beírni, negatív számokkal is.</div>
+<div class="mini"><b>Számok írása</b><br>Számjegyekkel és betűvel, nullákat is helyesen megtartva.</div>
+<div class="mini"><b>Helyi érték</b><br>Összeállítani a számot akkor is, ha egy helyi értékből 10-nél több van.</div>
+<div class="mini"><b>Kerekítés</b><br>Tízesre, százasra, ezresre; mindig a következő számjegyet nézd.</div>
+</div>
+<table class="legend"><tr><th>Jelölés</th><th>Jelentés</th></tr><tr><td>e</td><td>egyes</td></tr><tr><td>t</td><td>tízes</td></tr><tr><td>sz</td><td>százas</td></tr><tr><td>E</td><td>ezres</td></tr><tr><td>tE</td><td>tízezres</td></tr><tr><td>szE</td><td>százezres</td></tr></table>
+</section>
+
+<section class="card" id="szamegyenes"><span class="badge">1. témakör</span><h2>Számegyenes</h2>
+<div class="tip"><b>Módszer:</b> először keresd meg a lépésközt. Ha például −12, −9, −6, −3 következik, akkor mindig +3-mal lépünk.</div>
+<div class="line"><div class="tick">−12</div><div class="tick">−9</div><div class="tick">−6</div><div class="tick">−3</div><div class="tick">0</div><div class="tick">3</div><div class="tick">6</div><div class="tick">9</div></div>
+<div id="lineTasks"></div><button onclick="newLineTasks()">Új 8 számegyenes-feladat</button>
+</section>
+
+<section class="card" id="szamiras"><span class="badge">2. témakör</span><h2>Számok írása</h2>
+<div class="warn">Figyelj a nullákra! „kilencezer-hét” = <b>9007</b>, nem 97 és nem 907.</div>
+<div id="wordTasks"></div><button onclick="newWordTasks()">Új 10 számírás-feladat</button>
+</section>
+
+<section class="card" id="helyiertek"><span class="badge">3. témakör</span><h2>Helyi értékből szám összeállítása</h2>
+<div class="tip">Itt nem baj, ha egy helyi értékből 10-nél több van. Például: <b>12 E + 3 sz + 28 e = 12 328</b>, mert 12 000 + 300 + 28 = 12 328.</div>
+<div id="placeTasks"></div><button onclick="newPlaceTasks()">Új 10 helyiérték-feladat</button>
+</section>
+
+<section class="card" id="kerekites"><span class="badge">4. témakör</span><h2>Kerekítés</h2>
+<div class="grid"><div class="mini"><b>Tízesre</b><br>az egyeseket nézd</div><div class="mini"><b>Százasra</b><br>a tízeseket nézd</div><div class="mini"><b>Ezresre</b><br>a százasokat nézd</div></div>
+<div class="tip"><b>0–4:</b> lefelé, <b>5–9:</b> felfelé kerekítünk.</div>
+<div id="roundTasks"></div><button onclick="newRoundTasks()">Új 12 kerekítés</button>
+</section>
+
+<section class="card" id="vegyes"><span class="badge">Dolgozatszerű</span><h2>20 kérdéses vegyes próba</h2>
+<p class="muted">Ezt segítség nélkül érdemes kitölteni. Minden „Új próba” gombnyomásra más feladatokat kapsz.</p>
+<div id="testTasks"></div><button onclick="scoreTest()">Kiértékelés</button><button class="alt" onclick="newTest()">Új próba</button><div id="score" class="score"></div>
+</section>
+</main>
+
+<script>
+const rnd=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const norm=s=>String(s).trim().toLowerCase().replace(/\s/g,"").replace(/\./g,"").replace(/−/g,"-");
+function addTask(host,id,text,answer,placeholder="Válasz"){
+  const d=document.createElement("div"); d.className="exercise";
+  d.innerHTML='<div class="q">'+text+'</div><input id="'+id+'" placeholder="'+placeholder+'"><button onclick="check(\''+id+'\',\''+answer+'\',\'f'+id+'\')">Ellenőrzés</button><div id="f'+id+'" class="fb"></div>';
+  host.appendChild(d);
+}
+function check(id,ans,fid){const v=norm(document.getElementById(id).value),f=document.getElementById(fid);if(v===norm(ans)){f.textContent="✓ Helyes!";f.className="fb ok"}else{f.textContent="✗ Helyes válasz: "+ans;f.className="fb bad"}}
+function fmt(n){return n.toLocaleString("hu-HU").replace(/\u00a0/g," ")}
+function roundTo(n,p){return Math.round(n/p)*p}
+
+function newLineTasks(){
+ const h=document.getElementById("lineTasks");h.innerHTML="";
+ for(let i=0;i<8;i++){
+   const step=[2,3,5,10,15][rnd(0,4)], start=rnd(-12,3)*step, miss=rnd(1,4);
+   let arr=[]; for(let j=0;j<6;j++) arr.push(start+j*step);
+   const ans=arr[miss]; arr[miss]="___";
+   addTask(h,"l"+i,(i+1)+". Egészítsd ki: <b>"+arr.join(" ; ")+"</b>",String(ans));
+ }
+}
+
+const ones=["nulla","egy","kettő","három","négy","öt","hat","hét","nyolc","kilenc"];
+function huUnder100(n){
+ if(n<10)return ones[n];
+ if(n===10)return"tíz"; if(n<20)return"tizen"+ones[n-10];
+ if(n===20)return"húsz"; if(n<30)return"huszon"+ones[n-20];
+ const tens=["","","harminc","negyven","ötven","hatvan","hetven","nyolcvan","kilencven"];
+ return tens[Math.floor(n/10)]+(n%10?ones[n%10]:"");
+}
+function huUnder1000(n){
+ if(n<100)return huUnder100(n);
+ const h=Math.floor(n/100),r=n%100;
+ const hp=h===1?"száz":(h===2?"kétszáz":ones[h]+"száz");
+ return hp+(r?huUnder100(r):"");
+}
+function huNumber(n){
+ if(n<1000)return huUnder1000(n);
+ if(n<1000000){
+  const th=Math.floor(n/1000),r=n%1000;
+  const tp=th===1?"ezer":huUnder1000(th)+"ezer";
+  return tp+(r?("-"+huUnder1000(r)):"");
+ }
+ return String(n);
+}
+function newWordTasks(){
+ const h=document.getElementById("wordTasks");h.innerHTML="";
+ for(let i=0;i<10;i++){
+   let n=rnd(101,99999);
+   if(i<3)n=[3012,20017,1907][i];
+   if(i%2===0)addTask(h,"w"+i,(i+1)+". Írd le számjegyekkel: <b>"+huNumber(n)+"</b>",String(n));
+   else addTask(h,"w"+i,(i+1)+". Írd le betűvel: <b>"+fmt(n)+"</b>",huNumber(n),"Betűvel");
+ }
+}
+
+function newPlaceTasks(){
+ const h=document.getElementById("placeTasks");h.innerHTML="";
+ const units=[["e",1],["t",10],["sz",100],["E",1000],["tE",10000],["szE",100000]];
+ for(let i=0;i<10;i++){
+   let picks=[],sum=0,used=new Set();
+   const count=rnd(3,4);
+   while(picks.length<count){
+     const u=units[rnd(0, i<6?3:5)];
+     if(used.has(u[0]))continue; used.add(u[0]);
+     const q=rnd(1, i<5?18:30);
+     picks.push(q+" "+u[0]); sum+=q*u[1];
+   }
+   picks.sort(()=>Math.random()-.5);
+   addTask(h,"p"+i,(i+1)+". Mennyi? <b>"+picks.join(" + ")+"</b>",String(sum));
+ }
+}
+
+function newRoundTasks(){
+ const h=document.getElementById("roundTasks");h.innerHTML="";
+ for(let i=0;i<12;i++){
+   const n=i<4?[3107,973,10320,4612][i]:rnd(101,99999);
+   const p=[10,100,1000][i%3],label=p===10?"tízesre":p===100?"százasra":"ezresre";
+   addTask(h,"r"+i,(i+1)+". <b>"+fmt(n)+"</b> kerekítve "+label+":",String(roundTo(n,p)));
+ }
+}
+
+let testAnswers=[];
+function newTest(){
+ const h=document.getElementById("testTasks");h.innerHTML="";document.getElementById("score").textContent="";testAnswers=[];
+ function t(text,ans){const i=testAnswers.length;testAnswers.push(String(ans));const d=document.createElement("div");d.className="exercise";d.innerHTML='<div class="q">'+(i+1)+'. '+text+'</div><input id="t'+i+'">';h.appendChild(d)}
+ // 5 number lines
+ for(let i=0;i<5;i++){const st=[2,3,5,10,15][rnd(0,4)],s=rnd(-8,2)*st,m=rnd(1,4);let a=[];for(let j=0;j<6;j++)a.push(s+j*st);const ans=a[m];a[m]="___";t("Hiányzó szám: <b>"+a.join(" ; ")+"</b>",ans)}
+ // 4 number writing
+ for(let i=0;i<4;i++){const n=rnd(1001,99999);t('Írd le számjegyekkel: <b>'+huNumber(n)+'</b>',n)}
+ // 5 place values
+ const us=[["e",1],["t",10],["sz",100],["E",1000],["tE",10000]];
+ for(let i=0;i<5;i++){let sum=0,parts=[],used=new Set();while(parts.length<3){let u=us[rnd(0,4)];if(used.has(u[0]))continue;used.add(u[0]);let q=rnd(1,22);parts.push(q+" "+u[0]);sum+=q*u[1]}t("Mennyi? <b>"+parts.join(" + ")+"</b>",sum)}
+ // 6 rounding
+ for(let i=0;i<6;i++){const n=rnd(101,99999),p=[10,100,1000][i%3],lab=p===10?"tízesre":p===100?"százasra":"ezresre";t("<b>"+fmt(n)+"</b> kerekítve "+lab,roundTo(n,p))}
+}
+function scoreTest(){let s=0;testAnswers.forEach((a,i)=>{if(norm(document.getElementById("t"+i).value)===norm(a))s++});const box=document.getElementById("score");box.textContent=s+"/20 pont. "+(s>=18?"Nagyon biztosan megy!":s>=15?"Jó eredmény, még egy próba sokat segíthet.":s>=10?"Néhány típust még gyakorolj külön.":"Menj végig újra témakörönként, aztán próbáld meg ismét.");}
+newLineTasks();newWordTasks();newPlaceTasks();newRoundTasks();newTest();
+</script></body></html>
