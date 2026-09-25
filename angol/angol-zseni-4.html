@@ -4,127 +4,153 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Angol zseni – 4. rész | 5.b Tanulósarok</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f7f8fc;color:#172033}
-.wrap{max-width:980px;margin:auto;padding:24px 16px 60px}.back{display:inline-block;text-decoration:none;color:#4f46e5;font-weight:800;margin-bottom:18px}
-.hero{background:linear-gradient(135deg,#ede9fe,#ecfeff);border:1px solid #d8dce8;border-radius:28px;padding:28px;box-shadow:0 12px 34px rgba(15,23,42,.06)}
-.hero h1{margin:.15rem 0 .4rem;font-size:clamp(2rem,7vw,3.5rem)}.hero p{margin:.35rem 0;color:#526076}.tag{display:inline-block;padding:7px 11px;background:#fff;border-radius:999px;border:1px solid #d8dce8;font-weight:800}
-.section{background:#fff;border:1px solid #e3e7ef;border-radius:22px;padding:20px;margin-top:18px;box-shadow:0 8px 24px rgba(15,23,42,.04)}
-.section h2{margin-top:0}.q{padding:14px 0;border-top:1px solid #edf0f5}.q:first-of-type{border-top:0}
-input{font:inherit;border:1px solid #cbd5e1;border-radius:10px;padding:9px 11px;max-width:220px;text-transform:lowercase}
-button{border:0;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;background:#4f46e5;color:#fff;margin:6px 6px 0 0}
-button.alt{background:#eef2ff;color:#3730a3}.feedback{font-weight:800;margin-top:7px}.ok{color:#15803d}.bad{color:#b91c1c}.hint{color:#64748b;font-size:.92rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:14px}
-.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f1f5f9;border-radius:8px;padding:3px 7px}
-.final{background:#fff7ed;border:1px solid #fed7aa;border-radius:18px;padding:16px;margin-top:14px}
-.score{font-weight:900;font-size:1.08rem;margin-top:10px}
-@media(max-width:600px){.hero,.section{border-radius:18px}.wrap{padding:16px 12px 50px}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f5f5f4;color:#1f2937}
+.wrap{max-width:1100px;margin:auto;padding:22px 14px 60px}.back{display:inline-block;text-decoration:none;color:#374151;font-weight:800;margin-bottom:16px}
+.hero{background:#fff;border:1px solid #d6d3d1;border-radius:22px;padding:24px;box-shadow:0 10px 28px rgba(0,0,0,.05)}
+.hero h1{margin:.1rem 0 .35rem;font-size:clamp(2rem,6vw,3.3rem)}.hero p{margin:.35rem 0;color:#57534e}.tag{display:inline-block;padding:7px 11px;border-radius:999px;background:#f5f5f4;border:1px solid #d6d3d1;font-weight:800}
+.section{background:#fff;border:1px solid #d6d3d1;border-radius:20px;padding:18px;margin-top:18px;box-shadow:0 8px 22px rgba(0,0,0,.04)}
+.section h2{margin-top:0}.hint{color:#78716c;font-size:.93rem}.feedback{font-weight:800;margin-top:10px}.ok{color:#15803d}.bad{color:#b91c1c}
+button{border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer;background:#44403c;color:#fff;margin:8px 6px 0 0}
+button.alt{background:#e7e5e4;color:#292524}
+.boardwrap{overflow-x:auto;padding-bottom:8px}
+.board{display:grid;grid-template-columns:repeat(10,54px);grid-auto-rows:54px;gap:0;width:max-content;border:2px solid #57534e;background:#57534e;margin:10px auto}
+.cell,.clue,.block{width:54px;height:54px;border-right:1px solid #78716c;border-bottom:1px solid #78716c}
+.cell{background:#f8fafc;display:flex;align-items:center;justify-content:center}
+.cell input{width:100%;height:100%;border:0;text-align:center;font:900 1.25rem/1 system-ui;text-transform:uppercase;background:transparent;outline:none}
+.clue{background:#d6d3d1;padding:4px 5px;font-size:.68rem;font-weight:800;line-height:1.05;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
+.clue .arr{position:absolute;right:3px;bottom:1px;font-size:.85rem}
+.block{background:#a8a29e;position:relative}.block:before,.block:after{content:"";position:absolute;left:4px;right:4px;top:26px;height:1px;background:#57534e;transform:rotate(45deg)}.block:after{transform:rotate(-45deg)}
+.good{background:#dcfce7!important}.wrong{background:#fee2e2!important}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.pill{background:#f5f5f4;border:1px solid #d6d3d1;border-radius:999px;padding:6px 10px;font-size:.9rem}
+.wordbank{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}.wb{background:#fafaf9;border:1px solid #e7e5e4;border-radius:12px;padding:10px}
+.missing{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}.miss{background:#fafaf9;border:1px solid #e7e5e4;border-radius:12px;padding:12px}
+.miss input,.final input{font:inherit;border:1px solid #a8a29e;border-radius:8px;padding:8px 10px;max-width:120px;text-transform:lowercase}
+.final{background:#fef3c7;border:1px solid #f59e0b;border-radius:16px;padding:15px;margin-top:12px}
+@media(max-width:600px){.hero,.section{border-radius:16px}.wrap{padding:14px 10px 45px}}
 </style>
 </head>
 <body><main class="wrap">
 <a class="back" href="./">← Vissza az angolhoz</a>
 <section class="hero">
 <span class="tag">Angol zseni · 4. rész</span>
-<h1>Szókirakó és mini keresztrejtvény</h1>
-<p>A lefotózott feladat digitális, interaktív gyakorlóváltozata. Először a könnyebb szavak, aztán a hiányzó betűk, végül a főmegfejtés.</p>
+<h1>Skandináv rejtvény – gyakorló</h1>
+<p>Egyszerűsített, de a könyvben lévő rejtvényhez hasonló cellás elrendezés. A szürke mezőkben vannak a meghatározások, a fehér négyzetekbe egy-egy angol betű kerül.</p>
 </section>
 
 <section class="section">
-<h2>1. Magyar → angol</h2>
-<div class="grid">
-<div class="card"><b>győz</b><br><input id="t1" placeholder="angolul"></div>
-<div class="card"><b>fénykép</b><br><input id="t2" placeholder="angolul"></div>
-<div class="card"><b>macska</b><br><input id="t3" placeholder="angolul"></div>
-<div class="card"><b>hó</b><br><input id="t4" placeholder="angolul"></div>
-<div class="card"><b>turista</b><br><input id="t5" placeholder="angolul"></div>
-<div class="card"><b>felső</b><br><input id="t6" placeholder="angolul"></div>
-<div class="card"><b>kinyit</b><br><input id="t7" placeholder="angolul"></div>
-<div class="card"><b>egy</b><br><input id="t8" placeholder="angolul"></div>
-<div class="card"><b>férfiak</b><br><input id="t9" placeholder="angolul"></div>
-<div class="card"><b>szem</b><br><input id="t10" placeholder="angolul"></div>
-<div class="card"><b>hír</b><br><input id="t11" placeholder="angolul"></div>
-<div class="card"><b>de</b><br><input id="t12" placeholder="angolul"></div>
+<h2>1. Töltsd ki a rácsot!</h2>
+<div class="legend">
+<span class="pill">→ vízszintesen</span>
+<span class="pill">egy mező = egy betű</span>
+<span class="pill">a szürke X mezőket hagyd üresen</span>
 </div>
-<button onclick="checkTranslate()">Ellenőrzés</button>
-<div id="tscore" class="score"></div>
+<div class="boardwrap"><div class="board" id="board">
+  <div class="block"></div><div class="clue">GYŐZ <span class="arr">→</span></div>
+  <div class="cell"><input data-a="W"></div><div class="cell"><input data-a="I"></div><div class="cell"><input data-a="N"></div>
+  <div class="block"></div><div class="clue">DE <span class="arr">→</span></div>
+  <div class="cell"><input data-a="B"></div><div class="cell"><input data-a="U"></div><div class="cell"><input data-a="T"></div>
+
+  <div class="clue">FÉNYKÉP <span class="arr">→</span></div>
+  <div class="cell"><input data-a="P"></div><div class="cell"><input data-a="H"></div><div class="cell"><input data-a="O"></div><div class="cell"><input data-a="T"></div><div class="cell"><input data-a="O"></div>
+  <div class="clue">MACSKA <span class="arr">→</span></div>
+  <div class="cell"><input data-a="C"></div><div class="cell"><input data-a="A"></div><div class="cell"><input data-a="T"></div>
+
+  <div class="block"></div><div class="clue">HÓ <span class="arr">→</span></div>
+  <div class="cell"><input data-a="S"></div><div class="cell"><input data-a="N"></div><div class="cell"><input data-a="O"></div><div class="cell"><input data-a="W"></div>
+  <div class="block"></div><div class="clue">EGY <span class="arr">→</span></div>
+  <div class="cell"><input data-a="O"></div><div class="cell"><input data-a="N"></div>
+
+  <div class="clue">TURISTA <span class="arr">→</span></div>
+  <div class="cell"><input data-a="T"></div><div class="cell"><input data-a="O"></div><div class="cell"><input data-a="U"></div><div class="cell"><input data-a="R"></div><div class="cell"><input data-a="I"></div><div class="cell"><input data-a="S"></div><div class="cell"><input data-a="T"></div>
+  <div class="block"></div><div class="block"></div>
+
+  <div class="clue">FELSŐ <span class="arr">→</span></div>
+  <div class="cell"><input data-a="U"></div><div class="cell"><input data-a="P"></div><div class="cell"><input data-a="P"></div><div class="cell"><input data-a="E"></div><div class="cell"><input data-a="R"></div>
+  <div class="block"></div><div class="clue">SZEM <span class="arr">→</span></div>
+  <div class="cell"><input data-a="E"></div><div class="cell"><input data-a="Y"></div><div class="cell"><input data-a="E"></div>
+
+  <div class="block"></div><div class="clue">KINYIT <span class="arr">→</span></div>
+  <div class="cell"><input data-a="O"></div><div class="cell"><input data-a="P"></div><div class="cell"><input data-a="E"></div><div class="cell"><input data-a="N"></div>
+  <div class="block"></div><div class="clue">FÉRFIAK <span class="arr">→</span></div>
+  <div class="cell"><input data-a="M"></div><div class="cell"><input data-a="E"></div>
+
+  <div class="clue">HÍR <span class="arr">→</span></div>
+  <div class="cell"><input data-a="N"></div><div class="cell"><input data-a="E"></div><div class="cell"><input data-a="W"></div><div class="cell"><input data-a="S"></div>
+  <div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div><div class="block"></div>
+</div></div>
+<button onclick="checkBoard()">Rács ellenőrzése</button>
+<button class="alt" onclick="clearBoard()">Rács törlése</button>
+<div id="boardfb" class="feedback"></div>
 </section>
 
 <section class="section">
-<h2>2. Pótold a hiányzó betűket!</h2>
-<p class="hint">Csak a hiányzó betűket írd be.</p>
-<div class="q"><span class="code">IMPORTA...</span> = fontos → <input id="m1" maxlength="2" placeholder="??"></div>
-<div class="q"><span class="code">...SY</span> = elfoglalt → <input id="m2" maxlength="2" placeholder="??"></div>
-<div class="q"><span class="code">LUNC...</span> = ebéd → <input id="m3" maxlength="1" placeholder="?"></div>
-<div class="q"><span class="code">AF...R</span> = után → <input id="m4" maxlength="2" placeholder="??"></div>
-<div class="q"><span class="code">HUNGAR...</span> = Magyarország → <input id="m5" maxlength="1" placeholder="?"></div>
-<div class="q"><span class="code">P...CIL</span> = ceruza → <input id="m6" maxlength="2" placeholder="??"></div>
-<div class="q"><span class="code">GAM...</span> = játék → <input id="m7" maxlength="1" placeholder="?"></div>
-<div class="q"><span class="code">WOM...N</span> = nők → <input id="m8" maxlength="1" placeholder="?"></div>
-<div class="q"><span class="code">J...ST</span> = csak → <input id="m9" maxlength="1" placeholder="?"></div>
+<h2>2. Szóbank – segítség, ha elakadsz</h2>
+<div class="wordbank">
+<div class="wb"><b>win</b> – győz</div><div class="wb"><b>photo</b> – fénykép</div><div class="wb"><b>cat</b> – macska</div>
+<div class="wb"><b>snow</b> – hó</div><div class="wb"><b>tourist</b> – turista</div><div class="wb"><b>upper</b> – felső</div>
+<div class="wb"><b>open</b> – kinyit</div><div class="wb"><b>one</b> – egy</div><div class="wb"><b>men</b> – férfiak</div>
+<div class="wb"><b>eye</b> – szem</div><div class="wb"><b>news</b> – hír</div><div class="wb"><b>but</b> – de</div>
+</div>
+</section>
+
+<section class="section">
+<h2>3. Hiányzó betűs mezők</h2>
+<div class="missing">
+<div class="miss"><b>IMPORTA...</b> = fontos<br><input id="m1" maxlength="2" placeholder="??"></div>
+<div class="miss"><b>...SY</b> = elfoglalt<br><input id="m2" maxlength="2" placeholder="??"></div>
+<div class="miss"><b>LUNC...</b> = ebéd<br><input id="m3" maxlength="1" placeholder="?"></div>
+<div class="miss"><b>AF...R</b> = után<br><input id="m4" maxlength="2" placeholder="??"></div>
+<div class="miss"><b>HUNGAR...</b> = Magyarország<br><input id="m5" maxlength="1" placeholder="?"></div>
+<div class="miss"><b>P...CIL</b> = ceruza<br><input id="m6" maxlength="2" placeholder="??"></div>
+<div class="miss"><b>GAM...</b> = játék<br><input id="m7" maxlength="1" placeholder="?"></div>
+<div class="miss"><b>WOM...N</b> = nők<br><input id="m8" maxlength="1" placeholder="?"></div>
+<div class="miss"><b>J...ST</b> = csak<br><input id="m9" maxlength="1" placeholder="?"></div>
+</div>
 <button onclick="checkMissing()">Ellenőrzés</button>
-<div id="mscore" class="score"></div>
-</section>
-
-<section class="section">
-<h2>3. Válaszd ki, melyik teljes szó lett!</h2>
-<div class="q">IMPORTA + NT = <b>important</b> → <span class="hint">fontos</span></div>
-<div class="q">BU + SY = <b>busy</b> → <span class="hint">elfoglalt</span></div>
-<div class="q">LUNC + H = <b>lunch</b> → <span class="hint">ebéd</span></div>
-<div class="q">AF + TE + R = <b>after</b> → <span class="hint">után</span></div>
-<div class="q">HUNGAR + Y = <b>Hungary</b> → <span class="hint">Magyarország</span></div>
-<div class="q">P + EN + CIL = <b>pencil</b> → <span class="hint">ceruza</span></div>
-<div class="q">GAM + E = <b>game</b> → <span class="hint">játék</span></div>
-<div class="q">WOM + E + N = <b>women</b> → <span class="hint">nők</span></div>
-<div class="q">J + U + ST = <b>just</b> → <span class="hint">csak</span></div>
+<div id="missfb" class="feedback"></div>
 </section>
 
 <section class="section">
 <h2>4. Főmegfejtés</h2>
-<p>A képen szereplő meghatározás:</p>
 <div class="final">
-<b>„Mediterrán csemege, a legtöbbet és legrégebb óta Iránban termelik.”</b>
-<p>Írd be angolul:</p>
+<b>Mediterrán csemege, a legtöbbet és legrégebb óta Iránban termelik.</b>
+<p>Angolul:</p>
 <input id="finalword" placeholder="?????????">
-<button onclick="checkFinal()">Megfejtés ellenőrzése</button>
+<button onclick="checkFinal()">Ellenőrzés</button>
 <div id="finalfb" class="feedback"></div>
 </div>
-</section>
-
-<section class="section">
-<h2>5. Gyors újrapróbálás</h2>
-<p class="hint">Ha hibáztál, ürítsd ki a mezőket, és oldd meg újra segítség nélkül.</p>
-<button class="alt" onclick="resetAll()">Mindent törlök</button>
 </section>
 </main>
 
 <script>
 const norm=s=>s.trim().toLowerCase();
-function mark(id,ok){
- const el=document.getElementById(id);
- el.style.borderColor=ok?"#22c55e":"#ef4444";
- el.style.background=ok?"#f0fdf4":"#fef2f2";
+document.addEventListener("input",e=>{
+ if(e.target.matches(".cell input")){
+   e.target.value=e.target.value.toUpperCase().replace(/[^A-Z]/g,"").slice(0,1);
+   if(e.target.value){
+     const cells=[...document.querySelectorAll(".cell input")],i=cells.indexOf(e.target);
+     if(cells[i+1]) cells[i+1].focus();
+   }
+ }
+});
+function checkBoard(){
+ let ok=0,total=0;
+ document.querySelectorAll(".cell input").forEach(i=>{
+   total++; const good=i.value.toUpperCase()===i.dataset.a;
+   i.parentElement.classList.remove("good","wrong");i.parentElement.classList.add(good?"good":"wrong");
+   if(good)ok++;
+ });
+ const f=document.getElementById("boardfb");f.textContent=ok===total?"✓ Hibátlan a rács!":"Eredmény: "+ok+" / "+total+" betű helyes.";f.className="feedback "+(ok===total?"ok":"bad");
 }
-function checkTranslate(){
- const ans=["win","photo","cat","snow","tourist","upper","open","one","men","eye","news","but"];
- let n=0;ans.forEach((a,i)=>{const id="t"+(i+1),ok=norm(document.getElementById(id).value)===a;mark(id,ok);if(ok)n++;});
- document.getElementById("tscore").textContent="Eredmény: "+n+" / "+ans.length;
-}
+function clearBoard(){document.querySelectorAll(".cell input").forEach(i=>{i.value="";i.parentElement.classList.remove("good","wrong")});document.getElementById("boardfb").textContent=""}
 function checkMissing(){
- const ans=["nt","bu","h","te","y","en","e","e","u"];
- let n=0;ans.forEach((a,i)=>{const id="m"+(i+1),ok=norm(document.getElementById(id).value)===a;mark(id,ok);if(ok)n++;});
- document.getElementById("mscore").textContent="Eredmény: "+n+" / "+ans.length;
+ const ans=["nt","bu","h","te","y","en","e","e","u"];let n=0;
+ ans.forEach((a,j)=>{const i=document.getElementById("m"+(j+1));const g=norm(i.value)===a;i.style.background=g?"#dcfce7":"#fee2e2";if(g)n++;});
+ const f=document.getElementById("missfb");f.textContent="Eredmény: "+n+" / "+ans.length;f.className="feedback "+(n===ans.length?"ok":"bad");
 }
 function checkFinal(){
- const ok=norm(document.getElementById("finalword").value)==="pistachio";
- mark("finalword",ok);
- const f=document.getElementById("finalfb");
- f.textContent=ok?"✓ Helyes! PISTACHIO = pisztácia.":"✗ Gondold át még egyszer. Segítség: P _ S T A C H I O";
- f.className="feedback "+(ok?"ok":"bad");
-}
-function resetAll(){
- document.querySelectorAll("input").forEach(i=>{i.value="";i.style.borderColor="";i.style.background=""});
- document.getElementById("tscore").textContent="";
- document.getElementById("mscore").textContent="";
- document.getElementById("finalfb").textContent="";
+ const i=document.getElementById("finalword"),g=norm(i.value)==="pistachio";i.style.background=g?"#dcfce7":"#fee2e2";
+ const f=document.getElementById("finalfb");f.textContent=g?"✓ Helyes! PISTACHIO = pisztácia.":"✗ Segítség: P _ S T A C H I O";f.className="feedback "+(g?"ok":"bad");
 }
 </script>
 </body></html>
