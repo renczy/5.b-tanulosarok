@@ -15,7 +15,7 @@ button{border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:poin
 .cell,.clue,.block,.shade,.prefill{border-right:1px solid #6b7280;border-bottom:1px solid #6b7280}
 .cell{background:#fff;display:flex;align-items:center;justify-content:center}.cell input{width:100%;height:100%;border:0;outline:none;text-align:center;text-transform:uppercase;font:900 1.3rem/1 system-ui;background:transparent}
 .shade{background:#d1d5db}.block{background:#e5e7eb;position:relative}.block:before,.block:after{content:"";position:absolute;left:8px;right:8px;top:34px;height:1.5px;background:#6b7280;transform:rotate(45deg)}.block:after{transform:rotate(-45deg)}
-.clue{background:#efefef;padding:5px 4px;font-size:.70rem;font-weight:800;line-height:1.03;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;overflow-wrap:anywhere;word-break:break-word;hyphens:auto}.clue hr{margin:3px 0}.arr{position:absolute;right:3px;top:2px;font-size:.8rem}
+.clue{background:#efefef;padding:5px 5px;font-size:.68rem;font-weight:800;line-height:1.08;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;overflow-wrap:normal;word-break:normal;hyphens:none}.clue hr{margin:3px 0}.arr{position:absolute;right:3px;top:2px;font-size:.8rem}
 .prefill{background:#cfcfcf;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900}
 .groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.group{background:#f9fafb;border:1px solid #e5e7eb;border-radius:14px;padding:14px}.group h3{margin:.1rem 0 .6rem;font-size:1.03rem}
 .q{padding:8px 0;border-top:1px solid #eceff3}.q:first-child{border-top:0}label{display:block;font-weight:700;margin-bottom:4px}
@@ -24,12 +24,12 @@ input[type=text]{font:inherit;border:1px solid #9ca3af;border-radius:8px;padding
 @media(max-width:640px){
   .wrap{padding:14px 10px 44px}
   .section{padding:14px}
-  .boardwrap{margin:0 -2px}
-  .board{grid-template-columns:repeat(8,64px);grid-auto-rows:62px;width:512px;min-width:512px}
-  .clue{font-size:.56rem;padding:4px 3px;line-height:1.0}
-  .prefill,.cell{font-size:1rem}
-  .cell input{font-size:1rem}
-  .block:before,.block:after{top:30px}
+  .boardwrap{margin:0 -2px;overflow-x:auto}
+  .board{grid-template-columns:repeat(8,78px);grid-auto-rows:70px;width:624px;min-width:624px}
+  .clue{font-size:.68rem;padding:5px 5px;line-height:1.08}
+  .prefill,.cell{font-size:1.1rem}
+  .cell input{font-size:1.1rem}
+  .block:before,.block:after{top:34px}
 }
 </style>
 </head>
@@ -43,9 +43,9 @@ input[type=text]{font:inherit;border:1px solid #9ca3af;border-radius:8px;padding
 
 <section class="section">
 <h2>1. Rejtvénytábla</h2>
-<p class="small">A szürke mezőkben a fotón szereplő meghatározások vannak. A fehér mezőkbe egy-egy betű kerül. Telefonon a tábla vízszintesen görgethető.</p>
+<p class="small">A szürke mezőkben a fotón szereplő meghatározások vannak. A fehér mezőkbe egy-egy betű kerül. Telefonon a tábla eredeti cellaméretben marad, ezért vízszintesen görgethető – így a feliratok nem nyomódnak össze.</p>
 <div class="boardwrap"><div class="board">
-<div class="block"></div><div class="clue">GYŐZ<br><hr style="width:100%;border:0;border-top:1px solid #bbb">FÉNYKÉP</div><div class="clue"><span class="arr">▼</span></div><div class="clue">IMPORTA...<br>(FONTOS)</div><div class="clue"><span class="arr">▼</span></div><div class="block"></div><div class="clue">DE</div><div class="clue"><span class="arr">▼</span></div>
+<div class="block"></div><div class="clue"><div>GYŐZ<hr style="width:100%;border:0;border-top:1px solid #bbb">FÉNYKÉP</div></div><div class="clue"><span class="arr">▼</span></div><div class="clue">IMPORTA...<br>(FONTOS)</div><div class="clue"><span class="arr">▼</span></div><div class="block"></div><div class="clue">DE</div><div class="clue"><span class="arr">▼</span></div>
 
 <div class="clue">FŐSOR</div><div class="cell"><input></div><div class="shade"></div><div class="prefill">S</div><div class="shade"></div><div class="prefill">A</div><div class="clue">J...ST<br>(CSAK)</div><div class="cell"><input></div>
 
@@ -53,11 +53,11 @@ input[type=text]{font:inherit;border:1px solid #9ca3af;border-radius:8px;padding
 
 <div class="block"></div><div class="cell"><input></div><div class="clue">KINYIT</div><div class="cell"><input></div><div class="clue">LUNC...<br>(EBÉD)</div><div class="shade"></div><div class="clue">HÓ</div><div class="clue">AF...R<br>(UTÁN)</div>
 
-<div class="clue">TURISTA<br><hr style="width:100%;border:0;border-top:1px solid #bbb">FELSŐ</div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="shade"></div><div class="shade"></div><div class="shade"></div>
+<div class="clue"><div>TURISTA<hr style="width:100%;border:0;border-top:1px solid #bbb">FELSŐ</div></div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="shade"></div><div class="shade"></div><div class="shade"></div>
 
-<div class="clue"><span class="arr">▶</span></div><div class="shade"></div><div class="shade"></div><div class="clue">HUNGAR...<br>(MAGYAR-<br>ORSZÁG)</div><div class="clue">EGY<br><hr style="width:100%;border:0;border-top:1px solid #bbb">P...CIL<br>(CERUZA)</div><div class="shade"></div><div class="cell"><input></div><div class="cell"><input></div>
+<div class="clue"><span class="arr">▶</span></div><div class="shade"></div><div class="shade"></div><div class="clue">HUNGAR...<br>(MAGYAR-<br>ORSZÁG)</div><div class="clue"><div>EGY<hr style="width:100%;border:0;border-top:1px solid #bbb">P...CIL<br>(CERUZA)</div></div><div class="shade"></div><div class="cell"><input></div><div class="cell"><input></div>
 
-<div class="clue">FÉRFIAK</div><div class="clue">SZEM<br><hr style="width:100%;border:0;border-top:1px solid #bbb">GAM...<br>(JÁTÉK)</div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="clue">WOM...N<br>(NŐK)</div><div class="cell"><input></div><div class="block"></div>
+<div class="clue">FÉRFIAK</div><div class="clue"><div>SZEM<hr style="width:100%;border:0;border-top:1px solid #bbb">GAM...<br>(JÁTÉK)</div></div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="clue">WOM...N<br>(NŐK)</div><div class="cell"><input></div><div class="block"></div>
 
 <div class="clue"><span class="arr">▶</span></div><div class="shade"></div><div class="shade"></div><div class="clue">HÍR</div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div>
 </div></div>
