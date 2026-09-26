@@ -36,7 +36,7 @@ table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid v
 input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}textarea{min-height:86px}
 .taskgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
 .spellgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-.wordcard,.dictrow{background:#fafafa;border:1px solid var(--line);border-radius:14px;padding:12px}
+.wordcard,.dictrow{background:#fafafa;border:1px solid var(--line);border-radius:14px;padding:12px}.solution{margin-top:8px;padding:8px 10px;border-radius:10px;background:#fff7ed;border:1px solid #fdba74;color:#9a3412;font-weight:800}.solution.goodsol{background:#ecfdf3;border-color:#86efac;color:#166534}
 .pill{display:inline-block;border:1px solid #d1d5db;background:#f8fafc;border-radius:999px;padding:7px 10px;margin:4px;font-weight:700}
 .sortbtn{cursor:pointer}.bucket{min-height:100px;border:2px dashed #cbd5e1;border-radius:16px;padding:10px}
 .small{font-size:.92rem;color:var(--muted)}.scorebar{height:14px;background:#e5e7eb;border-radius:999px;overflow:hidden}.scorebar>div{height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#a78bfa);transition:.2s}
@@ -245,8 +245,8 @@ const words=["rézből","részből","fogadtak","fogattak","pontya","pontja","men
 allWords.textContent=words.join(", ");
 let current=[];
 function speak(t){const u=new SpeechSynthesisUtterance(t);u.lang="hu-HU";u.rate=.72;speechSynthesis.cancel();speechSynthesis.speak(u)}
-function newSpell(){current=[...words].sort(()=>Math.random()-.5).slice(0,10);spellGrid.innerHTML="";current.forEach((w,i)=>{const d=document.createElement("div");d.className="wordcard";d.innerHTML='<button class="action" type="button">🔊 '+(i+1)+'. szó</button><input autocomplete="off" placeholder="Írd le a hallott szót">';d.querySelector("button").onclick=()=>speak(w);spellGrid.appendChild(d)});completed.delete("15");correct.delete("15");spellQuiz.querySelector(".feedback").textContent="";update()}
-spellCheck.onclick=()=>{const ins=[...spellGrid.querySelectorAll("input")];let n=0;ins.forEach((x,i)=>{const ok=x.value.trim().toLowerCase()===current[i].toLowerCase();x.style.borderColor=ok?"#22c55e":"#ef4444";if(ok)n++});mark(15,n===10,spellQuiz.querySelector(".feedback"),"10/10! Hibátlan kör. ✓",n+"/10 helyes. Javítsd a pirossal jelölt szavakat!")};newWords.onclick=newSpell;newSpell();
+function newSpell(){current=[...words].sort(()=>Math.random()-.5).slice(0,10);spellGrid.innerHTML="";current.forEach((w,i)=>{const d=document.createElement("div");d.className="wordcard";d.innerHTML='<button class="action" type="button">🔊 '+(i+1)+'. szó</button><input autocomplete="off" placeholder="Írd le a hallott szót"><div class="solution" style="display:none"></div>';d.querySelector("button").onclick=()=>speak(w);spellGrid.appendChild(d)});completed.delete("15");correct.delete("15");spellQuiz.querySelector(".feedback").textContent="";update()}
+spellCheck.onclick=()=>{const cards=[...spellGrid.querySelectorAll(".wordcard")];let n=0;cards.forEach((card,i)=>{const x=card.querySelector("input"),sol=card.querySelector(".solution");const ok=x.value.trim().toLowerCase()===current[i].toLowerCase();x.style.borderColor=ok?"#22c55e":"#ef4444";sol.style.display="block";sol.className="solution "+(ok?"goodsol":"");sol.textContent=ok?"✓ Helyes: "+current[i]:"Helyes megoldás: "+current[i];if(ok)n++});mark(15,n===10,spellQuiz.querySelector(".feedback"),"10/10! Hibátlan kör. ✓",n+"/10 helyes. A hibás szavaknál kiírtam a helyes megoldást.")};newWords.onclick=newSpell;newSpell();
 
 const sentences=[
 "A kommunikáció során a feladó üzenetet küld a címzettnek.",
@@ -255,10 +255,10 @@ const sentences=[
 "A piros ég alja természetes jel, a közlekedési lámpa mesterséges jel.",
 "Alíz délután apukájával horgászni indult."
 ];
-dictRows.innerHTML=sentences.map((s,i)=>'<div class="dictrow"><button class="action" type="button" data-i="'+i+'">🔊 '+(i+1)+'. mondat</button><input placeholder="Írd le pontosan a mondatot"></div>').join("");
+dictRows.innerHTML=sentences.map((s,i)=>'<div class="dictrow"><button class="action" type="button" data-i="'+i+'">🔊 '+(i+1)+'. mondat</button><input placeholder="Írd le pontosan a mondatot"><div class="solution" style="display:none"></div></div>').join("");
 dictRows.querySelectorAll("button").forEach(b=>b.onclick=()=>speak(sentences[+b.dataset.i]));
 function norm(s){return s.trim().toLowerCase().replace(/\s+/g," ")}
-dictCheck.onclick=()=>{let n=0;[...dictRows.querySelectorAll("input")].forEach((x,i)=>{const ok=norm(x.value)===norm(sentences[i]);x.style.borderColor=ok?"#22c55e":"#ef4444";if(ok)n++});mark(19,n===5,dictQuiz.querySelector(".feedback"),"Mind az 5 mondat pontos! ✓",n+"/5 mondat hibátlan. A piros sorokat javítsd!")};
+dictCheck.onclick=()=>{let n=0;const rows=[...dictRows.querySelectorAll(".dictrow")];rows.forEach((row,i)=>{const x=row.querySelector("input"),sol=row.querySelector(".solution");const ok=norm(x.value)===norm(sentences[i]);x.style.borderColor=ok?"#22c55e":"#ef4444";sol.style.display="block";sol.className="solution "+(ok?"goodsol":"");sol.textContent=ok?"✓ A mondat hibátlan.":"Helyes megoldás: "+sentences[i];if(ok)n++});mark(19,n===5,dictQuiz.querySelector(".feedback"),"Mind az 5 mondat pontos! ✓",n+"/5 mondat hibátlan. A hibás sorok alatt kiírtam a helyes mondatot.")};
 
 showSample.onclick=()=>{sample.style.display="block";const ok=finalText.value.trim().length>=30;mark(24,ok,finalTask.querySelector(".feedback"),"Megfogalmaztál egy érdemi választ. Hasonlítsd össze a mintával! ✓","Előbb írj legalább 2 mondatos saját választ, utána nézd meg a mintát.")};
 update();
