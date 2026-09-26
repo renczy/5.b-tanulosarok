@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kommunikáció – teljes dolgozati felkészítő</title>
+<style>
+:root{
+  --bg:#f7f7fb;--card:#fff;--ink:#172033;--muted:#667085;--line:#e6e8ef;
+  --violet:#6d28d9;--orange:#d97706;--green:#15803d;--red:#b42318;
+  --blue:#e8f4ff;--yellow:#fff6cc;--pink:#fdeaf0;--mint:#eaf8ef;--lav:#f0eafe;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#ede9fe 0,#f8fafc 360px);color:var(--ink);line-height:1.55}
+.wrap{max-width:1100px;margin:auto;padding:28px 18px 70px}
+.back{display:inline-block;text-decoration:none;color:var(--violet);font-weight:800;margin-bottom:18px}
+.hero,.card,.quiz{background:white;border:1px solid var(--line);border-radius:24px;box-shadow:0 10px 30px rgba(16,24,40,.06)}
+.hero{padding:30px}.eyebrow{font-weight:900;color:var(--violet);text-transform:uppercase;letter-spacing:.05em;font-size:.82rem}
+h1{font-size:clamp(2.1rem,6vw,4rem);line-height:1;margin:.45rem 0 .8rem}
+h2{font-size:1.7rem;margin:0 0 12px}h3{margin:.2rem 0 .5rem}
+.lead,.muted{color:var(--muted)}
+.date{display:inline-block;margin-top:10px;background:#fff6cc;padding:8px 12px;border-radius:999px;font-weight:900}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 28px}
+nav a{text-decoration:none;color:inherit;background:white;border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-weight:800}
+section{margin:24px 0}.card,.quiz{padding:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.box{border:1px solid var(--line);border-radius:18px;padding:16px}.blue{background:var(--blue)}.yellow{background:var(--yellow)}.pink{background:var(--pink)}.mint{background:var(--mint)}.lav{background:var(--lav)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:18px 0}.node{padding:12px 14px;background:#f8fafc;border:1px solid var(--line);border-radius:15px;font-weight:900}.arrow{font-weight:900;color:var(--orange)}
+.tip{border-left:6px solid var(--orange);background:#fff7ed;padding:14px 16px;border-radius:14px;margin:14px 0}
+.rule{border-left:6px solid var(--violet);background:#faf5ff;padding:14px 16px;border-radius:14px;margin:14px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{background:#f8fafc}
+.choice{display:block;width:100%;text-align:left;margin:8px 0;padding:12px;border-radius:12px;border:1px solid #d1d5db;background:white;font:inherit;font-weight:700;cursor:pointer}
+.choice:hover{background:#fafafa}.choice.good{background:#ecfdf3;border-color:#86efac}.choice.bad{background:#fff1f2;border-color:#fda4af}
+.feedback{min-height:24px;font-weight:800;margin-top:8px}.ok{color:var(--green)}.no{color:var(--red)}
+.action{border:0;background:var(--violet);color:white;padding:10px 14px;border-radius:11px;font-weight:900;cursor:pointer}.secondary{background:#475569}
+input,select,textarea{width:100%;padding:10px;border:1px solid #cbd5e1;border-radius:10px;font:inherit}textarea{min-height:86px}
+.taskgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.spellgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.wordcard,.dictrow{background:#fafafa;border:1px solid var(--line);border-radius:14px;padding:12px}
+.pill{display:inline-block;border:1px solid #d1d5db;background:#f8fafc;border-radius:999px;padding:7px 10px;margin:4px;font-weight:700}
+.sortbtn{cursor:pointer}.bucket{min-height:100px;border:2px dashed #cbd5e1;border-radius:16px;padding:10px}
+.small{font-size:.92rem;color:var(--muted)}.scorebar{height:14px;background:#e5e7eb;border-radius:999px;overflow:hidden}.scorebar>div{height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#a78bfa);transition:.2s}
+.sticky-score{position:sticky;top:8px;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:10px 14px;box-shadow:0 8px 24px rgba(16,24,40,.08)}
+details{border:1px solid var(--line);border-radius:16px;padding:12px 14px;background:#fff;margin:10px 0}summary{font-weight:900;cursor:pointer}
+code.k{font-family:inherit;background:#f3f4f6;border-radius:8px;padding:2px 6px;font-weight:900}
+@media(max-width:700px){.wrap{padding:18px 12px 50px}.hero,.card,.quiz{padding:17px}table{font-size:.92rem}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="back" href="./">← Vissza a nyelvtanhoz</a>
+
+<section class="hero">
+<div class="eyebrow">Új • részletes felkészítő • könyv alapján</div>
+<h1>Kommunikáció – teljes dolgozati felkészítő</h1>
+<p class="lead">Ez az oldal kifejezetten a tanár által megadott dolgozati témák szerint készült, a tankönyv és a munkafüzet fogalmait, elnevezéseit és példatípusait követve.</p>
+<span class="date">Írásbeli dolgozat: 09. 28.</span>
+</section>
+
+<div class="sticky-score">
+<div><b>Gyakorlás:</b> <span id="done">0</span>/24 feladat kész • <b><span id="score">0</span> pont</b></div>
+<div class="scorebar"><div id="scorebar"></div></div>
+</div>
+
+<nav>
+<a href="#tananyag">Tanulnivaló</a><a href="#tenyezok">Tényezők</a><a href="#celok">Célok</a><a href="#nemnyelvi">Gesztus–mimika–térköz</a><a href="#jelek">Jelek</a><a href="#helyesiras">73. oldal</a><a href="#tollbamondas">Tollbamondás</a><a href="#proba">Próbadolgozat</a>
+</nav>
+
+<section id="tananyag" class="card">
+<h2>0. Mit kell biztosan tudni?</h2>
+<div class="grid">
+<div class="box lav"><h3>Kommunikáció</h3><p>A tankönyv szerint ma főként <b>az információk cseréjét, a tájékoztatást, a közlést</b> értjük rajta.</p></div>
+<div class="box blue"><h3>Tényezők</h3><p>Feladó, címzett, üzenet, kód/jelrendszer, csatorna, beszédhelyzet, zaj, visszajelzés; a tankönyvi ábrán a valóság is megjelenik.</p></div>
+<div class="box yellow"><h3>Célok</h3><p>Tájékoztatás, kérdés, kérés, utasítás/felszólítás, kapcsolattartás, érzelemkifejezés.</p></div>
+<div class="box pink"><h3>Nem nyelvi jelek</h3><p>Gesztus, mimika, térköz – valamint tekintet, testtartás, hangsúly, hangerő, hanglejtés, beszédtempó, szünet, csend.</p></div>
+<div class="box mint"><h3>Jelek</h3><p>Természetes és mesterséges jelek. A mesterséges jeleket az emberek alkotják; sokszor meg kell tanulni a jelentésüket.</p></div>
+<div class="box lav"><h3>Helyesírás</h3><p>A tankönyv 73. oldalának szóanyaga: ebből lesz 10 véletlenszerű szó.</p></div>
+</div>
+</section>
+
+<section id="tenyezok" class="card">
+<h2>1. A kommunikáció tényezői – komolyan, de érthetően</h2>
+<p>A tankönyv összefoglalása szerint az emberek közötti közlésfolyamat neve <b>kommunikáció</b>. Az üzenet küldője a <b>feladó</b>, befogadója a <b>címzett</b>. A közösen használt kifejezőeszközök rendszere a <b>kód</b> vagy <b>jelrendszer</b>. Az üzenet a <b>csatornán</b> jut el a címzetthez. A zavaró hatás <b>kommunikációs zaj</b>, a közlés körülményei pedig a <b>beszédhelyzet</b>.</p>
+<div class="flow">
+<div class="node">👤 FELADÓ</div><div class="arrow">→</div><div class="node">💬 ÜZENET</div><div class="arrow">→</div><div class="node">👤 CÍMZETT</div>
+</div>
+<table>
+<tr><th>Fogalom</th><th>Mit jelent?</th><th>Példa</th></tr>
+<tr><td><b>Feladó / beszélő</b></td><td>Aki az üzenetet küldi.</td><td>Anya szól Alíznak.</td></tr>
+<tr><td><b>Címzett / hallgató</b></td><td>Aki az üzenetet fogadja.</td><td>Alíz hallgatja anyát.</td></tr>
+<tr><td><b>Üzenet / közlemény</b></td><td>Amit közölni szeretnénk.</td><td>„Öt órára gyere haza!”</td></tr>
+<tr><td><b>Kód / jelrendszer</b></td><td>A közösen ismert kifejezőeszközök rendszere.</td><td>A magyar nyelv.</td></tr>
+<tr><td><b>Csatorna</b></td><td>Az út, amelyen az üzenet eljut.</td><td>Levegő, telefon, internet.</td></tr>
+<tr><td><b>Beszédhelyzet</b></td><td>Az üzenetváltás körülményei.</td><td>Otthon, telefonon, este.</td></tr>
+<tr><td><b>Zaj</b></td><td>Ami zavarja az üzenet megértését.</td><td>Recsegő telefonvonal.</td></tr>
+<tr><td><b>Visszajelzés</b></td><td>A címzett reakciója.</td><td>„Rendben, ott leszek.”</td></tr>
+</table>
+<div class="rule"><b>Nagyon fontos:</b> beszélgetésben a feladó és a címzett szerepe folyamatosan cserélődhet.</div>
+</section>
+
+<section class="quiz mcq" data-id="1" data-answer="b"><h2>1. gyakorlat – feladó</h2><p><b>„Peti, idehoznád a füzeted?”</b> Ki a feladó?</p><button class="choice" data-v="a">Peti.</button><button class="choice" data-v="b">Aki a mondatot kimondta.</button><button class="choice" data-v="c">A füzet.</button><div class="feedback"></div></section>
+
+<section class="quiz mcq" data-id="2" data-answer="c"><h2>2. gyakorlat – csatorna</h2><p>Alíz telefonon beszél a nagymamájával. Mi a csatorna?</p><button class="choice" data-v="a">Alíz.</button><button class="choice" data-v="b">Az üzenet.</button><button class="choice" data-v="c">A telefon.</button><div class="feedback"></div></section>
+
+<section class="quiz mcq" data-id="3" data-answer="a"><h2>3. gyakorlat – zaj</h2><p>Melyik példa kommunikációs zaj?</p><button class="choice" data-v="a">Recseg a telefon, ezért csak szófoszlányokat hallani.</button><button class="choice" data-v="b">A címzett visszakérdez.</button><button class="choice" data-v="c">Mindketten ugyanazt a nyelvet beszélik.</button><div class="feedback"></div></section>
+
+<section class="quiz" data-id="4" id="factorTask">
+<h2>4. gyakorlat – elemezd a helyzetet!</h2>
+<p><b>Apa üzenetet ír Alíznak: „Délután négykor indulunk horgászni.”</b></p>
+<div class="taskgrid">
+<label>Feladó<input id="fa1"></label><label>Címzett<input id="fa2"></label><label>Csatorna<input id="fa3"></label><label>Üzenet<input id="fa4"></label>
+</div>
+<p><button class="action" id="factorCheck">Ellenőrzés</button></p><div class="feedback"></div>
+</section>
+
+<section id="celok" class="card">
+<h2>2. A kommunikáció céljai</h2>
+<p>A tankönyv a következő fő célokat különíti el:</p>
+<table>
+<tr><th>Cél</th><th>Tankönyvszerű példa</th><th>Felismerési kulcs</th></tr>
+<tr><td><b>Tájékoztatás</b></td><td>„Leesett a hó.”</td><td>Hírt ad, közöl valamit.</td></tr>
+<tr><td><b>Kérdés</b></td><td>„Régóta esik?”</td><td>Választ, információt vár.</td></tr>
+<tr><td><b>Kérés / utasítás / felszólítás</b></td><td>„Vegyél sapkát!”</td><td>A másik tegyen meg valamit.</td></tr>
+<tr><td><b>Kapcsolattartás</b></td><td>„Szia!” „Köszönöm!” „Viszontlátásra!”</td><td>Kapcsolat felvétele, fenntartása vagy lezárása.</td></tr>
+<tr><td><b>Érzelemkifejezés</b></td><td>„Végre, hó esett!”</td><td>Érzést, hangulatot fejez ki.</td></tr>
+</table>
+<div class="tip"><b>Figyelj:</b> ugyanaz a mondat más beszédhelyzetben más célt is szolgálhat. A tankönyv erre a „No, megjöttél?” mondattal mutat példát: lehet tudakozódás, meglepetés vagy felszólítás is.</div>
+</section>
+
+<section class="quiz mcq" data-id="5" data-answer="a"><h2>5. gyakorlat</h2><p>„Hol van a kulcsom?”</p><button class="choice" data-v="a">Kérdés / információszerzés.</button><button class="choice" data-v="b">Kapcsolattartás.</button><button class="choice" data-v="c">Tájékoztatás.</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="6" data-answer="c"><h2>6. gyakorlat</h2><p>„Nagyon örülök, hogy sikerült!”</p><button class="choice" data-v="a">Utasítás.</button><button class="choice" data-v="b">Tájékoztatás.</button><button class="choice" data-v="c">Érzelemkifejezés.</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="7" data-answer="b"><h2>7. gyakorlat</h2><p>„Kérlek, csukd be az ablakot!”</p><button class="choice" data-v="a">Érzelemkifejezés.</button><button class="choice" data-v="b">Kérés.</button><button class="choice" data-v="c">Kapcsolattartás.</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="8" data-answer="c"><h2>8. gyakorlat</h2><p>„Jó reggelt! Szia!”</p><button class="choice" data-v="a">Tájékoztatás.</button><button class="choice" data-v="b">Kérdés.</button><button class="choice" data-v="c">Kapcsolattartás.</button><div class="feedback"></div></section>
+
+<section id="nemnyelvi" class="card">
+<h2>3. Gesztus, mimika, térköz</h2>
+<p>A tankönyv szerint a szavak nélkül közvetített jelek önmagukban is lehetnek üzenetek, illetve <b>pontosíthatják vagy módosíthatják</b> a kimondott szavak értelmét.</p>
+<div class="grid">
+<div class="box yellow"><h3>🤲 Gesztus</h3><p>A tankönyv megfogalmazása szerint sokféle <b>kézmozdulat</b>. A testbeszéd része.</p><p><b>Példa:</b> integetés, hüvelykujj felmutatása.</p></div>
+<div class="box pink"><h3>🙂 Mimika</h3><p><b>Arcjáték, arckifejezés.</b> Az arc jelezheti, mit gondolunk vagy érzünk.</p><p><b>Példa:</b> mosoly, szemöldök összehúzása.</p></div>
+<div class="box blue"><h3>↔️ Térköz</h3><p>Az, hogy <b>közelítünk vagy elhúzódunk valakitől</b>, vagyis milyen távolságot tartunk.</p></div>
+</div>
+<p><b>További nem nyelvi jelek a könyvben:</b> testtartás, tekintet, hangsúly, hangerő, hanglejtés, beszédtempó, szünet, csend.</p>
+</section>
+
+<section class="quiz mcq" data-id="9" data-answer="b"><h2>9. gyakorlat</h2><p>Valaki összehúzza a szemöldökét. Ez leginkább melyik?</p><button class="choice" data-v="a">Térköz.</button><button class="choice" data-v="b">Mimika.</button><button class="choice" data-v="c">Csatorna.</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="10" data-answer="a"><h2>10. gyakorlat</h2><p>Valaki integet a kezével.</p><button class="choice" data-v="a">Gesztus.</button><button class="choice" data-v="b">Térköz.</button><button class="choice" data-v="c">Zaj.</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="11" data-answer="c"><h2>11. gyakorlat</h2><p>Beszélgetés közben valaki hátrébb lép a másiktól.</p><button class="choice" data-v="a">Mimika.</button><button class="choice" data-v="b">Kód.</button><button class="choice" data-v="c">Térköz.</button><div class="feedback"></div></section>
+
+<section id="jelek" class="card">
+<h2>4. Jelek fajtái: természetes és mesterséges</h2>
+<div class="grid">
+<div class="box mint"><h3>🌿 Természetes jelek</h3><p>A könyv szerint ezeket az emberek <b>megfigyelték</b>. Nem az ember alkotta őket.</p><p><b>Példák a könyv és munkafüzet alapján:</b> savanyú, rossz szagú tej; piros ég alja; láz; döngicsélés.</p></div>
+<div class="box blue"><h3>🚦 Mesterséges jelek</h3><p>Ezeket az <b>emberek alkotják</b>, és sok esetben meg kell tanulni a jelentésüket.</p><p><b>Példák:</b> közlekedési lámpa, %, hangulatjelek.</p></div>
+</div>
+<div class="tip"><b>Kétféle kérdés lehet!</b> A tankönyv külön szempontként vizsgálja azt is, hogy egy jel jelentése mindenki számára érthető-e, vagy meg kell tanulni.</div>
+</section>
+
+<section class="quiz mcq" data-id="12" data-answer="a"><h2>12. gyakorlat</h2><p>Melyik természetes jel?</p><button class="choice" data-v="a">Láz.</button><button class="choice" data-v="b">Százalékjel.</button><button class="choice" data-v="c">Közlekedési lámpa.</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="13" data-answer="c"><h2>13. gyakorlat</h2><p>Melyik mesterséges jel?</p><button class="choice" data-v="a">Piros ég alja.</button><button class="choice" data-v="b">Savanyú, rossz szagú tej.</button><button class="choice" data-v="c">Közlekedési lámpa.</button><div class="feedback"></div></section>
+
+<section class="quiz" data-id="14" id="sortBox">
+<h2>14. gyakorlat – válogasd szét!</h2>
+<div id="chips"></div>
+<div class="grid"><div class="bucket" data-kind="term"><h3>🌿 Természetes</h3></div><div class="bucket" data-kind="mest"><h3>🚦 Mesterséges</h3></div></div>
+<p><button class="action" id="sortCheck">Ellenőrzés</button> <button class="action secondary" id="sortReset">Újrakezdés</button></p><div class="feedback"></div>
+</section>
+
+<section id="helyesiras" class="card">
+<h2>5. Helyesírás – a tankönyv 73. oldala</h2>
+<p>A tanár közlése szerint <b>10 szó lesz véletlenszerűen kiválasztva a 73. oldal szóanyagából</b>. Ezért a gyakorló nem egy fix tízes listát használ, hanem az oldal teljes szóanyagából választ.</p>
+<details open><summary>Mitől nehéz ez az oldal?</summary><p>Van benne j–ly, hosszú és rövid magánhangzó, mássalhangzó-kapcsolat, szóelemző írásmód, tulajdonnév, kettőzés, toldalékolás és több olyan alak, amelyet hallás után könnyű elrontani.</p></details>
+<details><summary>A 73. oldal teljes szóanyagának megtekintése</summary><p class="small" id="allWords"></p></details>
+</section>
+
+<section class="quiz" data-id="15" id="spellQuiz">
+<h2>15. gyakorlat – véletlen 10 szó</h2>
+<p class="muted">🔊 Hallgasd meg, írd le, majd ellenőrizd. Minden új kör másik 10 szót választ a 73. oldalról.</p>
+<div class="spellgrid" id="spellGrid"></div>
+<p><button class="action" id="spellCheck">Mindet ellenőrzöm</button> <button class="action secondary" id="newWords">Új 10 szó</button></p><div class="feedback"></div>
+</section>
+
+<section class="quiz mcq" data-id="16" data-answer="b"><h2>16. gyakorlat – j vagy ly?</h2><p>Melyik szó helyes?</p><button class="choice" data-v="a">gója</button><button class="choice" data-v="b">gólya</button><button class="choice" data-v="c">gójja</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="17" data-answer="c"><h2>17. gyakorlat – kettőzés</h2><p>Melyik szó helyes?</p><button class="choice" data-v="a">géppel</button><button class="choice" data-v="b">gépel</button><button class="choice" data-v="c">Mindkettő helyes szó, de mást jelent.</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="18" data-answer="a"><h2>18. gyakorlat – tulajdonnév</h2><p>Melyik alak szerepel a 73. oldalon?</p><button class="choice" data-v="a">Széchenyi</button><button class="choice" data-v="b">Szécsényi</button><button class="choice" data-v="c">Széchényi</button><div class="feedback"></div></section>
+
+<section id="tollbamondas" class="card">
+<h2>6. Tollbamondás – 5 mondat</h2>
+<p>A tanár a konkrét mondatokat nem adta meg, ezért itt <b>gyakorló mondatok</b> vannak. Ezek célja a pontos hallás utáni írás, a nagybetű, az írásjelek és a tanult helyesírási nehézségek gyakorlása.</p>
+<div class="tip"><b>Jó módszer:</b> először egyben hallgasd meg a mondatot, másodszor rövidebb egységekben írd le, végül harmadszor ellenőrzésként hallgasd meg újra.</div>
+</section>
+
+<section class="quiz" data-id="19" id="dictQuiz">
+<h2>19. gyakorlat – 5 mondatos tollbamondás</h2>
+<div id="dictRows"></div><p><button class="action" id="dictCheck">Ellenőrzés</button></p><div class="feedback"></div>
+</section>
+
+<section id="proba" class="card">
+<h2>7. Rövid próbadolgozat</h2>
+<p>Az alábbi feladatokat segítség nélkül oldd meg. Ezek már vegyesen kérdeznek a teljes dolgozati anyagból.</p>
+</section>
+
+<section class="quiz mcq" data-id="20" data-answer="c"><h2>20. próbakérdés</h2><p>Mi a kód a kommunikációban?</p><button class="choice" data-v="a">A zavaró háttérhang.</button><button class="choice" data-v="b">A címzett reakciója.</button><button class="choice" data-v="c">A közösen használt jelrendszer, például a nyelv.</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="21" data-answer="b"><h2>21. próbakérdés</h2><p>„Köszönöm, hogy segítettél!” – melyik cél áll hozzá a legközelebb?</p><button class="choice" data-v="a">Utasítás.</button><button class="choice" data-v="b">Kapcsolattartás.</button><button class="choice" data-v="c">Kérdés.</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="22" data-answer="a"><h2>22. próbakérdés</h2><p>A kézmozdulat neve:</p><button class="choice" data-v="a">gesztus</button><button class="choice" data-v="b">mimika</button><button class="choice" data-v="c">térköz</button><div class="feedback"></div></section>
+<section class="quiz mcq" data-id="23" data-answer="c"><h2>23. próbakérdés</h2><p>Melyik állítás igaz?</p><button class="choice" data-v="a">A mesterséges jeleket a természet hozza létre.</button><button class="choice" data-v="b">A természetes jeleket mindig meg kell tanulni.</button><button class="choice" data-v="c">A mesterséges jeleket az emberek alkotják.</button><div class="feedback"></div></section>
+
+<section class="quiz" data-id="24" id="finalTask">
+<h2>24. próbakérdés – saját megfogalmazás</h2>
+<p>Írd le 2–3 mondatban: <b>miért fontos, hogy a feladó és a címzett ugyanazt a kódot ismerje?</b></p>
+<textarea id="finalText" placeholder="Írd ide a válaszodat..."></textarea>
+<p><button class="action" id="showSample">Mutass mintaválaszt</button></p>
+<div id="sample" class="tip" style="display:none"><b>Mintaválasz:</b> A feladónak és a címzettnek ismernie kell ugyanazt a kódot vagy jelrendszert, különben a címzett nem tudja helyesen értelmezni az üzenetet. Például ha két ember nem érti egymás nyelvét, az üzenet könnyen félreérthető.</div>
+<div class="feedback"></div>
+</section>
+
+<section class="card">
+<h2>Utolsó ellenőrzőlista</h2>
+<p>☐ Fel tudom sorolni és példával magyarázni a kommunikáció tényezőit.<br>
+☐ Mondatról fel tudom ismerni a kommunikáció célját.<br>
+☐ Tudom: gesztus = kézmozdulat, mimika = arcjáték, térköz = távolság szabályozása.<br>
+☐ Biztosan megkülönböztetem a természetes és mesterséges jeleket.<br>
+☐ Legalább 3–4 kört megcsináltam a véletlen 10 szavas helyesírásból.<br>
+☐ Megírtam legalább kétszer az 5 mondatos tollbamondást.</p>
+</section>
+
+</main>
+<script>
+const total=24, completed=new Set(), correct=new Set();
+const doneEl=document.getElementById("done"),scoreEl=document.getElementById("score"),barEl=document.getElementById("scorebar");
+function update(){doneEl.textContent=completed.size;scoreEl.textContent=correct.size;barEl.style.width=(completed.size/total*100)+"%"}
+function mark(id,ok,fb,yes="Helyes! ✓",no="Még nem jó. Próbáld újra!"){completed.add(String(id));ok?correct.add(String(id)):correct.delete(String(id));fb.textContent=ok?yes:no;fb.className="feedback "+(ok?"ok":"no");update()}
+document.querySelectorAll(".mcq").forEach(box=>{const id=box.dataset.id,ans=box.dataset.answer,fb=box.querySelector(".feedback");box.querySelectorAll(".choice").forEach(btn=>btn.onclick=()=>{box.querySelectorAll(".choice").forEach(b=>b.classList.remove("good","bad"));const ok=btn.dataset.v===ans;btn.classList.add(ok?"good":"bad");mark(id,ok,fb)})});
+
+factorCheck.onclick=()=>{const n=s=>s.trim().toLowerCase();const ok=n(fa1.value).includes("apa")&&n(fa2.value).includes("alíz")&&(n(fa3.value).includes("üzenet")||n(fa3.value).includes("telefon")||n(fa3.value).includes("internet"))&&n(fa4.value).includes("négy")&&n(fa4.value).includes("horgász");mark(4,ok,factorTask.querySelector(".feedback"),"Jó elemzés! ✓","Ellenőrizd: feladó = apa, címzett = Alíz, csatorna = üzenet/telefon/internet, üzenet = négykor indulnak horgászni.")};
+
+const signs=[["láz","term"],["döngicsélés","term"],["piros ég alja","term"],["savanyú, rossz szagú tej","term"],["közlekedési lámpa","mest"],["% jel","mest"],["emoji","mest"],["közlekedési tábla","mest"]];
+let sel=null;
+function initSort(){chips.innerHTML="";document.querySelectorAll(".bucket .sortbtn").forEach(x=>x.remove());signs.forEach(([t,k])=>{const b=document.createElement("button");b.className="pill sortbtn";b.textContent=t;b.dataset.kind=k;b.onclick=()=>{sel=b;document.querySelectorAll(".sortbtn").forEach(x=>x.style.outline="");b.style.outline="3px solid #a78bfa"};chips.appendChild(b)})}
+document.querySelectorAll(".bucket").forEach(bucket=>bucket.onclick=()=>{if(!sel)return;sel.style.outline="";bucket.appendChild(sel);sel=null});
+sortCheck.onclick=()=>{let ok=true,count=0;document.querySelectorAll(".bucket .sortbtn").forEach(b=>{count++;if(b.dataset.kind!==b.parentElement.dataset.kind)ok=false});if(count!==signs.length)ok=false;mark(14,ok,sortBox.querySelector(".feedback"),"Minden jel jó helyen van! ✓","Van még rossz helyen lévő vagy be nem sorolt jel.")};
+sortReset.onclick=()=>{completed.delete("14");correct.delete("14");sortBox.querySelector(".feedback").textContent="";initSort();update()};initSort();
+
+const words=["rézből","részből","fogadtak","fogattak","pontya","pontja","menj","meny","bója","gólya","furulya","Eötvös","bontja","barátságos","hagyja","gépel","géppel","haja","hallja","látszik","szebbre","fáradt","otthon","bükkel","zamárdi","dió","hajó","alku","erdő","borjú","betű","bábu","gömbölyű","keserű","anyu","hegedül","savanyúság","sí","kicsi","rí","bácsi","szelídít","szívtelen","űrből","víz","vízi","vizes","tüzes","tűzből","úti","utazó","zsíros","zsiradék","tízes","tized","huszadik","húsz","bújik","bujdokol","simán","szolid","dicsérget","irigykedik","biológia","anyja","vízszint","község","azonban","hagyjuk","egyszerre","álljon","egészségház","kertjében","adsz","barátság","akadjon","arccal","rövidebbre","szebbre","hallgatja","mindnyájan","ajánljuk","rajzszög","kisebb","ezt sem","utána","minél","király","szabály","Wesselényi","lyukas","Eötvös","folyjon","befejez","Batthyány","kályha","kardja","Széchenyi","megfojtja","elfolyik","saját","Dessewffy","muszáj","rejtély","új","ujjal","Kossuth","fogoly","golyó","uszály","gólya","mulya","papagáj","edző","súlyos","mély","máj","akadály","karvaly","bója","eddzétek","lássátok","üsse","alkossa","visszük","húzzad","lánnyal","székkel","naggyá","vízzé","méhhel","sahhal","juhvá","efféle","abból","ettől","ahhoz","azzá","evvel","sakkal","sakk-kör","bükkel","kulcscsomó","Mariann-nal","észszerű","Bernadett-től","nagyobban","füttyel","rossz-szívű","nagygyűlés","Kodállyal"];
+allWords.textContent=words.join(", ");
+let current=[];
+function speak(t){const u=new SpeechSynthesisUtterance(t);u.lang="hu-HU";u.rate=.72;speechSynthesis.cancel();speechSynthesis.speak(u)}
+function newSpell(){current=[...words].sort(()=>Math.random()-.5).slice(0,10);spellGrid.innerHTML="";current.forEach((w,i)=>{const d=document.createElement("div");d.className="wordcard";d.innerHTML='<button class="action" type="button">🔊 '+(i+1)+'. szó</button><input autocomplete="off" placeholder="Írd le a hallott szót">';d.querySelector("button").onclick=()=>speak(w);spellGrid.appendChild(d)});completed.delete("15");correct.delete("15");spellQuiz.querySelector(".feedback").textContent="";update()}
+spellCheck.onclick=()=>{const ins=[...spellGrid.querySelectorAll("input")];let n=0;ins.forEach((x,i)=>{const ok=x.value.trim().toLowerCase()===current[i].toLowerCase();x.style.borderColor=ok?"#22c55e":"#ef4444";if(ok)n++});mark(15,n===10,spellQuiz.querySelector(".feedback"),"10/10! Hibátlan kör. ✓",n+"/10 helyes. Javítsd a pirossal jelölt szavakat!")};newWords.onclick=newSpell;newSpell();
+
+const sentences=[
+"A kommunikáció során a feladó üzenetet küld a címzettnek.",
+"A rossz telefonvonal kommunikációs zajt okozhat.",
+"A mosoly a mimika egyik könnyen felismerhető példája.",
+"A piros ég alja természetes jel, a közlekedési lámpa mesterséges jel.",
+"Alíz délután apukájával horgászni indult."
+];
+dictRows.innerHTML=sentences.map((s,i)=>'<div class="dictrow"><button class="action" type="button" data-i="'+i+'">🔊 '+(i+1)+'. mondat</button><input placeholder="Írd le pontosan a mondatot"></div>').join("");
+dictRows.querySelectorAll("button").forEach(b=>b.onclick=()=>speak(sentences[+b.dataset.i]));
+function norm(s){return s.trim().toLowerCase().replace(/\s+/g," ")}
+dictCheck.onclick=()=>{let n=0;[...dictRows.querySelectorAll("input")].forEach((x,i)=>{const ok=norm(x.value)===norm(sentences[i]);x.style.borderColor=ok?"#22c55e":"#ef4444";if(ok)n++});mark(19,n===5,dictQuiz.querySelector(".feedback"),"Mind az 5 mondat pontos! ✓",n+"/5 mondat hibátlan. A piros sorokat javítsd!")};
+
+showSample.onclick=()=>{sample.style.display="block";const ok=finalText.value.trim().length>=30;mark(24,ok,finalTask.querySelector(".feedback"),"Megfogalmaztál egy érdemi választ. Hasonlítsd össze a mintával! ✓","Előbb írj legalább 2 mondatos saját választ, utána nézd meg a mintát.")};
+update();
+</script>
+</body>
+</html>
