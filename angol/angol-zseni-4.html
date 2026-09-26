@@ -4,108 +4,76 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Angol zseni – 4. rész | 5.b Tanulósarok</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f3f4f6;color:#111827}
-.wrap{max-width:1100px;margin:auto;padding:22px 14px 56px}.back{display:inline-block;text-decoration:none;color:#374151;font-weight:800;margin-bottom:16px}
-.hero{background:#fff;border:1px solid #d1d5db;border-radius:20px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.05)}
-.hero h1{margin:.12rem 0 .35rem;font-size:clamp(2rem,6vw,3.1rem)}.hero p{margin:.35rem 0;color:#4b5563}.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#f3f4f6;border:1px solid #d1d5db;font-weight:800}
-.section{background:#fff;border:1px solid #d1d5db;border-radius:18px;padding:18px;margin-top:18px;box-shadow:0 8px 20px rgba(0,0,0,.04)}
-.section h2{margin:0 0 10px}.small{color:#6b7280;font-size:.93rem}.feedback{font-weight:800;margin-top:10px}.ok{color:#166534}.bad{color:#b91c1c}
-button{border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer;background:#374151;color:#fff;margin:8px 6px 0 0}button.alt{background:#e5e7eb;color:#111827}
-.boardwrap{overflow-x:auto;padding:4px 0 10px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}.board{display:grid;grid-template-columns:repeat(8,78px);grid-auto-rows:70px;gap:0;width:624px;min-width:624px;margin:0;border:2px solid #374151;background:#374151}
-.cell,.clue,.block,.shade,.prefill{border-right:1px solid #6b7280;border-bottom:1px solid #6b7280}
-.cell{background:#fff;display:flex;align-items:center;justify-content:center}.cell input{width:100%;height:100%;border:0;outline:none;text-align:center;text-transform:uppercase;font:900 1.3rem/1 system-ui;background:transparent}
-.shade{background:#d1d5db}.block{background:#e5e7eb;position:relative}.block:before,.block:after{content:"";position:absolute;left:8px;right:8px;top:34px;height:1.5px;background:#6b7280;transform:rotate(45deg)}.block:after{transform:rotate(-45deg)}
-.clue{background:#efefef;padding:5px 5px;font-size:.68rem;font-weight:800;line-height:1.08;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;overflow-wrap:normal;word-break:normal;hyphens:none}.clue hr{margin:3px 0}.arr{position:absolute;right:3px;top:2px;font-size:.8rem}
-.prefill{background:#cfcfcf;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900}
-.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}.group{background:#f9fafb;border:1px solid #e5e7eb;border-radius:14px;padding:14px}.group h3{margin:.1rem 0 .6rem;font-size:1.03rem}
-.q{padding:8px 0;border-top:1px solid #eceff3}.q:first-child{border-top:0}label{display:block;font-weight:700;margin-bottom:4px}
-input[type=text]{font:inherit;border:1px solid #9ca3af;border-radius:8px;padding:8px 10px;max-width:100%;width:180px;text-transform:lowercase;background:#fff}
-.good{background:#dcfce7!important}.wrong{background:#fee2e2!important}.final{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:14px}
-@media(max-width:640px){
-  .wrap{padding:14px 10px 44px}
-  .section{padding:14px}
-  .boardwrap{margin:0 -2px;overflow-x:auto}
-  .board{grid-template-columns:repeat(8,78px);grid-auto-rows:70px;width:624px;min-width:624px}
-  .clue{font-size:.68rem;padding:5px 5px;line-height:1.08}
-  .prefill,.cell{font-size:1.1rem}
-  .cell input{font-size:1.1rem}
-  .block:before,.block:after{top:34px}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f6f7fb;color:#172033}
+.wrap{max-width:1050px;margin:auto;padding:22px 14px 60px}
+.back{display:inline-block;text-decoration:none;color:#4f46e5;font-weight:800;margin-bottom:18px}
+.hero,.section{background:#fff;border:1px solid #e2e8f0;border-radius:22px;box-shadow:0 8px 26px rgba(15,23,42,.05)}
+.hero{padding:24px}.section{padding:20px;margin-top:18px}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);margin:.2rem 0}.hero p{margin:.4rem 0;color:#64748b}
+.tag{display:inline-block;background:#eef2ff;color:#3730a3;border-radius:999px;padding:7px 11px;font-weight:800}
+.small{font-size:.94rem;color:#64748b}
+.boardwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:4px 0 8px}
+.crossword{--cell:38px;display:grid;grid-template-columns:repeat(15,var(--cell));grid-template-rows:repeat(13,var(--cell));gap:0;width:max-content;border:2px solid #334155;background:#334155}
+.cw{width:var(--cell);height:var(--cell);position:relative;background:#fff;border-right:1px solid #94a3b8;border-bottom:1px solid #94a3b8}
+.cw.block{background:#d7dce4}
+.cw input{position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;text-align:center;text-transform:uppercase;font:800 1.05rem/1 system-ui;outline:none;padding-top:5px}
+.num{position:absolute;left:2px;top:1px;font-size:.58rem;font-weight:900;color:#475569;z-index:2;line-height:1}
+.cw.good{background:#dcfce7}.cw.bad{background:#fee2e2}
+.cluecols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:18px}
+.cluecols h3{margin:.2rem 0 .65rem}.clues{margin:0;padding-left:1.5rem}.clues li{padding:.28rem .2rem;line-height:1.35}
+.clues b{display:inline-block;min-width:2rem}
+.actions{margin-top:14px}
+button{border:0;border-radius:12px;padding:10px 14px;font-weight:800;cursor:pointer;background:#4f46e5;color:#fff;margin:4px 6px 4px 0}
+button.alt{background:#eef2ff;color:#3730a3}
+.feedback{font-weight:800;margin-top:8px}.ok{color:#15803d}.bad{color:#b91c1c}
+.finalrow{display:flex;gap:5px;flex-wrap:nowrap;margin:12px 0;overflow-x:auto}
+.finalrow input{width:42px;height:46px;text-align:center;text-transform:uppercase;font:900 1.3rem system-ui;border:1px solid #94a3b8;border-radius:8px}
+.finalbox{background:#fff7ed;border:1px solid #fdba74;border-radius:16px;padding:16px}
+@media(max-width:700px){
+  .wrap{padding:14px 10px 46px}.section{padding:14px}.crossword{--cell:34px}
+  .cluecols{grid-template-columns:1fr;gap:12px}.clues{padding-left:1.35rem}
 }
 </style>
 </head>
 <body><main class="wrap">
 <a class="back" href="./">← Vissza az angolhoz</a>
+
 <section class="hero">
 <span class="tag">Angol zseni · 4. rész</span>
-<h1>A fotón szereplő rejtvény</h1>
-<p>Ugyanazokkal a feladványokkal készült digitális gyakorló, amelyek a feltöltött oldalon láthatók. A végső megfejtés: <b>PISTACHIO</b>.</p>
+<h1>Angol szórejtvény</h1>
+<p>A nyelvtankönyv 74. oldalának felépítését követi: a rácsban csak a sorszámok vannak, a meghatározások külön szerepelnek <b>Vízszintes</b> és <b>Függőleges</b> csoportban.</p>
 </section>
 
 <section class="section">
-<h2>1. Rejtvénytábla</h2>
-<p class="small">A szürke mezőkben a fotón szereplő meghatározások vannak. A fehér mezőkbe egy-egy betű kerül. Telefonon a tábla eredeti cellaméretben marad, ezért vízszintesen görgethető – így a feliratok nem nyomódnak össze.</p>
-<div class="boardwrap"><div class="board">
-<div class="block"></div><div class="clue"><div>GYŐZ<hr style="width:100%;border:0;border-top:1px solid #bbb">FÉNYKÉP</div></div><div class="clue"><span class="arr">▼</span></div><div class="clue">IMPORTA...<br>(FONTOS)</div><div class="clue"><span class="arr">▼</span></div><div class="block"></div><div class="clue">DE</div><div class="clue"><span class="arr">▼</span></div>
+<h2>1. Oldd meg a keresztrejtvényt!</h2>
+<p class="small">Egy négyzetbe egy betű kerül. A szürke mezők nem használhatók. Telefonon a rács szükség esetén oldalra görgethető.</p>
+<div class="boardwrap"><div class="crossword" id="crossword"></div></div>
 
-<div class="clue">FŐSOR</div><div class="cell"><input></div><div class="shade"></div><div class="prefill">S</div><div class="shade"></div><div class="prefill">A</div><div class="clue">J...ST<br>(CSAK)</div><div class="cell"><input></div>
+<div class="cluecols">
+<div>
+<h3>Vízszintes</h3>
+<ol class="clues" id="across"></ol>
+</div>
+<div>
+<h3>Függőleges</h3>
+<ol class="clues" id="down"></ol>
+</div>
+</div>
 
-<div class="clue">H.N.</div><div class="cell"><input></div><div class="cell"><input></div><div class="clue">...SY<br>(ELFOGLALT)</div><div class="clue">MACSKA</div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div>
-
-<div class="block"></div><div class="cell"><input></div><div class="clue">KINYIT</div><div class="cell"><input></div><div class="clue">LUNC...<br>(EBÉD)</div><div class="shade"></div><div class="clue">HÓ</div><div class="clue">AF...R<br>(UTÁN)</div>
-
-<div class="clue"><div>TURISTA<hr style="width:100%;border:0;border-top:1px solid #bbb">FELSŐ</div></div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="shade"></div><div class="shade"></div><div class="shade"></div>
-
-<div class="clue"><span class="arr">▶</span></div><div class="shade"></div><div class="shade"></div><div class="clue">HUNGAR...<br>(MAGYAR-<br>ORSZÁG)</div><div class="clue"><div>EGY<hr style="width:100%;border:0;border-top:1px solid #bbb">P...CIL<br>(CERUZA)</div></div><div class="shade"></div><div class="cell"><input></div><div class="cell"><input></div>
-
-<div class="clue">FÉRFIAK</div><div class="clue"><div>SZEM<hr style="width:100%;border:0;border-top:1px solid #bbb">GAM...<br>(JÁTÉK)</div></div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="clue">WOM...N<br>(NŐK)</div><div class="cell"><input></div><div class="block"></div>
-
-<div class="clue"><span class="arr">▶</span></div><div class="shade"></div><div class="shade"></div><div class="clue">HÍR</div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div><div class="cell"><input></div>
-</div></div>
+<div class="actions">
+<button onclick="checkCrossword()">Ellenőrzés</button>
+<button class="alt" onclick="clearCrossword()">Újrakezdem</button>
+</div>
+<div id="crossfb" class="feedback"></div>
 </section>
 
 <section class="section">
-<h2>2. A fotó feladványai – kitölthető változat</h2>
-<div class="groups">
-<div class="group">
-<h3>Magyar → angol</h3>
-<div class="q"><label>GYŐZ</label><input id="w1" type="text"></div>
-<div class="q"><label>FÉNYKÉP</label><input id="w2" type="text"></div>
-<div class="q"><label>DE</label><input id="w3" type="text"></div>
-<div class="q"><label>MACSKA</label><input id="w4" type="text"></div>
-<div class="q"><label>KINYIT</label><input id="w5" type="text"></div>
-<div class="q"><label>HÓ</label><input id="w6" type="text"></div>
-<div class="q"><label>TURISTA</label><input id="w7" type="text"></div>
-<div class="q"><label>FELSŐ</label><input id="w8" type="text"></div>
-<div class="q"><label>EGY</label><input id="w9" type="text"></div>
-<div class="q"><label>FÉRFIAK</label><input id="w10" type="text"></div>
-<div class="q"><label>SZEM</label><input id="w11" type="text"></div>
-<div class="q"><label>HÍR</label><input id="w12" type="text"></div>
-</div>
-
-<div class="group">
-<h3>Hiányzó betűs feladványok</h3>
-<div class="q"><label>IMPORTA... (FONTOS)</label><input id="w13" type="text"></div>
-<div class="q"><label>J...ST (CSAK)</label><input id="w14" type="text"></div>
-<div class="q"><label>...SY (ELFOGLALT)</label><input id="w15" type="text"></div>
-<div class="q"><label>LUNC... (EBÉD)</label><input id="w16" type="text"></div>
-<div class="q"><label>AF...R (UTÁN)</label><input id="w17" type="text"></div>
-<div class="q"><label>HUNGAR... (MAGYARORSZÁG)</label><input id="w18" type="text"></div>
-<div class="q"><label>P...CIL (CERUZA)</label><input id="w19" type="text"></div>
-<div class="q"><label>GAM... (JÁTÉK)</label><input id="w20" type="text"></div>
-<div class="q"><label>WOM...N (NŐK)</label><input id="w21" type="text"></div>
-</div>
-</div>
-<button onclick="checkWords()">Feladványok ellenőrzése</button>
-<button class="alt" onclick="resetWords()">Törlés</button>
-<div id="wordsfb" class="feedback"></div>
-</section>
-
-<section class="section">
-<h2>3. Főmegfejtés</h2>
-<div class="final">
-<b>Mediterrán csemege, a legtöbbet és legrégebb óta Iránban termelik.</b>
-<p>Írd be angolul:</p>
-<input id="finalword" type="text" placeholder="?????????">
+<h2>2. Főmegfejtés</h2>
+<div class="finalbox">
+<p><b>Mediterrán csemege, a legtöbbet és legrégebb óta Iránban termelik.</b></p>
+<p>Írd be angolul a megfejtést:</p>
+<div class="finalrow" id="finalrow"></div>
 <button onclick="checkFinal()">Megfejtés ellenőrzése</button>
 <div id="finalfb" class="feedback"></div>
 </div>
@@ -113,11 +81,83 @@ input[type=text]{font:inherit;border:1px solid #9ca3af;border-radius:8px;padding
 </main>
 
 <script>
-const answers={w1:"win",w2:"photo",w3:"but",w4:"cat",w5:"open",w6:"snow",w7:"tourist",w8:"upper",w9:"one",w10:"men",w11:"eye",w12:"news",w13:"important",w14:"just",w15:"busy",w16:"lunch",w17:"after",w18:"hungary",w19:"pencil",w20:"game",w21:"women"};
-const norm=s=>s.trim().toLowerCase();
-function mark(id,ok){const el=document.getElementById(id);el.classList.remove("good","wrong");el.classList.add(ok?"good":"wrong")}
-function checkWords(){let n=0;for(const [id,a] of Object.entries(answers)){const ok=norm(document.getElementById(id).value)===a;mark(id,ok);if(ok)n++}const f=document.getElementById("wordsfb");f.textContent="Eredmény: "+n+" / "+Object.keys(answers).length;f.className="feedback "+(n===Object.keys(answers).length?"ok":"bad")}
-function resetWords(){Object.keys(answers).forEach(id=>{const e=document.getElementById(id);e.value="";e.classList.remove("good","wrong")});document.getElementById("wordsfb").textContent="";const e=document.getElementById("finalword");e.value="";e.classList.remove("good","wrong");document.getElementById("finalfb").textContent=""}
-function checkFinal(){const ok=norm(document.getElementById("finalword").value)==="pistachio";mark("finalword",ok);const f=document.getElementById("finalfb");f.textContent=ok?"✓ Helyes! PISTACHIO = pisztácia.":"✗ Próbáld újra!";f.className="feedback "+(ok?"ok":"bad")}
+const entries=[
+{n:10,clue:"IMPORTA... (FONTOS)",answer:"IMPORTANT",r:4,c:4,d:"H"},
+{n:11,clue:"TURISTA",answer:"TOURIST",r:4,c:12,d:"V"},
+{n:15,clue:"HUNGAR... (MAGYARORSZÁG)",answer:"HUNGARY",r:7,c:7,d:"H"},
+{n:1,clue:"P...CIL (CERUZA)",answer:"PENCIL",r:0,c:4,d:"V"},
+{n:8,clue:"FELSŐ",answer:"UPPER",r:2,c:6,d:"V"},
+{n:3,clue:"AF...R (UTÁN)",answer:"AFTER",r:0,c:8,d:"V"},
+{n:19,clue:"FÉNYKÉP",answer:"PHOTO",r:10,c:9,d:"H"},
+{n:4,clue:"WOM...N (NŐK)",answer:"WOMEN",r:0,c:11,d:"V"},
+{n:13,clue:"J...ST (CSAK)",answer:"JUST",r:6,c:8,d:"V"},
+{n:6,clue:"GAM... (JÁTÉK)",answer:"GAME",r:1,c:1,d:"H"},
+{n:7,clue:"KINYIT",answer:"OPEN",r:1,c:11,d:"H"},
+{n:5,clue:"FÉRFIAK",answer:"MEN",r:0,c:13,d:"V"},
+{n:12,clue:"EGY",answer:"ONE",r:5,c:12,d:"H"},
+{n:18,clue:"DE",answer:"BUT",r:9,c:6,d:"H"},
+{n:9,clue:"SZEM",answer:"EYE",r:3,c:14,d:"V"},
+{n:2,clue:"MACSKA",answer:"CAT",r:0,c:7,d:"H"},
+{n:20,clue:"H.N.",answer:"HE",r:10,c:10,d:"V"},
+{n:18,clue:"...SY (ELFOGLALT)",answer:"BUSY",r:9,c:6,d:"V"},
+{n:21,clue:"HÍR",answer:"NEWS",r:11,c:3,d:"H"},
+{n:17,clue:"GYŐZ",answer:"WIN",r:9,c:3,d:"V"},
+{n:16,clue:"HÓ",answer:"SNOW",r:9,c:0,d:"H"},
+{n:14,clue:"LUNC... (EBÉD)",answer:"LUNCH",r:7,c:1,d:"V"}
+];
+
+const rows=13, cols=15;
+const letters=new Map(), starts=new Map();
+for(const e of entries){
+  starts.set(e.r+","+e.c,e.n);
+  [...e.answer].forEach((ch,i)=>{
+    const r=e.r+(e.d==="V"?i:0), c=e.c+(e.d==="H"?i:0), k=r+","+c;
+    if(letters.has(k) && letters.get(k)!==ch) console.warn("ütközés",k);
+    letters.set(k,ch);
+  });
+}
+
+const board=document.getElementById("crossword");
+for(let r=0;r<rows;r++){
+  for(let c=0;c<cols;c++){
+    const k=r+","+c, div=document.createElement("div");
+    if(!letters.has(k)){div.className="cw block";board.appendChild(div);continue}
+    div.className="cw";div.dataset.key=k;
+    if(starts.has(k)){const n=document.createElement("span");n.className="num";n.textContent=starts.get(k);div.appendChild(n)}
+    const input=document.createElement("input");input.maxLength=1;input.autocomplete="off";input.dataset.answer=letters.get(k);input.setAttribute("aria-label","rejtvénymező "+k);
+    input.addEventListener("input",()=>{input.value=input.value.toUpperCase().replace(/[^A-Z]/g,"").slice(0,1);div.classList.remove("good","bad")});
+    div.appendChild(input);board.appendChild(div);
+  }
+}
+
+function fillClues(dir,id){
+  const list=document.getElementById(id);
+  entries.filter(e=>e.d===dir).sort((a,b)=>a.n-b.n).forEach(e=>{
+    const li=document.createElement("li");li.value=e.n;li.innerHTML="<b>"+e.n+".</b> "+e.clue;list.appendChild(li);
+  });
+}
+fillClues("H","across");fillClues("V","down");
+
+function checkCrossword(){
+  let good=0,total=0;
+  document.querySelectorAll(".cw:not(.block)").forEach(div=>{
+    const i=div.querySelector("input");const ok=i.value===i.dataset.answer;total++;if(ok)good++;
+    div.classList.remove("good","bad");div.classList.add(ok?"good":"bad");
+  });
+  const f=document.getElementById("crossfb");f.textContent=good===total?"✓ Hibátlan!":"Eredmény: "+good+" / "+total+" betű helyes.";f.className="feedback "+(good===total?"ok":"bad");
+}
+function clearCrossword(){
+  document.querySelectorAll(".cw input").forEach(i=>i.value="");
+  document.querySelectorAll(".cw").forEach(d=>d.classList.remove("good","bad"));
+  document.getElementById("crossfb").textContent="";
+}
+
+const final="PISTACHIO", finalrow=document.getElementById("finalrow");
+[...final].forEach((ch,idx)=>{const i=document.createElement("input");i.maxLength=1;i.dataset.answer=ch;i.setAttribute("aria-label","megfejtés "+(idx+1)+". betű");i.addEventListener("input",()=>i.value=i.value.toUpperCase().replace(/[^A-Z]/g,"").slice(0,1));finalrow.appendChild(i)});
+function checkFinal(){
+  const ins=[...document.querySelectorAll("#finalrow input")];const ok=ins.every(i=>i.value===i.dataset.answer);
+  ins.forEach(i=>{i.style.background=i.value===i.dataset.answer?"#dcfce7":"#fee2e2"});
+  const f=document.getElementById("finalfb");f.textContent=ok?"✓ Helyes! PISTACHIO = pisztácia.":"✗ Még nem teljesen jó.";f.className="feedback "+(ok?"ok":"bad");
+}
 </script>
 </body></html>
