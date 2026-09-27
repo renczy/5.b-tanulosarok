@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Pál utcai fiúk – olvasónapló segítő (1–2. fejezet)</title>
+<style>
+  :root{
+    --bg:#f7f8fc; --card:#ffffff; --ink:#243046; --muted:#667085; --accent:#a61e4d;
+    --soft:#eef2ff; --soft2:#fdf2f8; --line:#dde3ee; --ok:#ecfdf3; --warn:#fff7ed;
+    --shadow:0 10px 30px rgba(34,51,84,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);
+       background:linear-gradient(180deg,#eef2ff 0%, #f7f8fc 120px, #f7f8fc 100%);line-height:1.55}
+  header{background:linear-gradient(135deg,#7c3aed,#a61e4d);color:#fff;padding:34px 18px 28px}
+  header .wrap, main{max-width:1120px;margin:0 auto}
+  h1{margin:0 0 10px;font-size:clamp(1.9rem,4vw,3rem)}
+  header p{max-width:980px;margin:0;font-size:1.05rem}
+  nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+      border-bottom:1px solid #e6e9f2;padding:10px 14px}
+  nav .navwrap{max-width:1120px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap}
+  nav a{text-decoration:none;color:#4b5563;background:#f3f4f6;border:1px solid #e5e7eb;padding:8px 12px;border-radius:999px;font-weight:700;font-size:.96rem}
+  main{padding:20px 16px 50px}
+  section{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);padding:22px;border-radius:20px;margin:16px 0}
+  h2{margin-top:0;color:#7c2d12}
+  h3{margin:0 0 10px;color:#7c2d12}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .mini-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
+  .mini-card strong{color:#7c2d12}
+  .tip{background:var(--soft2);border-left:5px solid var(--accent);padding:14px;border-radius:12px}
+  .success{background:var(--ok);border-left:5px solid #16a34a;padding:14px;border-radius:12px}
+  .chapter{border:2px solid #ebe8ff;border-radius:18px;padding:18px;margin-top:18px;background:#fcfcff}
+  .qblock{border-top:1px dashed #d7dcec;padding-top:14px;margin-top:14px}
+  label{display:block;font-weight:700;margin-bottom:6px}
+  textarea,input[type=text]{width:100%;padding:10px 12px;border:1px solid #cfd6e4;border-radius:12px;font:inherit;background:#fff}
+  textarea{min-height:74px;resize:vertical}
+  details{background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:10px 12px;margin-top:8px}
+  details summary{cursor:pointer;font-weight:700;color:#334155}
+  button{border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer;background:#e5e7eb;color:#1f2937;margin:4px 6px 4px 0}
+  button.primary{background:#7c3aed;color:#fff}
+  button.ghost{background:#f3f4f6}
+  .output{white-space:pre-wrap;background:#fffefc;border:1px solid #e8dcc7;border-radius:14px;padding:14px;margin-top:12px}
+  .small{font-size:.92rem;color:var(--muted)}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .sticky-note{background:#fff9c4;border:1px solid #f1dd7a;border-radius:14px;padding:12px 14px}
+  footer{max-width:1120px;margin:0 auto 40px;padding:0 16px;color:#6b7280;font-size:.92rem}
+  @media (max-width:820px){.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Molnár Ferenc: A Pál utcai fiúk</h1>
+    <p><strong>Olvasónapló-segítő az 1–2. fejezethez</strong><br>
+    Ez az oldal úgy segít, hogy kérdéseket tesz fel a fejezetekhez. Ha Alíz megválaszolja őket – akár a könyvbe visszanézve –, a válaszokból a végén összeáll egy <strong>olvasónapló-vázlat</strong>.</p>
+  </div>
+</header>
+
+<nav>
+  <div class="navwrap">
+    <a href="#hasznalat">Használat</a>
+    <a href="#fej1">I. fejezet</a>
+    <a href="#fej2">II. fejezet</a>
+    <a href="#tanacsok">Tanácsok</a>
+  </div>
+</nav>
+
+<main>
+<section id="hasznalat">
+  <h2>Hogyan használd?</h2>
+  <div class="grid">
+    <div class="mini-card"><strong>1. lépés</strong><br>Olvasd el a kérdést.</div>
+    <div class="mini-card"><strong>2. lépés</strong><br>Válaszolj rá <em>egész mondatban</em>.</div>
+    <div class="mini-card"><strong>3. lépés</strong><br>Ha nem emlékszel, nézz vissza a könyvbe.</div>
+    <div class="mini-card"><strong>4. lépés</strong><br>A végén kattints az <strong>„Olvasónapló összeállítása”</strong> gombra.</div>
+  </div>
+  <div class="tip" style="margin-top:14px">
+    <strong>Tipp Alíznak:</strong> Nem kell rögtön szépen fogalmazni. Először csak a rövid válaszokat írd be. A weboldal a végén ezekből összerak egy első vázlatot, amit utána lehet szépíteni.
+  </div>
+</section>
+
+<section id="fej1">
+  <h2>I. fejezet – Kérdésekből olvasónapló</h2>
+  <div class="chapter">
+    <h3>Rövid segítség: miről szól ez a fejezet?</h3>
+    <p class="small">Az első fejezet az iskolában kezdődik, majd a fiúk hazafelé indulnak. Kiderül, hogy délután közgyűlést tartanak a grundon. Közben szóba kerül a törökmézes, aztán Csónakos és Nemecsek elmondják, hogy a Pásztor fiúk <strong>einstandot</strong> csináltak a Múzeum-kertben.</p>
+
+    <div class="qblock"><label for="f1q1">1. Hol kezdődik a fejezet, és milyen órán vannak a fiúk?</label><textarea id="f1q1" placeholder="Pl.: A fejezet az iskolában kezdődik, természetrajzórán..."></textarea><details><summary>Segítség</summary>Gondolj a természetrajzi teremre, a Bunsen-lámpára és a tanórára.</details></div>
+    <div class="qblock"><label for="f1q2">2. Mi zavarja meg az óra komolyságát?</label><textarea id="f1q2" placeholder="Mi hallatszik be kintről?"></textarea><details><summary>Segítség</summary>Egy zongora-verkli szólal meg a szomszédban.</details></div>
+    <div class="qblock"><label for="f1q3">3. Kihez kerül a papírgombóc, és kinek kell továbbadni?</label><textarea id="f1q3"></textarea></div>
+    <div class="qblock"><label for="f1q4">4. Mi áll az üzenetben?</label><textarea id="f1q4" placeholder="Mikor és hol lesz valami fontos?"></textarea><details><summary>Segítség</summary>Délután háromkor közgyűlés lesz, elnökválasztással a grundon.</details></div>
+    <div class="qblock"><label for="f1q5">5. Mit árul el Nemecsek jelleméről, hogy nem olvassa el a másnak szóló levelet?</label><textarea id="f1q5" placeholder="Milyen fiú Nemecsek?"></textarea></div>
+    <div class="qblock"><label for="f1q6">6. Mi történik a törökmézesnél iskola után?</label><textarea id="f1q6"></textarea><details><summary>Segítség</summary>Az olasz törökmézes felemeli az árakat, és vita alakul ki körülötte.</details></div>
+    <div class="qblock"><label for="f1q7">7. Mit akar tenni Geréb, és ki állítja meg?</label><textarea id="f1q7"></textarea></div>
+    <div class="qblock"><label for="f1q8">8. Milyennek látszik Boka ebben a jelenetben?</label><textarea id="f1q8" placeholder="Nyugodt? Igazságos? Okos?"></textarea></div>
+    <div class="qblock"><label for="f1q9">9. Kikkel találkoznak a Köztelek utcában?</label><textarea id="f1q9"></textarea></div>
+    <div class="qblock"><label for="f1q10">10. Mi a rossz hír, amit Nemecsek és Csónakos elmond?</label><textarea id="f1q10"></textarea></div>
+    <div class="qblock"><label for="f1q11">11. Mit jelent az „einstand”?</label><textarea id="f1q11" placeholder="Próbáld meg a saját szavaiddal megfogalmazni!"></textarea></div>
+    <div class="qblock"><label for="f1q12">12. Hol történt az einstand?</label><textarea id="f1q12"></textarea></div>
+    <div class="qblock"><label for="f1q13">13. Kik csinálták az einstandot?</label><textarea id="f1q13"></textarea></div>
+    <div class="qblock"><label for="f1q14">14. Mit játszottak a fiúk, mielőtt a Pásztorok megjelentek?</label><textarea id="f1q14"></textarea></div>
+    <div class="qblock"><label for="f1q15">15. Hogyan próbált viselkedni Nemecsek az einstand közben?</label><textarea id="f1q15"></textarea></div>
+    <div class="qblock"><label for="f1q16">16. Hogyan reagál Geréb a történetre?</label><textarea id="f1q16"></textarea></div>
+    <div class="qblock"><label for="f1q17">17. Mit mond végül Boka, és mit ígér a délutáni találkozóról?</label><textarea id="f1q17"></textarea></div>
+    <div class="qblock"><label for="f1q18">18. Miért fontos ez a fejezet szerinted?</label><textarea id="f1q18" placeholder="Mi indítja el tulajdonképpen a történetet?"></textarea></div>
+    <div class="qblock"><label for="f1g1">+ Gondolkodós kérdés: Ki a legfontosabb szereplő ebben a fejezetben, és miért?</label><textarea id="f1g1"></textarea></div>
+    <div class="qblock"><label for="f1g2">+ Gondolkodós kérdés: Melyik esemény a legfontosabb ebben a fejezetben?</label><textarea id="f1g2"></textarea></div>
+    <div class="qblock">
+      <button class="primary" onclick="buildChapter1()">Olvasónapló összeállítása – I. fejezet</button>
+      <button class="ghost" onclick="copyText('out1')">Másolás</button>
+      <button class="ghost" onclick="saveAnswers()">Válaszok mentése a böngészőben</button>
+      <div id="out1" class="output small">Itt fog megjelenni az I. fejezetből összeállított olvasónapló-vázlat.</div>
+    </div>
+  </div>
+</section>
+
+<section id="fej2">
+  <h2>II. fejezet – Kérdésekből olvasónapló</h2>
+  <div class="chapter">
+    <h3>Rövid segítség: miről szól ez a fejezet?</h3>
+    <p class="small">Ebben a fejezetben megismerjük a grundot és a farakásokat. Kiderül, milyen fontos hely ez a fiúknak. Nemecsek az egyetlen közlegény. Aztán feltűnik Áts Feri, elviszi a zászlót, majd a fiúk elnököt választanak, és elhatározzák, hogy megvédik a grundot.</p>
+
+    <div class="qblock"><label for="f2q1">1. Mi a grund, és mit jelent a pesti gyerekek számára?</label><textarea id="f2q1"></textarea><details><summary>Segítség</summary>A grund egy üres telek, ami a pesti gyerekeknek a szabadságot és a „végtelenséget” jelenti.</details></div>
+    <div class="qblock"><label for="f2q2">2. Mi található a grund mögött?</label><textarea id="f2q2"></textarea></div>
+    <div class="qblock"><label for="f2q3">3. Miért izgalmas hely a farakások közötti rész?</label><textarea id="f2q3"></textarea></div>
+    <div class="qblock"><label for="f2q4">4. Mire használják a fiúk a farakásokat és az erődöket?</label><textarea id="f2q4"></textarea></div>
+    <div class="qblock"><label for="f2q5">5. Milyen rangja van Nemecseknek, és miért különleges a helyzete?</label><textarea id="f2q5"></textarea></div>
+    <div class="qblock"><label for="f2q6">6. Ki érkezik elsőként a grundra, és mit csinál ott?</label><textarea id="f2q6"></textarea></div>
+    <div class="qblock"><label for="f2q7">7. Miért kezd el ugatni Hektor?</label><textarea id="f2q7"></textarea></div>
+    <div class="qblock"><label for="f2q8">8. Kivel találkozik Nemecsek a citadellán?</label><textarea id="f2q8"></textarea></div>
+    <div class="qblock"><label for="f2q9">9. Ki Áts Feri, és mit visz el a grundról?</label><textarea id="f2q9"></textarea></div>
+    <div class="qblock"><label for="f2q10">10. Mit érez Nemecsek Áts Ferivel kapcsolatban?</label><textarea id="f2q10" placeholder="Csak félelmet? Vagy mást is?"></textarea></div>
+    <div class="qblock"><label for="f2q11">11. Mit tesz Boka, amikor megtudja, hogy hiányzik a zászló?</label><textarea id="f2q11"></textarea></div>
+    <div class="qblock"><label for="f2q12">12. Miért kerül Boka neve a fekete könyvbe?</label><textarea id="f2q12"></textarea></div>
+    <div class="qblock"><label for="f2q13">13. Mit árul el ez Boka jelleméről?</label><textarea id="f2q13"></textarea></div>
+    <div class="qblock"><label for="f2q14">14. Miért tartanak elnökválasztást?</label><textarea id="f2q14"></textarea></div>
+    <div class="qblock"><label for="f2q15">15. Miért panaszkodik Nemecsek, és mit szeretne?</label><textarea id="f2q15"></textarea></div>
+    <div class="qblock"><label for="f2q16">16. Mit ígér neki Boka?</label><textarea id="f2q16"></textarea></div>
+    <div class="qblock"><label for="f2q17">17. Kikre érkezik szavazat az elnökválasztáson?</label><textarea id="f2q17"></textarea></div>
+    <div class="qblock"><label for="f2q18">18. Ki lesz az elnök, és hány szavazatot kap?</label><textarea id="f2q18"></textarea></div>
+    <div class="qblock"><label for="f2q19">19. Mit mond Boka a vörösingesek céljáról?</label><textarea id="f2q19"></textarea></div>
+    <div class="qblock"><label for="f2q20">20. Mit határoznak el a fiúk a fejezet végén?</label><textarea id="f2q20"></textarea></div>
+    <div class="qblock"><label for="f2q21">21. Mit jelent az „Éljen a grund!” kiáltás?</label><textarea id="f2q21"></textarea></div>
+    <div class="qblock"><label for="f2g1">+ Gondolkodós kérdés: Miért olyan fontos a grund a fiúknak?</label><textarea id="f2g1"></textarea></div>
+    <div class="qblock"><label for="f2g2">+ Gondolkodós kérdés: Miből látszik ebben a fejezetben Boka vezetői szerepe?</label><textarea id="f2g2"></textarea></div>
+    <div class="qblock">
+      <button class="primary" onclick="buildChapter2()">Olvasónapló összeállítása – II. fejezet</button>
+      <button class="ghost" onclick="copyText('out2')">Másolás</button>
+      <button class="ghost" onclick="saveAnswers()">Válaszok mentése a böngészőben</button>
+      <div id="out2" class="output small">Itt fog megjelenni a II. fejezetből összeállított olvasónapló-vázlat.</div>
+    </div>
+  </div>
+</section>
+
+<section id="tanacsok">
+  <h2>Tanácsok a füzetbe íráshoz</h2>
+  <div class="cols">
+    <div class="sticky-note">
+      <h3>Hogyan legyen szép az olvasónapló?</h3>
+      <ul>
+        <li>Írj <strong>múlt időben</strong>.</li>
+        <li>Használj összekötő szavakat: <em>először, ezután, később, végül</em>.</li>
+        <li>Ne csak felsorolás legyen, hanem rövid összefüggő szöveg.</li>
+        <li>A végére írhatsz 1 mondat véleményt is: „Ez a rész azért tetszett, mert...”</li>
+      </ul>
+    </div>
+    <div class="sticky-note">
+      <h3>Mit lehet még hozzáírni?</h3>
+      <ul>
+        <li>Melyik szereplő volt fontos a fejezetben?</li>
+        <li>Milyen tulajdonság derült ki róla?</li>
+        <li>Mi volt a fejezet legfontosabb eseménye?</li>
+        <li>Mire vagy kíváncsi a folytatásban?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  Interaktív olvasónapló-segítő • Molnár Ferenc: A Pál utcai fiúk • 1–2. fejezet
+</footer>
+
+<script>
+function val(id){ const el = document.getElementById(id); return el ? el.value.trim() : ""; }
+function sentence(text, fallback){ const t = (text || "").trim(); return t ? t : fallback; }
+function copyText(id){
+  const txt = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(txt).then(()=>{ alert("A szöveg a vágólapra került."); });
+}
+function saveAnswers(){
+  const ids = Array.from(document.querySelectorAll("textarea, input[type=text]")).map(e=>e.id);
+  ids.forEach(id=>localStorage.setItem("palutcai_"+id, document.getElementById(id).value));
+  alert("A válaszok elmentve ebben a böngészőben.");
+}
+function loadAnswers(){
+  const els = document.querySelectorAll("textarea, input[type=text]");
+  els.forEach(el=>{
+    const saved = localStorage.getItem("palutcai_"+el.id);
+    if(saved !== null){ el.value = saved; }
+  });
+}
+function buildChapter1(){
+  const txt =
+`Az első fejezet ${sentence(val('f1q1'), 'az iskolában, természetrajzórán játszódik.')}
+Az óra komolyságát ${sentence(val('f1q2'), 'a szomszédból behallatszó zongora-verkli zavarja meg.')}
+Az óra közben egy papírgombóc kerül ${sentence(val('f1q3'), 'Nemecsekhez, akinek azt Bokának kell továbbadnia.')}
+Az üzenet szerint ${sentence(val('f1q4'), 'délután háromkor közgyűlés és elnökválasztás lesz a grundon.')}
+Nemecsek viselkedéséből az derül ki, hogy ${sentence(val('f1q5'), 'becsületes és jellemes fiú, mert nem olvassa el a másnak szóló üzenetet.')}
+
+Iskola után ${sentence(val('f1q6'), 'a fiúk a törökmézesnél is megállnak, ahol vita támad az áremelés miatt.')}
+Ekkor ${sentence(val('f1q7'), 'Geréb valami meggondolatlanságra készül, de Boka megállítja.')}
+Boka ebből a jelenetből ${sentence(val('f1q8'), 'okos, nyugodt, igazságos és felelősségteljes fiúnak látszik.')}
+
+Később a fiúk ${sentence(val('f1q9'), 'Csónakossal és Nemecsekkel találkoznak a Köztelek utcában.')}
+Ők azt a rossz hírt hozzák, hogy ${sentence(val('f1q10'), 'a Pásztor fiúk einstandot csináltak.')}
+Az einstand ${sentence(val('f1q11'), 'azt jelenti, hogy az erősebb fiúk erővel elveszik a gyengébbektől a játékot vagy a zsákmányt.')}
+Ez az eset ${sentence(val('f1q12'), 'a Múzeum-kertben történt.')}
+Az einstandot ${sentence(val('f1q13'), 'a két Pásztor fiú csinálta.')}
+A fiúk előtte ${sentence(val('f1q14'), 'golyóztak.')}
+Nemecsek eközben ${sentence(val('f1q15'), 'igyekezett tisztességesen és bátran viselkedni, sőt tiltakozni is próbált.')}
+Geréb ${sentence(val('f1q16'), 'nagyon felháborodik a történeten.')}
+Végül Boka ${sentence(val('f1q17'), 'azt mondja, hogy ez hallatlan dolog, és délután a grundon mindent megbeszélnek.')}
+
+Szerintem ez a fejezet azért fontos, mert ${sentence(val('f1q18'), 'itt indul el igazán a konfliktus a fiúk és az ellenfeleik között.')}
+A fejezet legfontosabb szereplője szerintem ${sentence(val('f1g1'), 'Boka vagy Nemecsek, mert rajtuk keresztül látjuk a történet lényegét.')}
+A legfontosabb esemény pedig ${sentence(val('f1g2'), 'az einstand hírének elmondása, mert ez később komoly konfliktust indít el.')}`;
+  document.getElementById('out1').innerText = txt;
+}
+function buildChapter2(){
+  const txt =
+`A második fejezetben megismerjük a grundot. ${sentence(val('f2q1'), 'A grund egy üres telek, amely a pesti gyerekek számára a szabadságot és a végtelenséget jelenti.')}
+A grund mögött ${sentence(val('f2q2'), 'egy fatelep található farakásokkal és kis utcákkal.')}
+Ez a rész azért izgalmas, mert ${sentence(val('f2q3'), 'a farakások között valóságos labirintus van, amely remek játékhely.')}
+A fiúk ${sentence(val('f2q4'), 'a farakásokat erődöknek és hadiszíntereknek használják.')}
+
+Ebben a társaságban ${sentence(val('f2q5'), 'Nemecsek az egyetlen közlegény, ezért különleges és kissé szomorú a helyzete.')}
+Elsőként ${sentence(val('f2q6'), 'Nemecsek érkezik a grundra, és várja a többieket.')}
+Hektor azért kezd ugatni, mert ${sentence(val('f2q7'), 'valakit vagy valami gyanúsat észrevesz az egyik erődnél.')}
+Nemecsek ott ${sentence(val('f2q8'), 'Áts Ferivel találkozik.')}
+Áts Feri ${sentence(val('f2q9'), 'a vörösingesek vezére, és elviszi a grund zászlóját.')}
+Nemecsek ${sentence(val('f2q10'), 'fél tőle, de közben csodálja is a bátorságát és megjelenését.')}
+
+Amikor a többiek megérkeznek, Boka ${sentence(val('f2q11'), 'nyugodtan intézkedik, és új zászló készítését kéri.')}
+Boka neve azért kerül a fekete könyvbe, mert ${sentence(val('f2q12'), 'ő felejtette nyitva a kiskaput, és ezt becsületesen elismeri.')}
+Ez azt mutatja róla, hogy ${sentence(val('f2q13'), 'igazságos, őszinte és felelősségteljes vezető.')}
+
+Ezután ${sentence(val('f2q14'), 'elnökválasztást tartanak, mert a fiúk vezetőt akarnak választani a várható harc előtt.')}
+Nemecsek azért panaszkodik, mert ${sentence(val('f2q15'), 'ő az egyetlen közlegény, és mindenki neki parancsol.')}
+Boka ${sentence(val('f2q16'), 'azt ígéri neki, hogy ha jól viseli magát, később tiszt lehet belőle.')}
+Az elnökválasztáson ${sentence(val('f2q17'), 'Bokára és Gerébre érkeznek szavazatok.')}
+Végül ${sentence(val('f2q18'), 'Boka lesz az elnök, mert ő kapja a legtöbb, tizenegy szavazatot.')}
+
+Boka szerint ${sentence(val('f2q19'), 'a vörösingesek el akarják venni a grundot a Pál utcai fiúktól.')}
+Ezért a fiúk ${sentence(val('f2q20'), 'elhatározzák, hogy megvédik a grundot, sőt majd elmennek a Füvészkertbe is.')}
+Az „Éljen a grund!” kiáltás ${sentence(val('f2q21'), 'azt fejezi ki, hogy a grund nekik nemcsak játékhely, hanem szinte a hazájuk.')}
+
+Szerintem a grund azért olyan fontos a fiúknak, mert ${sentence(val('f2g1'), 'itt szabadok lehetnek, játszhatnak, és ez a saját birodalmuk.')}
+Boka vezetői szerepéből pedig az látszik, hogy ${sentence(val('f2g2'), 'minden helyzetben nyugodt, igazságos, és a többiek hallgatnak rá.')}`;
+  document.getElementById('out2').innerText = txt;
+}
+loadAnswers();
+</script>
+</body>
+</html>
