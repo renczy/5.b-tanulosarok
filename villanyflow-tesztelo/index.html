@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Villanyszerelő Flow – Tesztelői visszajelzőlap</title>
+<style>
+  :root{--bg:#f4f6ef;--card:#ffffff;--ink:#0e2d2a;--muted:#5d6d67;--line:#d8dfd4;--green:#114d43;--soft:#eef4e8}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:#10201d;line-height:1.45}
+  .wrap{max-width:900px;margin:0 auto;padding:24px 16px 96px}.hero{background:linear-gradient(135deg,#0e453d,#173c37);color:white;border-radius:24px;padding:28px 24px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.82;font-weight:700}h1{font-size:34px;line-height:1.05;margin:8px 0 10px}.hero p{margin:0;color:#e8f0ed}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;margin:14px 0}h2{font-size:22px;margin:0 0 6px;color:var(--ink)}h3{font-size:17px;margin:18px 0 8px;color:var(--ink)}
+  .help{color:var(--muted);font-size:14px;margin-bottom:16px}label{display:block;font-weight:700;margin:13px 0 6px}
+  input[type="text"],input[type="date"],input[type="email"],select,textarea{width:100%;border:1px solid #cbd5ca;border-radius:12px;padding:12px 13px;font:inherit;background:white;color:#14221f}
+  textarea{min-height:95px;resize:vertical}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.rating{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 3px}
+  .rating label{margin:0;font-weight:600;border:1px solid #ccd7ca;border-radius:999px;padding:8px 12px;background:#fff;cursor:pointer}.rating input{margin-right:6px}.checks{display:grid;gap:8px;margin-top:6px}
+  .checks label{display:flex;gap:10px;align-items:flex-start;margin:0;font-weight:500;border:1px solid #e0e6dc;border-radius:12px;padding:10px 12px;background:#fbfcfa}
+  .actionbar{position:sticky;bottom:0;z-index:10;background:rgba(244,246,239,.94);backdrop-filter:blur(8px);border-top:1px solid #d7ded3;padding:12px 16px;margin-top:18px}.actions{max-width:900px;margin:0 auto;display:flex;gap:10px;justify-content:flex-end}
+  button{border:0;border-radius:12px;padding:13px 18px;font-weight:800;font-size:15px;cursor:pointer}.primary{background:var(--green);color:#fff}.secondary{background:#e7ece5;color:#173d37}
+  .note{background:var(--soft);border-left:4px solid #87a94c;padding:12px 14px;border-radius:10px;color:#38483f;font-size:14px;margin:12px 0}
+  #pdfReport{position:absolute;left:-100000px;top:0;width:794px;background:white;color:#111;padding:34px;font-family:Arial,sans-serif}
+  #pdfReport h1{font-size:25px;color:#103f38;margin:0 0 4px}#pdfReport h2{font-size:18px;color:#103f38;border-bottom:1px solid #ccd7d1;padding-bottom:5px;margin:22px 0 8px}
+  #pdfReport .meta{font-size:12px;color:#555;margin-bottom:12px}#pdfReport .qa{margin:8px 0 11px;page-break-inside:avoid}#pdfReport .q{font-weight:700;font-size:12.5px;margin-bottom:3px}#pdfReport .a{font-size:12.5px;white-space:pre-wrap}
+  #pdfReport .badge{display:inline-block;padding:3px 8px;border-radius:999px;background:#eef4e8;margin-right:5px;font-size:11px}#pdfReport .footer{font-size:10px;color:#666;margin-top:20px}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}h1{font-size:29px}.wrap{padding:14px 10px 90px}.hero,.card{border-radius:16px}.hero{padding:22px 18px}.card{padding:17px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero"><div class="kicker">Villanyszerelő Flow</div><h1>Tesztelői visszajelzőlap</h1><p>Használd az alkalmazást valós munkák közben, majd írd le, mi működött jól, mi volt zavaró, és min változtatnál.</p></section>
+
+<section class="card"><h2>1. Alapadatok</h2><div class="help">A név opcionális. A dátum segít később visszakövetni a tesztidőszakot.</div><div class="grid">
+<div><label for="tester">Tesztelő neve</label><input id="tester" type="text" placeholder="pl. Kovács Péter" /></div>
+<div><label for="date">Kitöltés dátuma</label><input id="date" type="date" /></div>
+<div><label for="daysUsed">Hány napig használtad?</label><input id="daysUsed" type="text" placeholder="pl. 5 nap" /></div>
+<div><label for="device">Milyen eszközön használtad?</label><input id="device" type="text" placeholder="pl. iPhone / Android telefon" /></div>
+</div></section>
+
+<section class="card"><h2>2. Összbenyomás</h2>
+<label>Mennyire volt könnyű használni?</label><div class="rating"><label><input type="radio" name="ease" value="1">1</label><label><input type="radio" name="ease" value="2">2</label><label><input type="radio" name="ease" value="3">3</label><label><input type="radio" name="ease" value="4">4</label><label><input type="radio" name="ease" value="5">5</label></div>
+<label>Mennyire segített a napi munkaszervezésben?</label><div class="rating"><label><input type="radio" name="useful" value="1">1</label><label><input type="radio" name="useful" value="2">2</label><label><input type="radio" name="useful" value="3">3</label><label><input type="radio" name="useful" value="4">4</label><label><input type="radio" name="useful" value="5">5</label></div>
+<label for="overall">Röviden: mi volt az első benyomásod?</label><textarea id="overall"></textarea></section>
+
+<section class="card"><h2>3. Munkák kezelése</h2><div class="checks">
+<label><input type="checkbox" id="jobCreate"> Új munka felvétele egyértelmű volt.</label>
+<label><input type="checkbox" id="jobCode"> Az M001, M002… kódolás érthető és hasznos.</label>
+<label><input type="checkbox" id="jobEstimate"> A becsült és hátralévő idő értelmezhető volt.</label>
+<label><input type="checkbox" id="jobStatus"> A státuszok és prioritások megfelelőek voltak.</label></div>
+<label for="jobFeedback">Megjegyzés a munkák kezeléséről</label><textarea id="jobFeedback"></textarea></section>
+
+<section class="card"><h2>4. Időmérés</h2><div class="checks">
+<label><input type="checkbox" id="timerEasy"> A Start / Stop használata munka közben kényelmes volt.</label>
+<label><input type="checkbox" id="timerResume"> Az időmérés megbízhatóan folytatódott oldalfrissítés / visszatérés után.</label>
+<label><input type="checkbox" id="timerEntries"> Az időbejegyzések listája érthető volt.</label>
+<label><input type="checkbox" id="timerEdit"> A hibás időbejegyzés javítása egyértelmű volt.</label></div>
+<label for="timerFeedback">Megjegyzés az időmérésről</label><textarea id="timerFeedback"></textarea></section>
+
+<section class="card"><h2>5. Naptár és alkalmak</h2><div class="checks">
+<label><input type="checkbox" id="calFlexible"> A rugalmas és egyeztetett alkalom közti különbség érthető volt.</label>
+<label><input type="checkbox" id="calConflict"> Az ütközésjelzés és a puffer kezelése hasznos volt.</label>
+<label><input type="checkbox" id="calException"> A heti elérhetőség és a napi kivételek logikusak voltak.</label>
+<label><input type="checkbox" id="calStatus"> A lezárt / elmaradt / lemondott alkalmak kezelése érthető volt.</label></div>
+<label for="calendarFeedback">Megjegyzés a naptárról</label><textarea id="calendarFeedback"></textarea></section>
+
+<section class="card"><h2>6. Kapacitás és „Mikor fér bele?”</h2><div class="checks">
+<label><input type="checkbox" id="capClear"> A szabad kapacitás kijelzése érthető volt.</label>
+<label><input type="checkbox" id="capRemaining"> Jól elkülönült a betervezett és a még be nem ütemezett munka.</label>
+<label><input type="checkbox" id="capPlanner"> A „Mikor fér bele?” javaslatai reálisnak tűntek.</label>
+<label><input type="checkbox" id="capDecision"> Segített eldönteni, hogy vállalható-e még egy munka.</label></div>
+<label for="capacityFeedback">Megjegyzés a kapacitástervezésről</label><textarea id="capacityFeedback"></textarea></section>
+
+<section class="card"><h2>7. Hibák és zavaró dolgok</h2>
+<label for="bugs">Találkoztál hibával?</label><textarea id="bugs"></textarea>
+<label for="confusing">Mi volt nehezen érthető vagy félreérthető?</label><textarea id="confusing"></textarea>
+<label for="missing">Mi hiányzott a legjobban?</label><textarea id="missing"></textarea></section>
+
+<section class="card"><h2>8. Mit változtatnál?</h2>
+<label for="changeFirst">Ha csak egy dolgot változtathatnál meg, mi lenne az?</label><textarea id="changeFirst"></textarea>
+<label for="keep">Mit tartanál meg mindenképpen?</label><textarea id="keep"></textarea>
+<label for="other">Bármi más megjegyzés</label><textarea id="other"></textarea>
+<div class="note">A „PDF letöltése” gomb egyetlen PDF-be rendezi a kitöltött válaszokat.</div></section>
+</div>
+
+<div class="actionbar"><div class="actions"><button class="secondary" type="button" onclick="clearForm()">Űrlap ürítése</button><button class="primary" type="button" onclick="downloadPDF()">PDF letöltése</button></div></div>
+<div id="pdfReport"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+document.getElementById('date').value=new Date().toISOString().slice(0,10);
+function val(id){const el=document.getElementById(id);return el?(el.value||'').trim():''}
+function checked(id){return document.getElementById(id)?.checked?'Igen':'Nem'}
+function radio(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:'Nincs megadva'}
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function qa(q,a){return '<div class="qa"><div class="q">'+esc(q)+'</div><div class="a">'+esc(a||'—')+'</div></div>'}
+function yesnoBlock(items){return items.map(([label,id])=>'<div class="qa"><span class="badge">'+checked(id)+'</span><span class="a">'+esc(label)+'</span></div>').join('')}
+function buildReport(){const r=document.getElementById('pdfReport');r.innerHTML=
+'<h1>Villanyszerelő Flow – Tesztelői visszajelzés</h1><div class="meta">Kitöltés dátuma: '+esc(val('date')||new Date().toISOString().slice(0,10))+'</div>'+
+'<h2>1. Alapadatok</h2>'+qa('Tesztelő neve',val('tester'))+qa('Használat időtartama',val('daysUsed'))+qa('Eszköz',val('device'))+
+'<h2>2. Összbenyomás</h2>'+qa('Használhatóság',radio('ease'))+qa('Mennyire segítette a munkaszervezést',radio('useful'))+qa('Első benyomás',val('overall'))+
+'<h2>3. Munkák kezelése</h2>'+yesnoBlock([['Új munka felvétele egyértelmű volt','jobCreate'],['Az M-kódolás érthető és hasznos','jobCode'],['A becsült és hátralévő idő érthető volt','jobEstimate'],['A státuszok és prioritások megfelelőek voltak','jobStatus']])+qa('Megjegyzés',val('jobFeedback'))+
+'<h2>4. Időmérés</h2>'+yesnoBlock([['Start / Stop használata kényelmes volt','timerEasy'],['Az időmérés megbízhatóan folytatódott','timerResume'],['Az időbejegyzések listája érthető volt','timerEntries'],['A hibás időbejegyzés javítása egyértelmű volt','timerEdit']])+qa('Megjegyzés',val('timerFeedback'))+
+'<h2>5. Naptár és alkalmak</h2>'+yesnoBlock([['Rugalmas és egyeztetett alkalom különbsége érthető volt','calFlexible'],['Ütközésjelzés és puffer hasznos volt','calConflict'],['Heti elérhetőség és napi kivételek logikusak voltak','calException'],['Alkalomstátuszok kezelése érthető volt','calStatus']])+qa('Megjegyzés',val('calendarFeedback'))+
+'<h2>6. Kapacitás és „Mikor fér bele?”</h2>'+yesnoBlock([['A szabad kapacitás kijelzése érthető volt','capClear'],['Betervezett és be nem ütemezett munka elkülönült','capRemaining'],['A „Mikor fér bele?” javaslatai reálisnak tűntek','capPlanner'],['Segített eldönteni, hogy vállalható-e még egy munka','capDecision']])+qa('Megjegyzés',val('capacityFeedback'))+
+'<h2>7. Hibák és zavaró dolgok</h2>'+qa('Talált hibák',val('bugs'))+qa('Nehezen érthető / félreérthető részek',val('confusing'))+qa('Leginkább hiányzó funkció',val('missing'))+
+'<h2>8. Mit változtatnál?</h2>'+qa('Ha csak egy dolgot változtatnál meg',val('changeFirst'))+qa('Mit tartanál meg mindenképpen',val('keep'))+qa('Egyéb megjegyzés',val('other'))+
+'<div class="footer">Villanyszerelő Flow – tesztelői visszajelzőlap</div>';return r}
+async function downloadPDF(){const report=buildReport();const tester=val('tester')||'tesztelo';const safe=tester.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9_-]+/g,'_');if(typeof html2pdf==='undefined'){alert('A PDF-készítő modul nem töltődött be.');return}await html2pdf().set({margin:[10,10,10,10],filename:'Villanyszerelo_Flow_visszajelzes_'+safe+'.pdf',image:{type:'jpeg',quality:.96},html2canvas:{scale:1.6,useCORS:true,backgroundColor:'#ffffff'},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['avoid-all','css','legacy']}}).from(report).save()}
+function clearForm(){if(!confirm('Biztosan törlöd az összes beírt választ?'))return;document.querySelectorAll('input[type="text"],input[type="email"],textarea').forEach(el=>el.value='');document.querySelectorAll('input[type="checkbox"],input[type="radio"]').forEach(el=>el.checked=false);document.getElementById('date').value=new Date().toISOString().slice(0,10)}
+</script>
+</body>
+</html>
