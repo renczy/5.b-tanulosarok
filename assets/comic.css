@@ -1,0 +1,231 @@
+
+/* 5.b Tanulósarok – egységes képregény / pop-art téma */
+:root{
+  --comic-ink:#111827;
+  --comic-paper:#fffdf8;
+  --comic-yellow:#ffd92f;
+  --comic-orange:#ff8a1f;
+  --comic-red:#ef3b23;
+  --comic-pink:#e61e86;
+  --comic-purple:#8746a8;
+  --comic-blue:#164a9b;
+  --comic-cyan:#19cbd1;
+  --comic-green:#159447;
+  --comic-shadow:7px 7px 0 #111827;
+  --subject:#5b5be7;
+  --subject2:#ffd92f;
+}
+html{scroll-behavior:smooth}
+body.comic-page{
+  background:
+    radial-gradient(circle at 12px 12px,rgba(17,24,39,.10) 1.5px,transparent 1.6px) 0 0/18px 18px,
+    #f8f8f5 !important;
+  color:var(--comic-ink) !important;
+}
+body.comic-page.subject-matek{--subject:#1454c4;--subject2:#ffd92f}
+body.comic-page.subject-nyelvtan{--subject:#8b3fa3;--subject2:#ff8bb0}
+body.comic-page.subject-irodalom{--subject:#e74b22;--subject2:#ffb126}
+body.comic-page.subject-angol{--subject:#0da5a8;--subject2:#ef3340}
+body.comic-page.subject-tortenelem{--subject:#9a5a24;--subject2:#ffd05d}
+body.comic-page.subject-foldrajz{--subject:#168a4a;--subject2:#31cfe0}
+body.comic-page.subject-biologia{--subject:#178d49;--subject2:#ffd92f}
+body.comic-page.subject-digitalis-kultura{--subject:#183d87;--subject2:#f246a1}
+
+body.comic-page header,
+body.comic-page .hero{
+  position:relative;
+  overflow:hidden;
+  color:#111827 !important;
+  background:
+    repeating-conic-gradient(from -15deg at 82% 18%,var(--subject2) 0 8deg,var(--subject) 8deg 16deg) !important;
+  border:4px solid var(--comic-ink) !important;
+  border-radius:0 !important;
+  box-shadow:var(--comic-shadow) !important;
+}
+body.comic-page header::after,
+body.comic-page .hero::after{
+  content:"POW!";
+  position:absolute;
+  right:18px;
+  top:16px;
+  background:white;
+  color:var(--comic-red);
+  font-weight:1000;
+  font-style:italic;
+  font-size:clamp(1.2rem,5vw,2.4rem);
+  letter-spacing:-.05em;
+  padding:.2em .45em;
+  border:4px solid var(--comic-ink);
+  transform:rotate(-6deg);
+  text-shadow:2px 2px 0 #111;
+}
+body.comic-page h1,
+body.comic-page h2,
+body.comic-page h3{
+  font-family:Impact,Haettenschweiler,"Arial Narrow Bold",system-ui,sans-serif !important;
+  letter-spacing:.02em;
+}
+body.comic-page h1{
+  text-transform:uppercase;
+  text-shadow:3px 3px 0 #fff,5px 5px 0 #111;
+}
+body.comic-page h2{
+  display:inline-block;
+  background:var(--subject2);
+  color:#111827 !important;
+  border:3px solid #111827;
+  padding:.22em .42em;
+  transform:rotate(-.6deg);
+  box-shadow:4px 4px 0 #111827;
+}
+body.comic-page nav{
+  background:#fff !important;
+  border:3px solid #111827 !important;
+  box-shadow:4px 4px 0 #111827 !important;
+}
+body.comic-page nav a,
+body.comic-page .back{
+  color:#111827 !important;
+  background:var(--subject2) !important;
+  border:2px solid #111827 !important;
+  border-radius:999px !important;
+  box-shadow:2px 2px 0 #111827;
+  text-decoration:none !important;
+}
+body.comic-page .card,
+body.comic-page .item,
+body.comic-page .exercise,
+body.comic-page .quiz-box,
+body.comic-page details,
+body.comic-page .box,
+body.comic-page .pill,
+body.comic-page .step,
+body.comic-page .fact,
+body.comic-page .char,
+body.comic-page .match-item,
+body.comic-page .bucket{
+  border:3px solid #111827 !important;
+  box-shadow:5px 5px 0 #111827 !important;
+  border-radius:10px !important;
+}
+body.comic-page .card:nth-of-type(4n+1),
+body.comic-page section:nth-of-type(4n+1) .card{background:#fff8bc !important}
+body.comic-page .card:nth-of-type(4n+2),
+body.comic-page section:nth-of-type(4n+2) .card{background:#dff8f8 !important}
+body.comic-page .card:nth-of-type(4n+3),
+body.comic-page section:nth-of-type(4n+3) .card{background:#f5e1ff !important}
+body.comic-page .card:nth-of-type(4n),
+body.comic-page section:nth-of-type(4n) .card{background:#ffe5d2 !important}
+body.comic-page button,
+body.comic-page .actions a{
+  background:var(--subject) !important;
+  color:#fff !important;
+  border:3px solid #111827 !important;
+  border-radius:8px !important;
+  box-shadow:4px 4px 0 #111827 !important;
+  font-weight:900 !important;
+  text-transform:uppercase;
+}
+body.comic-page button:hover,
+body.comic-page .actions a:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 #111827 !important}
+body.comic-page button:active,
+body.comic-page .actions a:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #111827 !important}
+body.comic-page input,
+body.comic-page select,
+body.comic-page textarea{
+  border:3px solid #111827 !important;
+  border-radius:6px !important;
+  background:#fff !important;
+}
+body.comic-page table{background:#fff;border:3px solid #111827}
+body.comic-page th{background:var(--subject2) !important;color:#111827 !important}
+body.comic-page th,body.comic-page td{border:2px solid #111827 !important}
+body.comic-page .tip,
+body.comic-page .rule,
+body.comic-page .warning,
+body.comic-page .callout,
+body.comic-page .big-rule{
+  border:3px solid #111827 !important;
+  box-shadow:4px 4px 0 #111827 !important;
+  background:#fff !important;
+}
+body.comic-page .feedback.ok,
+body.comic-page .ok{color:#076c2e !important}
+body.comic-page .feedback.bad,
+body.comic-page .bad{color:#b30f1f !important}
+
+/* Központi főoldal */
+.comic-home{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10px 10px,rgba(0,0,0,.13) 1.6px,transparent 1.7px) 0 0/18px 18px,
+    #fffdf2;
+  color:#111827;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+.comic-home *{box-sizing:border-box}
+.comic-home .comic-wrap{max-width:1120px;margin:auto;padding:28px 18px 60px}
+.comic-home .comic-title{
+  position:relative;
+  overflow:hidden;
+  background:repeating-conic-gradient(from -20deg at 50% 50%,#ff9b19 0 9deg,#ffd92f 9deg 18deg);
+  border:5px solid #111827;
+  box-shadow:8px 8px 0 #111827;
+  padding:34px 24px;
+  margin-bottom:28px;
+}
+.comic-home .comic-title h1{
+  margin:0;
+  font:1000 clamp(2.6rem,9vw,6rem)/.9 Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  color:#ef2d20;
+  text-shadow:4px 4px 0 #fff,7px 7px 0 #111827;
+}
+.comic-home .comic-title p{font-size:1.08rem;font-weight:800;max-width:700px}
+.comic-home .speech{
+  display:inline-block;
+  background:#fff;
+  border:4px solid #111827;
+  padding:12px 18px;
+  border-radius:50%;
+  font-weight:900;
+  transform:rotate(-2deg);
+}
+.comic-home .subjects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.comic-home .subject-card{
+  min-height:180px;
+  color:#111827;
+  text-decoration:none;
+  border:4px solid #111827;
+  box-shadow:7px 7px 0 #111827;
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+  transition:.15s;
+}
+.comic-home .subject-card:hover{transform:translate(-2px,-2px);box-shadow:10px 10px 0 #111827}
+.comic-home .subject-card h2{font:900 clamp(1.5rem,4vw,2.4rem)/1 Impact,system-ui,sans-serif;text-transform:uppercase;margin:8px 0}
+.comic-home .subject-card p{font-weight:700;max-width:78%}
+.comic-home .subject-card .emoji{font-size:2.4rem}
+.comic-home .subject-card:nth-child(1){background:#ffd92f}
+.comic-home .subject-card:nth-child(2){background:#a452aa}
+.comic-home .subject-card:nth-child(3){background:#ff7e1c}
+.comic-home .subject-card:nth-child(4){background:#28c8c8}
+.comic-home .subject-card:nth-child(5){background:#df9d4a}
+.comic-home .subject-card:nth-child(6){background:#1faa64}
+.comic-home .subject-card:nth-child(7){background:#79cf62}
+.comic-home .subject-card:nth-child(8){background:#2954a3;color:#fff}
+.comic-home .subject-card::after{
+  content:"";
+  width:110px;height:110px;
+  position:absolute;right:-24px;bottom:-26px;
+  border-radius:50%;
+  background:radial-gradient(circle,#fff 0 2px,transparent 2.5px) 0 0/12px 12px;
+  opacity:.7;
+}
+@media(max-width:700px){
+  .comic-home .subjects{grid-template-columns:1fr}
+  .comic-home .comic-title{padding:26px 18px}
+  body.comic-page header::after,body.comic-page .hero::after{font-size:1rem;right:8px;top:8px}
+}
