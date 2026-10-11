@@ -22,6 +22,19 @@ button{padding:9px 12px;cursor:pointer}.score{font-size:1.2rem;font-weight:1000;
 .flash{cursor:pointer;min-height:140px;padding:18px;text-align:center;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;background:#fff}
 .small{font-size:.93rem;color:#4b5563}.work{font-weight:900}.num{font-weight:1000;color:#e74b22}
 details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font-weight:900}
+
+.mf-intro{background:linear-gradient(135deg,#fff1d9,#eef7ea 55%,#eef2fb);border:3px solid #111827;border-radius:20px;padding:18px;box-shadow:5px 5px 0 #111827;margin-bottom:18px}
+.mf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mf-art{background:#fff;border:3px solid #111827;border-radius:18px;padding:12px;min-height:145px;display:flex;align-items:center;justify-content:center}
+.mf-art svg{width:100%;height:120px}
+.mf-ex{background:#fff;border:3px solid #111827;border-radius:18px;padding:16px;margin:14px 0;box-shadow:4px 4px 0 #111827}
+.mf-ex h3{margin-top:0}
+.mf-ex label{display:block;margin:8px 0}
+.mf-ex input[type=text],.mf-ex select{width:100%;padding:9px;border:2px solid #94a3b8;border-radius:10px;font:inherit}
+.mf-feedback{display:none;margin-top:10px;padding:10px;border:2px solid #111827;border-radius:10px;font-weight:900}
+.mf-feedback.ok{display:block;background:#dff6e5}.mf-feedback.bad{display:block;background:#ffe1e1}
+.mf-tag{display:inline-block;border:2px solid #111827;border-radius:999px;padding:4px 8px;background:#fff;margin:3px;font-weight:800}
+@media(max-width:850px){.mf-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body class="comic-page subject-irodalom">
@@ -33,7 +46,7 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 </header>
 
 <nav>
-<a href="#tananyag">Tananyag</a><a href="#muvek">Művek</a><a href="#rim">Rímek</a><a href="#kartya">Tanulókártyák</a><a href="#gyakorlas">Gyakorlás</a><a href="#proba">Próbadolgozat</a>
+<a href="#tananyag">Tananyag</a><a href="#muvek">Művek</a><a href="#rim">Rímek</a><a href="#munkafuzet">Munkafüzet 7–17.</a><a href="#kartya">Tanulókártyák</a><a href="#gyakorlas">Gyakorlás</a><a href="#proba">Próbadolgozat</a>
 </nav>
 
 <section id="tananyag" class="card">
@@ -100,8 +113,159 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 <p><b>Figyelj:</b> az <b>x</b> azt jelenti, hogy annak a sornak nincs rímpárja.</p>
 </section>
 
+
+<section id="munkafuzet" class="card">
+<h2>4. Munkafüzet 7–17. oldal – interaktív gyakorlás</h2>
+<div class="mf-intro">
+  <b>Ez a rész közvetlenül a munkafüzet nyomtatott 7–17. oldalának feladattípusaira épül.</b>
+  A sorrend is követi a fejezetet: <i>Ó ha cinke volnék → Nagyanyó-kenyér → Családi kör → Egy estém otthon → Füstbement terv → Magyar vagyok → Részösszefoglalás.</i>
+</div>
+
+<div class="mf-grid">
+  <div class="mf-art">
+    <svg viewBox="0 0 220 120" aria-label="cinke illusztráció">
+      <path d="M18 99c45-3 72-3 111-1" stroke="#7b5236" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <ellipse cx="94" cy="60" rx="38" ry="27" fill="#f4c54d"/>
+      <circle cx="66" cy="51" r="19" fill="#f4c54d"/>
+      <path d="M108 58c23-16 42-13 57-3-15 4-27 12-38 24z" fill="#5678a8"/>
+      <polygon points="48,51 29,57 49,62" fill="#db773f"/>
+      <circle cx="60" cy="46" r="3" fill="#111827"/>
+      <path d="M78 81l-4 17M94 84l3 14" stroke="#111827" stroke-width="3"/>
+      <path d="M163 22c7 6 12 6 19 0-5 9-10 13-19 0z" fill="#7bbd68"/>
+    </svg>
+  </div>
+  <div class="mf-art">
+    <svg viewBox="0 0 220 120" aria-label="kenyér és malom illusztráció">
+      <circle cx="55" cy="68" r="36" fill="#d9d2c8" stroke="#7c7067" stroke-width="5"/>
+      <circle cx="55" cy="68" r="10" fill="#8f8175"/>
+      <path d="M20 68h70M55 33v70" stroke="#8f8175" stroke-width="5"/>
+      <ellipse cx="155" cy="78" rx="48" ry="24" fill="#c8864e"/>
+      <path d="M117 75c14-18 61-18 76 0" stroke="#e5b478" stroke-width="6" fill="none"/>
+      <path d="M126 65c8 6 12 12 14 22M145 60c7 7 10 15 10 29M165 62c5 8 7 15 5 27" stroke="#f4d29e" stroke-width="4"/>
+    </svg>
+  </div>
+  <div class="mf-art">
+    <svg viewBox="0 0 220 120" aria-label="családi tűzhely illusztráció">
+      <rect x="20" y="84" width="180" height="18" rx="8" fill="#8a5d3d"/>
+      <ellipse cx="105" cy="82" rx="45" ry="20" fill="#ffbd55"/>
+      <path d="M94 78c-8-17 8-28 13-43 12 10 22 19 19 34-2 11-11 20-22 20-6 0-9-4-10-11z" fill="#ed684e"/>
+      <circle cx="42" cy="49" r="17" fill="#f1d3b2"/><circle cx="175" cy="49" r="17" fill="#f1d3b2"/>
+      <path d="M42 66v20M175 66v20" stroke="#41526a" stroke-width="7"/>
+      <path d="M58 60c22 12 76 12 100 0" stroke="#41526a" stroke-width="4" fill="none"/>
+    </svg>
+  </div>
+</div>
+
+<div class="mf-ex">
+<h3>1. Weöres Sándor: <i>Ó ha cinke volnék</i> – egészítsd ki!</h3>
+<label>A mű <input id="mf1a" type="text" placeholder="milyen eredetű alkotás?"></label>
+<label>Formája nem próza, hanem <input id="mf1b" type="text" placeholder="..."></label>
+<label>A költemény <input id="mf1c" type="text" placeholder="hány versszakra tagolódik?"></label>
+<button onclick="mfCheck1()">Ellenőrzés</button><div id="mff1" class="mf-feedback"></div>
+</div>
+
+<div class="mf-ex">
+<h3>2. Dal – mely állítások igazak?</h3>
+<label><input type="checkbox" name="mfdal" value="1"> Egyszerű érzelmeket, hangulatokat és gondolatokat fejez ki.</label>
+<label><input type="checkbox" name="mfdal" value="2"> Epikai műfaj, eseménysort mond el.</label>
+<label><input type="checkbox" name="mfdal" value="3"> A beszélő gyakran egyes szám első személyben szólal meg.</label>
+<label><input type="checkbox" name="mfdal" value="4"> Jellemzi a zeneiség és a költői kifejezőeszközök gazdag használata.</label>
+<label><input type="checkbox" name="mfdal" value="5"> Szerkezete egyszerű, világos.</label>
+<button onclick="mfCheckDal()">Ellenőrzés</button><div id="mffdal" class="mf-feedback"></div>
+</div>
+
+<div class="mf-ex">
+<h3>3. Kányádi Sándor: <i>Nagyanyó-kenyér</i> – rímfelismerés</h3>
+<p class="small">A munkafüzet 8–9. oldalának mintájára. Válaszd ki a rímfajtát!</p>
+<label>„Jön az ősz, megy a gólya már… / … Hol jobban süt a nap rája.”
+<select id="mfr1"><option></option><option>páros rím</option><option>keresztrím</option><option>ölelkező rím</option><option>félrím</option></select></label>
+<label>„A szerelem, a szerelem… / … Nem láthatok, nem hallhatok.”
+<select id="mfr2"><option></option><option>páros rím</option><option>keresztrím</option><option>ölelkező rím</option><option>félrím</option></select></label>
+<label>„Ez a kislány selyemágyát… / … Rajta felejtette.”
+<select id="mfr3"><option></option><option>páros rím</option><option>keresztrím</option><option>ölelkező rím</option><option>félrím</option></select></label>
+<label>„Az égi fények ezredénél… / … engem mégis megcsala!”
+<select id="mfr4"><option></option><option>páros rím</option><option>keresztrím</option><option>ölelkező rím</option><option>félrím</option></select></label>
+<label>„Hegy, fa, ház, ember, patak… / … S oszlik el, mint köd-alak.”
+<select id="mfr5"><option></option><option>páros rím</option><option>keresztrím</option><option>ölelkező rím</option><option>félrím</option></select></label>
+<label>„Eszembe jutottál… / … Legnagyobb gyémántja!”
+<select id="mfr6"><option></option><option>páros rím</option><option>keresztrím</option><option>ölelkező rím</option><option>félrím</option></select></label>
+<button onclick="mfCheckRim()">Ellenőrzés</button><div id="mffrim" class="mf-feedback"></div>
+</div>
+
+<div class="mf-ex">
+<h3>4. Arany János: <i>Családi kör</i> – szómagyarázat</h3>
+<label>Parázsló végű fadarab: <select id="mfc1"><option></option><option>rög</option><option>üszök</option><option>venyige</option><option>pitvar</option></select></label>
+<label>Száraz szőlővessző: <select id="mfc2"><option></option><option>rög</option><option>üszök</option><option>venyige</option><option>pitvar</option></select></label>
+<label>Kemény földdarab: <select id="mfc3"><option></option><option>rög</option><option>üszök</option><option>venyige</option><option>pitvar</option></select></label>
+<label>A parasztház egyik helyisége: <select id="mfc4"><option></option><option>rög</option><option>üszök</option><option>venyige</option><option>pitvar</option></select></label>
+<button onclick="mfCheckWords()">Ellenőrzés</button><div id="mffwords" class="mf-feedback"></div>
+</div>
+
+<div class="mf-ex">
+<h3>5. Mi bizonyítja, hogy a <i>Családi kör</i> életkép?</h3>
+<label><input type="checkbox" name="mfel" value="1"> A mindennapi családi élet egy jellemző esti helyzetét ábrázolja.</label>
+<label><input type="checkbox" name="mfel" value="2"> Lírai és epikai elemek egyaránt megjelennek benne.</label>
+<label><input type="checkbox" name="mfel" value="3"> Kizárólag történelmi csatajeleneteket beszél el.</label>
+<label><input type="checkbox" name="mfel" value="4"> Színpadra készült tragédia.</label>
+<button onclick="mfCheckElet()">Ellenőrzés</button><div id="mffelet" class="mf-feedback"></div>
+</div>
+
+<div class="mf-ex">
+<h3>6. <i>Egy estém otthon</i> ↔ <i>Családi kör</i></h3>
+<p>Írd a megfelelő helyre: <span class="mf-tag">Egy estém otthon</span> <span class="mf-tag">Családi kör</span> <span class="mf-tag">Mindkettő</span></p>
+<label>Műfaja életkép. <select id="mfv1"><option></option><option>Egy estém otthon</option><option>Családi kör</option><option>Mindkettő</option></select></label>
+<label>Arany János alkotása. <select id="mfv2"><option></option><option>Egy estém otthon</option><option>Családi kör</option><option>Mindkettő</option></select></label>
+<label>Műköltészeti alkotás és formája vers. <select id="mfv3"><option></option><option>Egy estém otthon</option><option>Családi kör</option><option>Mindkettő</option></select></label>
+<label>Dunavecsén keletkezett, 1844-ben. <select id="mfv4"><option></option><option>Egy estém otthon</option><option>Családi kör</option><option>Mindkettő</option></select></label>
+<label>„a földön nekem van / Legszeretőbb anyám!” <select id="mfv5"><option></option><option>Egy estém otthon</option><option>Családi kör</option><option>Mindkettő</option></select></label>
+<button onclick="mfCheckVenn()">Ellenőrzés</button><div id="mffvenn" class="mf-feedback"></div>
+</div>
+
+<div class="mf-ex">
+<h3>7. Petőfi Sándor: <i>Füstbement terv</i> – igaz vagy hamis?</h3>
+<label>Az édesapához fűződő kapcsolat kap hangsúlyos szerepet. <select id="mffu1"><option></option><option>Igaz</option><option>Hamis</option></select></label>
+<label>Petőfi 1844-ben Dunavecsén felkereste a szüleit. <select id="mffu2"><option></option><option>Igaz</option><option>Hamis</option></select></label>
+<label>A végén a beszélő kimondja az előre kigondolt megszólítást. <select id="mffu3"><option></option><option>Igaz</option><option>Hamis</option></select></label>
+<button onclick="mfCheckFust()">Ellenőrzés</button><div id="mfffust" class="mf-feedback"></div>
+</div>
+
+<div class="mf-ex">
+<h3>8. Petőfi Sándor: <i>Magyar vagyok</i> – sorrend és értelmezés</h3>
+<label>Tedd időrendbe a négy művet! (1 = legkorábbi)
+<div class="grid3">
+<label>Füstbement terv <select id="mfo1"><option></option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+<label>Magyar vagyok <select id="mfo2"><option></option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+<label>Nemzeti dal <select id="mfo3"><option></option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+<label>Családi kör <select id="mfo4"><option></option><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+</div></label>
+<label>Az 1. versszak két tájtípusa: <input id="mfmtaj" type="text" placeholder="... és ..."></label>
+<button onclick="mfCheckOrder()">Ellenőrzés</button><div id="mfforder" class="mf-feedback"></div>
+</div>
+
+<div class="mf-ex">
+<h3>9. Részösszefoglalás – ismerd fel a költőt!</h3>
+<details><summary>1. költő – 3 pontos segítség</summary><p>Édesapám kitagadott, mert nem akartam az ő mesterségét folytatni.</p><details><summary>2 pontos segítség</summary><p>1844 júliusától a Pesti Divatlap segédszerkesztője lettem.</p><details><summary>1 pontos segítség</summary><p>Egyik versemben „füstbement” tervemről írtam.</p></details></details></details>
+<label>Név: <input id="mfk1" type="text"></label>
+<details><summary>2. költő – 3 pontos segítség</summary><p>Petőfi Sándort jó barátomnak tudhatom.</p><details><summary>2 pontos segítség</summary><p>A Toldi című művemmel majd 6. osztályban találkoztok.</p><details><summary>1 pontos segítség</summary><p>Az „Este van, este van” kezdetű versemet sok gyerek ismeri.</p></details></details></details>
+<label>Név: <input id="mfk2" type="text"></label>
+<details><summary>3. költő – 3 pontos segítség</summary><p>Tizennégy éves koromban jelentek meg első verseim.</p><details><summary>2 pontos segítség</summary><p>A Bóbita és a Ha a világ rigó lenne című kötetek szerzője vagyok.</p><details><summary>1 pontos segítség</summary><p>Műveim ritmikusak, sok versemet megzenésítették.</p></details></details></details>
+<label>Név: <input id="mfk3" type="text"></label>
+<button onclick="mfCheckPoets()">Ellenőrzés</button><div id="mffpoets" class="mf-feedback"></div>
+</div>
+
+<div class="mf-ex">
+<h3>10. Rímfajták – villámgyakorlat</h3>
+<label>páros rím <select id="mfrk1"><option></option><option>aabb</option><option>abab</option><option>abba</option><option>aaaa</option><option>xaxa</option></select></label>
+<label>ölelkező rím <select id="mfrk2"><option></option><option>aabb</option><option>abab</option><option>abba</option><option>aaaa</option><option>xaxa</option></select></label>
+<label>bokorrím <select id="mfrk3"><option></option><option>aabb</option><option>abab</option><option>abba</option><option>aaaa</option><option>xaxa</option></select></label>
+<label>félrím <select id="mfrk4"><option></option><option>aabb</option><option>abab</option><option>abba</option><option>aaaa</option><option>xaxa</option></select></label>
+<label>keresztrím <select id="mfrk5"><option></option><option>aabb</option><option>abab</option><option>abba</option><option>aaaa</option><option>xaxa</option></select></label>
+<button onclick="mfCheckSchemes()">Ellenőrzés</button><div id="mffschemes" class="mf-feedback"></div>
+</div>
+</section>
+
 <section id="kartya" class="card">
-<h2>4. Tanulókártyák</h2>
+<h2>5. Tanulókártyák</h2>
 <p>Koppints a kártyára a megoldásért.</p>
 <div class="grid">
 <div class="flash" onclick="flip(this)" data-front="Mi a dal?" data-back="Lírai műfaj: egyszerű érzelmeket, hangulatokat és gondolatokat fejez ki; világos szerkezet és zeneiség jellemzi.">Mi a dal?</div>
@@ -116,7 +280,7 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 </section>
 
 <section id="gyakorlas" class="card">
-<h2>5. Gyakorlás</h2>
+<h2>6. Gyakorlás</h2>
 
 <div class="q" data-answer="lírai"><b>1. Melyik műnemhez tartozik a dal?</b>
 <label><input type="radio" name="q1" value="epikai"> epikai</label>
@@ -183,7 +347,7 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 </section>
 
 <section id="proba" class="card">
-<h2>6. Próbadolgozat – 20 pont</h2>
+<h2>7. Próbadolgozat – 20 pont</h2>
 <p class="small">Előbb oldd meg segítség nélkül, utána kattints a kiértékelésre.</p>
 
 <div class="q"><b>1. Dal = melyik műnem? (1 p)</b><select id="m1"><option></option><option value="l">lírai</option><option value="e">epikai</option><option value="d">drámai</option></select></div>
@@ -210,7 +374,7 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 </section>
 
 <section class="card">
-<h2>7. Villámismétlés dolgozat előtt</h2>
+<h2>8. Villámismétlés dolgozat előtt</h2>
 <p><b>Műnemek:</b> epika – líra – dráma. <b>Fogalmak:</b> dal, életkép, rím. <b>Rímképletek:</b> páros aabb, keresztrím abab, ölelkező abba, bokorrím aaaa, félrím xaxa. <b>Tankönyv 31. oldal:</b> Weöres – Ó ha cinke volnék – dal; Kányádi – Nagyanyó-kenyér – életkép, hagyomány; Arany – Családi kör – életkép, tűzmotívum; Petőfi – Egy estém otthon – életkép; Füstbement terv – 1844; Magyar vagyok – dal, lírai vallomás. Ne felejtsd a szerző–cím párokat sem!</p>
 </section>
 </main>
@@ -245,5 +409,19 @@ function scoreMini(){
  if(has('m16',['Weöres','Sándor']))s++;
  document.getElementById('score').textContent='Eredmény: '+s+'/20 pont. '+(s>=18?'Nagyon jó!':s>=15?'Jó úton vagy — a hibás részeket ismételd át.':'Érdemes visszamenni a tananyaghoz és újra próbálni.');
 }
+
+function mfNorm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'')}
+function mfShow(id,ok,good,bad){const e=document.getElementById(id);e.className='mf-feedback '+(ok?'ok':'bad');e.textContent=ok?good:bad}
+function mfCheck1(){const a=mfNorm(document.getElementById('mf1a').value),b=mfNorm(document.getElementById('mf1b').value),d=mfNorm(document.getElementById('mf1c').value);mfShow('mff1',a.includes('mukolteszeti')&&b.includes('vers')&&(d.includes('harom')||d.includes('3'))&&d.includes('versszak'),'Helyes: műköltészeti alkotás • vers • három versszakra tagolódik.','Nézd át még egyszer: műköltészeti alkotás • vers • három versszakra tagolódik.')}
+function mfCheckDal(){const v=[...document.querySelectorAll('input[name="mfdal"]:checked')].map(x=>x.value).sort().join(',');mfShow('mffdal',v==='1,3,4,5','Helyes! A jó betűkből a LÍRA szó rakható ki.','Az igaz állítások: 1, 3, 4, 5.')}
+function mfCheckRim(){const a=['páros rím','páros rím','keresztrím','félrím','ölelkező rím','félrím'];let ok=true;a.forEach((v,i)=>ok=ok&&document.getElementById('mfr'+(i+1)).value===v);mfShow('mffrim',ok,'Mind a hat rímfajtát felismerted!','Van még hibás párosítás. Tipp: a sorrend páros, páros, kereszt, fél, ölelkező, fél.')}
+function mfCheckWords(){const a=['üszök','venyige','rög','pitvar'];let ok=true;a.forEach((v,i)=>ok=ok&&document.getElementById('mfc'+(i+1)).value===v);mfShow('mffwords',ok,'Mind a négy helyes!','Helyes sorrend: üszök • venyige • rög • pitvar.')}
+function mfCheckElet(){const v=[...document.querySelectorAll('input[name="mfel"]:checked')].map(x=>x.value).sort().join(',');mfShow('mffelet',v==='1,2','Igen: mindennapi helyzet + lírai és epikai elemek.','A két jó érv: 1 és 2.')}
+function mfCheckVenn(){const a=['Mindkettő','Családi kör','Mindkettő','Egy estém otthon','Egy estém otthon'];let ok=true;a.forEach((v,i)=>ok=ok&&document.getElementById('mfv'+(i+1)).value===v);mfShow('mffvenn',ok,'Minden állítás jó helyre került!','Van még hibás elhelyezés.')}
+function mfCheckFust(){const ok=document.getElementById('mffu1').value==='Hamis'&&document.getElementById('mffu2').value==='Igaz'&&document.getElementById('mffu3').value==='Hamis';mfShow('mfffust',ok,'Helyes: hamis • igaz • hamis.','A helyes sorrend: hamis • igaz • hamis.')}
+function mfCheckOrder(){const ok=document.getElementById('mfo1').value==='1'&&document.getElementById('mfo2').value==='2'&&document.getElementById('mfo3').value==='3'&&document.getElementById('mfo4').value==='4';const t=mfNorm(document.getElementById('mfmtaj').value);const taj=t.includes('berc')&&t.includes('rona');mfShow('mfforder',ok&&taj,'Helyes sorrend: Füstbement terv (1844) → Magyar vagyok (1847) → Nemzeti dal (1848) → Családi kör (1851). A két tájtípus: bérc és rónaság.','Ellenőrizd a sorrendet és azt is, hogy az 1. versszakban bérc és rónaság szerepel.')}
+function mfCheckPoets(){const ok=mfNorm(document.getElementById('mfk1').value).includes('petofisandor')&&mfNorm(document.getElementById('mfk2').value).includes('aranyjanos')&&mfNorm(document.getElementById('mfk3').value).includes('weoressandor');mfShow('mffpoets',ok,'Mindhárom költőt felismerted!','Megoldás: Petőfi Sándor • Arany János • Weöres Sándor.')}
+function mfCheckSchemes(){const a=['aabb','abba','aaaa','xaxa','abab'];let ok=true;a.forEach((v,i)=>ok=ok&&document.getElementById('mfrk'+(i+1)).value===v);mfShow('mffschemes',ok,'Tökéletes!','Helyes: páros aabb • ölelkező abba • bokorrím aaaa • félrím xaxa • keresztrím abab.')}
+
 </script>
 </body></html>
