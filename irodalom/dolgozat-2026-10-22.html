@@ -35,6 +35,40 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 .mf-feedback.ok{display:block;background:#dff6e5}.mf-feedback.bad{display:block;background:#ffe1e1}
 .mf-tag{display:inline-block;border:2px solid #111827;border-radius:999px;padding:4px 8px;background:#fff;margin:3px;font-weight:800}
 @media(max-width:850px){.mf-grid{grid-template-columns:1fr}}
+
+.rhyme-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rhyme-card{border:3px solid #111827;border-radius:18px;padding:15px;background:#fff;box-shadow:4px 4px 0 #111827}
+.rhyme-card.focus{grid-column:1/-1;background:linear-gradient(135deg,#fff8cf,#eef6ff)}
+.rhyme-head{display:flex;justify-content:space-between;gap:10px;align-items:center;font-weight:1000;margin-bottom:9px}
+.rhyme-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#24324a;color:#fff;padding:5px 9px;border-radius:999px;white-space:nowrap}
+.rhyme-lines{background:#f7f8fb;border:2px dashed #aeb8c8;border-radius:12px;padding:10px;display:grid;gap:5px}
+.rhyme-lines b{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#dff0d8;border:2px solid #111827}
+.rhyme-lines b.x{background:#ffe4dc}
+.memory-tip{margin-top:10px;padding:10px 12px;border:2px solid #111827;border-radius:12px;background:#fff;font-weight:800}
+
+.teacher-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:14px;border:3px solid #111827;border-radius:18px;background:#fff;box-shadow:4px 4px 0 #111827}
+.teacher-table{width:100%;min-width:760px;border-collapse:collapse;background:#fff}
+.teacher-table th,.teacher-table td{border:1px solid #cfd6cc;padding:10px;vertical-align:middle}
+.teacher-table thead th{background:#4f9e36;color:#fff;text-align:center;font-weight:900}
+.teacher-table .superhead{background:#486858;color:#fff;font-size:1.1rem}
+.teacher-table tbody tr:nth-child(odd){background:#eef5ec}
+.teacher-table tbody tr:nth-child(even){background:#f7faf6}
+.teacher-table select{width:100%;min-width:145px;padding:10px;border:2px solid #9ca8a0;border-radius:10px;background:#fff;color:#24324a;font:inherit;font-weight:700}
+.teacher-table .given{font-weight:900}
+.teacher-hint{margin-top:12px;padding:12px 14px;border:2px dashed #7a8c80;border-radius:14px;background:#f8fbf7}
+.legend-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}
+.legend-chip{border:2px solid #111827;border-radius:12px;background:#fff;padding:8px 10px;font-weight:800}
+.table-task-title{margin-top:24px}
+.flash-native-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.flash-native{border:3px solid #111827;border-radius:18px;background:#fff;box-shadow:4px 4px 0 #111827;padding:0;overflow:hidden}
+.flash-native summary{list-style:none;cursor:pointer;padding:16px;min-height:100px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;background:linear-gradient(135deg,#fff6df,#edf6e9)}
+.flash-native summary::-webkit-details-marker{display:none}
+.flash-native summary:after{content:" +";margin-left:7px;font-size:1.15rem}
+.flash-native[open] summary:after{content:" −"}
+.flash-native .answer{border-top:3px solid #111827;padding:14px;font-weight:750;background:#fff}
+@media(max-width:760px){.rhyme-grid,.flash-native-grid{grid-template-columns:1fr}.rhyme-card.focus{grid-column:auto}.legend-grid{grid-template-columns:1fr 1fr}.teacher-table{min-width:720px}}
+@media(max-width:480px){.legend-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body class="comic-page subject-irodalom">
@@ -46,7 +80,7 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 </header>
 
 <nav>
-<a href="#tananyag">Tananyag</a><a href="#muvek">Művek</a><a href="#rim">Rímek</a><a href="#munkafuzet">Munkafüzet 7–17.</a><a href="#kartya">Tanulókártyák</a><a href="#gyakorlas">Gyakorlás</a><a href="#proba">Próbadolgozat</a>
+<a href="#tananyag">Tananyag</a><a href="#muvek">Művek</a><a href="#rim">Rímek</a><a href="#tanari-tablazatok">Tanári táblázatok</a><a href="#munkafuzet">Munkafüzet 7–17.</a><a href="#kartya">Tanulókártyák</a><a href="#gyakorlas">Gyakorlás</a><a href="#proba">Próbadolgozat</a>
 </nav>
 
 <section id="tananyag" class="card">
@@ -103,19 +137,130 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 
 <section id="rim" class="card">
 <h2>3. Rímfajták és rímképletek</h2>
-<div class="grid3">
-<div class="rule"><b>Páros rím</b><br>a a b b</div>
-<div class="rule"><b>Keresztrím</b><br>a b a b</div>
-<div class="rule"><b>Ölelkező rím</b><br>a b b a</div>
-<div class="rule"><b>Bokorrím</b><br>a a a a</div>
-<div class="rule"><b>Félrím</b><br>x a x a</div>
+<p>A betűk azt mutatják, mely sorvégek csengenek össze. <b>Azonos betű = egymással rímelő sorvégek.</b></p>
+<div class="rhyme-grid">
+  <div class="rhyme-card">
+    <div class="rhyme-head"><span>Páros rím</span><span class="rhyme-code">a a b b</span></div>
+    <div class="rhyme-lines"><div><b>a</b> 1. sor</div><div><b>a</b> 2. sor</div><div><b>b</b> 3. sor</div><div><b>b</b> 4. sor</div></div>
+    <p>Két-két egymás melletti sor alkot rímpárt: 1–2 és 3–4.</p>
+  </div>
+  <div class="rhyme-card">
+    <div class="rhyme-head"><span>Keresztrím</span><span class="rhyme-code">a b a b</span></div>
+    <div class="rhyme-lines"><div><b>a</b> 1. sor</div><div><b>b</b> 2. sor</div><div><b>a</b> 3. sor</div><div><b>b</b> 4. sor</div></div>
+    <p>Az 1. a 3. sorral, a 2. a 4. sorral rímel.</p>
+  </div>
+  <div class="rhyme-card">
+    <div class="rhyme-head"><span>Ölelkező rím</span><span class="rhyme-code">a b b a</span></div>
+    <div class="rhyme-lines"><div><b>a</b> 1. sor</div><div><b>b</b> 2. sor</div><div><b>b</b> 3. sor</div><div><b>a</b> 4. sor</div></div>
+    <p>A külső sorok „körbeölelik” a középső rímpárt: 1–4 és 2–3.</p>
+  </div>
+  <div class="rhyme-card">
+    <div class="rhyme-head"><span>Bokorrím</span><span class="rhyme-code">a a a a</span></div>
+    <div class="rhyme-lines"><div><b>a</b> 1. sor</div><div><b>a</b> 2. sor</div><div><b>a</b> 3. sor</div><div><b>a</b> 4. sor</div></div>
+    <p>Minden sorvég ugyanahhoz a rímcsoporthoz tartozik.</p>
+  </div>
+  <div class="rhyme-card focus">
+    <div class="rhyme-head"><span>Félrím</span><span class="rhyme-code">x a x a</span></div>
+    <div class="rhyme-lines"><div><b class="x">x</b> 1. sor – nincs kijelölt rímpárja</div><div><b>a</b> 2. sor – rímel a 4.-kel</div><div><b class="x">x</b> 3. sor – nincs kijelölt rímpárja</div><div><b>a</b> 4. sor – rímel a 2.-kal</div></div>
+    <p><b>Az x nem egy külön hangzás.</b> Azt jelenti: annak a sornak nincs kijelölt rímpárja. Tehát az <b>x a x a</b> képletben a 2. és a 4. sor rímel egymással, az 1. és a 3. kimarad.</p>
+    <div class="memory-tip">🧠 Memóriatrükk: <b>x – a – x – a = kimarad – rímel – kimarad – rímel.</b></div>
+  </div>
 </div>
-<p><b>Figyelj:</b> az <b>x</b> azt jelenti, hogy annak a sornak nincs rímpárja.</p>
 </section>
 
 
+
+<section id="tanari-tablazatok" class="card">
+<h2>4. Tanári mintát követő táblázatos gyakorlás</h2>
+<p>A tanárnő összefoglaló táblázataihoz hasonló feladatok. A hiányzó cellákat a legördülő listából töltsd ki. A kitöltés után a táblázat alatt találod a lenyitható megoldókulcsot.</p>
+
+<h3 class="table-task-title">A) Irodalmi műnemek – műfajok</h3>
+<p class="small">A tanári képen látható csoportosítás mintájára.</p>
+<div class="teacher-table-wrap">
+<table class="teacher-table">
+<thead><tr><th class="superhead" colspan="3">Irodalmi műnemek – műfajok</th></tr><tr><th>Epikai</th><th>Lírai</th><th>Drámai</th></tr></thead>
+<tbody>
+<tr>
+<td><select><option value="">Válassz!</option><option>mese, verses mese</option><option>dal</option><option>komédia (vígjáték)</option></select></td>
+<td><select><option value="">Válassz!</option><option>dal</option><option>monda</option><option>tragédia</option></select></td>
+<td><select><option value="">Válassz!</option><option>komédia (vígjáték)</option><option>életkép</option><option>rege</option></select></td>
+</tr>
+<tr>
+<td><select><option value="">Válassz!</option><option>elbeszélés</option><option>életkép</option><option>tragédia</option></select></td>
+<td><select><option value="">Válassz!</option><option>életkép</option><option>mítosz</option><option>komédia</option></select></td>
+<td><select><option value="">Válassz!</option><option>tragédia (szomorújáték)</option><option>tájleíró költemény</option><option>monda</option></select></td>
+</tr>
+<tr><td><select><option value="">Válassz!</option><option>monda</option><option>dal</option><option>vígjáték</option></select></td><td><select><option value="">Válassz!</option><option>tájleíró költemény</option><option>rege</option><option>tragédia</option></select></td><td class="given">—</td></tr>
+<tr><td><select><option value="">Válassz!</option><option>rege</option><option>életkép</option><option>komédia</option></select></td><td class="given">—</td><td class="given">—</td></tr>
+<tr><td><select><option value="">Válassz!</option><option>mítosz</option><option>dal</option><option>tragédia</option></select></td><td class="given">—</td><td class="given">—</td></tr>
+</tbody>
+</table>
+</div>
+<details><summary>Megoldókulcs – műnemek/műfajok</summary><p><b>Epikai:</b> mese, verses mese; elbeszélés; monda; rege; mítosz. <b>Lírai:</b> dal; életkép; tájleíró költemény. <b>Drámai:</b> komédia (vígjáték); tragédia (szomorújáték).</p></details>
+
+<h3 class="table-task-title">B) Összefoglalás – szerző, mű, műfaj, ismertetőjegy</h3>
+<p class="small">Ez a második tanári táblázat mintáját követi. A „Tk.: 31. oldal segítségével” utalást is figyelembe vettük.</p>
+<div class="teacher-hint"><b>Az ismertetőjegy számai csak kódok a munkafüzet részösszefoglalásában.</b> Nem a számot kell önmagában megtanulni. Ezért a legördülő listában a szám mellett mindig szerepel a jelentése is.</div>
+<div class="legend-grid">
+<div class="legend-chip">1 = dal</div><div class="legend-chip">2 = életkép</div><div class="legend-chip">3 = elvágyódás és visszatérés</div>
+<div class="legend-chip">4 = félrím</div><div class="legend-chip">5 = hazafias programvers</div><div class="legend-chip">6 = keresztrím</div>
+<div class="legend-chip">7 = 1851</div><div class="legend-chip">8 = Dunavecse</div><div class="legend-chip">9 = páros rím</div>
+</div>
+<div class="teacher-table-wrap">
+<table class="teacher-table">
+<thead><tr><th class="superhead" colspan="4">Összefoglalás</th></tr><tr><th>Szerző neve</th><th>Mű címe</th><th>Műfaj</th><th>Ismertetőjegy</th></tr></thead>
+<tbody>
+<tr>
+<td><select><option value="">Válassz!</option><option>Weöres Sándor</option><option>Kányádi Sándor</option><option>Petőfi Sándor</option></select></td>
+<td class="given">Ó ha cinke volnék</td>
+<td><select><option value="">Válassz!</option><option>dal</option><option>életkép</option><option>monda</option></select></td>
+<td><select><option value="">Válassz!</option><option>3 – elvágyódás és visszatérés</option><option>5 – hazafias programvers</option><option>7 – 1851</option></select></td>
+</tr>
+<tr>
+<td class="given">Kányádi Sándor</td>
+<td><select><option value="">Válassz!</option><option>Nagyanyó-kenyér</option><option>Családi kör</option><option>Füstbement terv</option></select></td>
+<td><select><option value="">Válassz!</option><option>életkép</option><option>dal</option><option>tragédia</option></select></td>
+<td><select><option value="">Válassz!</option><option>2 – életkép</option><option>5 – hazafias programvers</option><option>7 – 1851</option></select></td>
+</tr>
+<tr>
+<td><select><option value="">Válassz!</option><option>Arany János</option><option>Petőfi Sándor</option><option>Weöres Sándor</option></select></td>
+<td class="given">Családi kör</td>
+<td><select><option value="">Válassz!</option><option>életkép</option><option>dal</option><option>monda</option></select></td>
+<td><select><option value="">Válassz!</option><option>7 – 1851</option><option>8 – Dunavecse</option><option>3 – elvágyódás és visszatérés</option></select></td>
+</tr>
+<tr>
+<td class="given">Petőfi Sándor</td>
+<td><select><option value="">Válassz!</option><option>Egy estém otthon</option><option>Magyar vagyok</option><option>Nagyanyó-kenyér</option></select></td>
+<td class="given">életkép</td>
+<td><select><option value="">Válassz!</option><option>8 – Dunavecse</option><option>5 – hazafias programvers</option><option>7 – 1851</option></select></td>
+</tr>
+<tr>
+<td class="given">Petőfi Sándor</td>
+<td class="given">Füstbement terv</td>
+<td><select><option value="">Válassz!</option><option>A tankönyvi összefoglaló itt nem ad külön műfajt</option><option>életkép</option><option>monda</option></select></td>
+<td><select><option value="">Válassz!</option><option>8 – Dunavecse</option><option>3 – elvágyódás és visszatérés</option><option>7 – 1851</option></select></td>
+</tr>
+<tr>
+<td><select><option value="">Válassz!</option><option>Petőfi Sándor</option><option>Arany János</option><option>Kányádi Sándor</option></select></td>
+<td class="given">Magyar vagyok</td>
+<td><select><option value="">Válassz!</option><option>dal, lírai vallomás</option><option>életkép</option><option>komédia</option></select></td>
+<td><select><option value="">Válassz!</option><option>5 – hazafias programvers</option><option>7 – 1851</option><option>3 – elvágyódás és visszatérés</option></select></td>
+</tr>
+</tbody>
+</table>
+</div>
+<details><summary>Megoldókulcs – összefoglaló táblázat</summary>
+<p><b>Ó ha cinke volnék:</b> Weöres Sándor • dal • 3 – elvágyódás és visszatérés.<br>
+<b>Nagyanyó-kenyér:</b> Kányádi Sándor • életkép • 2 – életkép.<br>
+<b>Családi kör:</b> Arany János • életkép • 7 – 1851.<br>
+<b>Egy estém otthon:</b> Petőfi Sándor • életkép • 8 – Dunavecse.<br>
+<b>Füstbement terv:</b> Petőfi Sándor • a tankönyvi 31. oldali összefoglaló itt nem ad külön műfajt • 8 – Dunavecse.<br>
+<b>Magyar vagyok:</b> Petőfi Sándor • dal, lírai vallomás • 5 – hazafias programvers.</p>
+</details>
+</section>
+
 <section id="munkafuzet" class="card">
-<h2>4. Munkafüzet 7–17. oldal – interaktív gyakorlás</h2>
+<h2>5. Munkafüzet 7–17. oldal – interaktív gyakorlás</h2>
 <div class="mf-intro">
   <b>Ez a rész közvetlenül a munkafüzet nyomtatott 7–17. oldalának feladattípusaira épül.</b>
   A sorrend is követi a fejezetet: <i>Ó ha cinke volnék → Nagyanyó-kenyér → Családi kör → Egy estém otthon → Füstbement terv → Magyar vagyok → Részösszefoglalás.</i>
@@ -265,22 +410,23 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 </section>
 
 <section id="kartya" class="card">
-<h2>5. Tanulókártyák</h2>
-<p>Koppints a kártyára a megoldásért.</p>
-<div class="grid">
-<div class="flash" onclick="flip(this)" data-front="Mi a dal?" data-back="Lírai műfaj: egyszerű érzelmeket, hangulatokat és gondolatokat fejez ki; világos szerkezet és zeneiség jellemzi.">Mi a dal?</div>
-<div class="flash" onclick="flip(this)" data-front="Mi az életkép?" data-back="A mindennapi élet egy jellemző jelenetét, helyzetét bemutató lírai költemény.">Mi az életkép?</div>
-<div class="flash" onclick="flip(this)" data-front="Mi a keresztrím képlete?" data-back="a b a b">Mi a keresztrím képlete?</div>
-<div class="flash" onclick="flip(this)" data-front="Mi a félrím képlete?" data-back="x a x a">Mi a félrím képlete?</div>
-<div class="flash" onclick="flip(this)" data-front="Ki írta a Családi kört?" data-back="Arany János">Ki írta a Családi kört?</div>
-<div class="flash" onclick="flip(this)" data-front="Ki írta az Ó ha cinke volnék című verset?" data-back="Weöres Sándor">Ki írta az Ó ha cinke volnék című verset?</div>
-<div class="flash" onclick="flip(this)" data-front="Melyik két tanult mű életkép?" data-back="Arany János: Családi kör; Petőfi Sándor: Egy estém otthon">Melyik két tanult mű életkép?</div>
-<div class="flash" onclick="flip(this)" data-front="Melyik mű hazafias programvers?" data-back="Petőfi Sándor: Magyar vagyok">Melyik mű hazafias programvers?</div>
+<h2>6. Tanulókártyák</h2>
+<p>Koppints egy kérdésre; a válasz lenyílik alatta.</p>
+<div class="flash-native-grid">
+<details class="flash-native"><summary>Mi a dal?</summary><div class="answer">Lírai műfaj: egyszerű érzelmeket, hangulatokat és gondolatokat fejez ki; világos szerkezet és zeneiség jellemzi.</div></details>
+<details class="flash-native"><summary>Mi az életkép?</summary><div class="answer">A mindennapi élet valamely jellemző helyzetét vagy alakját ábrázoló, sokszor lírai és epikai elemeket egyaránt magába foglaló verses vagy prózai alkotás.</div></details>
+<details class="flash-native"><summary>Mi a keresztrím képlete?</summary><div class="answer">a b a b – az 1. sor a 3.-kal, a 2. a 4.-kel rímel.</div></details>
+<details class="flash-native"><summary>Mi a félrím képlete?</summary><div class="answer">x a x a – a 2. és 4. sor rímel, az 1. és 3. sornak nincs kijelölt rímpárja.</div></details>
+<details class="flash-native"><summary>Ki írta a Családi kört?</summary><div class="answer">Arany János.</div></details>
+<details class="flash-native"><summary>Ki írta az Ó ha cinke volnék című verset?</summary><div class="answer">Weöres Sándor.</div></details>
+<details class="flash-native"><summary>Mely tanult műveket jelöli a tankönyv életképként?</summary><div class="answer">Kányádi Sándor: Nagyanyó-kenyér; Arany János: Családi kör; Petőfi Sándor: Egy estém otthon.</div></details>
+<details class="flash-native"><summary>Melyik mű hazafias programvers?</summary><div class="answer">Petőfi Sándor: Magyar vagyok.</div></details>
+<details class="flash-native"><summary>Mit jelent az x a rímképletben?</summary><div class="answer">Azt, hogy annak a sornak nincs kijelölt rímpárja.</div></details>
 </div>
 </section>
 
 <section id="gyakorlas" class="card">
-<h2>6. Gyakorlás</h2>
+<h2>7. Gyakorlás</h2>
 
 <div class="q" data-answer="lírai"><b>1. Melyik műnemhez tartozik a dal?</b>
 <label><input type="radio" name="q1" value="epikai"> epikai</label>
@@ -347,7 +493,7 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 </section>
 
 <section id="proba" class="card">
-<h2>7. Próbadolgozat – 20 pont</h2>
+<h2>8. Próbadolgozat – 21 pont</h2>
 <p class="small">Előbb oldd meg segítség nélkül, utána kattints a kiértékelésre.</p>
 
 <div class="q"><b>1. Dal = melyik műnem? (1 p)</b><select id="m1"><option></option><option value="l">lírai</option><option value="e">epikai</option><option value="d">drámai</option></select></div>
@@ -357,7 +503,7 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 <div class="q"><b>5. Ki írta a Családi kört? (1 p)</b><input id="m5" type="text"></div>
 <div class="q"><b>6. Ki írta a Nagyanyó-kenyeret? (1 p)</b><input id="m6" type="text"></div>
 <div class="q"><b>7. Melyik mű hazafias programvers? (1 p)</b><input id="m7" type="text"></div>
-<div class="q"><b>8. Melyik két mű életkép? (2 p)</b><input id="m8" type="text" placeholder="Két cím, vesszővel elválasztva"></div>
+<div class="q"><b>8. Melyik három tanult művet jelöli a tankönyv életképként? (3 p)</b><input id="m8" type="text" placeholder="Három cím, vesszővel elválasztva"></div>
 <div class="q"><b>9. Mit fejez ki az Ó ha cinke volnék központi kettőssége? (2 p)</b><input id="m9" type="text"></div>
 <div class="q"><b>10. Mi az életkép? (3 p)</b><textarea id="m10"></textarea></div>
 <div class="q"><b>11. Melyik év kapcsolódik a Családi körhöz? (1 p)</b><input id="m11" type="text"></div>
@@ -369,12 +515,12 @@ details{padding:12px;margin-top:10px;background:#fff}summary{cursor:pointer;font
 
 <button onclick="scoreMini()">Kiértékelés</button><div id="score" class="score"></div>
 <details><summary>Megoldókulcs</summary>
-<p>1. lírai; 2. lírai; 3. aabb; 4. xaxa; 5. Arany János; 6. Kányádi Sándor; 7. Magyar vagyok; 8. Családi kör + Egy estém otthon; 9. elvágyódás és visszatérés; 10. a mindennapi élet egy jellemző jelenetét/helyzetét bemutató lírai költemény; 11. 1851; 12. Dunavecse; 13. abab; 14. abba; 15. aaaa; 16. Weöres Sándor.</p>
+<p>1. lírai; 2. lírai; 3. aabb; 4. xaxa; 5. Arany János; 6. Kányádi Sándor; 7. Magyar vagyok; 8. Nagyanyó-kenyér + Családi kör + Egy estém otthon; 9. elvágyódás és visszatérés; 10. a mindennapi élet egy jellemző jelenetét/helyzetét bemutató lírai költemény; 11. 1851; 12. Dunavecse; 13. abab; 14. abba; 15. aaaa; 16. Weöres Sándor.</p>
 </details>
 </section>
 
 <section class="card">
-<h2>8. Villámismétlés dolgozat előtt</h2>
+<h2>9. Villámismétlés dolgozat előtt</h2>
 <p><b>Műnemek:</b> epika – líra – dráma. <b>Fogalmak:</b> dal, életkép, rím. <b>Rímképletek:</b> páros aabb, keresztrím abab, ölelkező abba, bokorrím aaaa, félrím xaxa. <b>Tankönyv 31. oldal:</b> Weöres – Ó ha cinke volnék – dal; Kányádi – Nagyanyó-kenyér – életkép, hagyomány; Arany – Családi kör – életkép, tűzmotívum; Petőfi – Egy estém otthon – életkép; Füstbement terv – 1844; Magyar vagyok – dal, lírai vallomás. Ne felejtsd a szerző–cím párokat sem!</p>
 </section>
 </main>
@@ -398,7 +544,7 @@ function scoreMini(){
  if(has('m5',['Arany','János']))s++;
  if(has('m6',['Kányádi','Sándor']))s++;
  if(has('m7',['Magyar','vagyok']))s++;
- const v8=norm(document.getElementById('m8').value); if(v8.includes(norm('Családi kör')))s++; if(v8.includes(norm('Egy estém otthon')))s++;
+ const v8=norm(document.getElementById('m8').value); if(v8.includes(norm('Nagyanyó-kenyér')))s++; if(v8.includes(norm('Családi kör')))s++; if(v8.includes(norm('Egy estém otthon')))s++;
  if(has('m9',['elvágyódás','visszatérés']))s+=2;
  const v10=norm(document.getElementById('m10').value); if(v10.includes('mindennapi'))s++; if(v10.includes('jelenet')||v10.includes('helyzet'))s++; if(v10.includes('lirai')||v10.includes('koltemeny'))s++;
  if(eq('m11','1851'))s++;
@@ -407,7 +553,7 @@ function scoreMini(){
  if(eq('m14','abba'))s++;
  if(eq('m15','aaaa'))s++;
  if(has('m16',['Weöres','Sándor']))s++;
- document.getElementById('score').textContent='Eredmény: '+s+'/20 pont. '+(s>=18?'Nagyon jó!':s>=15?'Jó úton vagy — a hibás részeket ismételd át.':'Érdemes visszamenni a tananyaghoz és újra próbálni.');
+ document.getElementById('score').textContent='Eredmény: '+s+'/21 pont. '+(s>=19?'Nagyon jó!':s>=16?'Jó úton vagy — a hibás részeket ismételd át.':'Érdemes visszamenni a tananyaghoz és újra próbálni.');
 }
 
 function mfNorm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'')}
