@@ -5,46 +5,120 @@
 <title>Órarend – 5.b Tanulósarok</title>
 <link rel="stylesheet" href="../assets/comic.css">
 <style>
-body{margin:0}.wrap{max-width:1180px;margin:auto;padding:28px 18px 60px}
+body{margin:0}.wrap{max-width:1280px;margin:auto;padding:28px 18px 60px}
 .back{display:inline-block;padding:8px 12px;margin-bottom:18px}
-.hero{padding:28px;margin-bottom:22px}.hero h1{font-size:clamp(2.2rem,7vw,4.4rem);margin:.4rem 0}.hero p{font-weight:800;max-width:700px}
-.schedule-card{background:#fff;border:4px solid #111827;box-shadow:7px 7px 0 #111827;padding:18px;overflow:auto}
-table{width:100%;min-width:860px;border-collapse:separate;border-spacing:8px}
-th,td{border:3px solid #111827;padding:12px;text-align:center;vertical-align:middle;font-weight:800}
-th{background:#ffd92f;font-size:1.05rem}
-td.period{background:#111827;color:#fff;width:86px}
-td:nth-child(2){background:#dff7ff}
-td:nth-child(3){background:#ffe6ef}
-td:nth-child(4){background:#e9f7dd}
-td:nth-child(5){background:#fff0cf}
-td:nth-child(6){background:#eee3ff}
-.lesson{display:block;font-size:1rem}.time{display:block;font-size:.78rem;color:#5c6470;margin-top:4px;font-weight:700}
+.hero{padding:28px;margin-bottom:22px}.hero h1{font-size:clamp(2.2rem,7vw,4.4rem);margin:.4rem 0}.hero p{font-weight:800;max-width:760px}
+.schedule-card{background:#fff;border:4px solid #111827;box-shadow:7px 7px 0 #111827;padding:14px;overflow:auto}
+table{width:100%;min-width:1050px;border-collapse:separate;border-spacing:8px}
+th,td{border:3px solid #111827;padding:10px;text-align:center;vertical-align:middle;font-weight:800}
+th{background:#ffd92f;font-size:1.08rem;text-transform:uppercase}
+td.period{background:#111827;color:#fff;width:88px;white-space:nowrap}
+.period .clock{display:block;font-size:.78rem;color:#d1d5db;margin-top:3px}
+.lesson{display:block;font-size:.98rem;line-height:1.15}
+.meta{display:block;font-size:.72rem;color:#4b5563;margin-top:5px;font-weight:700;line-height:1.2}
+.optional{display:inline-block;margin-top:6px;padding:3px 7px;background:#fff;border:2px solid #111827;box-shadow:2px 2px 0 #111827;border-radius:999px;font-size:.67rem;line-height:1.1}
+.s-osztaly{background:#ffe082}.s-csen{background:#d6e8ff}.s-technika{background:#ffd6a5}.s-matek{background:#fff39b}.s-termeszet{background:#c9f2c7}.s-enek{background:#f6c6ff}.s-angol{background:#bde7ff}.s-nyelvtan{background:#ffd1dc}.s-testneveles{background:#c7f0ff}.s-vizualis{background:#ffc7a8}.s-honismeret{background:#ffe5a8}.s-irodalom{background:#ffcc99}.s-tortenelem{background:#e1c5a7}.s-digitalis{background:#cfc8ff}.s-hittan{background:#fff0b8}.s-tanulo{background:#e5e7eb}.s-empty{background:#f8fafc;color:#94a3b8}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.legend span{border:2px solid #111827;padding:5px 8px;border-radius:999px;font-weight:800;font-size:.78rem}
 .note{margin-top:20px;background:#fff8bc;border:3px solid #111827;box-shadow:4px 4px 0 #111827;padding:14px;font-weight:800}
-@media(max-width:700px){.schedule-card{padding:10px}.hero::after{display:none}}
+@media(max-width:700px){.schedule-card{padding:7px}.hero::after{display:none}.wrap{padding-left:12px;padding-right:12px}}
 </style>
 </head>
 <body class="comic-page subject-digitalis-kultura">
 <main class="wrap">
 <a class="back" href="../">← Főoldal</a>
+
 <section class="hero">
-<div style="font-size:2.7rem">🗓️</div>
-<h1>Órarend</h1>
-<p>Az 5.b heti órarendje – mobilon oldalra húzva is áttekinthető.</p>
+  <div style="font-size:2.7rem">🗓️</div>
+  <h1>Órarend</h1>
+  <p>Alíz 2026/2027-es 5.b órarendje. Mobilon az órarend oldalra húzható.</p>
 </section>
+
 <section class="schedule-card">
-<table aria-label="Heti órarend">
-<thead><tr><th>Óra</th><th>Hétfő</th><th>Kedd</th><th>Szerda</th><th>Csütörtök</th><th>Péntek</th></tr></thead>
+<table aria-label="Alíz 5.b heti órarendje">
+<thead>
+<tr><th>Óra</th><th>Hétfő</th><th>Kedd</th><th>Szerda</th><th>Csütörtök</th><th>Péntek</th></tr>
+</thead>
 <tbody>
-<tr><td class="period">1.</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td class="period">2.</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td class="period">3.</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td class="period">4.</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td class="period">5.</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td class="period">6.</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
-<tr><td class="period">7.</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr>
+<td class="period">1.<span class="clock">08:00</span></td>
+<td class="s-osztaly"><span class="lesson">Osztályfőnöki</span><span class="meta">Dancs Ivett • 16</span></td>
+<td class="s-csen"><span class="lesson">CSÉN</span><span class="meta">csoportbontás • csén1 / csén2</span></td>
+<td class="s-technika"><span class="lesson">Technika és tervezés</span><span class="meta">Dudás Noémi Zita • 16</span></td>
+<td class="s-matek"><span class="lesson">Matematika</span><span class="meta">Morovics József Ferenc • 16</span></td>
+<td class="s-termeszet"><span class="lesson">Természettudomány</span><span class="meta">Dr. Pertiné Várnai Krisztina • 16</span></td>
+</tr>
+<tr>
+<td class="period">2.<span class="clock">09:00</span></td>
+<td class="s-enek"><span class="lesson">Ének-zene</span><span class="meta">Czövek István • 5</span></td>
+<td class="s-angol"><span class="lesson">Angol</span><span class="meta">Kálmán Tünde • 16</span></td>
+<td class="s-matek"><span class="lesson">Matematika</span><span class="meta">Morovics József Ferenc • 23</span></td>
+<td class="s-honismeret"><span class="lesson">Hon- és népismeret</span><span class="meta">Dancs Ivett • 16</span></td>
+<td class="s-matek"><span class="lesson">Matematika</span><span class="meta">Morovics József Ferenc • 16</span></td>
+</tr>
+<tr>
+<td class="period">3.<span class="clock">10:00</span></td>
+<td class="s-nyelvtan"><span class="lesson">Magyar nyelv</span><span class="meta">Kun Mónika • 16</span></td>
+<td class="s-testneveles"><span class="lesson">Testnevelés</span><span class="meta">Kárpáti Szilvia Márta • T2</span></td>
+<td class="s-testneveles"><span class="lesson">Testnevelés</span><span class="meta">Kárpáti Szilvia Márta • T2</span></td>
+<td class="s-irodalom"><span class="lesson">Irodalom</span><span class="meta">Kun Mónika • 12</span></td>
+<td class="s-irodalom"><span class="lesson">Irodalom</span><span class="meta">Kun Mónika • 16</span></td>
+</tr>
+<tr>
+<td class="period">4.<span class="clock">11:00</span></td>
+<td class="s-vizualis"><span class="lesson">Vizuális kultúra</span><span class="meta">Dengel László Barna • 21</span></td>
+<td class="s-matek"><span class="lesson">Matematika</span><span class="meta">Morovics József Ferenc • 16</span></td>
+<td class="s-termeszet"><span class="lesson">Természettudomány</span><span class="meta">Hegyesi Krisztina • 25</span></td>
+<td class="s-tortenelem"><span class="lesson">Történelem</span><span class="meta">Dancs Ivett • 16</span></td>
+<td class="s-testneveles"><span class="lesson">Testnevelés</span><span class="meta">Dancs Ivett • 16</span></td>
+</tr>
+<tr>
+<td class="period">5.<span class="clock">12:00</span></td>
+<td class="s-testneveles"><span class="lesson">Testnevelés</span><span class="meta">Kárpáti Szilvia Márta • Udvar</span></td>
+<td class="s-tortenelem"><span class="lesson">Történelem</span><span class="meta">Dancs Ivett • 16</span></td>
+<td class="s-digitalis"><span class="lesson">Digitális kultúra</span><span class="meta">Gyimesi László • G4</span></td>
+<td class="s-testneveles"><span class="lesson">Testnevelés</span><span class="meta">Kárpáti Szilvia Márta • T2</span></td>
+<td class="s-enek"><span class="lesson">Ének-zene</span><span class="meta">Czövek István • 5</span></td>
+</tr>
+<tr>
+<td class="period">6.<span class="clock">13:00</span></td>
+<td class="s-angol"><span class="lesson">Angol</span><span class="meta">Kálmán Tünde • 16</span></td>
+<td class="s-nyelvtan"><span class="lesson">Magyar nyelv</span><span class="meta">Kun Mónika • 16</span></td>
+<td class="s-angol"><span class="lesson">Angol</span><span class="meta">Kálmán Tünde • 12</span></td>
+<td class="s-hittan"><span class="lesson">Hittan – kat.</span><span class="meta">Peresáné Kállay Georgina • 12</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Kun Mónika • 12</span></td>
+</tr>
+<tr>
+<td class="period">7.<span class="clock">14:00</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Kárpáti Szilvia Márta • 12</span><span class="optional">🤖 Robotika szakkör is</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Dengel László Barna • 12</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Süliné Nagy Krisztina Andrea • 12</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Dengel László Barna • 12</span><span class="optional">➗ Matematika korrepetálás is</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Kun Mónika • 12</span></td>
+</tr>
+<tr>
+<td class="period">8.<span class="clock">15:00</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Kárpáti Szilvia Márta • 12</span><span class="optional">🤖 Robotika szakkör is</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Dengel László Barna • 12</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Süliné Nagy Krisztina Andrea • 12</span></td>
+<td class="s-tanulo"><span class="lesson">Tanulószoba</span><span class="meta">Dengel László Barna • 12</span></td>
+<td class="s-empty">—</td>
+</tr>
 </tbody>
 </table>
 </section>
-<div class="note">💥 Következő lépés: töltsük fel Alíz tényleges órarendjével. Elég elküldened fotón vagy felsorolva, és beírom ide.</div>
+
+<div class="legend">
+<span class="s-matek">Matematika</span>
+<span class="s-angol">Angol</span>
+<span class="s-irodalom">Irodalom</span>
+<span class="s-nyelvtan">Magyar nyelv</span>
+<span class="s-termeszet">Természettudomány</span>
+<span class="s-tortenelem">Történelem</span>
+<span class="s-testneveles">Testnevelés</span>
+</div>
+
+<div class="note">💥 Az órarend a feltöltött 2026/2027-es 5.b órarend alapján készült. A párhuzamos, választható délutáni foglalkozásokat külön jelöltem.</div>
 </main>
-</body></html>
+</body>
+</html>
