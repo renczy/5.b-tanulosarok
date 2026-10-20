@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Do / Does mondatépítő | 5.b Tanulósarok</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f7ff;color:#172033;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1050px;margin:auto;padding:18px 12px 60px}.back{display:inline-block;margin-bottom:15px;color:#2447b8;text-decoration:none;font-weight:900}
+.hero,.panel{background:#fff;border:3px solid #26344e;border-radius:22px;box-shadow:5px 5px 0 #26344e}
+.hero{padding:24px}.panel{padding:18px;margin-top:18px}.hero h1{font-size:clamp(2rem,7vw,3.5rem);margin:.2rem 0}.tag{display:inline-block;background:#e7edff;border-radius:999px;padding:6px 10px;font-weight:900}
+.rule{margin-top:14px;background:#f1f4ff;border-left:5px solid #4f46e5;padding:12px 14px;border-radius:8px}
+.builder{border:2px solid #d6deea;border-radius:16px;padding:15px;margin:16px 0;background:#fbfcff}.affirmative{border-left:8px solid #2563eb}.negative{border-left:8px solid #ef4444}.question{border-left:8px solid #7c3aed}
+.builder h2{margin:0}.target{background:#fff5c7;border:2px solid #eab308;border-radius:11px;padding:11px 12px;margin:11px 0;font-size:1.08rem}.target b{display:block;font-size:.82rem;text-transform:uppercase;color:#705d10}
+.parts{display:grid;grid-template-columns:repeat(5,minmax(125px,1fr));gap:9px;align-items:end}.part label{display:block;font-size:.8rem;font-weight:850;color:#53627a;margin-bottom:4px}
+select{width:100%;padding:10px 8px;border:2px solid #a7b3c7;border-radius:9px;background:#fff;font:inherit}select.good{background:#dcfce7;border-color:#16a34a}select.bad{background:#fee2e2;border-color:#dc2626}
+.preview{margin-top:11px;background:#edf3ff;border-radius:10px;padding:10px 12px;min-height:46px;font-weight:850;color:#24409a}
+.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}button{border:2px solid #26344e;border-radius:9px;padding:9px 12px;background:#4661d9;color:white;font:850 1rem system-ui;box-shadow:2px 2px 0 #26344e;cursor:pointer}button.alt{background:#fff;color:#26344e}button.sol{background:#f59e0b}
+.feedback{font-weight:850;margin-top:8px;min-height:24px}.ok{color:#15803d}.badtext{color:#b91c1c}.tip{font-size:.9rem;color:#64748b}
+@media(max-width:820px){.parts{grid-template-columns:1fr 1fr}.part:last-child{grid-column:1/-1}}@media(max-width:520px){.parts{grid-template-columns:1fr}.part:last-child{grid-column:auto}.panel,.builder{padding:12px}.wrap{padding:10px 8px 45px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="back" href="do-does.html">← Vissza a Do / Does felkészítőhöz</a>
+<section class="hero">
+<span class="tag">Present Simple • interaktív mondatépítő</span>
+<h1>Rakd össze a mondatot!</h1>
+<p>Mindig három feladat van egyszerre: egy kijelentő, egy tagadó és egy kérdő mondat.</p>
+<div class="rule"><b>Gyors szabály:</b><br>
+I / you / we / they → <b>do / don't</b><br>
+he / she / it → <b>does / doesn't</b><br>
+Kijelentő mondatban he/she/it esetén az ige általában <b>-s / -es</b> végződést kap. <b>Does / doesn't után az ige mindig alapalakban marad.</b></div>
+<div class="actions"><button onclick="newAll()">🔄 Három új mondat</button><button class="alt" onclick="resetAll()">Kiválasztások törlése</button></div>
+</section>
+<section class="panel">
+<div id="affirmative"></div>
+<div id="negative"></div>
+<div id="question"></div>
+</section>
+</main>
+<script>
+const subjects=[
+{en:"I",hu:"Én",k:"I",third:false,q:"Do",n:"don't"},
+{en:"you",hu:"Te",k:"you",third:false,q:"Do",n:"don't"},
+{en:"he",hu:"Ő (fiú)",k:"he",third:true,q:"Does",n:"doesn't"},
+{en:"she",hu:"Ő (lány)",k:"she",third:true,q:"Does",n:"doesn't"},
+{en:"we",hu:"Mi",k:"we",third:false,q:"Do",n:"don't"},
+{en:"they",hu:"Ők",k:"they",third:false,q:"Do",n:"don't"}];
+
+const A=[
+{b:"wake up",t:"wakes up",c:"—",hc:"",h:{I:"ébredek",you:"ébredsz",he:"ébred",she:"ébred",we:"ébredünk",they:"ébrednek"},x:["at seven o'clock","at half past seven","in the morning","on school days"]},
+{b:"go",t:"goes",c:"to school",hc:"iskolába",h:{I:"megyek",you:"mész",he:"megy",she:"megy",we:"megyünk",they:"mennek"},x:["in the morning","every day","on school days","from Monday to Friday"]},
+{b:"walk",t:"walks",c:"to school",hc:"gyalog iskolába",h:{I:"megyek",you:"mész",he:"megy",she:"megy",we:"megyünk",they:"mennek"},x:["every day","on school days","with friends"]},
+{b:"start",t:"starts",c:"classes",hc:"az órákat",h:{I:"kezdem",you:"kezded",he:"kezdi",she:"kezdi",we:"kezdjük",they:"kezdik"},x:["at eight o'clock","at nine o'clock","in the morning"]},
+{b:"have",t:"has",c:"a break",hc:"szünetet",h:{I:"tartok",you:"tartasz",he:"tart",she:"tart",we:"tartunk",they:"tartanak"},x:["in the morning","at ten o'clock","at school"]},
+{b:"chat",t:"chats",c:"with friends",hc:"a barátaival",h:{I:"beszélgetek",you:"beszélgetsz",he:"beszélget",she:"beszélget",we:"beszélgetünk",they:"beszélgetnek"},x:["after school","at school","in the afternoon"]},
+{b:"finish",t:"finishes",c:"school",hc:"az iskolában",h:{I:"végzek",you:"végzel",he:"végez",she:"végez",we:"végzünk",they:"végeznek"},x:["at two o'clock","at three o'clock","in the afternoon"]},
+{b:"do",t:"does",c:"my homework",cb:{you:"your homework",he:"his homework",she:"her homework",we:"our homework",they:"their homework"},hcb:{I:"a házi feladatomat",you:"a házi feladatodat",he:"a házi feladatát",she:"a házi feladatát",we:"a házi feladatunkat",they:"a házi feladatukat"},h:{I:"megcsinálom",you:"megcsinálod",he:"megcsinálja",she:"megcsinálja",we:"megcsináljuk",they:"megcsinálják"},x:["after school","before dinner","in the evening","every day"]},
+{b:"watch",t:"watches",c:"TV",hc:"tévét",h:{I:"nézek",you:"nézel",he:"néz",she:"néz",we:"nézünk",they:"néznek"},x:["after school","after dinner","in the evening"]},
+{b:"go",t:"goes",c:"to bed",hc:"lefeküdni",h:{I:"megyek",you:"mész",he:"megy",she:"megy",we:"megyünk",they:"mennek"},x:["at nine o'clock","at ten o'clock","before ten o'clock","in the evening"]},
+{b:"play",t:"plays",c:"football",hc:"focit",h:{I:"játszom",you:"játszol",he:"játszik",she:"játszik",we:"játszunk",they:"játszanak"},x:["after school","at the weekend","in the afternoon"]},
+{b:"listen",t:"listens",c:"to music",hc:"zenét",h:{I:"hallgatok",you:"hallgatsz",he:"hallgat",she:"hallgat",we:"hallgatunk",they:"hallgatnak"},x:["after school","in the evening","at home"]},
+{b:"use",t:"uses",c:"a dictionary",hc:"szótárt",h:{I:"használok",you:"használsz",he:"használ",she:"használ",we:"használunk",they:"használnak"},x:["in English class","at school"]},
+{b:"write",t:"writes",c:"new words",hc:"új szavakat",h:{I:"írok",you:"írsz",he:"ír",she:"ír",we:"írunk",they:"írnak"},x:["in my notebook","in English class","at school"]},
+{b:"ask",t:"asks",c:"questions",hc:"kérdéseket",h:{I:"teszek fel",you:"teszel fel",he:"tesz fel",she:"tesz fel",we:"teszünk fel",they:"tesznek fel"},x:["in class","in English class"]}];
+
+const THU={"at seven o'clock":"hét órakor","at half past seven":"fél nyolckor","in the morning":"reggel","on school days":"iskolai napokon","every day":"minden nap","from Monday to Friday":"hétfőtől péntekig","with friends":"a barátokkal","at eight o'clock":"nyolc órakor","at nine o'clock":"kilenc órakor","at ten o'clock":"tíz órakor","at school":"az iskolában","after school":"iskola után","in the afternoon":"délután","at two o'clock":"két órakor","at three o'clock":"három órakor","before dinner":"vacsora előtt","in the evening":"este","after dinner":"vacsora után","before ten o'clock":"tíz óra előtt","at the weekend":"hétvégén","at home":"otthon","in English class":"angolórán","in my notebook":"a füzetemben","in class":"az órán"};
+
+let current={};
+const rand=a=>a[Math.floor(Math.random()*a.length)];
+const uniq=a=>[...new Set(a)];
+const sh=a=>[...a].sort(()=>Math.random()-.5);
+function comp(a,s){return a.cb&&a.cb[s.k]?a.cb[s.k]:a.c}
+function hcomp(a,s){return a.hcb&&a.hcb[s.k]?a.hcb[s.k]:(a.hc||"")}
+function make(type){
+ const s=rand(subjects),a=rand(A),x=rand(a.x),c=comp(a,s);
+ const hu=[s.hu,type==="negative"?"nem":"",a.h[s.k],hcomp(a,s),THU[x]].filter(Boolean).join(" ").replace(/\s+/g," ");
+ return {s,a,x,c,hu:hu+(type==="question"?"?":"."),aux:type==="negative"?s.n:type==="question"?s.q:"",verb:s.third&&type==="affirmative"?a.t:a.b};
+}
+const allSubs=subjects.map(s=>s.en), allBase=uniq(A.map(a=>a.b)), allAff=uniq(A.flatMap(a=>[a.b,a.t])), allComp=uniq(A.flatMap(a=>[a.c,...(a.cb?Object.values(a.cb):[])])), allTail=uniq(Object.keys(THU));
+function opts(arr,p){return '<option value="">'+p+'</option>'+arr.map(v=>'<option>'+v+'</option>').join('')}
+function render(type,id){
+ const t=current[type], title=type==="affirmative"?"1. Kijelentő mondat":type==="negative"?"2. Tagadó mondat":"3. Kérdő mondat";
+ let parts="";
+ if(type==="affirmative")parts=`<div class="part"><label>Alany</label><select data-k="subject">${opts(sh(allSubs),"Válassz…")}</select></div><div class="part"><label>Ige – ragozva</label><select data-k="verb">${opts(sh(allAff),"Válassz…")}</select></div><div class="part"><label>Tárgy / kiegészítés</label><select data-k="comp">${opts(sh(allComp),"Válassz…")}</select></div><div class="part"><label>Idő / egyéb</label><select data-k="tail">${opts(sh(allTail),"Válassz…")}</select></div>`;
+ if(type==="negative")parts=`<div class="part"><label>Alany</label><select data-k="subject">${opts(sh(allSubs),"Válassz…")}</select></div><div class="part"><label>Segédige</label><select data-k="aux">${opts(["don't","doesn't"],"Válassz…")}</select></div><div class="part"><label>Ige – alapalak</label><select data-k="verb">${opts(sh(allBase),"Válassz…")}</select></div><div class="part"><label>Tárgy / kiegészítés</label><select data-k="comp">${opts(sh(allComp),"Válassz…")}</select></div><div class="part"><label>Idő / egyéb</label><select data-k="tail">${opts(sh(allTail),"Válassz…")}</select></div>`;
+ if(type==="question")parts=`<div class="part"><label>Segédige</label><select data-k="aux">${opts(["Do","Does"],"Válassz…")}</select></div><div class="part"><label>Alany</label><select data-k="subject">${opts(sh(allSubs),"Válassz…")}</select></div><div class="part"><label>Ige – alapalak</label><select data-k="verb">${opts(sh(allBase),"Válassz…")}</select></div><div class="part"><label>Tárgy / kiegészítés</label><select data-k="comp">${opts(sh(allComp),"Válassz…")}</select></div><div class="part"><label>Idő / egyéb</label><select data-k="tail">${opts(sh(allTail),"Válassz…")}</select></div>`;
+ document.getElementById(id).innerHTML=`<section class="builder ${type}" data-type="${type}"><h2>${title}</h2><div class="target"><b>Rakd össze angolul:</b>${t.hu}</div><div class="parts">${parts}</div><div class="preview">Válassz a legördülőkből…</div><div class="actions"><button onclick="check('${type}')">✓ Ellenőrzés</button><button class="alt" onclick="newOne('${type}')">🔄 Új mondat</button><button class="sol" onclick="solution('${type}')">Megoldás</button></div><div class="feedback"></div><div class="tip">${type==="affirmative"?"Tipp: he / she / it esetén figyelj az -s / -es végződésre.":"Tipp: a segédige után a főige alapalakban marad."}</div></section>`;
+ document.querySelectorAll("#"+id+" select").forEach(s=>s.addEventListener("change",()=>preview(type)));
+}
+function vals(type){const b=document.querySelector('[data-type="'+type+'"]'),v={};b.querySelectorAll("select").forEach(s=>v[s.dataset.k]=s.value);return v}
+function exp(type){const t=current[type];return {subject:t.s.en,aux:t.aux,verb:t.verb,comp:t.c,tail:t.x}}
+function sent(type,v){if(type==="affirmative")return [v.subject,v.verb,v.comp==="—"?"":v.comp,v.tail].filter(Boolean).join(" ")+".";if(type==="negative")return [v.subject,v.aux,v.verb,v.comp==="—"?"":v.comp,v.tail].filter(Boolean).join(" ")+".";return [v.aux,v.subject,v.verb,v.comp==="—"?"":v.comp,v.tail].filter(Boolean).join(" ")+"?"}
+function preview(type){const b=document.querySelector('[data-type="'+type+'"]'),v=vals(type);b.querySelector(".preview").textContent=Object.values(v).some(Boolean)?sent(type,v):"Válassz a legördülőkből…"}
+function check(type){const b=document.querySelector('[data-type="'+type+'"]'),v=vals(type),e=exp(type);let g=0,n=0;b.querySelectorAll("select").forEach(s=>{n++;const ok=s.value===e[s.dataset.k];if(ok)g++;s.classList.remove("good","bad");s.classList.add(ok?"good":"bad")});const f=b.querySelector(".feedback");f.textContent=g===n?"✓ Hibátlan!":"Még nem jó: "+g+" / "+n+" elem helyes. A piros mezőket javítsd.";f.className="feedback "+(g===n?"ok":"badtext")}
+function solution(type){const b=document.querySelector('[data-type="'+type+'"]'),e=exp(type);b.querySelectorAll("select").forEach(s=>{s.value=e[s.dataset.k];s.classList.remove("bad");s.classList.add("good")});preview(type);const f=b.querySelector(".feedback");f.textContent="Megoldás: "+sent(type,e);f.className="feedback ok"}
+function newOne(type){current[type]=make(type);render(type,type)}
+function newAll(){current.affirmative=make("affirmative");current.negative=make("negative");current.question=make("question");render("affirmative","affirmative");render("negative","negative");render("question","question")}
+function resetAll(){document.querySelectorAll(".builder select").forEach(s=>{s.value="";s.classList.remove("good","bad")});document.querySelectorAll(".preview").forEach(x=>x.textContent="Válassz a legördülőkből…");document.querySelectorAll(".feedback").forEach(x=>x.textContent="")}
+newAll();
+</script>
+</body>
+</html>
