@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#117c5d">
+<title>Technika és tervezés – Kert, gabonák, komposztálás | 5.b Tanulósarok</title>
+<link rel="stylesheet" href="../assets/comic.css">
+<style>
+*{box-sizing:border-box}html{scroll-padding-top:18px}
+body.comic-page{--subject:#14865e;--subject2:#ffe071;margin:0;font:17px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1080px;margin:auto;padding:18px 18px 70px}
+header{margin:20px 0 24px;padding:26px 30px}
+header h1{font-size:clamp(2rem,7vw,4rem);line-height:1.13;max-width:750px;margin:18px 0}
+header p{background:#fff;border:3px solid #121826;max-width:730px;padding:12px 16px;font-weight:600}
+header .tag{display:inline-block;background:#fff;padding:6px 10px;border:2px solid #121826;font-weight:900;letter-spacing:.05em}
+nav{display:flex;gap:9px;flex-wrap:wrap;padding:15px;margin:22px 0 34px}
+nav a,.back{display:inline-block;padding:8px 13px;font-weight:800}
+section{margin:44px 0}section h2{font-size:clamp(1.55rem,4vw,2rem);margin:0 0 25px}
+h3{margin:0 0 12px;font-size:1.25rem}p{margin:9px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card,.box,.exercise{background:#fff;padding:19px;margin-bottom:16px}
+.card h3{margin-top:0}ul,ol{padding-left:24px}li{margin:5px 0}
+.muted{color:#334155}.small{font-size:.91rem}.kicker{font-size:.8rem;font-weight:1000;letter-spacing:.11em;text-transform:uppercase}
+.badge{display:inline-block;border:2px solid #111827;background:#d6f8df;padding:1px 9px;font-size:.82rem;font-weight:800}
+.warning{border-left:7px solid #ca6512!important;background:#fff0d8!important}
+.correct{border-left:7px solid #168447!important;background:#edfff4!important}
+.tablewrap{overflow-x:auto;border:3px solid #111827;background:#fff;margin:16px 0}
+table{width:100%;border-collapse:collapse;min-width:570px}
+th,td{padding:11px 12px;vertical-align:top;text-align:left;border-bottom:1px solid #cad2db}
+th{background:#c6f1de}tr:last-child td{border-bottom:0}
+button{font:inherit;font-weight:850;cursor:pointer;padding:10px 16px;margin:5px 8px 5px 0}
+button:disabled{cursor:not-allowed;opacity:.65}
+button.primary{background:#ffe071;color:#111827}
+button.secondary{background:#fff}
+button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:4px solid #1255c7;outline-offset:3px}
+select,input[type=text]{width:100%;padding:10px 12px;border:2px solid #111827;border-radius:6px;font:inherit;background:#fff;min-height:46px}
+fieldset{border:0;padding:0;margin:0;min-width:0}
+legend{font-size:1.06rem;font-weight:900;margin-bottom:10px}
+label.opt{display:flex;gap:10px;align-items:flex-start;margin:9px 0;cursor:pointer;border:2px solid #cbd5e1;background:#fff;padding:9px 11px;border-radius:7px}
+label.opt:has(input:checked){background:#d9f4e7;border-color:#137858}
+input[type=radio]{flex-shrink:0;margin-top:6px;accent-color:#14865e;width:18px;height:18px}
+.feedback{margin:9px 0 0;font-weight:750;line-height:1.5;min-height:1px}
+.feedback.good{color:#146638}.feedback.bad{color:#8b251d}
+.answer{padding:12px;background:#e5fae9;border-left:5px solid #14865e;margin-top:12px}
+.flash{min-height:240px}
+#cardAnswer[hidden],#examResult[hidden],#sortFeedback[hidden]{display:none!important}
+.note{font-size:.95rem;background:#fff8e4;padding:12px 15px;border-left:5px solid #e5a523}
+.monthnames{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.monthnames span{border:2px solid #111827;background:#fff;padding:3px 9px;font-weight:800;font-size:.85rem}
+.topichead{display:flex;align-items:center;gap:12px;margin:25px 0 13px}.topichead h3{margin:0}
+.topicnum{background:#f7d65b;border:2px solid #111827;font-weight:1000;width:37px;height:37px;display:grid;place-items:center;flex-shrink:0;border-radius:50%}
+.exercise{background:#fff}
+.exercise .number{font-weight:1000;color:#225d50;font-size:.82rem}
+.formrow{display:grid;grid-template-columns:1fr 225px;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #d4dbe0}
+.formrow:last-child{border-bottom:0}
+.progress{background:#e6e6e6;height:13px;border:2px solid #111827;overflow:hidden;border-radius:20px}
+.progress >span{display:block;height:100%;background:#22ab77;transition:width .2s}
+.score{font-weight:1000;font-size:1.35rem}
+footer{border-top:3px solid #111827;padding:22px 4px;margin-top:55px;font-size:.9rem}
+details{margin:18px 0;background:#fff}summary{cursor:pointer;font-weight:900;padding:12px}
+details p{padding:0 14px 14px}
+@media(max-width:660px){main{padding:12px 12px 55px}header{padding:18px 16px}header h1{padding-top:12px}.grid{grid-template-columns:1fr}.formrow{grid-template-columns:1fr;gap:5px}.card,.box,.exercise{padding:15px}nav{gap:6px}nav a{font-size:.91rem;padding:6px 8px}button{margin:5px 5px 5px 0}}
+@media print{body.comic-page{background:white!important}nav,button,#kartyak,#gyakorlas,#proba,.back{display:none!important}header{background:#fff!important;box-shadow:none!important}header:after{display:none!important}main{max-width:none}.grid{display:block}.card{break-inside:avoid;box-shadow:none!important}table{min-width:0}}
+</style>
+</head>
+<body class="comic-page subject-technika">
+<main>
+<a class="back" href="../">← Vissza a Tanulósarokhoz</a>
+<header>
+<span class="tag">TECHNIKA ÉS TERVEZÉS · 5. OSZTÁLY</span>
+<h1>Kertészből ötös!</h1>
+<p>Tanuld meg a kerti balesetvédelmet, az éves tervet, a gabonákat és a komposztálást! Olvasás után gyakorlás, önellenőrzés, végül próbadolgozat.</p>
+</header>
+<nav aria-label="Ugrás a feladatokhoz"><a href="#tananyag">Tananyag</a><a href="#kartyak">Tanulókártyák</a><a href="#gyakorlas">Gyakorlás</a><a href="#proba">Próbadolgozat</a></nav>
+<section id="tananyag">
+<h2>1. Tanuld meg!</h2>
+<div class="topichead"><span class="topicnum">1</span><h3>Balesetvédelem a kertben</h3></div>
+<div class="card">
+<p><strong>Ezt a 7 szabályt sorban is tudd felsorolni!</strong></p>
+<ol id="safetyList"></ol>
+<p class="note"><strong>Miért?</strong> Az eszközökkel, a növényekkel és a társainkkal is óvatosan kell bánni. A szabályok a balesetek megelőzésére szolgálnak.</p>
+</div>
+<div class="topichead"><span class="topicnum">2</span><h3>Éves terv – mit csinálunk a kertben?</h3></div>
+<div class="card"><p>Az iskolai év <strong>szeptembertől júniusig</strong> tart. Minden hónaphoz ismeretek és kerti feladatok tartoznak.</p>
+<div class="tablewrap"><table><thead><tr><th>Hónap</th><th>Tanulnivaló és kerti munka</th></tr></thead><tbody id="monthsTable"></tbody></table></div>
+<p class="small muted">A májusi és júniusi üres füzetpontokhoz nem találtunk külön tananyagot, ezért nem egészítettük ki.</p>
+</div>
+<div class="topichead"><span class="topicnum">3</span><h3>A gabonák</h3></div>
+<div class="grid">
+<article class="card"><h3>Miért fontosak?</h3><p>A gabonanövényekből készült ételek a táplálkozásunk fontos alapját adják: <strong>kenyér, pékáru, sütemények, tészták</strong> és a rizs.</p><p>Gabonát <strong>malomipari célra</strong> (például lisztnek) és <strong>takarmányozásra</strong> is termesztenek.</p></article>
+<article class="card"><h3>Őszi vetésű gabonák</h3><p>Ősszel vetik őket. Példák a füzet szerint: <strong>őszi búza, őszi árpa, durumbúza, rozs</strong>.</p><p>A búza vetési ideje többnyire <strong>október eleje–közepe</strong>. A tél előtt megerősödik, a hideghatás segíti a termésképzést.</p></article>
+<article class="card"><h3>Tavaszi vetésű gabonák</h3><p>Hagyományosan tavasszal vetik őket, és <strong>nincs szükségük téli hideghatásra</strong> a fejlődéshez.</p><p>Például a tavaszi árpa és a zab; sok helyen a kukoricát is tavasszal vetik.</p></article>
+<article class="card"><h3>Ezeket is ismerd fel!</h3><p><strong>A füzet listája:</strong> búza, durumbúza, rozs, zab, cirok, kukorica, árpa, rizs, hajdina, köles, kuszkusz.</p><p>A rizst különösen Ázsiában nagy területen termesztik. Melegigényes, és sok víz kell hozzá.</p></article>
+</div>
+<div class="box warning"><strong>Fontos, két pontosítás a füzethez:</strong> Magyarországon is termesztenek rizst (tehát nem igaz, hogy itt egyáltalán nem lehet). A <strong>kuszkusz</strong> nem gabonanövény, hanem többnyire durumbúzából készült élelmiszer. A <strong>hajdina</strong> álgabona. A durumbúzának is lehet őszi vagy tavaszi változata. A kérdéseknél ezekre a pontosításokra is figyelünk.</div>
+<div class="topichead"><span class="topicnum">4</span><h3>Komposztálás</h3></div>
+<div class="grid">
+<article class="card"><h3>Miért komposztálunk?</h3><ol><li>Csökken a hulladék mennyisége.</li><li>A kerti és konyhai hulladék visszakerül a természet körforgásába.</li><li>Termékenyebb lesz a talaj, egészségesebbek a növények.</li><li>Csökkenthetők a hulladékkezelés költségei.</li><li>Védjük a természetet.</li></ol></article>
+<article class="card"><h3>Mit jelent?</h3><p>A komposztálás során a megfelelő <strong>szerves anyagok</strong> lebomlanak. A kész komposzt javítja a talaj szerkezetét, és segíti a növényeket.</p><p><strong>Három csoportot jegyezz meg:</strong> konyhai hulladékok, kerti hulladékok, egyéb komposztálható anyagok.</p></article>
+<article class="card"><h3>Konyhai hulladékok</h3><p>Gyümölcs- és zöldségmaradék, krumplihéj, tojáshéj, <strong>kávézacc</strong>, teafilter <strong>tartalma</strong>, elhervadt vágott virág, elszáradt cserepes növény <strong>cserép nélkül</strong>.</p></article>
+<article class="card"><h3>Kerti hulladékok</h3><p>Elnyílt virág, lehullott gyümölcs és zöldség, ágak, gallyak, lombok, fűnyesedék, kerti gaz.</p></article>
+<article class="card"><h3>Egyéb komposztálható</h3><p>Kezeletlen fa, nem színes papír, karton, haj és köröm.</p></article>
+<article class="card"><h3>Mit TILOS beletenni?</h3><p>Főtt ételmaradék (főleg hús, hal, mártás, leves), kenyér, csont, üveg, fém, műanyag, idegen vagy színes anyag, pelenka, porzsák tartalma, fáradt olaj, vegyszer, festék, elem, növényvédő szer, gyertyamaradék, <strong>minden veszélyes hulladék</strong>.</p><p><strong>Hamu:</strong> a füzet szerint legfeljebb nagyon kis mennyiségben. A gyakorlóban a „nem tesszük bele” csoportba kerül.</p></article>
+</div>
+<div class="box warning"><strong>Ne felejtsd el:</strong> a teafilternek a <em>tartalmát</em> komposztáljuk, nem feltétlenül magát a filtertasakot. A házi komposztálóba a füzet szerint nem teszünk főtt ételmaradékot, húst vagy halat.</div>
+</section>
+<section id="kartyak">
+<h2>2. Tanulókártyák – mondd el fejből!</h2>
+<p>Olvasd el a kérdést, válaszolj hangosan, majd mutasd meg a helyes megoldást.</p>
+<div class="card flash"><p id="cardCount" class="kicker"></p><h3 id="cardQuestion"></h3><div id="cardAnswer" class="answer" hidden></div><button type="button" class="primary" id="revealBtn">Megmutatom a választ</button><button type="button" id="nextCard">Következő →</button><button type="button" id="mixCards" class="secondary">Kártyák keverése</button></div>
+</section>
+<section id="gyakorlas">
+<h2>3. Gyakorolj, amíg biztosan megy!</h2>
+<div class="box"><p>Változatos feladatok várnak: feleletválasztás, hónapok párosítása, hulladékválogatás és beírás. <strong>Minden ellenőrzés után megjelenik a helyes válasz.</strong></p><button type="button" id="newPractice" class="primary">Másik kérdéssor</button><p class="small muted">Egy körben 16 változó kérdés: mind a négy témakörből 4.</p></div>
+<div id="practiceChoices"></div>
+<h3>Hónap-párosító</h3><p>Válaszd ki, melyik hónapra igaz a leírás!</p><div class="exercise" id="monthMatch"></div>
+<h3>Komposztválogató</h3><p>Hová tartozik a megjelenő anyag?</p>
+<div class="exercise"><p id="sortCount" class="kicker"></p><h3 id="sortItem"></h3><label for="sortChoice">Válaszd ki a csoportot!</label><select id="sortChoice"><option value="">— Válassz —</option><option value="konyhai">Komposztálható – konyhai</option><option value="kerti">Komposztálható – kerti</option><option value="egyeb">Komposztálható – egyéb</option><option value="tilos">Nem kerülhet bele</option></select><div><button type="button" id="checkSort" class="primary">Ellenőrzés</button><button type="button" id="nextSort">Következő anyag →</button></div><p id="sortFeedback" class="feedback" aria-live="polite" hidden></p></div>
+<h3>Írd be a választ!</h3><p>Itt nem kell szó szerint egyeznie a füzet mondataival, de a lényegnek helyesnek kell lennie.</p><div id="shortAnswers"></div>
+</section>
+<section id="proba">
+<h2>4. Próbadolgozat</h2>
+<div class="box"><p><strong>20 kérdés, összesen 20 pont.</strong> Mind a négy témakörből 5-5 kérdés. Csak a beadás után látod a javítást és a helyes válaszokat. Az új tesztben változnak a kérdések és a sorrend.</p><button type="button" class="primary" id="newExam">Új próbadolgozat indítása</button><p id="examCount" class="muted"></p><div class="progress"><span id="examProgress" style="width:0%"></span></div></div>
+<form id="examForm"></form><div class="box" id="examResult" hidden aria-live="polite"></div>
+</section>
+<footer><p><strong>Forrás:</strong> az órai technika és tervezés füzet lefotózott oldalai és a komposztálás lediktált tananyaga. A tanulás a füzet felépítését követi; a szakmailag pontatlan állításoknál külön magyarázatot kapsz.</p><a class="back" href="../">← Tanulósarok főoldal</a></footer>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
+const norm=x=>String(x||"").trim().toLocaleLowerCase("hu").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim();
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const safety=[
+"A kertbe csak tanári felügyelettel mehetek be.",
+"A kertben nem rohangálok, nem ugrálok, nem lökdösődöm.",
+"A kerti eszközöket, szerszámokat rendeltetésszerűen használom.",
+"Munka után az eszközöket elpakolom.",
+"A kertben nem ordítunk.",
+"Engedély nélkül nem fogyasztok el semmit a kertből.",
+"Kertes napon megfelelő öltözetben jövök."
+];
+const months=[
+["Szeptember","Ismerkedés a kerttel; balesetvédelem; áttelelő fák átültetése.","balesetvédelem"],
+["Október","Mintagazdaság; gabonák; kert felásása, gyógy- és fűszernövények ültetése, őszi termések gyűjtése.","gabonák"],
+["November","A termőföld; zöldségnövények ismerete; talajlazítás, tápanyag-utánpótlás, gereblyézés.","gereblyézés"],
+["December","Víz, fény, tápanyag; gyógy- és fűszernövények; madáretető, darázsgarázs készítése.","madáretető"],
+["Január","Növények fejlődésmenete; gyümölcsök; kerttervezés, vetésforgó kialakítása.","vetésforgó"],
+["Február","Szerszámismeret, komposztáló; gyógynövények; metszés, sorjelölők készítése.","metszés"],
+["Március","Kertek élővilága, növényápolás; magismeret; oltás, palántázás, vetés.","magismeret"],
+["Április","Növények ellenségei; virágos növények ismerete; vetés, kertápolás.","növények ellenségei"],
+["Május","Növények barátai; vetés, palánták kiültetése, kertápolás.","növények barátai"],
+["Június","Időjárási elemek; vetés, palánták kiültetése, kertápolás, betakarítás, feldolgozás.","betakarítás"]
+];
+$("safetyList").innerHTML=safety.map(x=>"<li>"+esc(x)+"</li>").join("");
+$("monthsTable").innerHTML=months.map(m=>"<tr><td><strong>"+esc(m[0])+"</strong></td><td>"+esc(m[1])+"</td></tr>").join("");
+const flash=safety.map((s,i)=>["Mi a(z) "+(i+1)+". kerti balesetvédelmi szabály?",s])
+.concat(months.map(m=>["Mi szerepel az éves tervben "+m[0]+" hónapban?",m[1]]))
+.concat([
+["Miért fontosak a gabonák?","Ételeink (kenyér, pékáru, tészta stb.) alapanyagai, és takarmányként is használjuk őket."],
+["Mikor vetik az őszi búzát?","Többnyire október elején vagy közepén."],
+["Miért van szüksége hideghatásra az őszi búzának?","A megfelelő fejlődéshez, későbbi virágzáshoz és termésképzéshez."],
+["Sorolj fel négy őszi gabonát a füzetből!","Őszi búza, őszi árpa, durumbúza, rozs. Megjegyzés: a durumnak tavaszi változata is létezik."],
+["Hol termesztenek sok rizst?","Ázsiában; ugyanakkor Magyarországon is termesztenek rizst."],
+["A kuszkusz gabonanövény?","Nem, többnyire durumbúzából készült élelmiszer."],
+["Sorolj fel három okot, amiért komposztálunk!","Kevesebb hulladék, termékenyebb talaj és egészségesebb növény, természetvédelem (további: visszajuttatás, megtakarítás)."],
+["Mik a komposztálható hulladékok három csoportja?","Konyhai, kerti és egyéb."],
+["Sorolj fel öt komposztálható konyhai anyagot!","Például krumplihéj, zöldségmaradék, tojáshéj, kávézacc, teafilter tartalma."],
+["Sorolj fel öt tiltott komposztanyagot!","Például műanyag, üveg, elem, festék, húsos főtt ételmaradék."],
+["Mit jelent a komposztálás?","Szerves anyagok természetes lebomlása, amellyel talajjavító komposzt keletkezik."]
+]));
+let cards=shuffle(flash),cardIndex=0;
+function drawCard(){let c=cards[cardIndex];$("cardCount").textContent=(cardIndex+1)+" / "+cards.length+" kártya";$("cardQuestion").textContent=c[0];$("cardAnswer").textContent=c[1];$("cardAnswer").hidden=true}
+$("revealBtn").onclick=()=>{$("cardAnswer").hidden=false};
+$("nextCard").onclick=()=>{cardIndex=(cardIndex+1)%cards.length;drawCard()};
+$("mixCards").onclick=()=>{cards=shuffle(flash);cardIndex=0;drawCard()};
+drawCard();
+const q=(cat,title,answer,wrong)=>({cat,q:title,a:answer,options:[answer,...wrong]});
+const bank=[
+q("Balesetvédelem","Mikor léphetsz be az iskolakertbe?","Csak tanári felügyelettel.",["Bármikor, ha nincs zárva.","Csak a barátaimmal.","Csak szünetben."]),
+q("Balesetvédelem","Mit szabad csinálni a kertben?","Nyugodtan, figyelmesen dolgozni.",["Rohangálni.","Ugrálni.","Lökdösődni."]),
+q("Balesetvédelem","Hogyan használjuk a kerti szerszámokat?","Rendeltetésszerűen.",["Játékra.","Dobálásra.","Egymás ijesztgetésére."]),
+q("Balesetvédelem","Mi a teendő a munka végén?","Az eszközöket elpakolom.",["Otthagyom a földön.","Hazaviszem őket.","Elrejtem őket."]),
+q("Balesetvédelem","Szabad a kertben ordítozni?","Nem.",["Igen, mindig.","Igen, ha jó a kedvem.","Csak kertápolás közben."]),
+q("Balesetvédelem","Mikor kóstolhatsz meg valamit a kertből?","Csak engedéllyel.",["Bármikor.","Ha érettnek látszik.","Amikor senki sem látja."]),
+q("Balesetvédelem","Hogyan érkezz kertes napon?","Megfelelő öltözetben.",["Ünneplőben kötelező.","Bármilyen cipő nélkül.","Csak rövidnadrágban."]),
+q("Balesetvédelem","A kertben szabad lökdösődni, ha csak vicc?","Nem, akkor sem.",["Igen, ha mindenki nevet.","Igen, ha nincs tanár.","Csak a szünetben."]),
+q("Balesetvédelem","Egy talált gereblyével játszhatsz kardozósat?","Nem, a szerszámokat rendeltetésszerűen használjuk.",["Igen, ha gyorsan csinálom.","Igen, ha nem éles.","Igen, tanítás előtt."]),
+q("Balesetvédelem","Miért kell elpakolni az eszközöket?","Hogy rend maradjon és megelőzzük a baleseteket.",["Hogy ne lehessen őket megtalálni.","Mert akkor nem kell tisztítani.","Hogy ne legyen munka másnap."]),
+q("Éves terv","Melyik hónapban kezdődik az ismerkedés a kerttel?","Szeptember.",["November.","Január.","Május."]),
+q("Éves terv","Mikor tanulnak a gabonákról az éves terv szerint?","Októberben.",["Decemberben.","Áprilisban.","Júniusban."]),
+q("Éves terv","Melyik hónaphoz tartozik a gereblyézés és a talajlazítás?","November.",["Január.","Május.","Szeptember."]),
+q("Éves terv","Mikor készül madáretető és darázsgarázs?","Decemberben.",["Szeptemberben.","Júniusban.","Márciusban."]),
+q("Éves terv","Melyik hónapban tervezik meg a vetésforgót?","Januárban.",["Októberben.","Májusban.","Áprilisban."]),
+q("Éves terv","Mikor kerül sor szerszámismeretre és sorjelölő készítésére?","Februárban.",["Júniusban.","Novemberben.","Szeptemberben."]),
+q("Éves terv","Melyik hónapban szerepel a magismeret?","Márciusban.",["Februárban.","Novemberben.","Decemberben."]),
+q("Éves terv","Mikor tanulnak a növények ellenségeiről?","Áprilisban.",["Májusban.","Januárban.","Októberben."]),
+q("Éves terv","Mikor tanulnak a növények barátairól?","Májusban.",["Áprilisban.","Szeptemberben.","Februárban."]),
+q("Éves terv","Melyik hónaphoz tartozik a betakarítás és feldolgozás?","Június.",["December.","Március.","Október."]),
+q("Éves terv","Melyik hónapban tanulnak a gyümölcsökről és a növények fejlődésmenetéről?","Januárban.",["Szeptemberben.","Áprilisban.","Júniusban."]),
+q("Éves terv","Melyik hónapban szerepel az áttelelő fák átültetése?","Szeptemberben.",["Márciusban.","Decemberben.","Júniusban."]),
+q("Éves terv","Melyik hónapban szerepel az oltás, palántázás és vetés?","Márciusban.",["Decemberben.","Januárban.","Októberben."]),
+q("Gabonák","Mi készülhet gabonákból?","Kenyér és tészta.",["Üveg és fém.","Festék és elem.","Műanyag pohár."]),
+q("Gabonák","Mikor szokták vetni az őszi búzát?","Október elején vagy közepén.",["Július végén.","December közepén.","Februárban."]),
+q("Gabonák","Miért fontos a téli hideghatás az őszi búzának?","Segíti a virágzásra és termésképzésre való felkészülést.",["Elpusztítja az összes magot.","Csak a leveleket színezi.","Azonnal beérleli."]),
+q("Gabonák","Az őszi gabonákat mikor vetik?","Ősszel.",["Télen a hóba.","Kizárólag nyáron.","Csak tavasszal."]),
+q("Gabonák","Szükségük van a tavaszi gabonáknak téli hideghatásra?","Nincs.",["Mindegyiknek kötelező.","Csak a rizsnek.","Csak a kukoricának."]),
+q("Gabonák","Mi a gabonák két fontos termesztési célja?","Malomipar és takarmányozás.",["Festékgyártás és üveggyártás.","Könyvnyomtatás és ruhafestés.","Csak díszítés."]),
+q("Gabonák","Melyik tartozik a füzet őszi gabonái közé?","Rozs.",["Rizs.","Kukorica.","Cirok."]),
+q("Gabonák","Hol termesztenek nagyon sok rizst?","Ázsiában.",["Az Antarktiszon.","A sivatag legszárazabb részén.","A sarkvidéken."]),
+q("Gabonák","Mi igaz a magyarországi rizstermesztésről?","Magyarországon is termesztenek rizst.",["Az országban teljesen lehetetlen.","A rizs csak Ázsiában nőhet.","Csak a sarkvidéken termeszthető."]),
+q("Gabonák","Melyik NEM gabonanövény?","Kuszkusz (elkészített élelmiszer).",["Búza.","Árpa.","Zab."]),
+q("Gabonák","Mi a hajdina helyes besorolása?","Álgabona.",["Hüvelyes zöldség.","Faféle.","Tejtermék."]),
+q("Gabonák","Melyik gabonából készül a hagyományos kuszkusz?","Durumbúzából.",["Kukoricacsutkából.","Zab szalmájából.","Fűnyesedékből."]),
+q("Gabonák","Melyik felsorolásban csak gabonafélék szerepelnek?","Búza, rozs, zab, árpa.",["Kuszkusz, krumpli, alma.","Tej, sajt, rizs.","Répa, saláta, uborka."]),
+q("Gabonák","Mire van szüksége a rizsnek a füzet magyarázata szerint?","Melegre és sok vízre.",["Tartós száraz fagyra.","Állandó sötétségre.","Kizárólag homokra."]),
+q("Komposztálás","Miért komposztálunk?","Hogy csökkentsük a hulladék mennyiségét.",["Hogy növeljük a műanyaghulladékot.","Hogy a talaj terméketlen legyen.","Hogy veszélyes hulladékot rejtsünk el."]),
+q("Komposztálás","Milyen lesz a talaj a megfelelő komposzttól?","Termékenyebb.",["Mindig mérgező.","Minden tápanyagot elveszít.","Használhatatlan."]),
+q("Komposztálás","Mi a komposztálható anyagok három csoportja?","Konyhai, kerti és egyéb.",["Fém, üveg és műanyag.","Festék, elem és benzin.","Hús, csont és pelenka."]),
+q("Komposztálás","Mehet-e tiszta krumplihéj a komposztba?","Igen, konyhai komposztanyag.",["Nem, mert fém.","Nem, mert veszélyes olaj.","Csak műanyaggal együtt."]),
+q("Komposztálás","Komposztálható a kávézacc?","Igen.",["Nem, mert műanyag.","Csak elemekkel.","Csak festékkel."]),
+q("Komposztálás","A teafilter melyik része kerülhet a komposztba?","A teafilter tartalma.",["Csak a műanyag tasak.","Csak a fémkapocs.","A csomagolás fóliája."]),
+q("Komposztálás","Beletehető a lehullott lomb?","Igen, kerti hulladékként.",["Nem, mert üveg.","Nem, mert festék.","Csak fáradt olajjal."]),
+q("Komposztálás","Miért ne tegyünk üveget a komposztba?","Nem bomlik le szerves anyagként.",["Mert túl sok vitamint tartalmaz.","Mert növénnyé fejlődik.","Mert tápanyag."]),
+q("Komposztálás","Melyik veszélyes anyag tilos a komposztba?","Elem.",["Zöldséghéj.","Fűnyesedék.","Száraz levél."]),
+q("Komposztálás","Mehet a komposztba a fáradt olaj?","Nem.",["Igen, mindig.","Igen, korlátlanul.","Csak a tojáshéj mellé."]),
+q("Komposztálás","Mit teszünk az elszáradt cserepes növénnyel?","A növényt igen, a cserepet nem komposztáljuk.",["A cserepet is beletesszük.","Csak a műanyag cserepet tesszük bele.","Semmit sem szabad elválasztani."]),
+q("Komposztálás","Mehet-e a porszívó porzsákjának tartalma a komposztba?","Nem.",["Igen, minden esetben.","Csak műanyaggal együtt.","Igen, ha festékkel keverjük."]),
+q("Komposztálás","Melyik NEM való a házi komposztba a füzet szerint?","Húsos, főtt ételmaradék.",["Krumplihéj.","Elszáradt levél.","Tojáshéj."]),
+q("Komposztálás","Melyik anyag tartozik az egyéb komposztálhatók közé?","Kezeletlen fa.",["Műanyag zacskó.","Elem.","Fáradt olaj."]),
+q("Komposztálás","Mi történik a kerti és konyhai hulladékokkal a komposztálás során?","Visszakerülnek a természet körforgásába.",["Üveggé alakulnak.","Egyből műanyag keletkezik.","Fémmé válnak."]),
+q("Komposztálás","Melyik tilos a komposztba?","Növényvédő szer.",["Fűnyesedék.","Zöldséghéj.","Száraz gally."])
+];
+let practiceSet=[];
+function renderQuestion(item,index,prefix,showImmediate){
+ const el=document.createElement("article");el.className="exercise";const answers=shuffle(item.options);
+ el.innerHTML="<p class='number'>"+esc(item.cat)+" · "+(index+1)+". feladat</p><fieldset><legend>"+esc(item.q)+"</legend>"+
+ answers.map((a,j)=>"<label class='opt'><input type='radio' name='"+prefix+index+"' value='"+esc(a)+"'><span>"+esc(a)+"</span></label>").join("")+
+ "</fieldset>"+(showImmediate?"<button class='primary' type='button'>Ellenőrzés</button><p class='feedback' aria-live='polite'></p>":"<p class='feedback' aria-live='polite'></p>");
+ if(showImmediate){el.querySelector("button").onclick=()=>{const x=el.querySelector("input:checked");const p=el.querySelector(".feedback");if(!x){p.className="feedback bad";p.textContent="Előbb jelölj ki egy választ!";return}const ok=x.value===item.a;p.className="feedback "+(ok?"good":"bad");p.textContent=(ok?"Helyes! ":"Még nem jó. ")+"A helyes válasz: "+item.a}}
+ return el;
+}
+function drawPractice(){
+ const groups=["Balesetvédelem","Éves terv","Gabonák","Komposztálás"];
+ practiceSet=shuffle(groups.flatMap(g=>shuffle(bank.filter(x=>x.cat===g)).slice(0,4)));
+ const area=$("practiceChoices");area.replaceChildren();practiceSet.forEach((item,i)=>area.append(renderQuestion(item,i,"p",true)));
+}
+$("newPractice").onclick=drawPractice;drawPractice();
+let monthSet=[];
+function drawMonthMatch(){monthSet=shuffle(months).slice(0,6);const wrap=$("monthMatch");wrap.innerHTML="<p><strong>6 párosítás</strong></p>"+
+monthSet.map((m,i)=>"<div class='formrow'><label for='m"+i+"'>"+esc(m[2].charAt(0).toUpperCase()+m[2].slice(1))+"</label><select id='m"+i+"'><option value=''>— Melyik hónap? —</option>"+months.map(x=>"<option>"+esc(x[0])+"</option>").join("")+"</select></div>").join("")+
+"<button type='button' class='primary' id='checkMonths'>Párosítás ellenőrzése</button><button type='button' id='newMonths'>Másik 6</button><div class='feedback' id='monthFeedback' aria-live='polite'></div>";
+$("checkMonths").onclick=()=>{let good=0;const misses=[];monthSet.forEach((m,i)=>{let s=$("m"+i);const ok=s.value===m[0];s.style.borderColor=ok?"#14865e":"#c0392b";good+=ok?1:0;if(!ok)misses.push(m[2]+" → "+m[0]);});$("monthFeedback").innerHTML="<strong>"+good+" / 6 helyes.</strong>"+(misses.length?"<br>Megoldások: "+esc(misses.join("; ")):" Mindegyik párosítás helyes!")};
+$("newMonths").onclick=drawMonthMatch;
+}
+drawMonthMatch();
+const scraps=[
+["Krumplihéj","konyhai"],["Tojáshéj","konyhai"],["Kávézacc","konyhai"],["Teafilter tartalma","konyhai"],["Zöldséghéj","konyhai"],["Elhervadt vágott virág","konyhai"],
+["Fűnyesedék","kerti"],["Lehullott lomb","kerti"],["Levágott gally","kerti"],["Kerti gaz","kerti"],["Elnyílt kerti virág","kerti"],
+["Kezeletlen fa","egyeb"],["Nem színes papír","egyeb"],["Karton","egyeb"],["Haj","egyeb"],["Köröm","egyeb"],
+["Műanyag zacskó","tilos"],["Üvegpalack","tilos"],["Elem","tilos"],["Fáradt olaj","tilos"],["Pelenka","tilos"],["Porzsák tartalma","tilos"],["Festék","tilos"],["Növényvédő szer","tilos"],["Húsos főtt ételmaradék","tilos"],["Gyertyamaradék","tilos"],["Csont","tilos"],["Kenyér","tilos"],["Hamu","tilos"]
+];
+const categories={konyhai:"Komposztálható – konyhai",kerti:"Komposztálható – kerti",egyeb:"Komposztálható – egyéb",tilos:"Nem kerülhet bele"};
+let sortItems=shuffle(scraps),sortIndex=0;
+function drawSort(){if(sortIndex>=sortItems.length){sortItems=shuffle(scraps);sortIndex=0}$("sortCount").textContent=(sortIndex+1)+" / "+sortItems.length+" anyag";$("sortItem").textContent=sortItems[sortIndex][0];$("sortChoice").value="";$("sortFeedback").textContent="";$("sortFeedback").hidden=true;}
+$("checkSort").onclick=()=>{const selected=$("sortChoice").value;const el=$("sortFeedback");if(!selected){el.textContent="Válassz egy kategóriát!";el.hidden=false;return}const ok=selected===sortItems[sortIndex][1];el.className="feedback "+(ok?"good":"bad");el.textContent=(ok?"Helyes! ":"Nem egészen. ")+"Helyes besorolás: "+categories[sortItems[sortIndex][1]]+".";el.hidden=false;};
+$("nextSort").onclick=()=>{sortIndex++;drawSort()};drawSort();
+const shortBank=[
+["Milyen felügyelettel mehetsz be a kertbe?","Tanári felügyelettel.",["tanari felugyelettel","tanar felugyeletevel"]],
+["Melyik hónapban van a magismeret?","Márciusban.",["marcius","marciusban"]],
+["Melyik hónapban készül a madáretető?","Decemberben.",["december","decemberben"]],
+["Melyik hónapban van a vetésforgó kialakítása?","Januárban.",["januar","januarban"]],
+["Mikor vetik az őszi búzát?","Október elején–közepén.",["oktober","oktober elejen","oktober kozepen","oktober elejen vagy kozepen"]],
+["Mi az az élelmiszer, ami NEM gabonanövény, mégis szerepel a füzet gabonalistájában?","Kuszkusz.",["kuszkusz"]],
+["Mi a komposztálható konyhai kávémaradék neve?","Kávézacc.",["kavezacc"]],
+["Mi a gyűjtőedénybe kerülő hulladék csökkentésének egyik módja?","Komposztálás.",["komposztalas","komposztalni"]]
+];
+$("shortAnswers").innerHTML=shortBank.map((r,i)=>"<div class='exercise'><label for='short"+i+"'><strong>"+(i+1)+". "+esc(r[0])+"</strong></label><input type='text' id='short"+i+"' autocomplete='off' placeholder='Írd ide a válaszod...'><button type='button' data-short='"+i+"' class='primary'>Ellenőrzés</button><p id='shortResult"+i+"' class='feedback' aria-live='polite'></p></div>").join("");
+document.querySelectorAll("[data-short]").forEach(b=>b.onclick=()=>{const i=+b.dataset.short,r=shortBank[i],x=norm($("short"+i).value),ok=r[2].some(v=>norm(v)===x),out=$("shortResult"+i);out.className="feedback "+(ok?"good":"bad");out.textContent=(ok?"Helyes! ":"Ezt jegyezd meg: ")+r[1]});
+let examQuestions=[];
+function drawExam(){
+ const groups=["Balesetvédelem","Éves terv","Gabonák","Komposztálás"];
+ examQuestions=shuffle(groups.flatMap(g=>shuffle(bank.filter(x=>x.cat===g)).slice(0,5)));
+ const form=$("examForm");form.replaceChildren();examQuestions.forEach((q,i)=>form.append(renderQuestion(q,i,"exam",false)));
+ const submit=document.createElement("button");submit.type="submit";submit.className="primary";submit.textContent="Dolgozat beadása és javítás";form.append(submit);
+ $("examResult").hidden=true;updateExamProgress();form.onchange=updateExamProgress;
+}
+function updateExamProgress(){const filled=examQuestions.reduce((s,_,i)=>s+(document.querySelector("input[name='exam"+i+"']:checked")?1:0),0);$("examCount").textContent=filled+" / 20 megválaszolva";$("examProgress").style.width=(filled*5)+"%"}
+$("examForm").onsubmit=e=>{e.preventDefault();let score=0;examQuestions.forEach((q,i)=>{const el=$("examForm").children[i];const selected=el.querySelector("input:checked");const ok=selected&&selected.value===q.a;score+=ok?1:0;const p=el.querySelector(".feedback");p.className="feedback "+(ok?"good":"bad");p.textContent=(ok?"✓ Helyes. ":"✗ Nem jó. " )+"Megoldás: "+q.a});const result=$("examResult");result.hidden=false;result.innerHTML="<p class='score'>Eredmény: "+score+" / 20 pont ("+Math.round(score/20*100)+"%)</p><p>"+(score===20?"Hibátlan!":score>=16?"Nagyon jó! Nézd át a hibákat.":score>=11?"Jól haladsz. Gyakorold újra a hibás témákat.":"Érdemes újra átolvasni a tananyagot és gyakorolni.")+"</p><p>A helyes megoldásokat minden kérdés alatt megtalálod.</p>";result.scrollIntoView({behavior:"smooth",block:"center"})};
+$("newExam").onclick=()=>{drawExam();$("examForm").scrollIntoView({behavior:"smooth"})};
+drawExam();
+</script>
+</body></html>
