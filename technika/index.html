@@ -168,7 +168,7 @@ const flash=safety.map((s,i)=>["Mi a(z) "+(i+1)+". kerti balesetvédelmi szabál
 ["Sorolj fel öt komposztálható konyhai anyagot!","Például krumplihéj, zöldségmaradék, tojáshéj, kávézacc, teafilter tartalma."],
 ["Sorolj fel öt tiltott komposztanyagot!","Például műanyag, üveg, elem, festék, húsos főtt ételmaradék."],
 ["Mit jelent a komposztálás?","Szerves anyagok természetes lebomlása, amellyel talajjavító komposzt keletkezik."]
-]));
+]);
 let cards=shuffle(flash),cardIndex=0;
 function drawCard(){let c=cards[cardIndex];$("cardCount").textContent=(cardIndex+1)+" / "+cards.length+" kártya";$("cardQuestion").textContent=c[0];$("cardAnswer").textContent=c[1];$("cardAnswer").hidden=true}
 $("revealBtn").onclick=()=>{$("cardAnswer").hidden=false};
