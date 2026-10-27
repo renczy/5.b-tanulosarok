@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Száll a madár, ágrul ágra – soronkénti memoriter</title>
+<link rel="stylesheet" href="../assets/comic.css">
+<style>
+:root{--ink:#172033;--paper:#fffdf8;--orange:#e66f42}
+*{box-sizing:border-box}
+body{margin:0;background:
+radial-gradient(circle at 18px 18px,rgba(23,32,51,.05) 2px,transparent 2.5px) 0 0/30px 30px,
+#fff8ee;color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+.wrap{max-width:980px;margin:auto;padding:20px 16px 70px}
+.back{display:inline-block;margin-bottom:16px;padding:9px 13px;text-decoration:none;color:var(--ink);font-weight:900}
+.hero{border:4px solid #111827;border-radius:28px;background:linear-gradient(135deg,#fff0cf,#e8f4e4 55%,#e8efff);box-shadow:8px 8px 0 #111827;padding:26px;margin-bottom:22px}
+.hero h1{font-size:clamp(2rem,7vw,4rem);line-height:1.05;margin:8px 0 12px}
+.hero p{max-width:760px;font-weight:720}
+.badge{display:inline-block;border:3px solid #111827;border-radius:999px;background:#fff;padding:6px 11px;font-weight:900}
+.controls{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.controls button{border:3px solid #111827;border-radius:13px;background:#24324a;color:#fff;padding:10px 13px;font:inherit;font-weight:900;box-shadow:3px 3px 0 #111827;cursor:pointer}
+.controls button.alt{background:#fff;color:#24324a}
+.tip{margin-top:14px;border:2px dashed #697386;border-radius:14px;background:#fff;padding:11px 13px}
+.stanza{border:4px solid #111827;border-radius:24px;background:var(--stanza);box-shadow:7px 7px 0 #111827;padding:17px;margin:22px 0}
+.stanza-no{display:inline-block;margin-bottom:13px;border:3px solid #111827;border-radius:999px;background:#fff;padding:6px 10px;font-weight:950}
+.lines{display:grid;gap:11px}
+.line-card{display:grid;grid-template-columns:115px 1fr;align-items:stretch;border:3px solid #111827;border-radius:18px;background:#fff;overflow:hidden;min-height:108px;box-shadow:3px 3px 0 rgba(17,24,39,.95);transition:transform .12s ease}
+.line-card:hover,.line-card:focus{transform:translate(-2px,-2px);outline:none}
+.picture{display:grid;place-items:center;background:
+radial-gradient(circle at 25% 20%,rgba(255,255,255,.75),transparent 35%),
+linear-gradient(135deg,var(--stanza),#fff);border-right:3px solid #111827;padding:8px;text-align:center}
+.picture span{font-size:clamp(2.25rem,7vw,4rem);filter:drop-shadow(2px 3px 0 rgba(17,24,39,.15));line-height:1}
+.line-wrap{display:flex;align-items:center;gap:12px;padding:15px 17px}
+.line-number{flex:0 0 34px;height:34px;display:grid;place-items:center;border:2px solid #111827;border-radius:50%;background:#ffe15a;font-weight:950}
+.verse-line{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.2rem,3.2vw,1.65rem);font-weight:700;margin:0;line-height:1.35}
+.practice .verse-line{color:transparent;text-shadow:0 0 11px rgba(23,32,51,.42);user-select:none}
+.practice .line-card.revealed .verse-line{color:var(--ink);text-shadow:none;user-select:text}
+.practice .line-card{cursor:pointer}
+.practice .line-card::after{content:"Koppints a sorra";position:absolute;right:14px;bottom:7px;font-size:.7rem;font-weight:900;color:#687386}
+.line-card{position:relative}
+.legend{border:3px solid #111827;border-radius:18px;background:#fff;padding:15px;margin-top:24px}
+.legend h2{margin-top:0}
+.legend-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.legend-item{border:2px solid #d5d9df;border-radius:13px;padding:9px;background:#fffdf8;font-weight:800}
+@media(max-width:700px){
+  .line-card{grid-template-columns:82px 1fr;min-height:96px}
+  .picture span{font-size:2.4rem}
+  .line-wrap{padding:12px 11px;gap:9px}
+  .line-number{width:30px;height:30px;flex-basis:30px;font-size:.85rem}
+  .verse-line{font-size:1.17rem}
+  .legend-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:430px){
+  .line-card{grid-template-columns:70px 1fr}
+  .picture span{font-size:2rem}
+  .hero{padding:20px}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="back" href="./">← Irodalom</a>
+<header class="hero">
+<span class="badge">🎨 Soronként illusztrált memoriter</span>
+<h1>Száll a madár, ágrul ágra</h1>
+<p>Minden verssor külön képi kapaszkodót kapott. A szöveg változatlan; a képek csak a felidézést segítik.</p>
+<div class="controls">
+<button id="practiceBtn" type="button">🙈 Memoriter próba</button>
+<button id="showBtn" class="alt" type="button">👁️ Minden sor mutatása</button>
+</div>
+<div class="tip"><b>Tanulási tipp:</b> először nézd meg a képet és mondd ki a sort. Memoriter módban a szöveg elhalványul; koppints egy kártyára, ha ellenőrizni szeretnéd.</div>
+</header>
+
+
+<section class="stanza" style="--stanza:#fff0cf">
+  <div class="stanza-no">1. versszak</div>
+  <div class="lines">
+    
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐦🌿</span></div>
+        <div class="line-wrap">
+          <span class="line-number">1</span>
+          <p class="verse-line">Száll a madár, ágrul ágra,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🎶👄</span></div>
+        <div class="line-wrap">
+          <span class="line-number">2</span>
+          <p class="verse-line">Száll az ének, szájrul szájra;</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🌱🪦</span></div>
+        <div class="line-wrap">
+          <span class="line-number">3</span>
+          <p class="verse-line">Fű kizöldül ó sírhanton,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🛡️🎵</span></div>
+        <div class="line-wrap">
+          <span class="line-number">4</span>
+          <p class="verse-line">Bajnok ébred hősi lanton.</p>
+        </div>
+      </article>
+  </div>
+</section>
+<section class="stanza" style="--stanza:#e7f5e1">
+  <div class="stanza-no">2. versszak</div>
+  <div class="lines">
+    
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🏹🦌</span></div>
+        <div class="line-wrap">
+          <span class="line-number">5</span>
+          <p class="verse-line">Vadat űzni feljövének</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>👩‍👦‍👦🛡️</span></div>
+        <div class="line-wrap">
+          <span class="line-number">6</span>
+          <p class="verse-line">Hős fiai szép Enéhnek:</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐎⚔️⚔️</span></div>
+        <div class="line-wrap">
+          <span class="line-number">7</span>
+          <p class="verse-line">Hunor s magyar, két dalia,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>👬👑</span></div>
+        <div class="line-wrap">
+          <span class="line-number">8</span>
+          <p class="verse-line">Két egytestvér, Ménrót fia.</p>
+        </div>
+      </article>
+  </div>
+</section>
+<section class="stanza" style="--stanza:#e7efff">
+  <div class="stanza-no">3. versszak</div>
+  <div class="lines">
+    
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>5️⃣0️⃣⚔️</span></div>
+        <div class="line-wrap">
+          <span class="line-number">9</span>
+          <p class="verse-line">Ötven-ötven jó leventét</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>👀👉</span></div>
+        <div class="line-wrap">
+          <span class="line-number">10</span>
+          <p class="verse-line">Kiszemeltek, hogy követnék;</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🩸⚔️</span></div>
+        <div class="line-wrap">
+          <span class="line-number">11</span>
+          <p class="verse-line">Mint valamely véres hadra,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🏹🪶</span></div>
+        <div class="line-wrap">
+          <span class="line-number">12</span>
+          <p class="verse-line">Fegyverkeztek könnyü vadra.</p>
+        </div>
+      </article>
+  </div>
+</section>
+<section class="stanza" style="--stanza:#ffe7dc">
+  <div class="stanza-no">4. versszak</div>
+  <div class="lines">
+    
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🦌⬇️</span></div>
+        <div class="line-wrap">
+          <span class="line-number">13</span>
+          <p class="verse-line">Vad előttük vérbe fekszik,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🦌💨</span></div>
+        <div class="line-wrap">
+          <span class="line-number">14</span>
+          <p class="verse-line">Őz vagy szarvas nem menekszik;</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🦌♂️</span></div>
+        <div class="line-wrap">
+          <span class="line-number">15</span>
+          <p class="verse-line">Elejtették már a hímet –,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🦌♀️🏃</span></div>
+        <div class="line-wrap">
+          <span class="line-number">16</span>
+          <p class="verse-line">Üldözik a szarvas-gímet.</p>
+        </div>
+      </article>
+  </div>
+</section>
+<section class="stanza" style="--stanza:#e6f4f5">
+  <div class="stanza-no">5. versszak</div>
+  <div class="lines">
+    
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐎➡️🦌</span></div>
+        <div class="line-wrap">
+          <span class="line-number">17</span>
+          <p class="verse-line">Gím után ők egyre törnek</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🌾🌊🧂</span></div>
+        <div class="line-wrap">
+          <span class="line-number">18</span>
+          <p class="verse-line">Puszta martján sós tengernek,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐺🐻🚫</span></div>
+        <div class="line-wrap">
+          <span class="line-number">19</span>
+          <p class="verse-line">Hol a farkas, hol a medve</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🧭❓</span></div>
+        <div class="line-wrap">
+          <span class="line-number">20</span>
+          <p class="verse-line">Sohasem járt, eltévedne.</p>
+        </div>
+      </article>
+  </div>
+</section>
+<section class="stanza" style="--stanza:#fff0e8">
+  <div class="stanza-no">6. versszak</div>
+  <div class="lines">
+    
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐆🦁</span></div>
+        <div class="line-wrap">
+          <span class="line-number">21</span>
+          <p class="verse-line">De a párduc, vad oroszlán</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🦁📣</span></div>
+        <div class="line-wrap">
+          <span class="line-number">22</span>
+          <p class="verse-line">Végig üvölt a nagy pusztán,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐯👶</span></div>
+        <div class="line-wrap">
+          <span class="line-number">23</span>
+          <p class="verse-line">Sárga tigris ott kölykezik,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐯🍖</span></div>
+        <div class="line-wrap">
+          <span class="line-number">24</span>
+          <p class="verse-line">Fiát eszi ha éhezik.</p>
+        </div>
+      </article>
+  </div>
+</section>
+<section class="stanza" style="--stanza:#eef0ff">
+  <div class="stanza-no">7. versszak</div>
+  <div class="lines">
+    
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐦🎶</span></div>
+        <div class="line-wrap">
+          <span class="line-number">25</span>
+          <p class="verse-line">Száll a madár, száll az ének</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>👬🌸</span></div>
+        <div class="line-wrap">
+          <span class="line-number">26</span>
+          <p class="verse-line">Két fiáról szép Enéhnek;</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐦🌿</span></div>
+        <div class="line-wrap">
+          <span class="line-number">27</span>
+          <p class="verse-line">Zengő madár ágrul ágra,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🎶👄</span></div>
+        <div class="line-wrap">
+          <span class="line-number">28</span>
+          <p class="verse-line">Zengő ének szájrul szájra.</p>
+        </div>
+      </article>
+  </div>
+</section>
+<section class="stanza" style="--stanza:#fcebd8">
+  <div class="stanza-no">8. versszak</div>
+  <div class="lines">
+    
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🌇</span></div>
+        <div class="line-wrap">
+          <span class="line-number">29</span>
+          <p class="verse-line">Már a nap is lemenőben,</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>☁️🔥</span></div>
+        <div class="line-wrap">
+          <span class="line-number">30</span>
+          <p class="verse-line">Tüzet rakott a felhőben;</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🐎🦌</span></div>
+        <div class="line-wrap">
+          <span class="line-number">31</span>
+          <p class="verse-line">Ők a szarvast egyre űzik, –</p>
+        </div>
+      </article>
+      <article class="line-card" tabindex="0">
+        <div class="picture" aria-hidden="true"><span>🌆✨</span></div>
+        <div class="line-wrap">
+          <span class="line-number">32</span>
+          <p class="verse-line">Alkonyatkor ím eltűnik.</p>
+        </div>
+      </article>
+  </div>
+</section>
+
+<section class="legend">
+<h2>Képi kapaszkodók</h2>
+<div class="legend-grid">
+<div class="legend-item">🐦 madár, ág</div><div class="legend-item">🎶 ének</div><div class="legend-item">🌱🪦 kizöldülő sírhant</div><div class="legend-item">🛡️🎵 hős és lant</div>
+<div class="legend-item">🏹 vadászat</div><div class="legend-item">👬 testvérek</div><div class="legend-item">🦌 szarvas/gím</div><div class="legend-item">🌊 sós tenger</div>
+<div class="legend-item">🐺🐻 vadon</div><div class="legend-item">🐆🦁🐯 ragadozók</div><div class="legend-item">🌇 alkonyat</div><div class="legend-item">☁️🔥 tüzes felhő</div>
+</div>
+</section>
+</main>
+<script>
+const body=document.body;
+const cards=[...document.querySelectorAll('.line-card')];
+document.getElementById('practiceBtn').addEventListener('click',()=>{
+  body.classList.add('practice');
+  cards.forEach(c=>c.classList.remove('revealed'));
+  document.getElementById('practiceBtn').textContent='🙈 Memoriter mód bekapcsolva';
+});
+document.getElementById('showBtn').addEventListener('click',()=>{
+  body.classList.remove('practice');
+  cards.forEach(c=>c.classList.remove('revealed'));
+});
+cards.forEach(c=>c.addEventListener('click',()=>{
+  if(body.classList.contains('practice')) c.classList.toggle('revealed');
+}));
+</script>
+</body>
+</html>
