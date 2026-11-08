@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anna és Emma – párbeszédgyakorló | 5.b Tanulósarok</title>
+<link rel="stylesheet" href="../assets/comic.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f6f7fb;color:#182033;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1050px;margin:auto;padding:20px 14px 70px}
+.back{display:inline-block;margin-bottom:16px;font-weight:900;text-decoration:none;color:#2148b7}
+.hero,.panel{background:#fff;border:3px solid #1f2937;border-radius:22px;box-shadow:5px 5px 0 #1f2937}
+.hero{padding:26px}.panel{padding:20px;margin-top:20px}
+.hero h1{margin:.2rem 0;font-size:clamp(2rem,7vw,3.6rem)}
+.hero p{font-weight:700;color:#475569}
+.tag{display:inline-block;background:#e8eeff;padding:6px 10px;border-radius:999px;font-weight:900}
+.note{background:#fff7d6;border:2px solid #eab308;border-radius:12px;padding:11px 13px;margin-top:14px}
+.dialogue{display:grid;gap:12px}
+.line{border:2px solid #d7deea;border-radius:15px;padding:14px;background:#fbfcff}
+.line.anna{border-left:7px solid #7c3aed}.line.emma{border-left:7px solid #2563eb}
+.speaker{font-weight:950;font-size:1.05rem;margin-bottom:5px}
+.en{font-size:1.14rem;font-weight:850;color:#173fab}
+.pron{margin-top:5px;font-weight:750;color:#7c2d12}
+.hu{margin-top:4px;color:#334155}
+button{font:850 1rem system-ui;border:2px solid #1f2937;border-radius:10px;background:#4962d8;color:#fff;padding:8px 12px;margin:8px 6px 0 0;box-shadow:2px 2px 0 #1f2937;cursor:pointer}
+button.alt{background:#fff;color:#263b68}
+.role-controls{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
+.role-btn.active{background:#111827;color:white}
+.practice-card{border:3px solid #26344e;border-radius:18px;padding:18px;background:#fbfcff}
+.cue{background:#eef2ff;border-radius:12px;padding:13px;margin:10px 0}
+.hidden-answer{filter:blur(7px);user-select:none;transition:.2s}
+.hidden-answer.show{filter:none}
+.progress{font-weight:900;margin-top:10px}
+.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.word{border:2px solid #dde3ed;border-radius:13px;padding:11px;background:#fff}
+.word b{color:#173fab}.mini{font-size:.92rem;color:#64748b}
+table{width:100%;border-collapse:collapse}th,td{padding:9px;border-bottom:1px solid #d9dfeb;text-align:left;vertical-align:top}th{background:#eef2ff}
+@media(max-width:620px){.panel{padding:14px}.wrap{padding:12px 10px 55px}table{font-size:.92rem}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="back" href="./">← Vissza az angolhoz</a>
+
+<section class="hero">
+<span class="tag">Párbeszéd • kiejtés • jelentés • szerepcsere</span>
+<h1>Anna és Emma – English test</h1>
+<p>Tanuld meg úgy a párbeszédet, hogy közben azt is tudd, mit mondasz, és hogyan ejtsd ki.</p>
+<div class="note"><b>A „magyaros kiejtés” csak kapaszkodó.</b> Nem pontos fonetikai átírás. A legjobb, ha Alíz először meghallgatja a 🔊 gombbal, utána használja a magyaros segítséget.</div>
+</section>
+
+<section class="panel">
+<h2>1. A teljes párbeszéd</h2>
+<div class="dialogue" id="dialogue"></div>
+</section>
+
+<section class="panel">
+<h2>2. Szerepcsere – pont úgy, ahogy otthon gyakoroljátok</h2>
+<p>Válasszátok ki, hogy Alíz most <b>Anna</b> vagy <b>Emma</b>. A másik szereplő mondatát az oldal megmutatja; Alíz saját sora először csak magyarul látszik. Mondja el angolul, aztán ellenőrizzétek.</p>
+<div class="role-controls">
+<button class="role-btn active" data-role="Anna" onclick="setRole('Anna',this)">Alíz = Anna</button>
+<button class="role-btn" data-role="Emma" onclick="setRole('Emma',this)">Alíz = Emma</button>
+<button class="alt" onclick="restartPractice()">Újrakezdés</button>
+</div>
+<div class="practice-card" id="practice"></div>
+</section>
+
+<section class="panel">
+<h2>3. Szószedet</h2>
+<p class="mini">Nem csak külön szavak vannak benne, hanem olyan kifejezések is, amelyeket egyben érdemes megtanulni.</p>
+<div class="glossary" id="glossary"></div>
+</section>
+
+<section class="panel">
+<h2>4. Gyors kapaszkodók a megjegyzéshez</h2>
+<table>
+<tr><th>Angol minta</th><th>Mit jegyezz meg?</th></tr>
+<tr><td><b>Are you OK?</b></td><td>„Jól vagy?” – nem szó szerint kell magyarra fordítani.</td></tr>
+<tr><td><b>What's up?</b></td><td>„Mi a baj?” / „Mi újság?” – itt Anna azt kérdezi, mi történt.</td></tr>
+<tr><td><b>Why don't you...?</b></td><td>Javaslat: „Miért nem...?” → Why don't you study more?</td></tr>
+<tr><td><b>Why don't we...?</b></td><td>Közös javaslat: „Miért nem... együtt?” → Why don't we study together?</td></tr>
+<tr><td><b>Let's...</b></td><td>„Csináljuk!” / „Gyerünk, ...!” → Let's study.</td></tr>
+<tr><td><b>That's OK.</b></td><td>Itt: „Szívesen.” / „Semmi baj.”</td></tr>
+</table>
+</section>
+</main>
+
+<script>
+const lines = [
+{speaker:"Anna", en:"Hi, Emma. Are you OK?", pron:"Háj, Emmá. Ár jú óukéj?", hu:"Szia, Emma. Jól vagy?"},
+{speaker:"Anna", en:"What's up?", pron:"Vocc áp?", hu:"Mi a baj? / Mi történt?"},
+{speaker:"Emma", en:"It's my English test. Look!", pron:"Icc máj inglis teszt. Luk!", hu:"Ez az angoldolgozatom. Nézd!"},
+{speaker:"Anna", en:"Oh dear! That's not very good.", pron:"Óu díör! Detsz not veri gud.", hu:"Jaj! Ez nem túl jó."},
+{speaker:"Anna", en:"Why don't you study more?", pron:"Váj dóunt jú sztádi mór?", hu:"Miért nem tanulsz többet?"},
+{speaker:"Emma", en:"That's not the problem. I study every day!", pron:"Detsz not dö problém. Áj sztádi evri déj!", hu:"Nem ez a probléma. Minden nap tanulok!"},
+{speaker:"Emma", en:"And I write new vocabulary in my notebook.", pron:"End áj rájt nyú vökebjulöri in máj nóutbuk.", hu:"És új szavakat írok a füzetembe."},
+{speaker:"Anna", en:"Well, why don't we study together?", pron:"Vel, váj dóunt ví sztádi tögeder?", hu:"Nos, miért nem tanulunk együtt?"},
+{speaker:"Emma", en:"Good idea! Let's study at my house.", pron:"Gud ájdíö! Lecc sztádi et máj háusz.", hu:"Jó ötlet! Tanuljunk nálam."},
+{speaker:"Emma", en:"Thanks, Anna!", pron:"Thenksz, Anná!", hu:"Köszönöm, Anna!"},
+{speaker:"Anna", en:"That's OK.", pron:"Detsz óukéj.", hu:"Szívesen. / Semmi baj."}
+];
+
+const words = [
+["Hi","szia"],["Are you OK?","Jól vagy?"],["What's up?","Mi a baj? / Mi újság?"],["English test","angoldolgozat / angolteszt"],
+["Look!","Nézd!"],["Oh dear!","Jaj! / Jaj, ne!"],["very good","nagyon jó"],["Why don't you...?","Miért nem...?"],
+["study","tanulni"],["more","többet"],["problem","probléma"],["every day","minden nap"],["write","írni"],
+["new","új"],["vocabulary","szókincs / új szavak"],["notebook","füzet"],["well","nos / hát"],["together","együtt"],
+["good idea","jó ötlet"],["Let's...","Csináljuk... / Gyerünk..."],["at my house","nálam / az én házamban"],["Thanks!","Köszönöm!"],["That's OK.","Szívesen. / Semmi baj."]
+];
+
+function speak(text){
+  if(!("speechSynthesis" in window)){alert("A felolvasás ezen az eszközön nem támogatott.");return}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="en-GB";
+  u.rate=.72;
+  speechSynthesis.speak(u);
+}
+
+const d=document.getElementById("dialogue");
+lines.forEach((x,i)=>{
+  d.innerHTML += `<div class="line ${x.speaker.toLowerCase()}">
+    <div class="speaker">${x.speaker}</div>
+    <div class="en">${x.en}</div>
+    <div class="pron">Kiejtés: ${x.pron}</div>
+    <div class="hu">Jelentés: ${x.hu}</div>
+    <button onclick="speak(lines[${i}].en)">🔊 Hallgasd meg</button>
+  </div>`;
+});
+
+const g=document.getElementById("glossary");
+words.forEach(w=>g.innerHTML+=`<div class="word"><b>${w[0]}</b><br>${w[1]}</div>`);
+
+let role="Anna", step=0;
+function setRole(r,btn){
+  role=r;step=0;
+  document.querySelectorAll(".role-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  renderPractice();
+}
+function restartPractice(){step=0;renderPractice()}
+function nextLine(){if(step<lines.length-1){step++;renderPractice()}else{document.getElementById("practice").innerHTML='<h3>🎉 Végigértetek!</h3><p>Most cseréljetek szerepet, és menjen még egyszer.</p>'}}
+function prevLine(){if(step>0){step--;renderPractice()}}
+function reveal(){
+  const a=document.getElementById("answer");
+  if(a)a.classList.add("show");
+}
+function renderPractice(){
+  const x=lines[step];
+  const mine=x.speaker===role;
+  let html=`<div class="progress">${step+1} / ${lines.length} • Most: <b>${x.speaker}</b></div>`;
+  if(mine){
+    html+=`<div class="cue"><b>Alíz sora – magyar segítség:</b><br>${x.hu}</div>
+    <p>Mondd el angolul emlékezetből!</p>
+    <div id="answer" class="hidden-answer"><div class="en">${x.en}</div><div class="pron">Kiejtés: ${x.pron}</div></div>
+    <button onclick="reveal()">Megoldás mutatása</button>
+    <button class="alt" onclick="speak(lines[${step}].en)">🔊 Meghallgatom</button>`;
+  }else{
+    html+=`<div class="cue"><b>Te vagy ${x.speaker}:</b></div>
+    <div class="en">${x.en}</div>
+    <div class="hu">${x.hu}</div>
+    <button class="alt" onclick="speak(lines[${step}].en)">🔊 Felolvasás</button>`;
+  }
+  html+=`<div><button class="alt" onclick="prevLine()">← Előző</button><button onclick="nextLine()">Következő →</button></div>`;
+  document.getElementById("practice").innerHTML=html;
+}
+renderPractice();
+</script>
+</body>
+</html>
