@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Segédlet – Szöveges feladat megoldási séma</title>
+<link rel="stylesheet" href="../assets/comic.css">
+<style>
+.wrap{max-width:980px;margin:auto;padding:28px 18px 64px}.back{display:inline-block;padding:8px 12px;margin-bottom:18px}
+.hero{padding:28px;margin-bottom:22px}.hero h1{font-size:clamp(2rem,7vw,4rem);margin:.4rem 0}.hero p{font-weight:800;max-width:800px}
+.card{background:#fff;border:3px solid #111827;box-shadow:6px 6px 0 #111827;border-radius:20px;padding:22px;margin:22px 0}
+.card h2{margin-top:0}.lead{font-weight:800}.note{background:#fff7cc;border:3px solid #111827;border-radius:14px;padding:14px;margin:14px 0;font-weight:850}
+.scheme{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;align-items:stretch;margin:18px 0}.s{border:3px solid #111827;border-radius:14px;padding:14px;text-align:center;font-weight:950;display:flex;flex-direction:column;justify-content:center}.s small{display:block;font-weight:750;margin-top:5px}
+.s1{background:#fee2e2}.s2{background:#ffedd5}.s3{background:#fef3c7}.s4{background:#dcfce7}.s5{background:#dbeafe}.s6{background:#ede9fe}
+.rule{border:2px solid #111827;border-radius:14px;padding:15px;background:#f8fafc;margin:12px 0}
+.rule b{font-size:1.05rem}.example{background:#eef2ff;border:3px solid #111827;border-radius:14px;padding:14px;margin:12px 0}
+.calc{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f8fafc;border:2px solid #111827;border-radius:12px;padding:12px;white-space:pre-wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.q{border:2px solid #111827;border-radius:14px;padding:14px;background:white}
+input{font:inherit;padding:10px 12px;border:2px solid #111827;border-radius:10px;width:100%;max-width:260px;margin-top:8px}
+button{font:inherit;font-weight:900;border:3px solid #111827;box-shadow:3px 3px 0 #111827;border-radius:10px;background:var(--subject);color:#fff;padding:9px 12px;margin-top:8px;cursor:pointer}.fb{font-weight:900;margin-top:8px}.ok{color:#15803d}.bad{color:#b91c1c}
+@media(max-width:760px){.scheme{grid-template-columns:1fr 1fr}.card{padding:16px}}
+</style>
+<script>document.documentElement.classList.add('auth-locked')</script>
+<link rel="stylesheet" href="../assets/auth.css">
+<script defer src="../assets/auth.js"></script>
+</head>
+<body class="comic-page subject-matek"><main class="wrap">
+<a class="back" href="./">← Vissza a matekhoz</a>
+
+<section class="hero">
+<div style="font-size:2.7rem">🧩</div>
+<h1>Szöveges feladat – megoldási séma</h1>
+<p>Ha egy szöveges feladat elsőre kuszának tűnik, mindig ugyanabban a sorrendben bontsd fel.</p>
+</section>
+
+<section class="card">
+<h2>A 6 lépéses séma</h2>
+<div class="scheme">
+<div class="s s1">1. MIT TUDOK?<small>adatok kigyűjtése</small></div>
+<div class="s s2">2. MIT KÉRDEZ?<small>mit kell megtalálni?</small></div>
+<div class="s s3">3. MŰVELET<small>mit kell számolni?</small></div>
+<div class="s s4">4. SZÁMÍTÁS<small>számold ki</small></div>
+<div class="s s5">5. ELLENŐRZÉS<small>életszerű?</small></div>
+<div class="s s6">6. VÁLASZ<small>mondatban</small></div>
+</div>
+<div class="note">A legtöbb hiba ott kezdődik, hogy túl gyorsan nekiállunk számolni. Előbb értsd meg, <b>mit tudsz</b> és <b>mit keresel</b>.</div>
+</section>
+
+<section class="card">
+<h2>Mit jelent mindegyik lépés?</h2>
+<div class="rule"><b>1. Mit tudok?</b><br>Írd ki a fontos adatokat, mértékegységekkel együtt. A fölösleges szöveget hagyd ki.</div>
+<div class="rule"><b>2. Mit kérdez?</b><br>Fogalmazd meg röviden: „Hány darab?”, „Mennyi pénz?”, „Mennyi idő?”, „Mennyi víz?”</div>
+<div class="rule"><b>3. Milyen művelet kell?</b><br>Összeadás, kivonás, szorzás vagy osztás? Néha két lépés kell.</div>
+<div class="rule"><b>4. Számítás</b><br>Írd le a műveletet és számold ki pontosan.</div>
+<div class="rule"><b>5. Ellenőrzés</b><br>Nézd meg, hogy az eredmény életszerű-e. Ha lehet, ellenőrizd fordított művelettel.</div>
+<div class="rule"><b>6. Szöveges válasz</b><br>Ne csak egy számot írj! Válaszolj teljes mondatban, mértékegységgel.</div>
+</section>
+
+<section class="card">
+<h2>Példa 1 – Medencés feladat</h2>
+<div class="example"><b>Feladat:</b> Egy medencébe 15 perc alatt 430 liter víz folyik be. Mennyi víz folyik bele fél óra alatt?</div>
+<div class="rule"><b>1. Mit tudok?</b><br>15 perc → 430 liter<br>fél óra = 30 perc</div>
+<div class="rule"><b>2. Mit kérdez?</b><br>Mennyi víz folyik be 30 perc alatt?</div>
+<div class="rule"><b>3. Milyen művelet?</b><br>30 perc kétszer 15 perc, ezért a vízmennyiséget is kétszerezzük.</div>
+<div class="calc">30 : 15 = 2
+430 · 2 = 860</div>
+<div class="rule"><b>5. Ellenőrzés:</b><br>860 fele 430, tehát jó.</div>
+<div class="rule"><b>6. Szöveges válasz:</b><br>Fél óra alatt <b>860 liter</b> víz folyik a medencébe.</div>
+</section>
+
+<section class="card">
+<h2>Példa 2 – Csokis feladat</h2>
+<div class="example"><b>Feladat:</b> 55 db 200 Ft-os csoki árából hány db 110 Ft-os csokit lehet venni?</div>
+<div class="rule"><b>1. Mit tudok?</b><br>55 db × 200 Ft<br>új csoki ára: 110 Ft/db</div>
+<div class="rule"><b>2. Mit kérdez?</b><br>Hány darab 110 Ft-os csokit vehetünk?</div>
+<div class="rule"><b>3. Milyen művelet?</b><br>Először kiszámoljuk az összes pénzt, utána osztunk 110-zel.</div>
+<div class="calc">55 · 200 = 11 000 Ft
+11 000 : 110 = 100 db</div>
+<div class="rule"><b>5. Ellenőrzés:</b><br>100 · 110 = 11 000 Ft.</div>
+<div class="rule"><b>6. Szöveges válasz:</b><br>Ugyanennyi pénzből <b>100 darab</b> 110 Ft-os csokit lehet venni.</div>
+</section>
+
+<section class="card">
+<h2>Jelzőszavak – csak kapaszkodónak</h2>
+<div class="grid">
+<div class="rule"><b>Összesen, együtt</b><br>gyakran összeadás</div>
+<div class="rule"><b>Mennyivel több / kevesebb</b><br>gyakran kivonás</div>
+<div class="rule"><b>Ennyiszer annyi</b><br>gyakran szorzás</div>
+<div class="rule"><b>Egyenlő részekre, darabonként</b><br>gyakran osztás</div>
+</div>
+<div class="note">A jelzőszó önmagában nem dönt el mindent. Mindig a teljes helyzetet kell megérteni.</div>
+</section>
+
+<section class="card">
+<h2>Gyors önellenőrzés</h2>
+<div class="grid" id="quiz"></div>
+</section>
+
+<script>
+const qs=[
+["Egy dobozban 8 ceruza van. 6 dobozban hány ceruza van?","48"],
+["72 almát 8 egyenlő részre osztunk. Egy részbe hány alma jut?","9"],
+["Egy jegy 450 Ft, három jegy mennyibe kerül?","1350"],
+["1200 Ft-ból 375 Ft-ot elköltünk. Mennyi marad?","825"],
+["15 perc alatt 300 liter folyik be. 30 perc alatt mennyi?","600"],
+["4 csomag egyenként 250 g. Összesen hány gramm?","1000"]
+];
+const h=document.getElementById("quiz");
+qs.forEach((x,i)=>{
+ const d=document.createElement("div");d.className="q";
+ d.innerHTML='<b>'+(i+1)+'. '+x[0]+'</b><br><input id="q'+i+'" inputmode="numeric"><br><button onclick="check('+i+',\''+x[1]+'\')">Ellenőrzés</button><div id="f'+i+'" class="fb"></div>';
+ h.appendChild(d);
+});
+function n(s){return String(s).trim().replace(/\s/g,"")}
+function check(i,a){const v=n(document.getElementById("q"+i).value),f=document.getElementById("f"+i);if(v===n(a)){f.textContent="✓ Helyes!";f.className="fb ok"}else{f.textContent="✗ Helyes válasz: "+a;f.className="fb bad"}}
+</script>
+</main></body></html>
