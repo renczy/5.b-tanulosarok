@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Segédlet – Becslési mankó</title>
+<link rel="stylesheet" href="../assets/comic.css">
+<style>
+.wrap{max-width:980px;margin:auto;padding:28px 18px 64px}.back{display:inline-block;padding:8px 12px;margin-bottom:18px}
+.hero{padding:28px;margin-bottom:22px}.hero h1{font-size:clamp(2rem,7vw,4rem);margin:.4rem 0}.hero p{font-weight:800;max-width:780px}
+.card{background:#fff;border:3px solid #111827;box-shadow:6px 6px 0 #111827;border-radius:20px;padding:22px;margin:22px 0}
+.card h2{margin-top:0}.lead{font-weight:800}.rule{background:#fff7cc;border:3px solid #111827;border-radius:14px;padding:15px;margin:14px 0;font-weight:900}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center;margin:18px 0}
+.box{border:3px solid #111827;border-radius:14px;padding:15px;text-align:center;font-weight:950;background:#eef2ff}.arrow{font-size:1.8rem;font-weight:950}
+.bad{background:#fee2e2;border:3px solid #111827;border-radius:14px;padding:14px;font-weight:850}.good{background:#dcfce7;border:3px solid #111827;border-radius:14px;padding:14px;font-weight:850}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.ex{border:2px solid #111827;border-radius:14px;padding:14px;background:#f8fafc}
+.step{border-left:6px solid var(--subject);padding:8px 0 8px 14px;margin:10px 0}
+.q{border:2px solid #111827;border-radius:14px;padding:14px;background:white}
+input{font:inherit;padding:10px 12px;border:2px solid #111827;border-radius:10px;width:100%;max-width:220px;margin-top:8px}
+button{font:inherit;font-weight:900;border:3px solid #111827;box-shadow:3px 3px 0 #111827;border-radius:10px;background:var(--subject);color:#fff;padding:9px 12px;margin-top:8px;cursor:pointer}.fb{font-weight:900;margin-top:8px}.ok{color:#15803d}.badc{color:#b91c1c}
+@media(max-width:720px){.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg);text-align:center}.card{padding:16px}}
+</style>
+<script>document.documentElement.classList.add('auth-locked')</script>
+<link rel="stylesheet" href="../assets/auth.css">
+<script defer src="../assets/auth.js"></script>
+</head>
+<body class="comic-page subject-matek"><main class="wrap">
+<a class="back" href="./">← Vissza a matekhoz</a>
+
+<section class="hero">
+<div style="font-size:2.7rem">🎯</div>
+<h1>Becslési mankó</h1>
+<p>Hogyan becsüljünk kerekítéssel? A művelet tagjait külön-külön kerekítjük, majd a kerek számokkal számolunk.</p>
+</section>
+
+<section class="card">
+<h2>A legfontosabb szabály</h2>
+<div class="rule">
+<b>NEM</b> a pontos eredményt számoljuk ki, és utána kerekítünk.<br><br>
+<b>HELYES MENET:</b> tagok külön kerekítése → művelet a kerek számokkal → becslés.
+</div>
+
+<div class="flow">
+<div class="box">1. Kerekítsd az első számot</div>
+<div class="arrow">→</div>
+<div class="box">2. Kerekítsd a második számot</div>
+<div class="arrow">→</div>
+<div class="box">3. Számolj a kerek számokkal</div>
+</div>
+
+<div class="grid">
+<div class="bad"><b>Hibás gondolat:</b><br>347 + 582 = 929 → 900</div>
+<div class="good"><b>Helyes becslés:</b><br>347 ≈ 300<br>582 ≈ 600<br>300 + 600 = <b>900</b></div>
+</div>
+</section>
+
+<section class="card">
+<h2>Mikor mire kerekíts?</h2>
+<div class="grid">
+<div class="ex"><b>Tízesre</b><br>az egyeseket nézd<br>48 ≈ 50<br>21 ≈ 20</div>
+<div class="ex"><b>Százasra</b><br>a tízeseket nézd<br>347 ≈ 300<br>582 ≈ 600</div>
+<div class="ex"><b>Ezresre</b><br>a százasokat nézd<br>3480 ≈ 3000<br>5620 ≈ 6000</div>
+</div>
+<div class="rule">0–4 → lefelé &nbsp;&nbsp; | &nbsp;&nbsp; 5–9 → felfelé</div>
+</section>
+
+<section class="card">
+<h2>Példák műveletenként</h2>
+
+<div class="ex">
+<b>Összeadás:</b> 347 + 582
+<div class="step">347 ≈ 300</div>
+<div class="step">582 ≈ 600</div>
+<div class="step">300 + 600 = <b>900</b></div>
+</div>
+
+<div class="ex">
+<b>Kivonás:</b> 824 − 367
+<div class="step">824 ≈ 800</div>
+<div class="step">367 ≈ 400</div>
+<div class="step">800 − 400 = <b>400</b></div>
+</div>
+
+<div class="ex">
+<b>Szorzás:</b> 48 · 21
+<div class="step">48 ≈ 50</div>
+<div class="step">21 ≈ 20</div>
+<div class="step">50 · 20 = <b>1000</b></div>
+</div>
+
+<div class="ex">
+<b>Osztás:</b> 596 : 31
+<div class="step">596 ≈ 600</div>
+<div class="step">31 ≈ 30</div>
+<div class="step">600 : 30 = <b>20</b></div>
+</div>
+</section>
+
+<section class="card">
+<h2>Miért nem mindig ugyanaz, mint a pontos eredmény kerekítve?</h2>
+<div class="good">
+A becslés célja nem az, hogy a pontos eredményt kerekítsük, hanem hogy <b>már a számolás előtt</b> közelítő eredményt kapjunk.
+</div>
+<div class="ex" style="margin-top:14px">
+<b>Példa:</b> 364 + 728<br>
+Becslés: 400 + 700 = <b>1100</b><br>
+Pontos eredmény: 1092<br>
+A kettő közel van egymáshoz, de más úton kaptuk.
+</div>
+</section>
+
+<section class="card">
+<h2>Gyors emlékeztető</h2>
+<div class="flow">
+<div class="box">KEREKÍTÉS</div>
+<div class="arrow">→</div>
+<div class="box">KEREKÍTÉS</div>
+<div class="arrow">→</div>
+<div class="box">MŰVELET</div>
+</div>
+<p class="lead">Mondd magadban: <b>„Előbb külön kerekítek, utána számolok.”</b></p>
+</section>
+
+<section class="card">
+<h2>Gyors gyakorlás</h2>
+<div class="grid" id="quiz"></div>
+</section>
+
+<script>
+const qs=[
+["347 + 582, százasra becsülve","900"],
+["824 − 367, százasra becsülve","400"],
+["48 · 21, tízesre becsülve","1000"],
+["596 : 31, tízesre becsülve","20"],
+["1248 + 2679, százasra becsülve","3900"],
+["2943 − 1178, százasra becsülve","1700"],
+["72 · 38, tízesre becsülve","2800"],
+["796 : 39, tízesre becsülve","20"]
+];
+const h=document.getElementById("quiz");
+qs.forEach((x,i)=>{
+ const d=document.createElement("div");d.className="q";
+ d.innerHTML='<b>'+(i+1)+'. '+x[0]+'</b><br><input id="q'+i+'" inputmode="numeric"><br><button onclick="check('+i+',\''+x[1]+'\')">Ellenőrzés</button><div id="f'+i+'" class="fb"></div>';
+ h.appendChild(d);
+});
+function n(s){return String(s).trim().replace(/\s/g,"")}
+function check(i,a){const v=n(document.getElementById("q"+i).value),f=document.getElementById("f"+i);if(v===n(a)){f.textContent="✓ Helyes!";f.className="fb ok"}else{f.textContent="✗ Helyes válasz: "+a;f.className="fb badc"}}
+</script>
+</main></body></html>
