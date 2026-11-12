@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Segédlet – Mértékegység-átváltási létra</title>
+<link rel="stylesheet" href="../assets/comic.css">
+<style>
+.wrap{max-width:1000px;margin:auto;padding:28px 18px 64px}.back{display:inline-block;padding:8px 12px;margin-bottom:18px}
+.hero{padding:28px;margin-bottom:22px}.hero h1{font-size:clamp(2rem,7vw,4rem);margin:.4rem 0}.hero p{font-weight:800;max-width:760px}
+.card{background:#fff;border:3px solid #111827;box-shadow:6px 6px 0 #111827;border-radius:20px;padding:22px;margin:22px 0}
+.card h2{margin-top:0}.lead{font-weight:800}.note{background:#fff7cc;border:3px solid #111827;border-radius:14px;padding:14px;margin:14px 0;font-weight:800}
+.ladder{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:stretch;margin:18px 0}
+.step{border:3px solid #111827;border-radius:14px;padding:12px 8px;text-align:center;font-weight:950;min-height:88px;display:flex;flex-direction:column;justify-content:center}
+.step small{display:block;font-weight:750;margin-top:4px}.arrow{text-align:center;font-weight:950;font-size:1.1rem;margin:8px 0}
+.example{background:#eef2ff;border:3px solid #111827;border-radius:14px;padding:14px;margin:12px 0;font-weight:850}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.mini{border:2px solid #111827;border-radius:14px;padding:14px;background:#f8fafc}
+.timegrid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}.time{border:3px solid #111827;border-radius:14px;padding:12px;text-align:center;font-weight:950;background:#dcfce7}
+.q{border:2px solid #111827;border-radius:14px;padding:14px;background:white}
+input{font:inherit;padding:10px 12px;border:2px solid #111827;border-radius:10px;width:100%;max-width:220px;margin-top:8px}
+button{font:inherit;font-weight:900;border:3px solid #111827;box-shadow:3px 3px 0 #111827;border-radius:10px;background:var(--subject);color:#fff;padding:9px 12px;margin-top:8px;cursor:pointer}.fb{font-weight:900;margin-top:8px}.ok{color:#15803d}.bad{color:#b91c1c}
+@media(max-width:760px){.ladder{grid-template-columns:repeat(4,1fr)}.timegrid{grid-template-columns:1fr 1fr}.card{padding:16px}}
+</style>
+<script>document.documentElement.classList.add('auth-locked')</script>
+<link rel="stylesheet" href="../assets/auth.css">
+<script defer src="../assets/auth.js"></script>
+</head>
+<body class="comic-page subject-matek"><main class="wrap">
+<a class="back" href="./">← Vissza a matekhoz</a>
+
+<section class="hero">
+<div style="font-size:2.7rem">🪜</div>
+<h1>Mértékegység-átváltási létra</h1>
+<p>Hosszúság, űrtartalom, tömeg és idő – egy helyen, vizuálisan.</p>
+</section>
+
+<section class="card">
+<h2>Hogyan használd a létrát?</h2>
+<div class="note">Ha <b>kisebb mértékegység felé</b> haladsz, a szám általában nagyobb lesz. Ha <b>nagyobb mértékegység felé</b> haladsz, a szám kisebb lesz.</div>
+<div class="grid">
+<div class="mini"><b>Jobbra lépsz</b><br>szorozni kell a lépés értékével.</div>
+<div class="mini"><b>Balra lépsz</b><br>osztani kell a lépés értékével.</div>
+</div>
+</section>
+
+<section class="card">
+<h2>1. Hosszúság</h2>
+<div class="ladder">
+<div class="step" style="background:#fee2e2">km<small>kilométer</small></div>
+<div class="step" style="background:#ffedd5">hm<small>hektométer</small></div>
+<div class="step" style="background:#fef3c7">dam<small>dekaméter</small></div>
+<div class="step" style="background:#dcfce7">m<small>méter</small></div>
+<div class="step" style="background:#dbeafe">dm<small>deciméter</small></div>
+<div class="step" style="background:#e0e7ff">cm<small>centiméter</small></div>
+<div class="step" style="background:#f3e8ff">mm<small>milliméter</small></div>
+</div>
+<div class="arrow">← osztás 10-zel minden lépésnél &nbsp;&nbsp; | &nbsp;&nbsp; szorzás 10-zel minden lépésnél →</div>
+<div class="example">Példa: 3,25 m = 32,5 dm = 325 cm = 3250 mm</div>
+<div class="example">Példa: 4800 m = 4,8 km</div>
+</section>
+
+<section class="card">
+<h2>2. Űrtartalom</h2>
+<div class="ladder">
+<div class="step" style="background:#fee2e2">kl<small>kiloliter</small></div>
+<div class="step" style="background:#ffedd5">hl<small>hektoliter</small></div>
+<div class="step" style="background:#fef3c7">dal<small>dekaliter</small></div>
+<div class="step" style="background:#dcfce7">l<small>liter</small></div>
+<div class="step" style="background:#dbeafe">dl<small>deciliter</small></div>
+<div class="step" style="background:#e0e7ff">cl<small>centiliter</small></div>
+<div class="step" style="background:#f3e8ff">ml<small>milliliter</small></div>
+</div>
+<div class="arrow">← osztás 10-zel minden lépésnél &nbsp;&nbsp; | &nbsp;&nbsp; szorzás 10-zel minden lépésnél →</div>
+<div class="example">Példa: 0,025 hl = 2,5 l</div>
+<div class="example">Példa: 3 l = 30 dl = 300 cl = 3000 ml</div>
+</section>
+
+<section class="card">
+<h2>3. Tömeg</h2>
+<div class="ladder">
+<div class="step" style="background:#fee2e2">t<small>tonna</small></div>
+<div class="step" style="background:#ffedd5">q<small>mázsa</small></div>
+<div class="step" style="background:#fef3c7">kg<small>kilogramm</small></div>
+<div class="step" style="background:#dcfce7">dkg<small>dekagramm</small></div>
+<div class="step" style="background:#dbeafe">g<small>gramm</small></div>
+<div class="step" style="background:#e0e7ff">mg<small>milligramm</small></div>
+</div>
+<div class="note">Itt nem minden szomszédos lépés 10-szeres! <b>1 t = 10 q = 1000 kg</b>, <b>1 kg = 100 dkg = 1000 g</b>, <b>1 dkg = 10 g</b>.</div>
+<div class="example">Példa: 85 dkg = 0,85 kg</div>
+<div class="example">Példa: 2,5 kg = 250 dkg = 2500 g</div>
+</section>
+
+<section class="card">
+<h2>4. Idő</h2>
+<div class="timegrid">
+<div class="time">1 nap<br><small>= 24 óra</small></div>
+<div class="time">1 óra<br><small>= 60 perc</small></div>
+<div class="time">1 perc<br><small>= 60 másodperc</small></div>
+<div class="time">1 hét<br><small>= 7 nap</small></div>
+<div class="time">1 év<br><small>= 12 hónap</small></div>
+</div>
+<div class="note">Az idő <b>nem tízes alapú mértékegységrendszer</b>. Ezért itt mindig külön meg kell nézni, hogy 24-gyel, 60-nal, 7-tel vagy 12-vel kell-e váltani.</div>
+<div class="example">Példa: fél óra = 30 perc</div>
+<div class="example">Példa: negyed óra = 15 perc</div>
+<div class="example">Példa: 2 óra 30 perc = 150 perc</div>
+</section>
+
+<section class="card">
+<h2>Gyors áttekintő</h2>
+<div class="grid">
+<div class="mini"><b>Hosszúság</b><br>km – hm – dam – m – dm – cm – mm</div>
+<div class="mini"><b>Űrtartalom</b><br>kl – hl – dal – l – dl – cl – ml</div>
+<div class="mini"><b>Tömeg</b><br>t – q – kg – dkg – g – mg</div>
+<div class="mini"><b>Idő</b><br>nap – óra – perc – másodperc</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Gyors gyakorlás</h2>
+<div class="grid" id="quiz"></div>
+</section>
+
+<script>
+const qs=[
+["3,2 m = ? cm","320"],
+["4500 mm = ? m","4.5"],
+["0,7 km = ? m","700"],
+["2,5 l = ? dl","25"],
+["3500 ml = ? l","3.5"],
+["0,04 hl = ? l","4"],
+["85 dkg = ? kg","0.85"],
+["2,4 kg = ? g","2400"],
+["3 óra = ? perc","180"],
+["150 perc = ? óra","2.5"],
+["fél óra = ? perc","30"],
+["negyed óra = ? perc","15"]
+];
+const h=document.getElementById("quiz");
+qs.forEach((x,i)=>{
+ const d=document.createElement("div");d.className="q";
+ d.innerHTML='<b>'+(i+1)+'. '+x[0]+'</b><br><input id="q'+i+'" inputmode="decimal"><br><button onclick="check('+i+',\''+x[1]+'\')">Ellenőrzés</button><div id="f'+i+'" class="fb"></div>';
+ h.appendChild(d);
+});
+function n(s){return String(s).trim().replace(/\s/g,"").replace(",",".")}
+function check(i,a){const v=n(document.getElementById("q"+i).value),f=document.getElementById("f"+i);if(v===n(a)){f.textContent="✓ Helyes!";f.className="fb ok"}else{f.textContent="✗ Helyes válasz: "+String(a).replace(".",",");f.className="fb bad"}}
+</script>
+</main></body></html>
