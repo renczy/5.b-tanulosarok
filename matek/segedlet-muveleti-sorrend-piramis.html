@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Segédlet – Műveleti sorrend piramis</title>
+<link rel="stylesheet" href="../assets/comic.css">
+<style>
+.wrap{max-width:980px;margin:auto;padding:28px 18px 64px}.back{display:inline-block;padding:8px 12px;margin-bottom:18px}
+.hero{padding:28px;margin-bottom:22px}.hero h1{font-size:clamp(2rem,7vw,4rem);margin:.4rem 0}.hero p{font-weight:800;max-width:760px}
+.card{background:#fff;border:3px solid #111827;box-shadow:6px 6px 0 #111827;border-radius:20px;padding:22px;margin:22px 0}
+.card h2{margin-top:0}.lead{font-weight:750}.note{background:#fff7cc;border:3px solid #111827;border-radius:14px;padding:14px;margin:16px 0;font-weight:800}
+.pyramid{max-width:760px;margin:24px auto 10px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.level{color:#111827;border:3px solid #111827;box-shadow:4px 4px 0 #111827;padding:14px 18px;text-align:center;font-weight:950;line-height:1.25}
+.level small{display:block;font-weight:750;margin-top:5px}
+.l1{width:42%;background:#fde68a;clip-path:polygon(50% 0,100% 100%,0 100%);padding-top:40px}
+.l2{width:58%;background:#fca5a5;clip-path:polygon(14% 0,86% 0,100% 100%,0 100%)}
+.l3{width:76%;background:#93c5fd;clip-path:polygon(10% 0,90% 0,100% 100%,0 100%)}
+.l4{width:94%;background:#86efac;clip-path:polygon(8% 0,92% 0,100% 100%,0 100%)}
+.rules{display:grid;gap:14px}.rule{border:2px solid #111827;border-radius:14px;padding:15px;background:#f8fafc}.rule b{font-size:1.08rem}
+.example{font-size:clamp(1.15rem,3vw,1.45rem);font-weight:950;background:#eef2ff;border:3px solid #111827;border-radius:14px;padding:14px}
+.steps{counter-reset:s}.step{counter-increment:s;border-left:6px solid var(--subject);padding:8px 0 8px 14px;margin:12px 0}.step:before{content:counter(s) ". ";font-weight:950}
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.q{border:2px solid #111827;border-radius:14px;padding:14px;background:white}
+input{font:inherit;padding:10px 12px;border:2px solid #111827;border-radius:10px;width:100%;max-width:220px;margin-top:8px}
+button{font:inherit;font-weight:900;border:3px solid #111827;box-shadow:3px 3px 0 #111827;border-radius:10px;background:var(--subject);color:#fff;padding:9px 12px;margin-top:8px;cursor:pointer}.fb{font-weight:900;margin-top:8px}.ok{color:#15803d}.bad{color:#b91c1c}
+.memory{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}.memory div{border:2px solid #111827;border-radius:12px;padding:10px;text-align:center;font-weight:950;background:#fff}
+@media(max-width:650px){.card{padding:16px}.l1{width:62%}.l2{width:76%}.l3{width:88%}.l4{width:100%}.level{font-size:.92rem;padding-left:10px;padding-right:10px}.memory{grid-template-columns:1fr 1fr}}
+</style>
+<script>document.documentElement.classList.add('auth-locked')</script>
+<link rel="stylesheet" href="../assets/auth.css">
+<script defer src="../assets/auth.js"></script>
+</head>
+<body class="comic-page subject-matek"><main class="wrap">
+<a class="back" href="./">← Vissza a matekhoz</a>
+
+<section class="hero">
+<div style="font-size:2.7rem">🔺</div>
+<h1>Műveleti sorrend piramis</h1>
+<p>Vizuális segédlet ahhoz, hogy mindig tudd, melyik művelettel kell kezdeni egy összetett számításban.</p>
+</section>
+
+<section class="card">
+<h2>A piramis szabálya</h2>
+<p class="lead">Mindig <b>fentről lefelé</b> haladj. Ami magasabban van, azt előbb végezzük el.</p>
+<div class="pyramid">
+  <div class="level l1">1. ZÁRÓJELEK<small>( ) &nbsp; [ ] &nbsp; { }</small></div>
+  <div class="level l2">2. HATVÁNYOZÁS ÉS GYÖKVONÁS<small>a² &nbsp; √a</small></div>
+  <div class="level l3">3. SZORZÁS ÉS OSZTÁS<small>· &nbsp; : &nbsp; — egyenrangúak, balról jobbra</small></div>
+  <div class="level l4">4. ÖSSZEADÁS ÉS KIVONÁS<small>+ &nbsp; − &nbsp; — egyenrangúak, balról jobbra</small></div>
+</div>
+<div class="note">Ha két művelet ugyanazon a szinten van — például szorzás és osztás —, akkor <b>balról jobbra</b> haladunk.</div>
+</section>
+
+<section class="card">
+<h2>Mit jelent ez lépésenként?</h2>
+<div class="rules">
+<div class="rule"><b>1. Zárójelek</b><br>Mindig a zárójelen belül kezdünk. Ha egymásba ágyazott zárójelek vannak, a legbelsővel indulunk.</div>
+<div class="rule"><b>2. Hatványozás és gyökvonás</b><br>A zárójel után következnek a hatványok és a gyökök.</div>
+<div class="rule"><b>3. Szorzás és osztás</b><br>Egyenrangúak. Ha több van egymás mellett, balról jobbra számolunk.</div>
+<div class="rule"><b>4. Összeadás és kivonás</b><br>Szintén egyenrangúak. Balról jobbra haladunk.</div>
+</div>
+</section>
+
+<section class="card">
+<h2>Példa lépésről lépésre</h2>
+<div class="example">20 − 3 · (4 + 2²) : 6</div>
+<div class="step"><b>A zárójelben először a hatvány:</b> 2² = 4</div>
+<div class="step"><b>Zárójel befejezése:</b> 4 + 4 = 8<br>Így: 20 − 3 · 8 : 6</div>
+<div class="step"><b>Szorzás és osztás balról jobbra:</b> 3 · 8 = 24, majd 24 : 6 = 4</div>
+<div class="step"><b>Végül a kivonás:</b> 20 − 4 = <b>16</b></div>
+</section>
+
+<section class="card">
+<h2>Gyors emlékeztető</h2>
+<div class="memory">
+<div>① ZÁRÓJEL</div><div>② HATVÁNY / GYÖK</div><div>③ SZORZÁS / OSZTÁS</div><div>④ ÖSSZEADÁS / KIVONÁS</div>
+</div>
+<p class="lead">Mondd magadban: <b>„Zárójel – hatvány – szorzás/osztás – összeadás/kivonás.”</b></p>
+</section>
+
+<section class="card">
+<h2>Gyors gyakorlás</h2>
+<p>Csak az eredményt írd be. Ha elakadsz, nézz vissza a piramisra.</p>
+<div class="quick" id="quiz"></div>
+</section>
+
+<section class="card">
+<h2>Alíznak most mi a legfontosabb?</h2>
+<p>A jelenlegi 5. osztályos feladatoknál leggyakrabban ezt a három szintet használjátok:</p>
+<div class="memory"><div>① ZÁRÓJEL</div><div>② SZORZÁS / OSZTÁS</div><div>③ ÖSSZEADÁS / KIVONÁS</div><div>← balról jobbra azonos szinten</div></div>
+<p class="lead">A hatványozás és gyökvonás azért szerepel a teljes piramisban, hogy később is használható legyen ez a segédlet.</p>
+</section>
+
+<script>
+const qs=[
+["165 + 7 · 15 − 25","245"],
+["(165 + 7) · 15 − 25","2555"],
+["185 + 7 · (25 − 15)","255"],
+["48 : 6 · 3","24"],
+["40 − 12 : 3 + 2","38"],
+["3 · (8 + 4) : 6","6"]
+];
+const h=document.getElementById("quiz");
+qs.forEach((x,i)=>{
+ const d=document.createElement("div");d.className="q";
+ d.innerHTML='<b>'+(i+1)+'. '+x[0]+'</b><br><input id="q'+i+'" inputmode="numeric"><br><button onclick="check('+i+',\''+x[1]+'\')">Ellenőrzés</button><div id="f'+i+'" class="fb"></div>';
+ h.appendChild(d);
+});
+function check(i,a){const v=document.getElementById("q"+i).value.trim().replace(/\s/g,"");const f=document.getElementById("f"+i);if(v===a){f.textContent="✓ Helyes!";f.className="fb ok"}else{f.textContent="✗ Helyes válasz: "+a;f.className="fb bad"}}
+</script>
+</main></body></html>
