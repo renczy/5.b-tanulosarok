@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit 4 – At School témazáró-felkészítő | 5.b Tanulósarok</title>
+<link rel="stylesheet" href="../assets/comic.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f7fb;color:#172033;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1120px;margin:auto;padding:20px 14px 70px}
+.back{display:inline-block;margin-bottom:16px;font-weight:900;text-decoration:none;color:#2148b7}
+.hero,.panel{background:#fff;border:3px solid #1f2937;border-radius:22px;box-shadow:5px 5px 0 #1f2937}
+.hero{padding:26px}.panel{padding:20px;margin-top:20px}
+.hero h1{font-size:clamp(2.1rem,7vw,4rem);margin:.2rem 0}.hero p{font-weight:700;color:#475569}
+.tag{display:inline-block;background:#e8eeff;padding:6px 10px;border-radius:999px;font-weight:900}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.tabs button{background:#fff;color:#1f2937}
+.tabs button.active{background:#4962d8;color:#fff}
+.section{display:none}.section.active{display:block}
+h2{margin:0 0 12px}h3{margin:18px 0 8px}
+.rule{background:#eef2ff;border-left:5px solid #4f46e5;border-radius:8px;padding:12px 14px;margin:12px 0}
+.warn{background:#fff7e6;border-left:5px solid #f59e0b;border-radius:8px;padding:12px 14px;margin:12px 0}
+.good{background:#ecfdf5;border-left:5px solid #16a34a;border-radius:8px;padding:12px 14px;margin:12px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.card{border:2px solid #dbe2ee;border-radius:14px;padding:14px;background:#fbfcff}
+.card b{color:#173fab}
+table{width:100%;border-collapse:collapse}th,td{padding:9px;border-bottom:1px solid #d9dfeb;text-align:left;vertical-align:top}th{background:#eef2ff}
+.q{padding:15px 0;border-bottom:1px solid #e0e6ef}.q:last-child{border-bottom:0}
+input[type=text],select{font:inherit;width:min(100%,600px);padding:10px;border:2px solid #a5b4cf;border-radius:9px;background:#fff}
+button{font:850 1rem system-ui;border:2px solid #1f2937;border-radius:10px;background:#4962d8;color:#fff;padding:9px 13px;margin:7px 6px 2px 0;box-shadow:2px 2px 0 #1f2937;cursor:pointer}
+button.alt{background:#fff;color:#263b68}
+.feedback{font-weight:800;margin-top:7px}.ok{color:#14753c}.bad{color:#a82828}.score{font-weight:900;font-size:1.08rem;margin-top:10px}
+.small{color:#64748b;font-size:.92rem}
+.wordgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px}
+.word{border:2px solid #dce3ef;border-radius:12px;padding:10px;background:white}.word .en{font-weight:900;color:#173fab}.word .hu{color:#475569}
+.testbox{border:3px solid #26344e;border-radius:18px;padding:16px;margin:15px 0;background:#fbfcff}
+.reading{background:#f8fafc;border:2px solid #dbe2ea;border-radius:14px;padding:14px}
+.points{font-size:.9rem;font-weight:850;color:#6b7280}
+.hiddenAnswer{display:none;margin-top:7px;background:#eefcf4;border-radius:8px;padding:9px;font-weight:750}
+@media(max-width:620px){.panel{padding:14px}.wrap{padding:12px 10px 55px}table{font-size:.9rem}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<a class="back" href="./">← Vissza az angolhoz</a>
+
+<section class="hero">
+<span class="tag">Unit 4 • At School • témazáró: november 23.</span>
+<h1>At School – teljes felkészítő</h1>
+<p>A tankönyv és a munkafüzet Unit 4 anyaga alapján: szókincs, Present Simple kijelentő és tagadó alak, 3. személy egyes szám, <i>because</i>, olvasott szövegértés, school life és helping a friend.</p>
+<div class="good"><b>Javasolt sorrend:</b> először Tanulás, utána Gyakorlás, végül Próbadolgozat. A próbadolgozat feladatai új példák, de ugyanazokat a készségeket kérik számon, mint a könyv.</div>
+</section>
+
+<div class="tabs">
+<button class="active" onclick="showTab('learn',this)">📘 Tanulás</button>
+<button onclick="showTab('practice',this)">✍️ Gyakorlás</button>
+<button onclick="showTab('test',this)">📝 Próbadolgozat</button>
+</div>
+
+<section id="learn" class="section active">
+
+<section class="panel">
+<h2>1. School day – alap szókincs</h2>
+<div class="wordgrid">
+<div class="word"><div class="en">go to school</div><div class="hu">iskolába menni</div></div>
+<div class="word"><div class="en">wake up</div><div class="hu">felébredni</div></div>
+<div class="word"><div class="en">walk to school</div><div class="hu">gyalog menni iskolába</div></div>
+<div class="word"><div class="en">start classes</div><div class="hu">elkezdeni az órákat</div></div>
+<div class="word"><div class="en">have a break</div><div class="hu">szünetet tartani</div></div>
+<div class="word"><div class="en">finish school</div><div class="hu">végezni az iskolában</div></div>
+<div class="word"><div class="en">chat with friends</div><div class="hu">beszélgetni a barátokkal</div></div>
+<div class="word"><div class="en">do my homework</div><div class="hu">megcsinálni a házi feladatomat</div></div>
+<div class="word"><div class="en">watch TV</div><div class="hu">tévét nézni</div></div>
+<div class="word"><div class="en">go to bed</div><div class="hu">lefeküdni</div></div>
+</div>
+<h3>Időkifejezések</h3>
+<div class="cards">
+<div class="card"><b>in the morning</b><br>reggel</div>
+<div class="card"><b>in the afternoon</b><br>délután</div>
+<div class="card"><b>in the evening</b><br>este</div>
+<div class="card"><b>after school</b><br>iskola után</div>
+<div class="card"><b>before dinner</b><br>vacsora előtt</div>
+<div class="card"><b>after dinner</b><br>vacsora után</div>
+<div class="card"><b>on school days</b><br>iskolai napokon</div>
+<div class="card"><b>from Monday to Friday</b><br>hétfőtől péntekig</div>
+</div>
+</section>
+
+<section class="panel">
+<h2>2. A good student – jó tanuló szókincs</h2>
+<div class="wordgrid">
+<div class="word"><div class="en">come to class on time</div><div class="hu">időben érkezni az órára</div></div>
+<div class="word"><div class="en">raise my hand to speak</div><div class="hu">jelentkezni, ha beszélni szeretnék</div></div>
+<div class="word"><div class="en">ask questions</div><div class="hu">kérdéseket feltenni</div></div>
+<div class="word"><div class="en">use a dictionary</div><div class="hu">szótárt használni</div></div>
+<div class="word"><div class="en">write new words in my notebook</div><div class="hu">új szavakat írni a füzetembe</div></div>
+<div class="word"><div class="en">forget my homework</div><div class="hu">elfelejteni a házi feladatot</div></div>
+<div class="word"><div class="en">copy my friends' work</div><div class="hu">lemásolni a barátaim munkáját</div></div>
+<div class="word"><div class="en">shout in the classroom</div><div class="hu">kiabálni az osztályteremben</div></div>
+<div class="word"><div class="en">use my phone in class</div><div class="hu">használni a telefonomat órán</div></div>
+<div class="word"><div class="en">eat in the classroom</div><div class="hu">enni az osztályteremben</div></div>
+</div>
+</section>
+
+<section class="panel">
+<h2>3. Present Simple – kijelentő mondat</h2>
+<div class="rule"><b>I / you / we / they</b> → az ige alapalakban marad.<br>
+I <b>play</b>. You <b>study</b>. We <b>watch</b>. They <b>finish</b>.</div>
+<div class="rule"><b>he / she / it</b> → az ige megváltozik.</div>
+<table>
+<tr><th>Szabály</th><th>Példák</th></tr>
+<tr><td>legtöbb ige: + <b>-s</b></td><td>speak → speaks, read → reads, like → likes, chat → chats</td></tr>
+<tr><td>-o, -ss, -sh, -ch, -x: + <b>-es</b></td><td>do → does, finish → finishes, watch → watches, teach → teaches</td></tr>
+<tr><td>mássalhangzó + y: y → <b>-ies</b></td><td>study → studies, copy → copies</td></tr>
+</table>
+<div class="warn"><b>Gyakori hiba:</b> „She study English.” ❌ → <b>She studies English.</b> ✓</div>
+</section>
+
+<section class="panel">
+<h2>4. Present Simple – tagadó mondat</h2>
+<div class="cards">
+<div class="card"><b>I / you / we / they</b><br>don't + alapalak<br><span class="small">We don't watch TV.</span></div>
+<div class="card"><b>he / she / it</b><br>doesn't + alapalak<br><span class="small">He doesn't play football.</span></div>
+</div>
+<div class="warn"><b>Nagyon fontos:</b> doesn't után nincs -s/-es/-ies.<br>
+He doesn't <b>study</b>. ✓<br>He doesn't <b>studies</b>. ❌</div>
+</section>
+
+<section class="panel">
+<h2>5. Because – mert</h2>
+<div class="rule"><b>because</b> két gondolatot kapcsol össze, és megmagyarázza az okot.</div>
+<div class="cards">
+<div class="card">I like science <b>because</b> it's interesting.<br><span class="small">Szeretem a természettudományt, mert érdekes.</span></div>
+<div class="card">We do our homework <b>because</b> it's important.<br><span class="small">Megcsináljuk a házit, mert fontos.</span></div>
+</div>
+</section>
+
+<section class="panel">
+<h2>6. Unusual schools – amit az olvasmányokból tudni kell</h2>
+<div class="reading">
+<h3>School in Bangladesh</h3>
+<p>Mosa Bangladeshben él. Reggel hatkor indul a folyóhoz, majd hajóval megy iskolába. Bizonyos régiókban az utak esőben rosszak, ezért vannak hajóiskolák. A hajón egy tanár tanít harminc diákot. Naponta három órájuk van, van rövid szünet és snack, tanulnak matekot, olvasást, írást, Banglát, angolt és ICT-t. Két számítógép van. Mosa délután két órát házit ír, és tanár szeretne lenni.</p>
+<p><b>Kulcsszavak:</b> village = falu; regions = régiók; snack = harapnivaló; ICT = informatika; dream job = álommunka.</p>
+</div>
+<div class="reading" style="margin-top:12px">
+<h3>Schools with a difference</h3>
+<p>Liam Ausztráliában távol él az iskolától, ezért otthon tanul online. Paula Mexikóvárosban nemzetközi iskolába jár, sok országból vannak diákok, és angolul tanulnak. Adam és Jess Angliában sportiskolába járnak; Adam szereti a focit, Jess inkább a kosárlabdát.</p>
+<p><b>Kulcsszavak:</b> online, email, events, subjects, mates, breaks, laboratory, academy, gym.</p>
+</div>
+</section>
+
+<section class="panel">
+<h2>7. Helping a friend – hasznos mondatok</h2>
+<div class="cards">
+<div class="card"><b>Are you OK?</b><br>Jól vagy?</div>
+<div class="card"><b>What's up?</b><br>Mi a baj? / Mi újság?</div>
+<div class="card"><b>Oh dear!</b><br>Jaj!</div>
+<div class="card"><b>Why don't you ...?</b><br>Miért nem ...?</div>
+<div class="card"><b>Why don't we ...?</b><br>Miért nem ... együtt?</div>
+<div class="card"><b>Good idea!</b><br>Jó ötlet!</div>
+<div class="card"><b>Let's ...</b><br>Gyerünk / Csináljuk!</div>
+<div class="card"><b>That's OK.</b><br>Semmi baj / Szívesen.</div>
+</div>
+</section>
+
+</section>
+
+<section id="practice" class="section">
+
+<section class="panel">
+<h2>1. Szókincs – válaszd ki a helyes kifejezést</h2>
+<div id="vocabPractice"></div>
+<button onclick="checkSelectGroup('vocabPractice','vocabScore')">Ellenőrzés</button>
+<button class="alt" onclick="newVocab()">Új feladatok</button>
+<div id="vocabScore" class="score"></div>
+</section>
+
+<section class="panel">
+<h2>2. Harmadik személy – írd be a helyes igealakot</h2>
+<div id="thirdPractice"></div>
+<button onclick="checkInputs('thirdPractice','thirdScore')">Ellenőrzés</button>
+<button class="alt" onclick="newThird()">Új feladatok</button>
+<div id="thirdScore" class="score"></div>
+</section>
+
+<section class="panel">
+<h2>3. Tagadás – don't vagy doesn't?</h2>
+<div id="negativePractice"></div>
+<button onclick="checkInputs('negativePractice','negativeScore')">Ellenőrzés</button>
+<button class="alt" onclick="newNegative()">Új feladatok</button>
+<div id="negativeScore" class="score"></div>
+</section>
+
+<section class="panel">
+<h2>4. Fordítás – magyar → angol</h2>
+<div id="translatePractice"></div>
+<button onclick="checkInputs('translatePractice','translateScore')">Ellenőrzés</button>
+<button class="alt" onclick="newTranslate()">Új mondatok</button>
+<div id="translateScore" class="score"></div>
+</section>
+
+<section class="panel">
+<h2>5. Olvasott szövegértés</h2>
+<div class="reading">
+<b>New school text</b>
+<p>Nina lives in a small village. She doesn't walk to school because the road is long. She goes by bus at 7.20 a.m. Her classes start at 8.15. Nina likes English and science, but she doesn't like maths. She has lunch at school and finishes classes at 2.45 p.m. After school, she does her homework and sometimes watches TV.</p>
+</div>
+<div id="readingPractice"></div>
+<button onclick="checkSelectGroup('readingPractice','readingScore')">Ellenőrzés</button>
+<div id="readingScore" class="score"></div>
+</section>
+
+<section class="panel">
+<h2>6. Because – kapcsolj össze két gondolatot</h2>
+<div id="becausePractice"></div>
+<button onclick="checkInputs('becausePractice','becauseScore')">Ellenőrzés</button>
+<div id="becauseScore" class="score"></div>
+</section>
+
+</section>
+
+<section id="test" class="section">
+
+<section class="panel">
+<h2>Unit 4 – Próbadolgozat</h2>
+<p class="small">Összesen 30 pont. Először segítség nélkül oldd meg.</p>
+
+<div class="testbox">
+<h3>A. Vocabulary – School day <span class="points">6 pont</span></h3>
+<div id="testA"></div>
+</div>
+
+<div class="testbox">
+<h3>B. Present Simple affirmative <span class="points">6 pont</span></h3>
+<div id="testB"></div>
+</div>
+
+<div class="testbox">
+<h3>C. Present Simple negative <span class="points">6 pont</span></h3>
+<div id="testC"></div>
+</div>
+
+<div class="testbox">
+<h3>D. Reading comprehension <span class="points">6 pont</span></h3>
+<div class="reading">
+<p>Leo goes to a small school in a village. He wakes up at half past six and goes to school with his sister. Classes start at eight o'clock. Leo likes science because they do interesting experiments. He doesn't use his phone in class and he never copies his friends' work. School finishes at half past two. After school, he plays basketball and then does his homework.</p>
+</div>
+<div id="testD"></div>
+</div>
+
+<div class="testbox">
+<h3>E. Translation <span class="points">6 pont</span></h3>
+<div id="testE"></div>
+</div>
+
+<button onclick="checkTest()">Próbadolgozat javítása</button>
+<button class="alt" onclick="newTest()">Új próbadolgozat</button>
+<div id="testScore" class="score"></div>
+</section>
+
+</section>
+</main>
+
+<script>
+const norm=s=>s.toLowerCase().replace(/[’‘]/g,"'").replace(/[.?!,]/g,"").replace(/\s+/g," ").trim();
+const shuffle=a=>[...a].sort(()=>Math.random()-.5);
+
+function showTab(id,btn){
+ document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ window.scrollTo({top:170,behavior:'smooth'});
+}
+
+const vocabBank=[
+["I ___ at seven o'clock.","wake up"],
+["I ___ with friends after school.","chat"],
+["We ___ at ten o'clock.","have a break"],
+["They ___ at three o'clock.","finish school"],
+["I ___ before dinner.","do my homework"],
+["She ___ after dinner.","watches TV"],
+["He ___ at ten o'clock.","goes to bed"],
+["We ___ from Monday to Friday.","go to school"]
+];
+function newVocab(){
+ const set=shuffle(vocabBank).slice(0,6); const r=document.getElementById('vocabPractice'); r.innerHTML='';
+ set.forEach((x,i)=>{
+   const opts=shuffle([x[1],...shuffle(vocabBank.map(v=>v[1]).filter(v=>v!==x[1])).slice(0,3)]);
+   r.innerHTML+=`<div class="q"><b>${i+1}. ${x[0]}</b><br><select data-answer="${x[1]}"><option value="">Válassz…</option>${opts.map(o=>`<option>${o}</option>`).join('')}</select><div class="feedback"></div></div>`;
+ });
+ document.getElementById('vocabScore').textContent='';
+}
+
+const thirdBank=[
+["She ___ English every day.","study","studies"],
+["Tom ___ TV after dinner.","watch","watches"],
+["My teacher ___ science.","teach","teaches"],
+["Anna ___ her homework in the evening.","do","does"],
+["He ___ school at three.","finish","finishes"],
+["Mia ___ new words in her notebook.","write","writes"],
+["Ben ___ football after school.","play","plays"],
+["Paula ___ with her friends.","chat","chats"]
+];
+function newThird(){
+ const set=shuffle(thirdBank).slice(0,6),r=document.getElementById('thirdPractice');r.innerHTML='';
+ set.forEach((x,i)=>r.innerHTML+=`<div class="q"><b>${i+1}. ${x[0]}</b> <span class="small">(${x[1]})</span><br><input type="text" data-answer="${x[2]}" placeholder="Írd be a helyes alakot"><div class="feedback"></div></div>`);
+ document.getElementById('thirdScore').textContent='';
+}
+
+const negBank=[
+["She ___ use her phone in class.","doesn't"],
+["We ___ shout in the classroom.","don't"],
+["Tom ___ walk to school.","doesn't"],
+["I ___ copy my friends' work.","don't"],
+["They ___ eat in class.","don't"],
+["He ___ forget his homework.","doesn't"],
+["You ___ watch TV before dinner.","don't"],
+["Paula ___ study Spanish.","doesn't"]
+];
+function newNegative(){
+ const set=shuffle(negBank).slice(0,6),r=document.getElementById('negativePractice');r.innerHTML='';
+ set.forEach((x,i)=>r.innerHTML+=`<div class="q"><b>${i+1}. ${x[0]}</b><br><input type="text" data-answer="${x[1]}" placeholder="don't vagy doesn't"><div class="feedback"></div></div>`);
+ document.getElementById('negativeScore').textContent='';
+}
+
+const transBank=[
+["Ő (lány) minden nap tanul angolt.","She studies English every day."],
+["Mi nem használjuk a telefonunkat órán.","We don't use our phones in class."],
+["Ő (fiú) iskola után focizik.","He plays football after school."],
+["Én reggel fél hétkor ébredek.","I wake up at half past six in the morning."],
+["Ők nem esznek az osztályteremben.","They don't eat in the classroom."],
+["Ő (lány) új szavakat ír a füzetébe.","She writes new words in her notebook."],
+["Te időben érkezel az órára.","You come to class on time."],
+["Ő (fiú) nem felejti el a házi feladatát.","He doesn't forget his homework."]
+];
+function newTranslate(){
+ const set=shuffle(transBank).slice(0,6),r=document.getElementById('translatePractice');r.innerHTML='';
+ set.forEach((x,i)=>r.innerHTML+=`<div class="q"><b>${i+1}. ${x[0]}</b><br><input type="text" data-answer="${x[1]}" placeholder="Fordítsd le angolra"><div class="feedback"></div></div>`);
+ document.getElementById('translateScore').textContent='';
+}
+
+function setupReading(){
+ const qs=[
+ ["How does Nina go to school?","By bus.","On foot.","By boat."],
+ ["What time do her classes start?","At 8.15.","At 7.20.","At 2.45."],
+ ["Which subject doesn't Nina like?","Maths.","English.","Science."],
+ ["What does she do after school?","She does her homework.","She goes swimming.","She plays football."]
+ ];
+ const r=document.getElementById('readingPractice');r.innerHTML='';
+ qs.forEach((x,i)=>r.innerHTML+=`<div class="q"><b>${i+1}. ${x[0]}</b><br><select data-answer="${x[1]}"><option value="">Válassz…</option>${shuffle(x.slice(1)).map(o=>`<option>${o}</option>`).join('')}</select><div class="feedback"></div></div>`);
+}
+function setupBecause(){
+ const set=[
+ ["I like science. It is interesting.","I like science because it is interesting."],
+ ["We do our homework. It is important.","We do our homework because it is important."],
+ ["She likes her teacher. He is friendly.","She likes her teacher because he is friendly."],
+ ["They don't walk to school. The road is long.","They don't walk to school because the road is long."]
+ ];
+ const r=document.getElementById('becausePractice');r.innerHTML='';
+ set.forEach((x,i)=>r.innerHTML+=`<div class="q"><b>${i+1}. ${x[0]}</b><br><input type="text" data-answer="${x[1]}" placeholder="Írd le egy mondatban because-zal"><div class="feedback"></div></div>`);
+}
+
+function checkInputs(group,scoreId){
+ let n=0,total=0;
+ document.querySelectorAll('#'+group+' input').forEach(inp=>{
+   total++; const ok=norm(inp.value)===norm(inp.dataset.answer); if(ok)n++;
+   const f=inp.parentElement.querySelector('.feedback');
+   f.textContent=ok?'✓ Helyes!':'✗ Helyes: '+inp.dataset.answer;
+   f.className='feedback '+(ok?'ok':'bad');
+ });
+ document.getElementById(scoreId).textContent='Eredmény: '+n+' / '+total;
+}
+function checkSelectGroup(group,scoreId){
+ let n=0,total=0;
+ document.querySelectorAll('#'+group+' select').forEach(sel=>{
+   total++; const ok=sel.value===sel.dataset.answer; if(ok)n++;
+   const f=sel.parentElement.querySelector('.feedback');
+   f.textContent=ok?'✓ Helyes!':'✗ Helyes: '+sel.dataset.answer;
+   f.className='feedback '+(ok?'ok':'bad');
+ });
+ document.getElementById(scoreId).textContent='Eredmény: '+n+' / '+total;
+}
+
+let testAnswers=[];
+function newTest(){
+ testAnswers=[];
+ const A=[
+ ["I ___ at 6.45 on school days.","wake up"],
+ ["We ___ with friends after school.","chat"],
+ ["I ___ before dinner.","do my homework"],
+ ["They ___ at 3.00 p.m.","finish school"],
+ ["I ___ in the morning.","have a break"],
+ ["We ___ from Monday to Friday.","go to school"]
+ ];
+ document.getElementById('testA').innerHTML=A.map((x,i)=>`<div class="q"><b>${i+1}. ${x[0]}</b><br><input type="text" data-test-answer="${x[1]}"><div class="feedback"></div></div>`).join('');
+
+ const B=[
+ ["My sister ___ English every day. (study)","studies"],
+ ["Tom ___ TV in the evening. (watch)","watches"],
+ ["Our teacher ___ science. (teach)","teaches"],
+ ["Mia ___ her homework after school. (do)","does"],
+ ["The lesson ___ at two o'clock. (finish)","finishes"],
+ ["Ben ___ new words. (write)","writes"]
+ ];
+ document.getElementById('testB').innerHTML=B.map((x,i)=>`<div class="q"><b>${i+1}. ${x[0]}</b><br><input type="text" data-test-answer="${x[1]}"><div class="feedback"></div></div>`).join('');
+
+ const C=[
+ ["She / not / use / her phone / in class","She doesn't use her phone in class."],
+ ["We / not / shout / in the classroom","We don't shout in the classroom."],
+ ["He / not / play / basketball / after school","He doesn't play basketball after school."],
+ ["They / not / eat / in class","They don't eat in class."],
+ ["I / not / copy / my friends' work","I don't copy my friends' work."],
+ ["Paula / not / study / Spanish","Paula doesn't study Spanish."]
+ ];
+ document.getElementById('testC').innerHTML=C.map((x,i)=>`<div class="q"><b>${i+1}. ${x[0]}</b><br><input type="text" data-test-answer="${x[1]}"><div class="feedback"></div></div>`).join('');
+
+ const D=[
+ ["What time does Leo wake up?","At half past six."],
+ ["Who goes to school with Leo?","His sister."],
+ ["Why does Leo like science?","Because they do interesting experiments."],
+ ["Does Leo use his phone in class?","No, he doesn't."],
+ ["What does he do after school?","He plays basketball."],
+ ["When does school finish?","At half past two."]
+ ];
+ document.getElementById('testD').innerHTML=D.map((x,i)=>`<div class="q"><b>${i+1}. ${x[0]}</b><br><input type="text" data-test-answer="${x[1]}"><div class="feedback"></div></div>`).join('');
+
+ const E=shuffle(transBank).slice(0,6);
+ document.getElementById('testE').innerHTML=E.map((x,i)=>`<div class="q"><b>${i+1}. ${x[0]}</b><br><input type="text" data-test-answer="${x[1]}"><div class="feedback"></div></div>`).join('');
+ document.getElementById('testScore').textContent='';
+}
+function checkTest(){
+ let n=0,total=0;
+ document.querySelectorAll('[data-test-answer]').forEach(inp=>{
+   total++; const ok=norm(inp.value)===norm(inp.dataset.testAnswer); if(ok)n++;
+   const f=inp.parentElement.querySelector('.feedback');
+   f.textContent=ok?'✓ Helyes!':'✗ Helyes: '+inp.dataset.testAnswer;
+   f.className='feedback '+(ok?'ok':'bad');
+ });
+ let grade = n>=27?'Nagyon biztos tudás.':n>=23?'Jó eredmény, nézd át a hibákat.':n>=18?'Még érdemes gyakorolni.':'Menj vissza a Tanulás részhez, majd próbáld újra.';
+ document.getElementById('testScore').textContent='Eredmény: '+n+' / '+total+' – '+grade;
+}
+
+newVocab();newThird();newNegative();newTranslate();setupReading();setupBecause();newTest();
+</script>
+</body>
+</html>
