@@ -9,7 +9,7 @@
 :root{--ink:#182033;--line:#1f2937}
 body{margin:0;background:linear-gradient(135deg,#f7f4ff,#eef8ff 45%,#fff8e8);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
 .wrap{max-width:980px;margin:auto;padding:18px 14px 70px}
-.back{display:inline-block;margin-bottom:14px;text-decoration:none;color:#2648b8;font-weight:900}
+.back-link{display:inline-block;margin-bottom:14px;text-decoration:none;color:#2648b8;font-weight:900}
 .hero,.panel{background:#fff;border:3px solid var(--line);border-radius:22px;box-shadow:5px 5px 0 var(--line)}
 .hero{padding:24px}.panel{padding:18px;margin-top:18px}
 .hero h1{margin:.2rem 0;font-size:clamp(2rem,7vw,3.7rem)}
@@ -25,9 +25,9 @@ button.sound{background:#111827;color:white}
 .card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .55s}
 .card.flipped{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;border:4px solid #1f2937;border-radius:28px;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;box-shadow:8px 8px 0 #1f2937;overflow:hidden}
-.front:before,.back:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.25);top:-60px;right:-50px}
+.front:before,.card-back:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.25);top:-60px;right:-50px}
 .front:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.18);bottom:-40px;left:-30px}
-.back{transform:rotateY(180deg);background:#fff}
+.card-back{transform:rotateY(180deg);background:#fff}
 .emoji{font-size:5rem;line-height:1;margin-bottom:18px;filter:drop-shadow(3px 4px 0 rgba(0,0,0,.12))}
 .word{font-size:clamp(2rem,6vw,3.3rem);font-weight:950;line-height:1.1;max-width:95%}
 .cat{margin-top:12px;font-weight:850;background:rgba(255,255,255,.7);padding:5px 10px;border-radius:999px}
@@ -44,16 +44,20 @@ button.sound{background:#111827;color:white}
 </head>
 <body>
 <main class="wrap">
-<a class="back" href="unit4-at-school-temazaro.html">← Vissza a Unit 4 felkészítőhöz</a>
+<a class="back-link" href="unit4-at-school-temazaro.html">← Vissza a Unit 4 felkészítőhöz</a>
 
 <section class="hero">
 <span class="tag">Unit 4 • At School • interaktív kártyapakli</span>
 <h1>🃏 Szótanuló kártyák</h1>
-<p>Kattints a kártyára: az angol előlap megfordul, és megmutatja a magyar jelentést. A 🔊 gombbal Alíz meg is hallgathatja a helyes angol kiejtést.</p>
+<p>Válaszd ki a gyakorlás irányát: angolról magyarra vagy magyarról angolra. Kattints a kártyára a megoldásért; a 🔊 gomb mindig az angol kiejtést olvassa fel.</p>
 </section>
 
 <section class="panel">
 <div class="controls">
+<select id="direction" onchange="changeDirection()">
+<option value="en-hu">Angol → magyar</option>
+<option value="hu-en">Magyar → angol</option>
+</select>
 <select id="category" onchange="filterDeck()">
 <option value="all">Minden kategória</option>
 <option value="School day">School day</option>
@@ -72,12 +76,12 @@ button.sound{background:#111827;color:white}
 <div class="card" id="card">
   <div class="face front" id="front">
     <div class="emoji" id="emoji">🎒</div>
-    <div class="word" id="word">go to school</div>
+    <div class="word" id="frontText">go to school</div>
     <div class="cat" id="cat">School day</div>
     <div class="hint">Kattints a megfordításhoz ↻</div>
   </div>
-  <div class="face back">
-    <div class="huword" id="huword">iskolába menni</div>
+  <div class="face card-back">
+    <div class="huword" id="backText">iskolába menni</div>
     <div class="example" id="example"></div>
     <div class="hint">Kattints vissza ↺</div>
   </div>
@@ -90,7 +94,7 @@ button.sound{background:#111827;color:white}
 <button class="sound" onclick="event.stopPropagation();speakCurrent()">🔊 Hallgasd meg</button>
 <button class="primary" onclick="nextCard()">Következő →</button>
 </div>
-<div class="dots">Tipp: először mondd ki hangosan az angol szót, csak utána fordítsd meg.</div>
+<div class="dots">Tipp: mondd ki hangosan a választ még a megfordítás előtt. A 🔊 gombbal utána ellenőrizheted az angol kiejtést.</div>
 </section>
 
 <section class="panel">
@@ -168,19 +172,22 @@ const colors={
 "Helping a friend":["#e5d1ff","#c29cff"]
 };
 
-let deck=[...allCards], index=0;
+let deck=[...allCards], index=0, direction="en-hu";
 
 function render(){
  const c=deck[index]||allCards[0];
  document.getElementById("card").classList.remove("flipped");
  document.getElementById("emoji").textContent=c.emoji;
- document.getElementById("word").textContent=c.en;
- document.getElementById("huword").textContent=c.hu;
+ const frontText = direction==="en-hu" ? c.en : c.hu;
+ const backText = direction==="en-hu" ? c.hu : c.en;
+ document.getElementById("frontText").textContent=frontText;
+ document.getElementById("backText").textContent=backText;
  document.getElementById("example").textContent=c.ex;
  document.getElementById("cat").textContent=c.cat;
  const col=colors[c.cat]||["#e8eeff","#cbd5ff"];
  document.getElementById("front").style.background=`linear-gradient(135deg,${col[0]},${col[1]})`;
- document.getElementById("progress").textContent=`${index+1} / ${deck.length} • ${c.cat}`;
+ const dirLabel = direction==="en-hu" ? "Angol → magyar" : "Magyar → angol";
+ document.getElementById("progress").textContent=`${index+1} / ${deck.length} • ${c.cat} • ${dirLabel}`;
 }
 function flipCard(){document.getElementById("card").classList.toggle("flipped")}
 function nextCard(){index=(index+1)%deck.length;render()}
@@ -191,6 +198,10 @@ function filterDeck(){
  const cat=document.getElementById("category").value;
  deck=cat==="all"?[...allCards]:allCards.filter(c=>c.cat===cat);
  index=0;render();
+}
+function changeDirection(){
+ direction=document.getElementById("direction").value;
+ render();
 }
 function speakCurrent(){
  const c=deck[index];
