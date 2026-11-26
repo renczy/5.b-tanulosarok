@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Témazáró felkészítő – Az anyagok és tulajdonságaik</title>
+<style>
+:root{--ink:#172033;--paper:#f5f8ff;--card:#fff;--yellow:#ffe17a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55}
+main{max-width:1060px;margin:auto;padding:18px 14px 70px}.back{display:inline-block;margin:4px 0 16px;font-weight:800;color:inherit;text-decoration:none}
+.hero,.panel,.lesson-card{background:#fff;border:3px solid var(--ink);border-radius:20px;box-shadow:6px 6px 0 var(--ink)}
+.hero{padding:24px;background:var(--yellow);margin-bottom:22px}.hero h1{font-size:clamp(2rem,6vw,3.8rem);line-height:1.05;margin:.35rem 0}
+.badge{display:inline-block;border:2px solid var(--ink);border-radius:999px;padding:5px 10px;background:#fff;font-weight:850;margin:4px 5px 0 0}
+.progress-wrap{margin:20px 0 26px}.progress-label{font-weight:900;margin-bottom:8px}.progress{height:18px;border:2px solid var(--ink);border-radius:999px;background:#fff;overflow:hidden}.progress>div{height:100%;width:0;background:#dff5df;transition:.25s}
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px;margin:22px 0}.lesson-card{padding:18px;text-decoration:none;color:inherit;display:block}.lesson-card h2{margin:5px 0 8px;font-size:1.18rem}.lesson-card p{margin:0;font-size:.94rem}.lesson-card .num{font-size:1.7rem;font-weight:950}
+.panel{padding:21px;margin:24px 0}.lesson-head{display:flex;align-items:flex-start;gap:14px}.lesson-no{min-width:48px;height:48px;border:3px solid var(--ink);border-radius:14px;display:grid;place-items:center;font-weight:950;background:var(--yellow);font-size:1.25rem}
+.kapaszkodo{padding:12px 14px;border-left:6px solid var(--ink);background:#fff6c9;border-radius:8px;margin:14px 0;font-weight:760}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.box{border:2px solid #92a0b5;border-radius:13px;padding:13px;background:#fff}.box b{display:block;margin-bottom:4px}
+.flow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:9px;padding:13px;background:#eef2ff;border-radius:14px;margin:13px 0}.state{border:2px solid var(--ink);border-radius:12px;background:#fff;padding:11px 15px;font-weight:900;text-align:center}.arrow{text-align:center;font-size:.9rem;font-weight:800}
+.quiz{margin-top:18px;padding-top:16px;border-top:2px dashed #a8b2c2}.q{border:2px solid #c2cada;border-radius:13px;padding:13px;margin:12px 0;background:#fff}.q strong{display:block;margin-bottom:8px}.q label{display:block;margin:7px 0;cursor:pointer}.q input[type=radio]{margin-right:8px}
+.feedback{display:none;margin-top:9px;padding:9px 11px;border-radius:9px}.feedback.ok{display:block;background:#d8f6dd}.feedback.bad{display:block;background:#ffe0e0}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+button{font:inherit;font-weight:900;border:2px solid var(--ink);border-radius:10px;padding:10px 14px;background:#dff0ff;box-shadow:3px 3px 0 var(--ink);cursor:pointer}button.secondary{background:#fff}.score{font-weight:950;margin-top:12px;font-size:1.08rem}
+.test-type{border-top:2px solid #cdd5e3;margin-top:20px;padding-top:14px}.tf-row,.match-row,.short-row{border:2px solid #c2cada;border-radius:12px;padding:11px;margin:9px 0;background:#fff}
+select,input[type=text]{font:inherit;border:2px solid #8493aa;border-radius:8px;padding:8px;width:min(100%,420px)}.answer{display:none;margin-top:7px;padding:8px;border-radius:8px;background:#fff0c4}.small{font-size:.9rem;color:#4b5870}
+@media(max-width:620px){.hero,.panel{padding:16px}.lesson-head{align-items:center}.flow{flex-direction:column}}
+</style><script>document.documentElement.classList.add('auth-locked')</script>
+<link rel="stylesheet" href="../assets/auth.css">
+<script defer src="../assets/auth.js"></script>
+</head>
+<body><main>
+<a class="back" href="./">← Vissza a földrajzhoz</a>
+<header class="hero"><div>🧪 5. osztály · Témazáró felkészítő</div><h1>Az anyagok és tulajdonságaik</h1>
+<p><b>Tankönyv 46–62. oldal.</b> Mindig csak egy leckét tanulj meg, utána csináld meg a hozzá tartozó mini gyakorlót. Csak ezután lépj tovább.</p>
+<span class="badge">8 lecke</span><span class="badge">mini gyakorlók</span><span class="badge">próbatémazáró</span></header>
+
+<section class="progress-wrap"><div class="progress-label">Haladás: <span id="progressText">0 / 8 lecke kész</span></div><div class="progress"><div id="progressBar"></div></div></section>
+
+<section class="lesson-grid">
+<a class="lesson-card" href="#l1"><div class="num">1.</div><h2>Az anyagok jellemzése</h2><p>Halmazállapot, szín, szag, oldódás.</p></a>
+<a class="lesson-card" href="#l2"><div class="num">2.</div><h2>Halmazállapotok</h2><p>Olvadás, fagyás, párolgás, forrás, lecsapódás.</p></a>
+<a class="lesson-card" href="#l3"><div class="num">3.</div><h2>Az anyagok összetétele</h2><p>Egynemű anyag, keverék, desztillált víz, vízkő.</p></a>
+<a class="lesson-card" href="#l4"><div class="num">4.</div><h2>A talaj</h2><p>Kialakulás, humusz, alkotóelemek, termékenység.</p></a>
+<a class="lesson-card" href="#l5"><div class="num">5.</div><h2>A víz</h2><p>Tulajdonságok, oldódás, oldat.</p></a>
+<a class="lesson-card" href="#l6"><div class="num">6.</div><h2>A levegő</h2><p>Keverék, összetevők, tömeg, nyomás.</p></a>
+<a class="lesson-card" href="#l7"><div class="num">7.</div><h2>Égés és tűzvédelem</h2><p>Égés feltételei, gyors égés, tűzoltás.</p></a>
+<a class="lesson-card" href="#l8"><div class="num">8.</div><h2>Természetes és mesterséges anyagok</h2><p>Eredet, felhasználás, műanyagok, kaucsuk.</p></a>
+</section>
+
+<section class="panel" id="l1"><div class="lesson-head"><div class="lesson-no">1</div><div><h2>Az anyagok jellemzése</h2><div class="small">Tankönyv 46–47.</div></div></div>
+<div class="kapaszkodo">Kapaszkodó: <b>halmazállapot – szín – szag – vízben való oldódás.</b></div>
+<div class="grid"><div class="box"><b>Halmazállapot</b>Szilárd, folyékony vagy gáz/légnemű.</div><div class="box"><b>Szín</b>Például a szén fekete, a víz színtelen.</div><div class="box"><b>Szag</b>Van-e jellegzetes szaga? Ismeretlen anyagot nem kóstolunk meg.</div><div class="box"><b>Oldódás</b>A konyhasó jól oldódik; a keményítő és a szén nem. Az étolaj nem keveredik el a vízzel.</div></div>
+<p><b>Szobahőmérséklet:</b> 20 °C.</p><div class="quiz"><h3>Mini gyakorló</h3><div id="quiz-l1"></div><div class="actions"><button onclick="checkQuiz('l1')">Ellenőrzés</button><button class="secondary" onclick="resetQuiz('l1')">Újrakezdés</button></div><div class="score" id="score-l1"></div></div></section>
+
+<section class="panel" id="l2"><div class="lesson-head"><div class="lesson-no">2</div><div><h2>Az anyagok halmazállapota</h2><div class="small">Tankönyv 48–49.</div></div></div>
+<div class="kapaszkodo">Kapaszkodó: <b>szilárd ⇄ folyékony ⇄ gáz</b> – mindig nézd, merre változik.</div>
+<div class="flow"><div class="state">🧊 szilárd</div><div class="arrow">→ olvadás<br>← fagyás</div><div class="state">💧 folyékony</div><div class="arrow">→ párolgás / forrás<br>← lecsapódás</div><div class="state">💨 gáz</div></div>
+<div class="grid"><div class="box"><b>Olvadás</b>Szilárdból folyékony.</div><div class="box"><b>Fagyás</b>Folyékonyból szilárd.</div><div class="box"><b>Párolgás</b>A folyadék felszínén történik, minden hőmérsékleten végbemehet.</div><div class="box"><b>Forrás</b>A folyadék belsejében is megindul a gőzképződés.</div><div class="box"><b>Lecsapódás</b>Gázból folyékony.</div><div class="box"><b>Fagyás és térfogat</b>A legtöbb anyag térfogata csökken, a vízé nő.</div></div>
+<div class="quiz"><h3>Mini gyakorló</h3><div id="quiz-l2"></div><div class="actions"><button onclick="checkQuiz('l2')">Ellenőrzés</button><button class="secondary" onclick="resetQuiz('l2')">Újrakezdés</button></div><div class="score" id="score-l2"></div></div></section>
+
+<section class="panel" id="l3"><div class="lesson-head"><div class="lesson-no">3</div><div><h2>Az anyagok összetétele</h2><div class="small">Tankönyv 50–51.</div></div></div>
+<div class="kapaszkodo">Kapaszkodó: <b>egyféle részecske = egynemű; többféle részecske = keverék.</b></div>
+<div class="grid"><div class="box"><b>Egynemű anyag</b>Azonos részecskék alkotják. Példa: desztillált víz.</div><div class="box"><b>Keverék</b>Többféle részecskét tartalmaz. Példa: csapvíz, tengervíz.</div><div class="box"><b>Vízkő</b>A csapvíz elpárologtatása után visszamaradó szilárd anyagokból képződik.</div><div class="box"><b>Lepárlás / desztilláció</b>A vizet felforralják, a vízgőzt lehűtik és lecsapatják.</div></div>
+<div class="quiz"><h3>Mini gyakorló</h3><div id="quiz-l3"></div><div class="actions"><button onclick="checkQuiz('l3')">Ellenőrzés</button><button class="secondary" onclick="resetQuiz('l3')">Újrakezdés</button></div><div class="score" id="score-l3"></div></div></section>
+
+<section class="panel" id="l4"><div class="lesson-head"><div class="lesson-no">4</div><div><h2>Környezetünk anyagai: a talaj</h2><div class="small">Tankönyv 52–53.</div></div></div>
+<div class="kapaszkodo">Kapaszkodó: <b>kőzet → aprózódás/mállás + elpusztult élőlények → humusz → talaj.</b></div>
+<p>A talaj a földfelszín legfelső, laza, termékeny része. Vizet és tápanyagokat ad a növényeknek, és élőhelyet biztosít a talajlakóknak.</p>
+<div class="grid"><div class="box"><b>Humusz</b>Elpusztult növényi és állati maradványok bomlásából keletkezik.</div><div class="box"><b>Talaj alkotói</b>Talajszemcsék, talajnedvesség, talajlevegő.</div><div class="box"><b>Termékenység</b>A humusz mennyisége erősen meghatározza.</div><div class="box"><b>Talajvédelem</b>A talajt védeni kell a pusztulástól és szennyezéstől.</div></div>
+<div class="quiz"><h3>Mini gyakorló</h3><div id="quiz-l4"></div><div class="actions"><button onclick="checkQuiz('l4')">Ellenőrzés</button><button class="secondary" onclick="resetQuiz('l4')">Újrakezdés</button></div><div class="score" id="score-l4"></div></div></section>
+
+<section class="panel" id="l5"><div class="lesson-head"><div class="lesson-no">5</div><div><h2>Környezetünk anyagai: a víz</h2><div class="small">Tankönyv 54–55.</div></div></div>
+<div class="kapaszkodo">Kapaszkodó: <b>0 °C = fagyáspont, 100 °C = forráspont; oldódás ≠ olvadás.</b></div>
+<div class="grid"><div class="box"><b>Tiszta víz</b>Színtelen, szagtalan, átlátszó; szobahőmérsékleten folyékony.</div><div class="box"><b>Oldószer</b>A vízben sokféle anyag oldódik.</div><div class="box"><b>Oldat</b>Oldószerből és oldott anyagból álló keverék.</div><div class="box"><b>Oldódás ≠ olvadás</b>Oldódáskor anyagok részecskéi keverednek; olvadáskor ugyanaz az anyag változtat halmazállapotot.</div></div>
+<div class="quiz"><h3>Mini gyakorló</h3><div id="quiz-l5"></div><div class="actions"><button onclick="checkQuiz('l5')">Ellenőrzés</button><button class="secondary" onclick="resetQuiz('l5')">Újrakezdés</button></div><div class="score" id="score-l5"></div></div></section>
+
+<section class="panel" id="l6"><div class="lesson-head"><div class="lesson-no">6</div><div><h2>Környezetünk anyagai: a levegő</h2><div class="small">Tankönyv 56–57.</div></div></div>
+<div class="kapaszkodo">Kapaszkodó: <b>a levegő keverék, van tömege, kitölti a rendelkezésére álló teret és nyomást gyakorol.</b></div>
+<div class="grid"><div class="box"><b>Összetétel</b>Kb. 78% nitrogén, 21% oxigén, kb. 1% egyéb.</div><div class="box"><b>Oxigén</b>Táplálja az égést.</div><div class="box"><b>Nyomás</b>A levegő nyomást gyakorol a környezetére.</div><div class="box"><b>Kisebb tér</b>Ugyanannyi levegő kisebb térben nagyobb nyomást fejt ki.</div></div>
+<div class="quiz"><h3>Mini gyakorló</h3><div id="quiz-l6"></div><div class="actions"><button onclick="checkQuiz('l6')">Ellenőrzés</button><button class="secondary" onclick="resetQuiz('l6')">Újrakezdés</button></div><div class="score" id="score-l6"></div></div></section>
+
+<section class="panel" id="l7"><div class="lesson-head"><div class="lesson-no">7</div><div><h2>Az égés és a tűzvédelem</h2><div class="small">Tankönyv 58–59.</div></div></div>
+<div class="kapaszkodo">Kapaszkodó: <b>éghető anyag + oxigén + gyulladási hőmérséklet.</b> Tűzoltáskor ezek közül legalább egyet meg kell szüntetni.</div>
+<div class="grid"><div class="box"><b>Éghető</b>Papír, fa, szén, olaj, földgáz.</div><div class="box"><b>Nem éghető</b>Víz, kavics, üveg.</div><div class="box"><b>Gyors égés</b>Fényjelenséggel és hőfelszabadulással jár.</div><div class="box"><b>Égő olaj</b>Vízzel TILOS oltani; fedővel el kell zárni az oxigént.</div><div class="box"><b>Segélyhívás</b>Tűzoltók: 105; általános segélyhívó: 112.</div></div>
+<div class="quiz"><h3>Mini gyakorló</h3><div id="quiz-l7"></div><div class="actions"><button onclick="checkQuiz('l7')">Ellenőrzés</button><button class="secondary" onclick="resetQuiz('l7')">Újrakezdés</button></div><div class="score" id="score-l7"></div></div></section>
+
+<section class="panel" id="l8"><div class="lesson-head"><div class="lesson-no">8</div><div><h2>Természetes és mesterséges anyagok</h2><div class="small">Tankönyv 60–61.</div></div></div>
+<div class="kapaszkodo">Kapaszkodó: <b>a természetes anyagot közvetlenebbül a természetből nyerjük; a mesterséges anyag nyersanyaga is a természetből származik, de erős átalakításon megy át.</b></div>
+<div class="grid"><div class="box"><b>Természetes anyagok</b>Például fa, kő, gyapjú, selyem.</div><div class="box"><b>Mesterséges anyagok</b>A körülöttünk lévő legtöbb mesterséges anyag fém vagy műanyag.</div><div class="box"><b>Műanyagok</b>Nagyon lassan vagy egyáltalán nem bomlanak le, ezért környezeti gondot okozhatnak.</div><div class="box"><b>Kaucsuk</b>Természetes úton a kaucsukfából nyerhető, de mesterségesen is előállítható.</div></div>
+<div class="quiz"><h3>Mini gyakorló</h3><div id="quiz-l8"></div><div class="actions"><button onclick="checkQuiz('l8')">Ellenőrzés</button><button class="secondary" onclick="resetQuiz('l8')">Újrakezdés</button></div><div class="score" id="score-l8"></div></div></section>
+
+<section class="panel" id="test"><h2>🏆 Nagy próbatémazáró</h2><p>Csak akkor kezdd el, ha mind a 8 leckét külön már begyakoroltad.</p>
+<div class="test-type"><h3>A. Feleletválasztás</h3><div id="finalMC"></div></div>
+<div class="test-type"><h3>B. Igaz vagy hamis?</h3><div id="finalTF"></div></div>
+<div class="test-type"><h3>C. Párosítás</h3><div id="finalMatch"></div></div>
+<div class="test-type"><h3>D. Rövid válasz</h3>
+<div class="short-row"><b>1. Sorold fel az égés három feltételét!</b><br><input type="text"><div class="answer">Éghető anyag, oxigén, megfelelő (gyulladási) hőmérséklet.</div></div>
+<div class="short-row"><b>2. Mi a különbség az oldódás és az olvadás között?</b><br><input type="text"><div class="answer">Oldódáskor különböző anyagok részecskéi keverednek és oldat keletkezik; olvadáskor ugyanaz az anyag szilárdból folyékonnyá válik.</div></div>
+<div class="short-row"><b>3. Melyek a talaj fő alkotóelemei?</b><br><input type="text"><div class="answer">Talajszemcsék, talajnedvesség és talajlevegő.</div></div>
+<div class="short-row"><b>4. Mit kell tenni, ha étolaj gyullad meg egy edényben?</b><br><input type="text"><div class="answer">Vízzel tilos oltani; le kell venni a hőforrásról és fedővel el kell zárni az oxigént.</div></div></div>
+<div class="actions"><button onclick="checkFinal()">Próbatémazáró javítása</button><button class="secondary" onclick="showShortAnswers()">Rövid válaszok mintamegoldása</button><button class="secondary" onclick="resetFinal()">Újrapróbálom</button></div><div class="score" id="finalScore"></div></section>
+
+<script>
+const qs={
+l1:[["Melyik NEM alapvető anyagjellemző?",["szín","szag","ár"],2],["Melyik oldódik jól vízben?",["konyhasó","szén","étolaj"],0],["Mennyi a szobahőmérséklet a könyv szerint?",["0 °C","20 °C","100 °C"],1]],
+l2:[["Mi az olvadás?",["szilárdból folyékony","folyékonyból szilárd","gázból folyékony"],0],["Hol történik a párolgás?",["a felszínen","csak a belsejében","csak 100 °C-on"],0],["Mi történik a víz térfogatával fagyáskor?",["nő","csökken","eltűnik"],0]],
+l3:[["Melyik egynemű?",["csapvíz","desztillált víz","tengervíz"],1],["Melyik keverék?",["desztillált víz","csapvíz","egyféle tiszta anyag"],1],["Mi maradhat vissza csapvíz elpárologtatása után?",["vízkő","jég","oxigén"],0]],
+l4:[["Mi a talaj?",["a földfelszín legfelső, laza, termékeny része","csak kőzettörmelék","csak humusz"],0],["Miből keletkezik a humusz?",["elpusztult növényi és állati maradványokból","csak kőből","csak vízből"],0],["Mi határozza meg erősen a termékenységet?",["a humusz mennyisége","a talaj neve","a szél iránya"],0]],
+l5:[["Mennyi a víz fagyáspontja?",["0 °C","20 °C","100 °C"],0],["Mennyi a víz forráspontja?",["0 °C","50 °C","100 °C"],2],["Miből áll az oldat?",["oldószerből és oldott anyagból","csak vízből","csak szilárd anyagból"],0]],
+l6:[["Melyik gáz van a legtöbb a levegőben?",["oxigén","nitrogén","szén-dioxid"],1],["Kb. mennyi oxigén van a levegőben?",["21%","78%","1%"],0],["Mi táplálja az égést?",["nitrogén","oxigén","vízgőz"],1]],
+l7:[["Melyik az égés egyik feltétele?",["oxigén","talajnedvesség","vízkő"],0],["Mit nevezünk gyors égésnek?",["fényjelenséggel és hőfelszabadulással járó égést","minden párolgást","minden olvadást"],0],["Mivel TILOS égő olajat oltani?",["vízzel","fedővel","az oxigén elzárásával"],0]],
+l8:[["Melyik lehet természetes anyag?",["fa","műanyag palack","műkaucsuk"],0],["Miért veszélyes a műanyag?",["nagyon lassan vagy egyáltalán nem bomlik le","azonnal elpárolog","mindig ég"],0],["Miből nyerhető természetes kaucsuk?",["kaucsukfából","üvegből","kavicsból"],0]]
+};
+
+function renderQuiz(id){document.getElementById('quiz-'+id).innerHTML=qs[id].map((q,i)=>`<div class="q" id="${id}-${i}"><strong>${i+1}. ${q[0]}</strong>${q[1].map((a,j)=>`<label><input type="radio" name="${id}-${i}" value="${j}">${a}</label>`).join('')}<div class="feedback"></div></div>`).join('');document.getElementById('score-'+id).textContent=''}
+function checkQuiz(id){let c=0;qs[id].forEach((q,i)=>{const r=document.getElementById(`${id}-${i}`),s=r.querySelector('input:checked'),f=r.querySelector('.feedback'),ok=s&&Number(s.value)===q[2];if(ok)c++;f.className='feedback '+(ok?'ok':'bad');f.style.display='block';f.textContent=ok?'✓ Helyes.':'✗ Helyes válasz: '+q[1][q[2]]});document.getElementById('score-'+id).textContent=`Eredmény: ${c} / ${qs[id].length}`;if(c===qs[id].length){localStorage.setItem('done-'+id,'1');updateProgress()}}
+function resetQuiz(id){renderQuiz(id)}
+function updateProgress(){let d=0;Object.keys(qs).forEach(id=>{if(localStorage.getItem('done-'+id)==='1')d++});document.getElementById('progressText').textContent=`${d} / 8 lecke kész`;document.getElementById('progressBar').style.width=(d/8*100)+'%'}
+
+const finalMC=[["Melyik a keverék?",["desztillált víz","csapvíz","egyféle tiszta anyag"],1],["Mi a fagyás?",["folyékonyból szilárd","szilárdból folyékony","gázból folyékony"],0],["Mi növeli általában a talaj termékenységét?",["több humusz","kevesebb humusz","kevesebb talajlevegő"],0],["Mi táplálja az égést?",["nitrogén","oxigén","vízkő"],1],["Melyik természetes?",["fa","műanyag","műkaucsuk"],0]];
+const finalTF=[["A párolgás csak 100 °C-on történhet.",false],["A víz térfogata fagyáskor nő.",true],["A desztillált víz egynemű.",true],["A talaj tartalmaz talajlevegőt is.",true],["A levegő egyetlen anyagból áll.",false],["Égő olajat vízzel kell oltani.",false]];
+const finalMatch=[["olvadás","szilárd → folyékony"],["lecsapódás","gáz → folyékony"],["humusz","elpusztult élőlények maradványaiból keletkező anyag"],["oldat","oldószer + oldott anyag"],["gyors égés","fényjelenség + hőfelszabadulás"],["kaucsuk","természetes és mesterséges módon is előállítható"]];
+
+function renderFinal(){document.getElementById('finalMC').innerHTML=finalMC.map((q,i)=>`<div class="q" id="fm-${i}"><strong>${i+1}. ${q[0]}</strong>${q[1].map((a,j)=>`<label><input type="radio" name="fm-${i}" value="${j}">${a}</label>`).join('')}<div class="feedback"></div></div>`).join('');document.getElementById('finalTF').innerHTML=finalTF.map((q,i)=>`<div class="tf-row" id="ft-${i}"><b>${i+1}. ${q[0]}</b><br><label><input type="radio" name="ft-${i}" value="true"> Igaz</label> &nbsp; <label><input type="radio" name="ft-${i}" value="false"> Hamis</label><div class="feedback"></div></div>`).join('');const opts=finalMatch.map(x=>x[1]);document.getElementById('finalMatch').innerHTML=finalMatch.map((q,i)=>`<div class="match-row" id="fmatch-${i}"><b>${q[0]}</b><br><select><option value="">Válassz…</option>${opts.map(o=>`<option value="${o}">${o}</option>`).join('')}</select><div class="feedback"></div></div>`).join('');document.getElementById('finalScore').textContent='';document.querySelectorAll('.answer').forEach(x=>x.style.display='none')}
+function checkFinal(){let c=0,t=finalMC.length+finalTF.length+finalMatch.length;finalMC.forEach((q,i)=>{const r=document.getElementById('fm-'+i),s=r.querySelector('input:checked'),f=r.querySelector('.feedback'),ok=s&&Number(s.value)===q[2];if(ok)c++;f.className='feedback '+(ok?'ok':'bad');f.style.display='block';f.textContent=ok?'✓ Helyes.':'✗ Helyes: '+q[1][q[2]]});finalTF.forEach((q,i)=>{const r=document.getElementById('ft-'+i),s=r.querySelector('input:checked'),f=r.querySelector('.feedback'),ok=s&&(s.value==='true')===q[1];if(ok)c++;f.className='feedback '+(ok?'ok':'bad');f.style.display='block';f.textContent=ok?'✓ Helyes.':'✗ Helyes: '+(q[1]?'Igaz':'Hamis')});finalMatch.forEach((q,i)=>{const r=document.getElementById('fmatch-'+i),s=r.querySelector('select'),f=r.querySelector('.feedback'),ok=s.value===q[1];if(ok)c++;f.className='feedback '+(ok?'ok':'bad');f.style.display='block';f.textContent=ok?'✓ Helyes.':'✗ Helyes: '+q[1]});document.getElementById('finalScore').textContent=`Automatikusan javított rész: ${c} / ${t} pont (${Math.round(c/t*100)}%). A rövid válaszokat hasonlítsd össze a mintamegoldással.`}
+function showShortAnswers(){document.querySelectorAll('.answer').forEach(x=>x.style.display='block')}
+function resetFinal(){renderFinal();document.querySelectorAll('#test input[type=text]').forEach(x=>x.value='')}
+Object.keys(qs).forEach(renderQuiz);renderFinal();updateProgress();
+</script></main></body></html>
